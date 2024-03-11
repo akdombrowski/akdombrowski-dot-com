@@ -35,8 +35,8 @@ export const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#badefe",
-      contrastText: "#ec562c",
+      main: "#11115F",
+      contrastText: "#f3f7e5",
     },
     secondary: {
       main: "#004FFF",
@@ -47,8 +47,8 @@ export const theme = createTheme({
       default: "#00001A",
     },
     text: {
-      primary: "#85FF9E",
-      secondary: "#f3e28f",
+      primary: "#f0e2e9",
+      secondary: "#e5e5e5",
     },
     error: {
       main: "#EF6F6C",
@@ -69,63 +69,64 @@ export const theme = createTheme({
     h1: {
       fontWeight: 1000,
       lineHeight: 1.0,
-      fontSize: "10rem",
+      fontSize: "5rem",
     },
     h2: {
-      fontSize: "10rem",
-      fontWeight: 500,
+      fontSize: "4rem",
+      fontWeight: 900,
       lineHeight: 1.0,
     },
     h3: {
-      fontWeight: 400,
-      fontSize: "8rem",
+      fontWeight: 850,
+      fontSize: "3rem",
     },
     h4: {
-      fontWeight: 100,
-      fontSize: "7rem",
+      fontWeight: 500,
+      fontSize: "1.15rem",
       lineHeight: 1.0,
     },
     h5: {
       fontWeight: 100,
-      fontSize: "5rem",
+      fontSize: ".75rem",
     },
     h6: {
       fontWeight: 1000,
-      fontSize: "2rem",
+      fontSize: ".5rem",
       lineHeight: 1.0,
-    },
-    subtitle2: {
-      fontWeight: 1000,
-      lineHeight: 0.5,
-      fontSize: "1.1rem",
     },
     subtitle1: {
       fontWeight: 100,
       lineHeight: 1,
-      fontSize: "0.5rem",
+      fontSize: "0.9rem",
+    },
+    subtitle2: {
+      fontWeight: 1000,
+      lineHeight: 0.5,
+      fontSize: ".75rem",
     },
     body1: {
       fontSize: "1rem",
       fontWeight: 500,
-      lineHeight: 1.0,
+      lineHeight: 1,
     },
     body2: {
-      fontSize: "1rem",
+      fontSize: "0.9rem",
       fontWeight: 100,
-      lineHeight: 1.0,
+      lineHeight: 1,
     },
     button: {
       fontWeight: 1000,
-      fontSize: "1rem",
-      lineHeight: 2.08,
+      fontSize: ".9rem",
+      lineHeight: 1.2,
     },
     caption: {
-      fontWeight: 600,
-      fontSize: "2rem",
+      fontWeight: 100,
+      fontSize: ".8rem",
+      lineHeight: 1.1,
     },
     overline: {
       fontWeight: 100,
-      fontSize: "2rem",
+      fontSize: ".95rem",
     },
   },
   components: {

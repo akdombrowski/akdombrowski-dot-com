@@ -1,6 +1,8 @@
+import Image from "next/image";
+
+import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -9,100 +11,172 @@ import { useTheme, alpha } from "@mui/material/styles";
 
 export default function Hero() {
   const theme = useTheme();
+  const titleColor = alpha("#54F2F2", 0.9);
 
   return (
-    <Box
+    <Grid
       id="hero"
-      sx={{
-        width: "100%",
-        backgroundColor: "transparent",
-      }}
-    >
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          pt: { xs: 14, sm: 20 },
-          pb: { xs: 8, sm: 12 },
-        }}
-      >
-        <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>
-          <Typography
-            component="h1"
-            variant="h1"
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignSelf: "center",
-              textAlign: "center",
-              color: `alpha(theme.palette.secondary, .01)`,
-            }}
-          >
-            Anthony Dombrowski
-          </Typography>
-          <Typography
-            component="span"
-            variant="h1"
-            color="primary"
-          ></Typography>
-          <Typography variant="body1" textAlign="center" color="text.secondary">
+      container
+      spacing={3}
+      justifyContent="center"
+      alignItems="center">
+      <Grid xs={12} display="flex" justifyContent="center" alignItems="center">
+        <Typography
+          component="h1"
+          variant="h1"
+          color={titleColor}
+          textAlign="center">
+          Anthony Dombrowski
+        </Typography>
+      </Grid>
+      <Grid
+        xs={10}
+        container
+        spacing={3}
+        justifyContent="space-around"
+        alignItems="center">
+        <Grid
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          alignItems="center">
+          <Typography variant="h4" textAlign="left" color="text.secondary">
             Explore our cutting-edge dashboard, delivering high-quality
-            solutions tailored to your needs. <br />
+            solutions tailored to your needs.
+          </Typography>
+        </Grid>
+        <Grid
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          alignItems="center">
+          <Typography
+            variant="subtitle1"
+            textAlign="center"
+            color="text.secondary">
             Elevate your experience with top-tier features and services.
           </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            alignSelf="center"
-            spacing={1}
-            useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
-          >
-            <TextField
-              id="outlined-basic"
-              hiddenLabel
-              size="small"
-              variant="outlined"
-              aria-label="Enter your email address"
-              placeholder="Your email address"
-              inputProps={{
-                autoComplete: "off",
-                "aria-label": "Enter your email address",
-              }}
-            />
-            <Button variant="contained" color="primary">
-              Start now
-            </Button>
-          </Stack>
+        </Grid>
+        <Grid
+          xs={9}
+          padding={0}
+          display="flex"
+          justifyContent="center"
+          alignItems="center">
+          <TextField
+            id="outlined-basic"
+            hiddenLabel
+            fullWidth
+            size="small"
+            variant="outlined"
+            aria-label="Enter your email address"
+            placeholder="Your email address"
+            inputProps={{
+              "autoComplete": "off",
+              "aria-label": "Enter your email address",
+            }}
+          />
+        </Grid>
+        <Grid
+          xs={3}
+          padding={0}
+          display="flex"
+          justifyContent="center"
+          alignItems="center">
+          <Button variant="contained" color="primary">
+            Start now
+          </Button>
+        </Grid>
+        <Grid
+          xs={12}
+          sm={12}
+          md={12}
+          lg={7}
+          xl={6}
+          padding={0}
+          paddingTop={1}
+          display="flex"
+          justifyContent="flex-start"
+          alignItems="center">
+          <Typography variant="caption" textAlign="start" sx={{ opacity: 0.8 }}>
+            By clicking &quot;Start now&quot; you agree to be contacted.
+          </Typography>
+        </Grid>
+        <Grid
+          xs={12}
+          padding={0}
+          paddingTop=".2rem"
+          display="flex"
+          justifyContent="flex-start"
+          alignItems="center">
+          <Typography variant="caption" textAlign="start" sx={{ opacity: 0.8 }}>
+            Sometimes out of the blue... For no reason...
+          </Typography>
+        </Grid>
+        <Grid
+          xs={5}
+          lg={4}
+          xl={3}
+          paddingTop=".15rem"
+          paddingBottom={1}
+          display="flex"
+          justifyContent="flex-start"
+          alignItems="center">
+          <Typography variant="caption" textAlign="start" sx={{ opacity: 0.8 }}>
+            Just kidding.
+          </Typography>
+        </Grid>
+        <Grid
+          xs={1}
+          xl={3}
+          paddingTop=".15rem"
+          paddingBottom={1}
+          display="flex"
+          justifyContent="center"
+          alignItems="center">
           <Typography
             variant="caption"
             textAlign="center"
-            sx={{ opacity: 0.8 }}
-          >
-            By clicking &quot;Start now&quot; you agree to our&nbsp;
-            <Link href="#" color="primary">
-              Terms & Conditions
-            </Link>
-            .
+            sx={{ opacity: 0.8 }}>
+            Maybe...
           </Typography>
-        </Stack>
-        <Box
-          id="image"
-          sx={{
-            mt: { xs: 8, sm: 10 },
-            alignSelf: "center",
-            height: { xs: 200, sm: 700 },
-            width: "100%",
-            backgroundImage:
-              'url("/static/images/templates/templates-images/hero-dark.png")',
-            backgroundSize: "cover",
-            borderRadius: "10px",
-            outline: "1px solid",
-            outlineColor: alpha("#9CCCFC", 0.1),
-            boxShadow: `0 0 24px 12px ${alpha("#033363", 0.2)}`,
-          }}
-        />
-      </Container>
-    </Box>
+        </Grid>
+        <Grid
+          xs={6}
+          xl={6}
+          paddingTop=".15rem"
+          paddingBottom={1}
+          display="flex"
+          justifyContent="center"
+          alignItems="center">
+          <Typography
+            variant="caption"
+            textAlign="center"
+            sx={{ opacity: 0.8 }}>
+            I don&apos;t know. We&apos;ll see.
+          </Typography>
+        </Grid>
+      </Grid>
+      <Box
+        id="image"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          position: "relative",
+          height: { xs: 200, sm: 700 },
+          width: "100%",
+          borderRadius: "10px",
+          outline: "1px solid",
+          outlineColor: alpha("#9CCCFC", 0.1),
+          boxShadow: `0 0 24px 12px ${alpha("#033363", 0.2)}`,
+        }}>
+        <Image
+          src="/profile.jpg"
+          fill={true}
+          priority={false}
+          alt="anthony dombrowski profile pic"></Image>
+      </Box>
+    </Grid>
   );
 }
