@@ -9,19 +9,15 @@ import { useTheme, alpha } from "@mui/material/styles";
 
 export default function Hero() {
   const theme = useTheme();
-  const bgColor = alpha(theme.palette.primary.light, 0.01);
-  const bgColorMid = alpha(theme.palette.primary.light, 0.15);
-  const bgColorEnd = alpha(theme.palette.primary.light, 1);
 
   return (
     <Box
       id="hero"
       sx={{
         width: "100%",
-        backgroundImage: `linear-gradient(to top, ${bgColor} 5%, ${bgColorMid} 100%)`,
-        backgroundSize: "100% 20%",
-        backgroundRepeat: "no-repeat",
-      }}>
+        backgroundColor: "transparent",
+      }}
+    >
       <Container
         sx={{
           display: "flex",
@@ -29,7 +25,8 @@ export default function Hero() {
           alignItems: "center",
           pt: { xs: 14, sm: 20 },
           pb: { xs: 8, sm: 12 },
-        }}>
+        }}
+      >
         <Stack spacing={2} useFlexGap sx={{ width: { xs: "100%", sm: "70%" } }}>
           <Typography
             component="h1"
@@ -39,20 +36,16 @@ export default function Hero() {
               flexDirection: { xs: "column", md: "row" },
               alignSelf: "center",
               textAlign: "center",
-            }}>
-            Our latest&nbsp;
-            <Typography
-              component="span"
-              variant="h1"
-              sx={{
-                color: (theme) =>
-                  theme.palette.mode === "light"
-                    ? "primary.main"
-                    : "primary.light",
-              }}>
-              products
-            </Typography>
+              color: `alpha(theme.palette.secondary, .01)`,
+            }}
+          >
+            Anthony Dombrowski
           </Typography>
+          <Typography
+            component="span"
+            variant="h1"
+            color="primary"
+          ></Typography>
           <Typography variant="body1" textAlign="center" color="text.secondary">
             Explore our cutting-edge dashboard, delivering high-quality
             solutions tailored to your needs. <br />
@@ -63,7 +56,8 @@ export default function Hero() {
             alignSelf="center"
             spacing={1}
             useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}>
+            sx={{ pt: 2, width: { xs: "100%", sm: "auto" } }}
+          >
             <TextField
               id="outlined-basic"
               hiddenLabel
@@ -72,7 +66,7 @@ export default function Hero() {
               aria-label="Enter your email address"
               placeholder="Your email address"
               inputProps={{
-                "autocomplete": "off",
+                autoComplete: "off",
                 "aria-label": "Enter your email address",
               }}
             />
@@ -83,7 +77,8 @@ export default function Hero() {
           <Typography
             variant="caption"
             textAlign="center"
-            sx={{ opacity: 0.8 }}>
+            sx={{ opacity: 0.8 }}
+          >
             By clicking &quot;Start now&quot; you agree to our&nbsp;
             <Link href="#" color="primary">
               Terms & Conditions
@@ -93,27 +88,19 @@ export default function Hero() {
         </Stack>
         <Box
           id="image"
-          sx={(theme) => ({
+          sx={{
             mt: { xs: 8, sm: 10 },
             alignSelf: "center",
             height: { xs: 200, sm: 700 },
             width: "100%",
             backgroundImage:
-              theme.palette.mode === "light"
-                ? 'url("/static/images/templates/templates-images/hero-light.png")'
-                : 'url("/static/images/templates/templates-images/hero-dark.png")',
+              'url("/static/images/templates/templates-images/hero-dark.png")',
             backgroundSize: "cover",
             borderRadius: "10px",
             outline: "1px solid",
-            outlineColor:
-              theme.palette.mode === "light"
-                ? alpha("#BFCCD9", 0.5)
-                : alpha("#9CCCFC", 0.1),
-            boxShadow:
-              theme.palette.mode === "light"
-                ? `0 0 12px 8px ${alpha("#9CCCFC", 0.2)}`
-                : `0 0 24px 12px ${alpha("#033363", 0.2)}`,
-          })}
+            outlineColor: alpha("#9CCCFC", 0.1),
+            boxShadow: `0 0 24px 12px ${alpha("#033363", 0.2)}`,
+          }}
         />
       </Container>
     </Box>

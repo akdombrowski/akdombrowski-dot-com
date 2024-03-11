@@ -1,4 +1,3 @@
-import * as React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -10,9 +9,5 @@ import Copyright from "@/components/Copyright";
 import LandingPage from "@/components/LandingPage";
 
 export default function Home() {
-  return (
-    <Container maxWidth={false} sx={{ height: "100vh", overflow: "scroll" }}>
-      <LandingPage />
-    </Container>
-  );
+  return <LandingPage />;
 }

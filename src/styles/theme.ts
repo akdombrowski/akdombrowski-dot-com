@@ -29,56 +29,6 @@ declare module "@mui/material/styles" {
   }
 }
 
-const getDesignTokens = (mode: PaletteMode) => ({
-  palette: {
-    mode,
-    ...(mode === "light"
-      ? {
-          primary: {
-            main: "#badefe",
-            contrastText: "#ec562c",
-          },
-          secondary: {
-            main: "#001fab",
-            contrastText: "#f3e28f",
-          },
-          background: {
-            main: "#080708",
-            default: "#080708",
-          },
-          text: {
-            primary: "#cae9ff",
-          },
-          error: {
-            main: "#b86f52",
-          },
-          divider: "#4c0000",
-        }
-      : {
-          primary: {
-            main: "#badefe",
-            contrastText: "#ec562c",
-          },
-          secondary: {
-            main: "#001fab",
-            contrastText: "#f3e28f",
-          },
-          background: {
-            main: "#080708",
-            default: "#080708",
-          },
-          text: {
-            primary: "#cae9ff",
-          },
-          error: {
-            main: "#b86f52",
-          },
-          divider: "#4c0000",
-        }),
-  },
-});
-
-export const themeOptions: ThemeOptions = getDesignTokens("dark");
 // export const theme = createTheme(themeOptions);
 
 export const theme = createTheme({
