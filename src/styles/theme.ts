@@ -93,11 +93,12 @@ export const theme = createTheme({
       contrastText: "#f3e28f",
     },
     background: {
+      // default: "#00001A",
       default: "#00001A",
     },
     text: {
       primary: "#85FF9E",
-      secondary: "#282A2F",
+      secondary: "#f3e28f",
     },
     error: {
       main: "#EF6F6C",
@@ -112,8 +113,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    // fontFamily: "Roboto",
-
+    fontFamily: "Roboto",
     fontWeightBold: 1000,
     fontWeightMedium: 700,
     h1: {

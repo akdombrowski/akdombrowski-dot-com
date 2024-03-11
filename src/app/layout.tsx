@@ -23,10 +23,10 @@ export default function RootLayout(props: { children: ReactNode }) {
     <html lang="en">
       <body>
         {/* <AppRouterCacheProvider options={{ enableCssLayer: true }}> */}
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+        <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             {props.children}
           </ThemeProvider>
         </AppRouterCacheProvider>
