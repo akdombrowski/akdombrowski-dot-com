@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
+import profilePic from "../../public/profile.jpg";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
@@ -9,18 +10,49 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useTheme, alpha } from "@mui/material/styles";
 
+const getBackgroundImage = (srcSet = "") => {
+  const imageSet = srcSet
+    .split(", ")
+    .map((str) => {
+      const [url, dpi] = str.split(" ");
+      return `url("${url}") ${dpi}`;
+    })
+    .join(", ");
+  return `image-set(${imageSet})`;
+};
+
 export default function Hero() {
   const theme = useTheme();
   const titleColor = alpha("#54F2F2", 0.9);
+
+  const {
+    props: { srcSet },
+  } = getImageProps({
+    alt: "",
+    width: 3267,
+    height: 4896,
+    src: "/profile.jpg",
+  });
+  const backgroundImage = getBackgroundImage(srcSet);
+  const style = { height: "100%", width: "100%", backgroundImage };
 
   return (
     <Grid
       id="hero"
       container
+      flexShrink={1}
+      flexGrow={1}
       spacing={3}
       justifyContent="center"
-      alignItems="center">
-      <Grid xs={12} display="flex" justifyContent="center" alignItems="center">
+      alignItems="center"
+      sx={style}>
+      <Grid
+        xs={12}
+        display="flex"
+        flexShrink={1}
+        flexWrap="wrap"
+        justifyContent="center"
+        alignItems="center">
         <Typography
           component="h1"
           variant="h1"
@@ -32,7 +64,8 @@ export default function Hero() {
       <Grid
         xs={10}
         container
-        spacing={3}
+        columns={12}
+        spacing={1}
         justifyContent="space-around"
         alignItems="center">
         <Grid
@@ -157,26 +190,35 @@ export default function Hero() {
           </Typography>
         </Grid>
       </Grid>
-      <Box
-        id="image"
+      <Grid
+        xs={12}
         display="flex"
+        flex="2 0 auto"
+        height="10vh"
         justifyContent="center"
-        alignItems="center"
-        sx={{
-          position: "relative",
-          height: { xs: 200, sm: 700 },
-          width: "100%",
-          borderRadius: "10px",
-          outline: "1px solid",
-          outlineColor: alpha("#9CCCFC", 0.1),
-          boxShadow: `0 0 24px 12px ${alpha("#033363", 0.2)}`,
-        }}>
-        <Image
-          src="/profile.jpg"
-          fill={true}
-          priority={false}
-          alt="anthony dombrowski profile pic"></Image>
-      </Box>
+        alignItems="center">
+        <Box
+          width="100%"
+          height="100%"
+          mx="50%"
+          // sx={{ objectFit: "scale-down" }}
+        >
+          <Image
+            src={profilePic}
+            quality={100}
+            placeholder="blur"
+            objectFit="contain"
+            sizes="100vw"
+            style={{
+              width: "auto",
+              height: "100%",
+            }}
+            // fill
+            priority
+            alt="anthony dombrowski profile pic"
+          />
+        </Box>
+      </Grid>
     </Grid>
   );
 }
