@@ -14,9 +14,6 @@ import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import dynamic from "next/dynamic";
-
-const NoSSR = dynamic(() => import("@/components/Videos"), { ssr: false });
 export default function LandingPage() {
   return (
     <Container id="landingPage" maxWidth={false}>
