@@ -14,7 +14,8 @@ export interface VideoURLObj {
   title: string;
   url: string;
 }
-const VIDEO_URLS: VideoURLObj[] = [
+
+const VIDEO_URL_OBJS: VideoURLObj[] = [
   {
     title: "OAuth 2.0: Implicit, Authorization Code, and PKCE",
     url: "https://www.youtube.com/embed/fX5U50VGxtg?si=d2oguHaC6vzlqIFY",
@@ -22,6 +23,30 @@ const VIDEO_URLS: VideoURLObj[] = [
   {
     title: "Postman Twitch Stream",
     url: "https://www.youtube.com/embed/sfUjJx6yRAI?si=v0q88zH_cVlkSrHq",
+  },
+  {
+    title: "Developer's Playlist",
+    url: "https://www.youtube.com/embed/videoseries?si=9F-Chs7_Sy1o-14u&amp;list=PLtT9h6_TdgvZo6SssVfgW-N4Vik2ieh7x",
+  },
+  {
+    title: "Try PingOne for Customers! You'll be Glad You Did.",
+    url: "https://www.youtube.com/embed/ypa8prwEMcc?si=EibB5NHZkPrl7IG6",
+  },
+  {
+    title: "",
+    url: "https://www.youtube.com/embed/eg7I8x-u0sc?si=H1C7_IVkVNGMA9xi",
+  },
+  {
+    title: "",
+    url: "https://www.youtube.com/embed/",
+  },
+  {
+    title: "",
+    url: "https://www.youtube.com/embed/",
+  },
+  {
+    title: "",
+    url: "https://www.youtube.com/embed/",
   },
 ];
 
