@@ -4,18 +4,15 @@ import "client-only";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
-export default function VideoContainer(props: {
-  title?: string;
-  url?: string;
-  height?: number;
-}) {
+export default function VideoContainer(props: { title?: string; url: string }) {
   return (
     <Grid
       flexGrow={0}
       xs={6}
       display="flex"
       height={(45 * 9) / 16 + "vw"}
-      justifyContent="center">
+      justifyContent="center"
+    >
       {/* <Box
           >
           height={(50 * 9) / 16 + "vh"}

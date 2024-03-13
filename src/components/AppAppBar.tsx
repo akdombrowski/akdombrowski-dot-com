@@ -1,3 +1,6 @@
+"use client";
+import "client-only";
+
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -45,13 +48,15 @@ function AppAppBar() {
       flexBasis="max-content"
       paddingTop={5}
       spacing={1}
-      flexGrow={1}>
+      flexGrow={1}
+    >
       <AppBar
         sx={{
           position: "fixed",
           boxShadow: 0,
           backgroundColor: "transparent",
-        }}>
+        }}
+      >
         <Toolbar
           variant="regular"
           sx={{
@@ -66,7 +71,8 @@ function AppAppBar() {
             borderColor: "divider",
             boxShadow:
               "0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)",
-          }}>
+          }}
+        >
           <Box
             sx={{
               flexGrow: 1,
@@ -74,7 +80,8 @@ function AppAppBar() {
               alignItems: "center",
               ml: "-18px",
               px: 0,
-            }}>
+            }}
+          >
             <img
               src={
                 "https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
@@ -85,35 +92,40 @@ function AppAppBar() {
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <MenuItem
                 onClick={() => scrollToSection("features")}
-                sx={{ py: "6px", px: "12px" }}>
+                sx={{ py: "6px", px: "12px" }}
+              >
                 <Typography variant="body2" color="text.primary">
                   Features
                 </Typography>
               </MenuItem>
               <MenuItem
                 onClick={() => scrollToSection("testimonials")}
-                sx={{ py: "6px", px: "12px" }}>
+                sx={{ py: "6px", px: "12px" }}
+              >
                 <Typography variant="body2" color="text.primary">
                   Testimonials
                 </Typography>
               </MenuItem>
               <MenuItem
                 onClick={() => scrollToSection("highlights")}
-                sx={{ py: "6px", px: "12px" }}>
+                sx={{ py: "6px", px: "12px" }}
+              >
                 <Typography variant="body2" color="text.primary">
                   Highlights
                 </Typography>
               </MenuItem>
               <MenuItem
                 onClick={() => scrollToSection("pricing")}
-                sx={{ py: "6px", px: "12px" }}>
+                sx={{ py: "6px", px: "12px" }}
+              >
                 <Typography variant="body2" color="text.primary">
                   Pricing
                 </Typography>
               </MenuItem>
               <MenuItem
                 onClick={() => scrollToSection("faq")}
-                sx={{ py: "6px", px: "12px" }}>
+                sx={{ py: "6px", px: "12px" }}
+              >
                 <Typography variant="body2" color="text.primary">
                   FAQ
                 </Typography>
@@ -125,14 +137,16 @@ function AppAppBar() {
               display: { xs: "none", md: "flex" },
               gap: 0.5,
               alignItems: "center",
-            }}>
+            }}
+          >
             <Button
               color="primary"
               variant="text"
               size="small"
               component="a"
               href="/material-ui/getting-started/templates/sign-in/"
-              target="_blank">
+              target="_blank"
+            >
               Sign in
             </Button>
             <Button
@@ -141,7 +155,8 @@ function AppAppBar() {
               size="small"
               component="a"
               href="/material-ui/getting-started/templates/sign-up/"
-              target="_blank">
+              target="_blank"
+            >
               Sign up
             </Button>
           </Box>
@@ -151,7 +166,8 @@ function AppAppBar() {
               color="primary"
               aria-label="menu"
               onClick={toggleDrawer(true)}
-              sx={{ minWidth: "30px", p: "4px" }}>
+              sx={{ minWidth: "30px", p: "4px" }}
+            >
               <MenuIcon />
             </Button>
             <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
@@ -161,7 +177,8 @@ function AppAppBar() {
                   p: 2,
                   backgroundColor: "background.paper",
                   flexGrow: 1,
-                }}>
+                }}
+              >
                 <MenuItem onClick={() => scrollToSection("features")}>
                   Features
                 </MenuItem>
@@ -183,7 +200,8 @@ function AppAppBar() {
                     component="a"
                     href="/material-ui/getting-started/templates/sign-up/"
                     target="_blank"
-                    sx={{ width: "100%" }}>
+                    sx={{ width: "100%" }}
+                  >
                     Sign up
                   </Button>
                 </MenuItem>
@@ -194,7 +212,8 @@ function AppAppBar() {
                     component="a"
                     href="/material-ui/getting-started/templates/sign-in/"
                     target="_blank"
-                    sx={{ width: "100%" }}>
+                    sx={{ width: "100%" }}
+                  >
                     Sign in
                   </Button>
                 </MenuItem>

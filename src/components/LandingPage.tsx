@@ -1,6 +1,3 @@
-"use client";
-import "client-only";
-
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -14,6 +11,12 @@ import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
+
+import getYouTubeStats from "@/actions/getYouTubeStats";
+
+const NoSSR = dynamic(() => import("@/components/Videos"), { ssr: false });
+
 export default function LandingPage() {
   return (
     <Container id="landingPage" maxWidth={false}>
@@ -25,7 +28,8 @@ export default function LandingPage() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          paddingTop="3rem">
+          paddingTop="3rem"
+        >
           <Hero />
         </Grid>
         <Grid
@@ -33,7 +37,8 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center">
+          alignItems="center"
+        >
           <NoSSR />
         </Grid>
         <Grid
@@ -41,7 +46,8 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center">
+          alignItems="center"
+        >
           <Features />
         </Grid>
         <Divider />
@@ -50,7 +56,8 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center">
+          alignItems="center"
+        >
           <Testimonials />
         </Grid>
         <Divider />
@@ -59,7 +66,8 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center">
+          alignItems="center"
+        >
           <Highlights />
         </Grid>
         <Divider />
@@ -68,7 +76,8 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center">
+          alignItems="center"
+        >
           <Pricing />
         </Grid>
         <Divider />
@@ -78,7 +87,8 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center">
+          alignItems="center"
+        >
           <FAQ />
         </Grid>
 
@@ -88,7 +98,8 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center">
+          alignItems="center"
+        >
           <Footer />
         </Grid>
 
@@ -97,14 +108,16 @@ export default function LandingPage() {
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center"></Grid>
+          alignItems="center"
+        ></Grid>
 
         <Grid
           id="highlights"
           xs={12}
           display="flex"
           justifyContent="center"
-          alignItems="center"></Grid>
+          alignItems="center"
+        ></Grid>
       </Grid>
     </Container>
   );

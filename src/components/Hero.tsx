@@ -1,3 +1,6 @@
+"use client";
+import "client-only";
+
 import Image, { getImageProps } from "next/image";
 import profilePic from "../../public/profile.jpg";
 import profilePicR from "../../public/profileR.jpg";
@@ -49,7 +52,8 @@ export default function Hero() {
       container
       spacing={3}
       justifyContent="center"
-      alignItems="stretch">
+      alignItems="stretch"
+    >
       <Grid xs={3} sm={2} xl={1} padding={0}>
         <Box width="100%" height="100%" position="relative">
           <Image
@@ -75,12 +79,14 @@ export default function Hero() {
             flexShrink={1}
             flexWrap="wrap"
             justifyContent="center"
-            alignItems="center">
+            alignItems="center"
+          >
             <Typography
               component="h1"
               variant="h1"
               color={titleColor}
-              textAlign="center">
+              textAlign="center"
+            >
               Anthony Dombrowski
             </Typography>
           </Grid>
@@ -90,7 +96,8 @@ export default function Hero() {
               columns={12}
               spacing={2}
               justifyContent="center"
-              alignItems="center">
+              alignItems="center"
+            >
               <Grid xs={5} padding={0}>
                 <Typography variant="h4" textAlign="end" color="text.secondary">
                   Product Leader
@@ -101,7 +108,8 @@ export default function Hero() {
                 <Typography
                   variant="h4"
                   textAlign="start"
-                  color="text.secondary">
+                  color="text.secondary"
+                >
                   Developer Advocate
                 </Typography>
               </Grid>
@@ -115,7 +123,8 @@ export default function Hero() {
                 <Typography
                   variant="h5"
                   textAlign="start"
-                  color="text.secondary">
+                  color="text.secondary"
+                >
                   Creative Humorist
                 </Typography>
               </Grid>
