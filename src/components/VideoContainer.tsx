@@ -2,7 +2,7 @@
 import "client-only";
 
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Unstable_Grid2";
 
 export default function VideoContainer(props: { title?: string; url: string }) {
   return (
@@ -11,8 +11,7 @@ export default function VideoContainer(props: { title?: string; url: string }) {
       xs={6}
       display="flex"
       height={(45 * 9) / 16 + "vw"}
-      justifyContent="center"
-    >
+      justifyContent="center">
       {/* <Box
           >
           height={(50 * 9) / 16 + "vh"}
