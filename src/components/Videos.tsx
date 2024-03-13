@@ -1,3 +1,6 @@
+"use client";
+import "client-only";
+
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
@@ -75,7 +78,13 @@ const VIDEOS_TITLE_URL: VideoURLObj[] = [
 
 export default function Videos() {
   const createVideoContainers = VIDEOS_TITLE_URL.map((video) => {
-    return <VideoContainer title={video.title} url={video.url} />;
+    return (
+      <VideoContainer
+        key={video.title + "video"}
+        title={video.title}
+        url={video.url}
+      />
+    );
   });
 
   if (!isClient()) {
@@ -89,8 +98,7 @@ export default function Videos() {
       flexShrink={0}
       alignContent="space-between"
       // alignItems="stretch"
-      justifyContent="center"
-    >
+      justifyContent="center">
       {createVideoContainers}
     </Grid>
   );

@@ -1,3 +1,6 @@
+"use client";
+import "client-only";
+
 import Image, { getImageProps } from "next/image";
 import profilePic from "../../public/profile.jpg";
 import profilePicR from "../../public/profileR.jpg";
