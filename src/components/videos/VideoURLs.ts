@@ -1,21 +1,9 @@
-"use client";
-import "client-only";
-
-import Grid from "@mui/material/Unstable_Grid2";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import VideoContainer from "./VideoContainer";
-import Box from "@mui/material/Box";
-// import useClient from "./useClient";
-// import ReactPlayer from "react-player/youtube";
-// import NextVideoPlayer from "next-video";
-
 export interface VideoURLObj {
   title: string;
   url: string;
 }
 
-const VIDEOS_TITLE_URL: VideoURLObj[] = [
+export const VIDEOS_TITLE_URL: VideoURLObj[] = [
   {
     title: "OAuth 2.0: Implicit, Authorization Code, and PKCE",
     url: "https://www.youtube.com/embed/fX5U50VGxtg?si=d2oguHaC6vzlqIFY",
@@ -78,47 +66,4 @@ const VIDEOS_TITLE_URL: VideoURLObj[] = [
   },
 ];
 
-export default function Videos() {
-  const createVideoContainers = VIDEOS_TITLE_URL.map((video, i) => {
-    console.log("video " + i);
-    console.log("title:", video.title);
-    console.log("url:", video.url);
-    const h = (45 * 9) / 16;
-    const hVW = h + "vw";
-    console.log("hVW:", hVW);
-    return (
-      <Grid
-        xs={6}
-        key={"video-" + video.title}
-        flexGrow={0}
-        display="flex"
-        height={hVW}
-        justifyContent="center"
-      >
-        {/* <Box maxWidth="100%" height="100%" sx={{ aspectRatio: 16 / 9 }}> */}
-        <VideoContainer title={video.title} url={video.url} />
-        {/* </Box> */}
-      </Grid>
-    );
-  });
-
-  // if (!useClient()) {
-  //   return <Typography variant="h4">Loading...</Typography>;
-  // }
-
-  return (
-    <Container maxWidth={false}>
-      <Grid
-        id="videosContainer"
-        container
-        spacing={6}
-        flexShrink={0}
-        alignContent="space-between"
-        // alignItems="stretch"
-        justifyContent="center"
-      >
-        {createVideoContainers}
-      </Grid>
-    </Container>
-  );
-}
+export default VIDEOS_TITLE_URL;

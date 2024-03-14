@@ -4,7 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 
 import AppAppBar from "@/components/AppAppBar";
 import Hero from "./Hero";
-import Videos from "@/components/Videos";
+import Videos from "@/components/videos/Videos";
 import Highlights from "@/components/Highlights";
 import Pricing from "@/components/Pricing";
 import Features from "@/components/Features";
@@ -17,9 +17,9 @@ import Footer from "@/components/Footer";
 
 export default function LandingPage() {
   return (
-    <Container id="landingPage" maxWidth={false}>
-      <AppAppBar />
-      <Grid id="landingPage-grid" container spacing={3}>
+    <Container id="landingPage" maxWidth={false} sx={{ overflow: "hidden" }}>
+      {/* <AppAppBar /> */}
+      <Grid id="landingPage-grid" container spacing={6}>
         <Grid
           id="hero"
           xs={12}
@@ -27,15 +27,18 @@ export default function LandingPage() {
           justifyContent="center"
           alignItems="center"
           paddingTop="3rem"
+          // paddingBottom="3rem"
         >
           <Hero />
         </Grid>
+        <Divider flexItem />
         <Grid
           id="videos"
           xs={12}
           display="flex"
           justifyContent="center"
           alignItems="center"
+          paddingX={0}
         >
           <Videos />
         </Grid>
