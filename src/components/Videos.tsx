@@ -1,14 +1,12 @@
 "use client";
 import "client-only";
 
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import VideoContainer from "./VideoContainer";
-import isClient from "./isClient";
-import getYouTubeStats from "../actions/getYouTubeStats";
+import Box from "@mui/material/Box";
+// import useClient from "./useClient";
 // import ReactPlayer from "react-player/youtube";
 // import NextVideoPlayer from "next-video";
 
@@ -81,30 +79,46 @@ const VIDEOS_TITLE_URL: VideoURLObj[] = [
 ];
 
 export default function Videos() {
-  const createVideoContainers = VIDEOS_TITLE_URL.map((video) => {
+  const createVideoContainers = VIDEOS_TITLE_URL.map((video, i) => {
+    console.log("video " + i);
+    console.log("title:", video.title);
+    console.log("url:", video.url);
+    const h = (45 * 9) / 16;
+    const hVW = h + "vw";
+    console.log("hVW:", hVW);
     return (
-      <VideoContainer
-        key={video.title + "video"}
-        title={video.title}
-        url={video.url}
-      />
+      <Grid
+        xs={6}
+        key={"video-" + video.title}
+        flexGrow={0}
+        display="flex"
+        height={hVW}
+        justifyContent="center"
+      >
+        {/* <Box maxWidth="100%" height="100%" sx={{ aspectRatio: 16 / 9 }}> */}
+        <VideoContainer title={video.title} url={video.url} />
+        {/* </Box> */}
+      </Grid>
     );
   });
 
-  if (!isClient()) {
-    return <Typography variant="h4">Loading...</Typography>;
-  }
+  // if (!useClient()) {
+  //   return <Typography variant="h4">Loading...</Typography>;
+  // }
 
   return (
-    <Grid
-      id="videosContainer"
-      container
-      spacing={6}
-      flexShrink={0}
-      alignContent="space-between"
-      // alignItems="stretch"
-      justifyContent="center">
-      {createVideoContainers}
-    </Grid>
+    <Container maxWidth={false}>
+      <Grid
+        id="videosContainer"
+        container
+        spacing={6}
+        flexShrink={0}
+        alignContent="space-between"
+        // alignItems="stretch"
+        justifyContent="center"
+      >
+        {createVideoContainers}
+      </Grid>
+    </Container>
   );
 }
