@@ -2,14 +2,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
+import MUILink from "@mui/material/Link";
+import Link from "next/link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-
-import FacebookIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/X";
+import { GitHub, LinkedIn, X } from "@/components/social";
 
 const logoStyle = {
   width: "140px",
@@ -20,7 +18,15 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
       {"Copyright © "}
-      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
+      <MUILink
+        component={Link}
+        variant="overline"
+        color="secondary"
+        href="https://www.linkedin.com/in/akdombrowski
+"
+      >
+        Anthony Dombrowski&nbsp;
+      </MUILink>
       {new Date().getFullYear()}
     </Typography>
   );
@@ -38,7 +44,7 @@ export default function Footer() {
         textAlign: { sm: "center", md: "left" },
       }}
     >
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
           flexDirection: { xs: "column", sm: "row" },
@@ -80,7 +86,7 @@ export default function Footer() {
                 aria-label="Enter your email address"
                 placeholder="Your email address"
                 inputProps={{
-                  autoComplete: "off",
+                  "autoComplete": "off",
                   "aria-label": "Enter your email address",
                 }}
               />
@@ -160,7 +166,7 @@ export default function Footer() {
             Contact
           </Link>
         </Box>
-      </Box>
+      </Box> */}
       <Box
         sx={{
           display: "flex",
@@ -171,7 +177,7 @@ export default function Footer() {
           borderColor: "divider",
         }}
       >
-        <div>
+        {/* <div>
           <Link color="text.secondary" href="#">
             Privacy Policy
           </Link>
@@ -181,41 +187,29 @@ export default function Footer() {
           <Link color="text.secondary" href="#">
             Terms of Service
           </Link>
+        </div> */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            width: "100%",
+            justifyContent: "space-between",
+          }}
+        >
           <Copyright />
-        </div>
+        </Box>
         <Stack
           direction="row"
           justifyContent="left"
-          spacing={1}
+          spacing={0}
           useFlexGap
           sx={{
             color: "text.secondary",
           }}
         >
-          <IconButton
-            color="inherit"
-            href="https://github.com/mui"
-            aria-label="GitHub"
-            sx={{ alignSelf: "center" }}
-          >
-            <FacebookIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://twitter.com/MaterialUI"
-            aria-label="X"
-            sx={{ alignSelf: "center" }}
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            href="https://www.linkedin.com/company/mui/"
-            aria-label="LinkedIn"
-            sx={{ alignSelf: "center" }}
-          >
-            <LinkedInIcon />
-          </IconButton>
+          <GitHub />
+          <LinkedIn />
+          <X />
         </Stack>
       </Box>
     </Container>

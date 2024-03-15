@@ -42,7 +42,7 @@ export default function LandingPage() {
         >
           <Videos />
         </Grid>
-        <Grid
+        {/* <Grid
           id="features"
           xs={12}
           display="flex"
@@ -91,7 +91,7 @@ export default function LandingPage() {
           alignItems="center"
         >
           <FAQ />
-        </Grid>
+        </Grid> */}
 
         <Divider />
         <Grid
@@ -103,22 +103,6 @@ export default function LandingPage() {
         >
           <Footer />
         </Grid>
-
-        <Grid
-          id="highlights"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        ></Grid>
-
-        <Grid
-          id="highlights"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        ></Grid>
       </Grid>
     </Container>
   );

@@ -26,9 +26,6 @@ const getBackgroundImage = (srcSet = "") => {
 };
 
 export default function Hero() {
-  const theme = useTheme();
-  const titleColor = alpha("#54F2F2", 0.9);
-
   const {
     props: { srcSet },
   } = getImageProps({
@@ -38,13 +35,6 @@ export default function Hero() {
     src: "/profile.jpg",
   });
   const backgroundImage = getBackgroundImage(srcSet);
-  const style = {
-    backgroundPosition: "center top 10%",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    backgroundClip: "content-box",
-    backgroundImage,
-  };
 
   return (
     <Grid
@@ -83,8 +73,8 @@ export default function Hero() {
           >
             <Typography
               component="h1"
-              variant="h1"
-              color={titleColor}
+              variant="poster"
+              // color={titleColor}
               textAlign="center"
             >
               Anthony Dombrowski
@@ -100,7 +90,7 @@ export default function Hero() {
             >
               <Grid xs={5} padding={0}>
                 <Typography variant="h4" textAlign="end" color="text.secondary">
-                  Product Leader
+                  Product Management Leader
                 </Typography>
               </Grid>
               <Grid xs={1}></Grid>
@@ -149,6 +139,11 @@ export default function Hero() {
             alt="anthony dombrowski profile pic"
           />
         </Box>
+      </Grid>
+      <Grid xs={12}>
+        <Typography variant="h2" align="center">
+          Content Library
+        </Typography>
       </Grid>
     </Grid>
   );

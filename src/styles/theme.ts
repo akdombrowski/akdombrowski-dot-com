@@ -5,8 +5,10 @@ import {
   type ThemeOptions,
   createTheme,
   responsiveFontSizes,
+  alpha,
 } from "@mui/material/styles";
 import { type PaletteMode } from "@mui/material";
+import type { CSSProperties } from "react";
 
 // import { Roboto } from "next/font/google";
 
@@ -15,7 +17,25 @@ import { type PaletteMode } from "@mui/material";
 //   subsets: ["latin"],
 //   display: "swap",
 // });
+
+declare module "@mui/material/styles" {}
+
+// Update the Typography's variant prop options
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    poster: true;
+  }
+}
+
 declare module "@mui/material/styles" {
+  interface TypographyVariants {
+    poster: CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    poster?: CSSProperties;
+  }
   interface Theme {
     status: {
       danger: string;
@@ -27,31 +47,44 @@ declare module "@mui/material/styles" {
       danger?: string;
     };
   }
+  interface Palette {
+    custom: Palette["primary"];
+  }
+  interface PaletteOptions {
+    status?: {
+      danger?: string;
+    };
+    custom?: PaletteOptions["primary"];
+  }
+}
+
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides {
+    custom: true;
+  }
 }
 
 // export const theme = createTheme(themeOptions);
 
-export const theme = createTheme({
+const modifyDefaultsTheme = createTheme({
   palette: {
     mode: "dark",
+    contrastThreshold: 3.5,
     primary: {
       main: "#11115F",
-      contrastText: "#f3f7e5",
     },
     secondary: {
       main: "#004FFF",
-      contrastText: "#f3e28f",
     },
     background: {
-      // default: "#00001A",
       default: "#00001A",
     },
     text: {
-      primary: "#f0e2e9",
-      secondary: "#e5e5e5",
+      primary: "#66C2E1",
+      secondary: "#b5c5d4",
     },
     error: {
-      main: "#EF6F6C",
+      main: "#D64550",
     },
     divider: "#4dd0e1",
     success: {
@@ -64,26 +97,35 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: "Roboto",
+    fontWeightLight: 100,
+    fontWeightRegular: 500,
+    fontWeightMedium: 800,
     fontWeightBold: 1000,
-    fontWeightMedium: 700,
+    poster: {
+      fontSize: "6rem",
+      fontWeight: 1000,
+      lineHeight: 1,
+      color: alpha("#45F0DF", 0.99),
+    },
     h1: {
       fontWeight: 1000,
-      lineHeight: 1.0,
+      lineHeight: 1,
       fontSize: "6rem",
     },
     h2: {
       fontSize: "4rem",
-      fontWeight: 900,
+      fontWeight: 350,
       lineHeight: 1.0,
     },
     h3: {
       fontWeight: 850,
-      fontSize: "3rem",
+      fontSize: "3.5rem",
+      lineHeight: 1.0,
     },
     h4: {
       fontWeight: 500,
-      fontSize: "1.15rem",
-      lineHeight: 1.0,
+      fontSize: "2rem",
+      lineHeight: 1.08,
     },
     h5: {
       fontWeight: 100,
@@ -130,14 +172,26 @@ export const theme = createTheme({
     },
   },
   components: {
-    MuiCssBaseline: {
-      styleOverrides: (themeParam) => `
-        h1 {
-          color: ${themeParam.palette.success.main};
-        }
-      `,
-    },
+    // MuiCssBaseline: {
+    //   styleOverrides: (themeParam) => `
+    //     h1 {
+    //       color: ${themeParam.palette.success.main};
+    //     }
+    //   `,
+    // },
   },
 });
 
-export default responsiveFontSizes(theme);
+export const theme = createTheme(modifyDefaultsTheme, {
+  // Custom colors created with augmentColor go here
+  palette: {
+    bgGradient1: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: alpha("#45F0DF", 0.99),
+      },
+      name: "bgGradient1",
+    }),
+  },
+});
+
+export default responsiveFontSizes(modifyDefaultsTheme);

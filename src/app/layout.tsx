@@ -10,7 +10,7 @@ import "@fontsource/roboto/700.css";
 // theme styling for MUI components
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import theme from "@/styles/theme";
+import modifyDefaultsTheme from "@/styles/theme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout(props: { children: ReactNode }) {
       <body>
         {/* <AppRouterCacheProvider options={{ enableCssLayer: true }}> */}
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider theme={modifyDefaultsTheme}>
             <CssBaseline />
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             {props.children}
