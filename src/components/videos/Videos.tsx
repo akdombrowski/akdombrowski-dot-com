@@ -7,12 +7,14 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import VideoContainer from "./VideoContainer";
 import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 import { VIDEOS_TITLE_URL } from "./VideoURLs";
 // import useClient from "./useClient";
 // import ReactPlayer from "react-player/youtube";
 // import NextVideoPlayer from "next-video";
 
 export default function Videos() {
+  const theme = useTheme();
   // 14 videos right now
   const createVideoContainers = VIDEOS_TITLE_URL.map((video, i) => {
     return (
@@ -38,7 +40,13 @@ export default function Videos() {
   };
 
   return (
-    <Box width="100%" height="100%">
+    <Box
+      width="100%"
+      height="100%"
+      sx={{
+        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.2), 20%, rgba(0,0,0,0.7), 80%, rgba(0,0,0,0.2)),linear-gradient(to bottom, rgba(0,0,0,0.2), 20%, rgba(0,0,0,0.7), 80%, rgba(0,0,0,0.2))`,
+      }}
+    >
       <Paper elevation={6}>
         <Box
           width="100%"
@@ -47,7 +55,9 @@ export default function Videos() {
           alignItems="center"
           pt={3}
         >
-          <Typography variant="h3">Content Library</Typography>
+          <Typography variant="h3" color="text.light">
+            Content Library
+          </Typography>
         </Box>
         <Grid
           id="videosContainer"

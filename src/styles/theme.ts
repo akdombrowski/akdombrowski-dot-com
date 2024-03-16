@@ -137,8 +137,7 @@ const modifyDefaultsTheme = createTheme({
       default: "#00001A",
     },
     text: {
-      primary: "#66C2E1",
-      secondary: "#b5c5d4",
+      primary: "#93BDBA",
     },
     error: {
       main: "#D64550",
@@ -184,8 +183,8 @@ const modifyDefaultsTheme = createTheme({
       lineHeight: 1.0,
     },
     h3: {
-      fontWeight: 850,
-      fontSize: "3.5rem",
+      fontWeight: 300,
+      fontSize: "3.75rem",
       lineHeight: 1.0,
     },
     h4: {
@@ -242,6 +241,11 @@ const modifyDefaultsTheme = createTheme({
 export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   // Custom colors created with augmentColor go here
   palette: {
+    text: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: alpha("#93BDBA", 0.99),
+      },
+    }),
     titleColor: modifyDefaultsTheme.palette.augmentColor({
       color: {
         main: alpha("#45F0DF", 0.99),
@@ -364,9 +368,7 @@ responsiveDefaultFontSizes.typography.poster = {
   [modifyDefaultsTheme.breakpoints.up("md")]: {
     fontSize: "4.15rem",
   },
-};=4444445-=
-66 =
-544676157890-087 6976867895567412123546\7126736\ m-p4444469034567
+};
 
 export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
   typography: {
@@ -396,7 +398,8 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
           ),
           backgroundImage: `linear-gradient(to right bottom, ${alpha(
             customTypographyTheme.palette.paperBgA.dark,
-            0.123456782345167123456712123412341123451234567895674444434546          )}, ${alpha(customTypographyTheme.palette.paperBgA.dark, 0.1)} 50%)`,
+            0.1,
+          )}, ${alpha(customTypographyTheme.palette.paperBgA.dark, 0.1)} 50%)`,
           // backgroundImage: `linear-gradient(to right bottom, ${customTypographyTheme.palette.paperBgA.dark}, ${customTypographyTheme.palette.paperBgA.main} 40%),
           //   linear-gradient(to left bottom, ${customTypographyTheme.palette.paperBgB.dark}, ${customTypographyTheme.palette.paperBgB.light} 40%),
           //   linear-gradient(to left top, ${customTypographyTheme.palette.paperBgC.dark}, ${customTypographyTheme.palette.paperBgC.light} 40%),
