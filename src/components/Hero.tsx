@@ -72,7 +72,7 @@ export default function Hero() {
             id="heroTitleInnerGridItem"
             xs={12}
             display="flex"
-            flexShrink={1}
+            // flexShrink={1}
             flexWrap="wrap"
             justifyContent="center"
             alignItems="center"
@@ -96,14 +96,18 @@ export default function Hero() {
               alignItems="center"
             >
               <Grid xs={5} padding={0}>
-                <Typography variant="h4" textAlign="end" color="text.secondary">
+                <Typography
+                  variant="role"
+                  textAlign="end"
+                  color="text.secondary"
+                >
                   Product Management Leader
                 </Typography>
               </Grid>
               <Grid xs={1}></Grid>
               <Grid xs={5} padding={0}>
                 <Typography
-                  variant="h4"
+                  variant="role"
                   textAlign="start"
                   color="text.secondary"
                 >
@@ -111,14 +115,18 @@ export default function Hero() {
                 </Typography>
               </Grid>
               <Grid xs={5} paddingX={0} paddingY={1}>
-                <Typography variant="h5" textAlign="end" color="text.secondary">
+                <Typography
+                  variant="subRole"
+                  textAlign="end"
+                  color="text.secondary"
+                >
                   Software Engineer
                 </Typography>
               </Grid>
               <Grid xs={1} paddingX={0} paddingY={1}></Grid>
               <Grid xs={5} paddingX={0} paddingY={1}>
                 <Typography
-                  variant="h5"
+                  variant="subRole"
                   textAlign="start"
                   color="text.secondary"
                 >

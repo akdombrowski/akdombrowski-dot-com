@@ -4,6 +4,7 @@ import "client-only";
 import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
 import type { CSSProperties } from "react";
 import type { TypographyStyleOptions } from "@mui/material/styles/createTypography";
+import { fontStyle } from "@mui/system";
 
 // import { Roboto } from "next/font/google";
 
@@ -15,6 +16,10 @@ import type { TypographyStyleOptions } from "@mui/material/styles/createTypograp
 declare module "@mui/system" {
   interface BreakpointOverrides {
     // Your custom breakpoints
+    foreHundo: true;
+    phiveHundo: true;
+    seisHundo: true;
+    nanaHundo: true;
     ateHundo: true;
     // Remove default breakpoints
     xs: true;
@@ -30,6 +35,8 @@ declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     poster: true;
     title: true;
+    role: true;
+    subRole: true;
   }
 }
 
@@ -37,12 +44,16 @@ declare module "@mui/material/styles" {
   interface TypographyVariants {
     poster: CSSProperties & TypographyStyleOptions;
     title: CSSProperties & TypographyStyleOptions;
+    role: CSSProperties & TypographyStyleOptions;
+    subRole: CSSProperties & TypographyStyleOptions;
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     poster?: CSSProperties & TypographyStyleOptions;
     title?: CSSProperties & TypographyStyleOptions;
+    role?: CSSProperties & TypographyStyleOptions;
+    subRole?: CSSProperties & TypographyStyleOptions;
   }
 
   interface Theme {
@@ -86,9 +97,13 @@ declare module "@mui/material/Button" {
 const modifyDefaultsTheme = createTheme({
   breakpoints: {
     values: {
+      foreHundo: 400,
+      phiveHundo: 500,
+      seisHundo: 600,
+      nanaHundo: 700,
+      ateHundo: 800,
       xs: 0,
       sm: 600,
-      ateHundo: 800,
       md: 900,
       lg: 1200,
       xl: 1536,
@@ -147,7 +162,12 @@ const modifyDefaultsTheme = createTheme({
     },
     title: {
       fontWeight: 1000,
-      lineHeight: 1.2,
+      lineHeight: 1,
+    },
+    subRole: {
+      fontSize: ".75rem",
+      fontWeight: 100,
+      lineHeight: 1,
     },
     h1: {
       fontWeight: 1000,
@@ -234,11 +254,16 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   },
 });
 
-export const responsiveDefaultFontSizes =
-  responsiveFontSizes(customColorsTheme);
-
-responsiveDefaultFontSizes.typography.title = {
-  fontSize: "3.0rem",
+customColorsTheme.typography.title = {
+  fontSize: "1.75rem",
+  fontWeight: 1000,
+  lineHeight: 1,
+  [modifyDefaultsTheme.breakpoints.up(400)]: {
+    fontSize: "2.25rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up(500)]: {
+    fontSize: "3rem",
+  },
   [modifyDefaultsTheme.breakpoints.up(600)]: {
     fontSize: "3.25rem",
   },
@@ -250,6 +275,59 @@ responsiveDefaultFontSizes.typography.title = {
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
     fontSize: "5rem",
+  },
+};
+
+export const responsiveDefaultFontSizes =
+  responsiveFontSizes(customColorsTheme);
+
+responsiveDefaultFontSizes.typography.role = {
+  fontSize: ".6rem",
+  fontWeight: 100,
+  lineHeight: 1,
+  [modifyDefaultsTheme.breakpoints.up(400)]: {
+    fontSize: ".65rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up(500)]: {
+    fontSize: ".7rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up(600)]: {
+    fontSize: ".85rem",
+    fontWeight: 200,
+  },
+  [modifyDefaultsTheme.breakpoints.up(700)]: {
+    fontSize: "1rem",
+    fontWeight: 300,
+  },
+  [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
+    fontSize: "1.05rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("md")]: {
+    fontSize: "1.25rem",
+  },
+};
+
+responsiveDefaultFontSizes.typography.subRole = {
+  fontSize: ".4rem",
+  fontWeight: 100,
+  lineHeight: 1,
+  [modifyDefaultsTheme.breakpoints.up(400)]: {
+    fontSize: ".45rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up(500)]: {
+    fontSize: ".55rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up(600)]: {
+    fontSize: ".7rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up(700)]: {
+    fontSize: ".75rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
+    fontSize: ".95rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("md")]: {
+    fontSize: "1rem",
   },
 };
 
@@ -271,8 +349,6 @@ export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
   },
 });
 
-export const customComponentsTheme = createTheme(customTypographyTheme, {
-
-});
+export const customComponentsTheme = createTheme(customTypographyTheme, {});
 
 export default customComponentsTheme;
