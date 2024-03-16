@@ -184,7 +184,7 @@ const modifyDefaultsTheme = createTheme({
     },
     h3: {
       fontWeight: 300,
-      fontSize: "3.75rem",
+      fontSize: "3.5rem",
       lineHeight: 1.0,
     },
     h4: {
@@ -301,12 +301,15 @@ customColorsTheme.typography.title = {
     fontSize: "4.5rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "5rem",
+    fontSize: "5.5rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("lg")]: {
+    fontSize: "6rem",
   },
 };
 
 export const responsiveDefaultFontSizes =
-  responsiveFontSizes(customColorsTheme);
+  responsiveFontSizes(customColorsTheme, {factor: 10});
 
 responsiveDefaultFontSizes.typography.role = {
   fontSize: ".5rem",
