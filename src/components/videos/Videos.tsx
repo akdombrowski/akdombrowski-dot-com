@@ -19,11 +19,13 @@ export default function Videos() {
   const createVideoContainers = VIDEOS_TITLE_URL.map((video, i) => {
     return (
       <Grid
-        xs={1}
+        xs={6}
         key={"video-" + video.title}
-        flexGrow={1}
+        flexGrow={0}
         display="flex"
-        padding={1}
+        paddingY={3}
+
+        paddingX={5}
         sx={{ aspectRatio: 16 / 9 }}
         justifyContent="center"
       >
@@ -62,7 +64,7 @@ export default function Videos() {
         <Grid
           id="videosContainer"
           container
-          columns={{ xs: 1, md: 2, lg: 3, xl: 4 }}
+          columns={12}
           marginX={3}
           marginY={2}
           alignContent="space-around"
@@ -82,8 +84,7 @@ export default function Videos() {
         >
           {createVideoContainers}
           <Grid
-            xs={0}
-            lg={1}
+            xs={1}
             id="spacer"
             flexGrow={0}
             display="flex"
@@ -97,9 +98,7 @@ export default function Videos() {
             ></Box>
           </Grid>
           <Grid
-            xs={0}
-            lg={0}
-            xl={1}
+            xs={1}
             id="spacer"
             flexGrow={0}
             display="flex"

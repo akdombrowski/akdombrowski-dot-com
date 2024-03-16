@@ -3,13 +3,15 @@ import Link from "next/link";
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const defaultLogoSize = { width: "5vmin", height: "5vmin" };
+const defaultBtnSize = { width: "auto", height: "100%" };
+const defaultLogoSize = { width: "auto", height: "100%" };
 const defaultPadding = { x: 1, y: 1 };
 
 
 export default function LinkedIn(props: {
   padding?: { x?: string | number; y?: string | number };
-  size?: { width?: string | number; height?: string | number };
+  iconSize?: { width?: string | number; height?: string | number };
+  btnSize?: { width?: string | number; height?: string | number };
 }) {
   return (
     <IconButton
@@ -21,12 +23,14 @@ export default function LinkedIn(props: {
         alignSelf: "center",
         px: props?.padding?.x ?? defaultPadding.x,
         py: props?.padding?.y ?? defaultPadding.y,
+        width: props?.btnSize?.width ?? defaultBtnSize.width,
+        height: props?.btnSize?.height ?? defaultBtnSize.height,
       }}
     >
       <LinkedInIcon
         sx={{
-          width: props?.size?.width ?? defaultLogoSize.width,
-          height: props?.size?.height ?? defaultLogoSize.height,
+          width: props?.iconSize?.width ?? defaultLogoSize.width,
+          height: props?.iconSize?.height ?? defaultLogoSize.height,
         }}
       />
     </IconButton>
