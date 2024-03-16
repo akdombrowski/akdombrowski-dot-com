@@ -4,6 +4,7 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import AppAppBar from "@/components/AppAppBar";
+import Roles from "@/components/Roles";
 import Hero from "./Hero";
 import Videos from "@/components/videos/Videos";
 import Highlights from "@/components/Highlights";
@@ -37,12 +38,63 @@ export default function LandingPage() {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            paddingTop="3rem"
+            paddingTop="2rem"
             // paddingBottom="3rem"
           >
             <Hero />
           </Grid>
-          <Divider flexItem />
+          <Grid
+            id="LandingPage-HeroDividerWrapper"
+            xs={12}
+            paddingTop={1}
+            paddingBottom={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider
+              sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+            />
+          </Grid>
+          <Grid
+            id="LandingPage-Hero2DividerWrapper"
+            xs={12}
+            paddingTop=".1rem"
+            paddingBottom={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider
+              sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+            />
+          </Grid>
+
+          <Grid
+            id="LandingPage-RolesGridContainerWrapper"
+            xs={12}
+            paddingTop={1}
+            paddingBottom={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Roles />
+          </Grid>
+
+          <Grid
+            id="LandingPage-RolesDividerWrapper"
+            xs={12}
+            paddingY={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider
+              sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+            />
+          </Grid>
+
           <Grid
             id="videos"
             xs={12}

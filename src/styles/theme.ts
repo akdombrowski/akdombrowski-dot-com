@@ -282,28 +282,29 @@ export const responsiveDefaultFontSizes =
   responsiveFontSizes(customColorsTheme);
 
 responsiveDefaultFontSizes.typography.role = {
-  fontSize: ".6rem",
+  fontSize: ".5rem",
   fontWeight: 100,
   lineHeight: 1,
   [modifyDefaultsTheme.breakpoints.up(400)]: {
-    fontSize: ".65rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(500)]: {
     fontSize: ".7rem",
   },
-  [modifyDefaultsTheme.breakpoints.up(600)]: {
-    fontSize: ".85rem",
+  [modifyDefaultsTheme.breakpoints.up(500)]: {
+    fontSize: ".9rem",
     fontWeight: 200,
   },
-  [modifyDefaultsTheme.breakpoints.up(700)]: {
+  [modifyDefaultsTheme.breakpoints.up(600)]: {
     fontSize: "1rem",
     fontWeight: 300,
   },
+  [modifyDefaultsTheme.breakpoints.up(700)]: {
+    fontSize: "1.25rem",
+    fontWeight: 400,
+  },
   [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "1.05rem",
+    fontSize: "1.5rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "1.25rem",
+    fontSize: "1.65rem",
   },
 };
 
@@ -312,22 +313,23 @@ responsiveDefaultFontSizes.typography.subRole = {
   fontWeight: 100,
   lineHeight: 1,
   [modifyDefaultsTheme.breakpoints.up(400)]: {
-    fontSize: ".45rem",
+    fontSize: ".5rem",
   },
   [modifyDefaultsTheme.breakpoints.up(500)]: {
-    fontSize: ".55rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(600)]: {
     fontSize: ".7rem",
   },
+  [modifyDefaultsTheme.breakpoints.up(600)]: {
+    fontSize: ".8rem",
+  },
   [modifyDefaultsTheme.breakpoints.up(700)]: {
-    fontSize: ".75rem",
+    fontSize: ".9rem",
   },
   [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: ".95rem",
+    fontSize: "1rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "1rem",
+    fontSize: "1.2rem",
+    fontWeight: 300,
   },
 };
 
@@ -337,7 +339,7 @@ responsiveDefaultFontSizes.typography.poster = {
     fontSize: "3.75rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "6.15rem",
+    fontSize: "4.15rem",
   },
 };
 

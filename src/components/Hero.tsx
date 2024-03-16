@@ -2,8 +2,9 @@
 import "client-only";
 
 import Image, { getImageProps } from "next/image";
-import profilePic from "../../public/profile.jpg";
-import profilePicR from "../../public/profileR.jpg";
+import profilePic from "/public/profile.jpg";
+import profilePicR from "/public/profileR.jpg";
+import Roles from "@/components/Roles";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
@@ -61,7 +62,13 @@ export default function Hero() {
           />
         </Box>
       </Grid>
-      <Grid id="heroTitleGridItem" xs={8} flexBasis="auto">
+      <Grid
+        id="heroTitleGridItem"
+        xs={8}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Grid
           id="heroTitleInnerGridContainer"
           container
@@ -72,7 +79,7 @@ export default function Hero() {
             id="heroTitleInnerGridItem"
             xs={12}
             display="flex"
-            // flexShrink={1}
+            paddingBottom="1rem"
             flexWrap="wrap"
             justifyContent="center"
             alignItems="center"
@@ -87,55 +94,13 @@ export default function Hero() {
               Anthony Dombrowski
             </Typography>
           </Grid>
-          <Grid xs={10} display="flex">
-            <Grid
-              container
-              columns={12}
-              spacing={2}
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Grid xs={5} padding={0}>
-                <Typography
-                  variant="role"
-                  textAlign="end"
-                  color="text.secondary"
-                >
-                  Product Management Leader
-                </Typography>
-              </Grid>
-              <Grid xs={1}></Grid>
-              <Grid xs={5} padding={0}>
-                <Typography
-                  variant="role"
-                  textAlign="start"
-                  color="text.secondary"
-                >
-                  Developer Advocate
-                </Typography>
-              </Grid>
-              <Grid xs={5} paddingX={0} paddingY={1}>
-                <Typography
-                  variant="subRole"
-                  textAlign="end"
-                  color="text.secondary"
-                >
-                  Software Engineer
-                </Typography>
-              </Grid>
-              <Grid xs={1} paddingX={0} paddingY={1}></Grid>
-              <Grid xs={5} paddingX={0} paddingY={1}>
-                <Typography
-                  variant="subRole"
-                  textAlign="start"
-                  color="text.secondary"
-                >
-                  Creative Humorist
-                </Typography>
-              </Grid>
-              <Grid xs={2} paddingX={0} paddingY={1}></Grid>
-            </Grid>
-          </Grid>
+          <Grid
+            xs={10}
+            paddingX=".5rem"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          ></Grid>
         </Grid>
       </Grid>
       <Grid id="rightHeroPicGridItem" xs={0} sm={2} xl={1} padding={0}>
@@ -155,11 +120,6 @@ export default function Hero() {
             alt="anthony dombrowski profile pic"
           />
         </Box>
-      </Grid>
-      <Grid xs={12}>
-        <Typography variant="h2" align="center">
-          Content Library
-        </Typography>
       </Grid>
     </Grid>
   );
