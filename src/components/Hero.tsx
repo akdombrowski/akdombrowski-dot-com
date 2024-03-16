@@ -38,15 +38,15 @@ export default function Hero() {
 
   return (
     <Grid
-      id="hero"
+      id="heroGridContainer"
       container
-      spacing={3}
       justifyContent="center"
       alignItems="stretch"
     >
-      <Grid xs={3} sm={2} xl={1} padding={0}>
+      <Grid id="leftHeroPicGridItem" xs={4} sm={2} xl={1} padding={0}>
         <Box width="100%" height="100%" position="relative">
           <Image
+            id="leftHeroPic"
             src={profilePic}
             quality={100}
             placeholder="blur"
@@ -61,9 +61,15 @@ export default function Hero() {
           />
         </Box>
       </Grid>
-      <Grid xs={9} sm={8}>
-        <Grid container spacing={3}>
+      <Grid id="heroTitleGridItem" xs={8} flexBasis="auto">
+        <Grid
+          id="heroTitleInnerGridContainer"
+          container
+          justifyContent="center"
+          alignItems="center"
+        >
           <Grid
+            id="heroTitleInnerGridItem"
             xs={12}
             display="flex"
             flexShrink={1}
@@ -72,10 +78,11 @@ export default function Hero() {
             alignItems="center"
           >
             <Typography
-              component="h1"
-              variant="poster"
-              // color={titleColor}
-              textAlign="center"
+              variant="title"
+              align="center"
+              // whiteSpace="none"
+              // textOverflow="ellipsis"
+              // overflow="hidden"
             >
               Anthony Dombrowski
             </Typography>
@@ -123,9 +130,10 @@ export default function Hero() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid xs={0} sm={2} xl={1} padding={0}>
+      <Grid id="rightHeroPicGridItem" xs={0} sm={2} xl={1} padding={0}>
         <Box height="100%" position="relative">
           <Image
+            id="rightHeroPic"
             src={profilePicR}
             quality={100}
             placeholder="blur"

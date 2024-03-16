@@ -1,4 +1,5 @@
 import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
 
@@ -17,32 +18,42 @@ import Footer from "@/components/Footer";
 
 export default function LandingPage() {
   return (
-    <Container id="landingPage" maxWidth={false} sx={{ overflow: "hidden" }}>
-      {/* <AppAppBar /> */}
-      <Grid id="landingPage-grid" container spacing={6}>
+    <Container
+      id="landingPage"
+      maxWidth={false}
+      // sx={{ overflow: "hidden" }}
+    >
+      <Box width="100%">
+        {/* <AppAppBar /> */}
         <Grid
-          id="hero"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          paddingTop="3rem"
-          // paddingBottom="3rem"
+          id="landingPage-grid"
+          container
+          rowSpacing={{ xs: 1, sm: 2, md: 3 }}
+          disableEqualOverflow
         >
-          <Hero />
-        </Grid>
-        <Divider flexItem />
-        <Grid
-          id="videos"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          paddingX={0}
-        >
-          <Videos />
-        </Grid>
-        {/* <Grid
+          <Grid
+            id="LandingPage-HeroGridContainerWrapper"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            paddingTop="3rem"
+            // paddingBottom="3rem"
+          >
+            <Hero />
+          </Grid>
+          <Divider flexItem />
+          <Grid
+            id="videos"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            paddingX={0}
+          >
+            <Videos />
+          </Grid>
+          {/* <Grid
           id="features"
           xs={12}
           display="flex"
@@ -93,17 +104,18 @@ export default function LandingPage() {
           <FAQ />
         </Grid> */}
 
-        <Divider />
-        <Grid
-          id="highlights"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Footer />
+          <Divider />
+          <Grid
+            id="highlights"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Footer />
+          </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </Container>
   );
 }

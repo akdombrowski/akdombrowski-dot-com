@@ -1,4 +1,2 @@
-import { modifyDefaultsTheme } from "./theme";
-
-export { modifyDefaultsTheme as theme };
-export default modifyDefaultsTheme;
+import theme from "./theme";
+export default theme;

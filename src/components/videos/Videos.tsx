@@ -50,6 +50,17 @@ export default function Videos() {
           alignContent="space-around"
           alignItems="stretch"
           justifyContent="center"
+          sx={{
+            "--Grid-borderWidth": "1px",
+            "borderTop": "var(--Grid-borderWidth) solid",
+            "borderLeft": "var(--Grid-borderWidth) solid",
+            "borderColor": "divider",
+            "& > div": {
+              borderRight: "var(--Grid-borderWidth) solid",
+              borderBottom: "var(--Grid-borderWidth) solid",
+              borderColor: "divider",
+            },
+          }}
         >
           {createVideoContainers}
           <Grid

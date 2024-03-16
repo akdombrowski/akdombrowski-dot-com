@@ -1,14 +1,9 @@
 "use client";
 import "client-only";
 
-import {
-  type ThemeOptions,
-  createTheme,
-  responsiveFontSizes,
-  alpha,
-} from "@mui/material/styles";
-import { type PaletteMode } from "@mui/material";
+import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
 import type { CSSProperties } from "react";
+import type { TypographyStyleOptions } from "@mui/material/styles/createTypography";
 
 // import { Roboto } from "next/font/google";
 
@@ -17,39 +12,61 @@ import type { CSSProperties } from "react";
 //   subsets: ["latin"],
 //   display: "swap",
 // });
-
-declare module "@mui/material/styles" {}
+declare module "@mui/system" {
+  interface BreakpointOverrides {
+    // Your custom breakpoints
+    ateHundo: true;
+    // Remove default breakpoints
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+  }
+}
 
 // Update the Typography's variant prop options
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     poster: true;
+    title: true;
   }
 }
 
 declare module "@mui/material/styles" {
   interface TypographyVariants {
-    poster: CSSProperties;
+    poster: CSSProperties & TypographyStyleOptions;
+    title: CSSProperties & TypographyStyleOptions;
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
-    poster?: CSSProperties;
+    poster?: CSSProperties & TypographyStyleOptions;
+    title?: CSSProperties & TypographyStyleOptions;
   }
+
   interface Theme {
     status: {
       danger: string;
     };
+    titleColor?: {
+      primary?: string;
+    };
   }
-  // allow configuration using `createTheme`
+
   interface ThemeOptions {
     status?: {
       danger?: string;
     };
+    titleColor?: {
+      primary?: string;
+    };
   }
+
   interface Palette {
     custom: Palette["primary"];
   }
+
   interface PaletteOptions {
     status?: {
       danger?: string;
@@ -67,6 +84,27 @@ declare module "@mui/material/Button" {
 // export const theme = createTheme(themeOptions);
 
 const modifyDefaultsTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      ateHundo: 800,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          // Map the new variant to render a <h1> by default
+          // poster: "h1",
+          // title: "h1",
+        },
+      },
+    },
+  },
   palette: {
     mode: "dark",
     contrastThreshold: 3.5,
@@ -104,8 +142,12 @@ const modifyDefaultsTheme = createTheme({
     poster: {
       fontSize: "6rem",
       fontWeight: 1000,
-      lineHeight: 1,
+      lineHeight: 1.25,
       color: alpha("#45F0DF", 0.99),
+    },
+    title: {
+      fontWeight: 1000,
+      lineHeight: 1.2,
     },
     h1: {
       fontWeight: 1000,
@@ -171,18 +213,9 @@ const modifyDefaultsTheme = createTheme({
       fontSize: ".95rem",
     },
   },
-  components: {
-    // MuiCssBaseline: {
-    //   styleOverrides: (themeParam) => `
-    //     h1 {
-    //       color: ${themeParam.palette.success.main};
-    //     }
-    //   `,
-    // },
-  },
 });
 
-export const theme = createTheme(modifyDefaultsTheme, {
+export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   // Custom colors created with augmentColor go here
   palette: {
     bgGradient1: modifyDefaultsTheme.palette.augmentColor({
@@ -191,7 +224,55 @@ export const theme = createTheme(modifyDefaultsTheme, {
       },
       name: "bgGradient1",
     }),
+
+    titleColor: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: alpha("#45F0DF", 0.99),
+      },
+      name: "bgGradient1",
+    }),
   },
 });
 
-export default responsiveFontSizes(modifyDefaultsTheme);
+export const responsiveDefaultFontSizes =
+  responsiveFontSizes(customColorsTheme);
+
+responsiveDefaultFontSizes.typography.title = {
+  fontSize: "3.0rem",
+  [modifyDefaultsTheme.breakpoints.up(600)]: {
+    fontSize: "3.25rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up(700)]: {
+    fontSize: "4rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
+    fontSize: "4.5rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("md")]: {
+    fontSize: "5rem",
+  },
+};
+
+responsiveDefaultFontSizes.typography.poster = {
+  "fontSize": "2.5rem",
+  "@media (min-width:600px)": {
+    fontSize: "3.75rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("md")]: {
+    fontSize: "6.15rem",
+  },
+};
+
+export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
+  typography: {
+    title: {
+      color: responsiveDefaultFontSizes.titleColor,
+    },
+  },
+});
+
+export const customComponentsTheme = createTheme(customTypographyTheme, {
+
+});
+
+export default customComponentsTheme;
