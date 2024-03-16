@@ -21,6 +21,7 @@ export default function Videos() {
         key={"video-" + video.title}
         flexGrow={1}
         display="flex"
+        padding={1}
         sx={{ aspectRatio: 16 / 9 }}
         justifyContent="center"
       >
@@ -39,24 +40,26 @@ export default function Videos() {
   return (
     <Box width="100%" height="100%">
       <Paper elevation={6}>
-        <Box width="100%" display="flex" justifyContent="center" alignItems="center">
-          <Typography variant="h3">
-            Content Library
-          </Typography>
+        <Box
+          width="100%"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          pt={3}
+        >
+          <Typography variant="h3">Content Library</Typography>
         </Box>
         <Grid
           id="videosContainer"
           container
-          spacing={{ xs: 1, sm: 2, md: 3 }}
           columns={{ xs: 1, md: 2, lg: 3, xl: 4 }}
-          paddingX={3}
-          paddingY={2}
-          flexShrink={0}
+          marginX={3}
+          marginY={2}
           alignContent="space-around"
           alignItems="stretch"
           justifyContent="center"
           sx={{
-            "--Grid-borderWidth": "1px",
+            "--Grid-borderWidth": "5px",
             "borderTop": "var(--Grid-borderWidth) solid",
             "borderLeft": "var(--Grid-borderWidth) solid",
             "borderColor": "divider",

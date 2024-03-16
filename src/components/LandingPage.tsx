@@ -27,13 +27,13 @@ export default function LandingPage() {
       <Box width="100%">
         {/* <AppAppBar /> */}
         <Grid
-          id="landingPage-grid"
+          id="Landing-grid"
           container
           rowSpacing={{ xs: 1, sm: 2, md: 3 }}
           disableEqualOverflow
         >
           <Grid
-            id="LandingPage-HeroGridContainerWrapper"
+            id="Landing-HeroGridContainerWrapper"
             xs={12}
             display="flex"
             justifyContent="center"
@@ -44,7 +44,7 @@ export default function LandingPage() {
             <Hero />
           </Grid>
           <Grid
-            id="LandingPage-HeroDividerWrapper"
+            id="Landing-HeroDividerWrapper"
             xs={12}
             paddingTop={1}
             paddingBottom={0}
@@ -57,7 +57,7 @@ export default function LandingPage() {
             />
           </Grid>
           <Grid
-            id="LandingPage-Hero2DividerWrapper"
+            id="Landing-Hero2DividerWrapper"
             xs={12}
             paddingTop=".1rem"
             paddingBottom={0}
@@ -71,7 +71,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="LandingPage-RolesGridContainerWrapper"
+            id="Landing-RolesGridContainerWrapper"
             xs={12}
             paddingTop={1}
             paddingBottom={0}
@@ -83,7 +83,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="LandingPage-RolesDividerWrapper"
+            id="Landing-RolesDividerWrapper"
             xs={12}
             paddingY={0}
             display="flex"
@@ -158,7 +158,7 @@ export default function LandingPage() {
 
           <Divider />
           <Grid
-            id="highlights"
+            id="Landing-Footer"
             xs={12}
             display="flex"
             justifyContent="center"

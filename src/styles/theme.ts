@@ -72,10 +72,20 @@ declare module "@mui/material/styles" {
     titleColor?: {
       primary?: string;
     };
+    paperBackground?: {
+      colorA?: string;
+      colorB?: string;
+      colorC?: string;
+      colorD?: string;
+    };
   }
 
   interface Palette {
     custom: Palette["primary"];
+    paperBgA: Palette["primary"];
+    paperBgB: Palette["primary"];
+    paperBgC: Palette["primary"];
+    paperBgD: Palette["primary"];
   }
 
   interface PaletteOptions {
@@ -83,6 +93,10 @@ declare module "@mui/material/styles" {
       danger?: string;
     };
     custom?: PaletteOptions["primary"];
+    paperBgA?: PaletteOptions["primary"];
+    paperBgB?: PaletteOptions["primary"];
+    paperBgC?: PaletteOptions["primary"];
+    paperBgD?: PaletteOptions["primary"];
   }
 }
 
@@ -109,17 +123,7 @@ const modifyDefaultsTheme = createTheme({
       xl: 1536,
     },
   },
-  components: {
-    MuiTypography: {
-      defaultProps: {
-        variantMapping: {
-          // Map the new variant to render a <h1> by default
-          // poster: "h1",
-          // title: "h1",
-        },
-      },
-    },
-  },
+
   palette: {
     mode: "dark",
     contrastThreshold: 3.5,
@@ -139,7 +143,7 @@ const modifyDefaultsTheme = createTheme({
     error: {
       main: "#D64550",
     },
-    divider: "#4dd0e1",
+    divider: alpha("#00001A", 0.99),
     success: {
       main: "#63A375",
       contrastText: "#9EE37D",
@@ -238,19 +242,38 @@ const modifyDefaultsTheme = createTheme({
 export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   // Custom colors created with augmentColor go here
   palette: {
-    bgGradient1: modifyDefaultsTheme.palette.augmentColor({
-      color: {
-        main: alpha("#45F0DF", 0.99),
-      },
-      name: "bgGradient1",
-    }),
-
     titleColor: modifyDefaultsTheme.palette.augmentColor({
       color: {
         main: alpha("#45F0DF", 0.99),
       },
       name: "bgGradient1",
     }),
+
+    paperBgA: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: alpha("#08203E", 0.8),
+      },
+      name: "paperBgA",
+    }),
+    paperBgB: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: alpha("#250404", 0.8),
+      },
+      name: "paperBgB",
+    }),
+    paperBgC: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: alpha("#0D0029", 0.8),
+      },
+      name: "paperBgC",
+    }),
+    paperBgD: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: alpha("#191A0F", 0.8),
+      },
+      name: "paperBgD",
+    }),
+    tonalOffset: 0.1,
   },
 });
 
@@ -341,7 +364,9 @@ responsiveDefaultFontSizes.typography.poster = {
   [modifyDefaultsTheme.breakpoints.up("md")]: {
     fontSize: "4.15rem",
   },
-};
+};=4444445-=
+66 =
+544676157890-087 6976867895567412123546\7126736\ m-p4444469034567
 
 export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
   typography: {
@@ -351,6 +376,35 @@ export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
   },
 });
 
-export const customComponentsTheme = createTheme(customTypographyTheme, {});
+export const customComponentsTheme = createTheme(customTypographyTheme, {
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          // Map the new variant to render a <h1> by default
+          // poster: "h1",
+          // title: "h1",
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: alpha(
+            customTypographyTheme.palette.background.default,
+            0.5,
+          ),
+          backgroundImage: `linear-gradient(to right bottom, ${alpha(
+            customTypographyTheme.palette.paperBgA.dark,
+            0.123456782345167123456712123412341123451234567895674444434546          )}, ${alpha(customTypographyTheme.palette.paperBgA.dark, 0.1)} 50%)`,
+          // backgroundImage: `linear-gradient(to right bottom, ${customTypographyTheme.palette.paperBgA.dark}, ${customTypographyTheme.palette.paperBgA.main} 40%),
+          //   linear-gradient(to left bottom, ${customTypographyTheme.palette.paperBgB.dark}, ${customTypographyTheme.palette.paperBgB.light} 40%),
+          //   linear-gradient(to left top, ${customTypographyTheme.palette.paperBgC.dark}, ${customTypographyTheme.palette.paperBgC.light} 40%),
+          //   linear-gradient(to right top, ${customTypographyTheme.palette.paperBgD.dark}, ${customTypographyTheme.palette.paperBgD.light} 40%)`,
+        },
+      },
+    },
+  },
+});
 
 export default customComponentsTheme;

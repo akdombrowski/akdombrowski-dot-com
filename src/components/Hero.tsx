@@ -9,7 +9,9 @@ import Roles from "@/components/Roles";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
+import MUILink from "@mui/material/Link";
+
+import Link from "next/link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -95,12 +97,22 @@ export default function Hero() {
             </Typography>
           </Grid>
           <Grid
-            xs={10}
+            xs={12}
             paddingX=".5rem"
             display="flex"
             justifyContent="center"
             alignItems="center"
-          ></Grid>
+          >
+              <MUILink
+                component={Link}
+                href="https://www.linkedin.com/in/akdombrowski
+"
+              >
+            <Typography variant="body2" color="text.secondary" mt={1}>
+                https://linkedin.com/in/akdombrowski
+            </Typography>
+              </MUILink>
+          </Grid>
         </Grid>
       </Grid>
       <Grid id="rightHeroPicGridItem" xs={0} sm={2} xl={1} padding={0}>
