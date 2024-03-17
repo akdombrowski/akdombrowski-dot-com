@@ -1,46 +1,111 @@
-"use client";
-import "client-only";
-
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
+import Grid from "@mui/material/Unstable_Grid2";
 
-import AppAppBar from "@/components/AppAppBar";
-import Hero from "@/components/Hero";
-import LogoCollection from "@/components/LogoCollection";
-import Highlights from "@/components/Highlights";
-import Pricing from "@/components/Pricing";
-import Features from "@/components/Features";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
+import Roles from "@/components/Roles";
+import Hero from "./Hero";
+import Videos from "@/components/videos/Videos";
 import Footer from "@/components/Footer";
 
-import { useTheme, alpha } from "@mui/material/styles";
 export default function LandingPage() {
-  const theme = useTheme();
-  const bgColor = alpha(theme.palette.primary.light, 0.01);
-  const bgColorMid = alpha(theme.palette.primary.light, 0.05);
-  const bgColorEnd = alpha(theme.palette.primary.light, 1);
   return (
-    <Container maxWidth={false}>
-      <AppAppBar />
-      <Hero />
-      <Box>
-        <LogoCollection />
-        <Features />
-        <Divider />
-        <Testimonials />
-        <Divider />
-        <Highlights />
-        <Divider />
-        <Pricing />
-        <Divider />
-        <FAQ />
-        <Divider />
-        <Footer />
+    <Container id="landingPage" maxWidth={false}>
+      <Box width="100%">
+        {/* <AppAppBar /> */}
+        <Grid
+          id="Landing-grid"
+          container
+          rowSpacing={{ xs: 1, sm: 2, md: 3 }}
+          disableEqualOverflow
+        >
+          <Grid
+            id="Landing-HeroGridContainerWrapper"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            paddingTop="2rem"
+          >
+            <Hero />
+          </Grid>
+
+          <Grid
+            id="Landing-HeroDividerWrapper"
+            xs={12}
+            paddingTop={1}
+            paddingBottom={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider
+              sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+            />
+          </Grid>
+
+          <Grid
+            id="Landing-Hero2DividerWrapper"
+            xs={12}
+            paddingTop=".1rem"
+            paddingBottom={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider
+              sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+            />
+          </Grid>
+
+          <Grid
+            id="Landing-RolesGridContainerWrapper"
+            xs={12}
+            paddingTop={1}
+            paddingBottom={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Roles />
+          </Grid>
+
+          <Grid
+            id="Landing-RolesDividerWrapper"
+            xs={12}
+            paddingY={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider
+              sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+            />
+          </Grid>
+
+          <Grid
+            id="videos"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            paddingX={0}
+          >
+            <Videos />
+          </Grid>
+
+          <Divider />
+
+          <Grid
+            id="Landing-Footer"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Footer />
+          </Grid>
+        </Grid>
       </Box>
     </Container>
   );

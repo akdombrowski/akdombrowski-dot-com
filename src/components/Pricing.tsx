@@ -65,12 +65,14 @@ export default function Pricing() {
         flexDirection: "column",
         alignItems: "center",
         gap: { xs: 3, sm: 6 },
-      }}>
+      }}
+    >
       <Box
         sx={{
           width: { sm: "100%", md: "60%" },
           textAlign: { sm: "left", md: "center" },
-        }}>
+        }}
+      >
         <Typography component="h2" variant="h4" color="text.primary">
           Pricing
         </Typography>
@@ -88,7 +90,8 @@ export default function Pricing() {
             key={tier.title}
             xs={12}
             sm={tier.title === "Enterprise" ? 12 : 6}
-            md={4}>
+            md={4}
+          >
             <Card
               sx={{
                 p: 2,
@@ -102,7 +105,8 @@ export default function Pricing() {
                   tier.title === "Professional"
                     ? "linear-gradient(#033363, #021F3B)"
                     : undefined,
-              }}>
+              }}
+            >
               <CardContent>
                 <Box
                   sx={{
@@ -111,7 +115,8 @@ export default function Pricing() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     color: tier.title === "Professional" ? "grey.100" : "",
-                  }}>
+                  }}
+                >
                   <Typography component="h3" variant="h6">
                     {tier.title}
                   </Typography>
@@ -121,9 +126,8 @@ export default function Pricing() {
                       label={tier.subheader}
                       size="small"
                       sx={{
-                        "background": (theme) =>
-                          theme.palette.mode === "light" ? "" : "none",
-                        "backgroundColor": "primary.contrastText",
+                        background: "none",
+                        backgroundColor: "primary.contrastText",
                         "& .MuiChip-label": {
                           color: "primary.dark",
                         },
@@ -140,7 +144,8 @@ export default function Pricing() {
                     alignItems: "baseline",
                     color:
                       tier.title === "Professional" ? "grey.50" : undefined,
-                  }}>
+                  }}
+                >
                   <Typography component="h3" variant="h2">
                     ${tier.price}
                   </Typography>
@@ -163,7 +168,8 @@ export default function Pricing() {
                       display: "flex",
                       gap: 1.5,
                       alignItems: "center",
-                    }}>
+                    }}
+                  >
                     <CheckCircleRoundedIcon
                       sx={{
                         width: 20,
@@ -181,7 +187,8 @@ export default function Pricing() {
                           tier.title === "Professional"
                             ? "grey.200"
                             : undefined,
-                      }}>
+                      }}
+                    >
                       {line}
                     </Typography>
                   </Box>
@@ -193,7 +200,8 @@ export default function Pricing() {
                   variant={tier.buttonVariant as "outlined" | "contained"}
                   component="a"
                   href="/material-ui/getting-started/templates/checkout/"
-                  target="_blank">
+                  target="_blank"
+                >
                   {tier.buttonText}
                 </Button>
               </CardActions>

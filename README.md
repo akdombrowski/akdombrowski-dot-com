@@ -7,6 +7,12 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with
 [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+if want to use next-video sync & watch:
+
+```
+"dev": "next dev & npx next-video sync -w --dir ./src/videos",
+```
+
 ## Getting Started
 
 First, run the development server:
