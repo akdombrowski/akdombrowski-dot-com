@@ -289,7 +289,7 @@ customColorsTheme.typography.title = {
     fontSize: "3.2rem",
   },
   [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "3.6rem",
+    fontSize: "3.5rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
     fontSize: "4.75rem",
@@ -298,7 +298,7 @@ customColorsTheme.typography.title = {
     fontSize: "6rem",
   },
   [modifyDefaultsTheme.breakpoints.up("xl")]: {
-    fontSize: "6.5rem",
+    fontSize: "7.1rem",
   },
   [modifyDefaultsTheme.breakpoints.up("fhd")]: {
     fontSize: "8rem",

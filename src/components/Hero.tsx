@@ -100,8 +100,13 @@ export default function Hero() {
             </Box>
           </Grid>
 
-          <Grid id="rightHeroPicGridItem" xs={0} md={2} padding={0}>
-            <Box height="100%" sx={{ aspectRatio: 9 / 16 }} position="relative">
+          <Grid id="rightHeroPicGridItem" xs={0} sm={2} padding={0}>
+            <Box
+              width="100%"
+              height="100%"
+              sx={{ aspectRatio: 9 / 16 }}
+              position="relative"
+            >
               <Image
                 id="rightHeroPic"
                 src={profilePicR}
