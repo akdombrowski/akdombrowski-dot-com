@@ -11,13 +11,12 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import { LinkedInURL } from "@/social/LinkedIn";
 
-import { useTheme, alpha } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 
 export default function Hero() {
   const theme = useTheme();
@@ -86,7 +85,6 @@ export default function Hero() {
             <Box
               mt="auto"
               color={theme.palette.titleColor.light}
-              backgroundColor={alpha("#fff", 0.1)}
               sx={{
                 border: "2vw solid",
                 borderRadius: 100,

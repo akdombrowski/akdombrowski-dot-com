@@ -4,7 +4,6 @@ import "client-only";
 import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
 import type { CSSProperties } from "react";
 import type { TypographyStyleOptions } from "@mui/material/styles/createTypography";
-import { fontStyle } from "@mui/system";
 
 // import { Roboto } from "next/font/google";
 
@@ -27,6 +26,8 @@ declare module "@mui/system" {
     md: true;
     lg: true;
     xl: true;
+    fhd: true;
+    uhd: true;
   }
 }
 
@@ -114,6 +115,8 @@ const modifyDefaultsTheme = createTheme({
       md: 900,
       lg: 1200,
       xl: 1536,
+      fhd: 1920,
+      uhd: 3840,
     },
   },
 
@@ -289,13 +292,19 @@ customColorsTheme.typography.title = {
     fontSize: "3.6rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "4.35rem",
+    fontSize: "4.75rem",
   },
   [modifyDefaultsTheme.breakpoints.up("lg")]: {
-    fontSize: "4.5rem",
+    fontSize: "6rem",
   },
   [modifyDefaultsTheme.breakpoints.up("xl")]: {
-    fontSize: "7.5rem",
+    fontSize: "6.5rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("fhd")]: {
+    fontSize: "8rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("uhd")]: {
+    fontSize: "15rem",
   },
 };
 
