@@ -86,11 +86,9 @@ export default function Hero() {
               mt="auto"
               color={theme.palette.titleColor.light}
               sx={{
-                border: "2vw solid",
-                borderRadius: 100,
-                borderColor: theme.palette.background.default,
+                aspectRatio: 1,
               }}
-            >
+              >
               <LinkedInIcon
                 sx={{
                   width: "100%",
