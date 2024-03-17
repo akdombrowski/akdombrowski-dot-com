@@ -141,7 +141,6 @@ const modifyDefaultsTheme = createTheme({
     divider: alpha("#00001A", 0.99),
     success: {
       main: "#63A375",
-      contrastText: "#9EE37D",
     },
     info: {
       main: "#BBD686",

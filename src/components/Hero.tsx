@@ -16,7 +16,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import { LinkedInURL } from "@/social/LinkedIn";
 
-import { useTheme } from "@mui/material/styles";
+import { useTheme, alpha } from "@mui/material/styles";
 
 export default function Hero() {
   const theme = useTheme();
@@ -71,7 +71,16 @@ export default function Hero() {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography variant="title" color="titleColor.light" align="center">
+            <Typography
+              variant="title"
+              color="titleColor.light"
+              align="center"
+              sx={{
+                textDecorationStyle: "solid",
+                textDecorationColor: alpha(theme.palette.titleColor.light, 1),
+                textDecorationLine: "underline",
+              }}
+            >
               Anthony Dombrowski
             </Typography>
           </Grid>
@@ -84,13 +93,21 @@ export default function Hero() {
           >
             <Box
               mt="auto"
-              color={theme.palette.titleColor.light}
+              // color={theme.palette.secondary.light}
               sx={{
                 aspectRatio: 1,
               }}
-              >
+            >
               <LinkedInIcon
                 sx={{
+                  color: "#0077b5",
+                  background: `radial-gradient(ellipse closest-corner at center, ${alpha(
+                    "#fff",
+                    0.85,
+                  )} 0, ${alpha("#fff", 0.85)} 52%, ${alpha(
+                    "#fff",
+                    0.5,
+                  )} 53%,${alpha("#fff", 0)} 54%)`,
                   width: "100%",
                   height: "100%",
                 }}

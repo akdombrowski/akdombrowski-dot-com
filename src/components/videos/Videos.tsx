@@ -23,8 +23,8 @@ export default function Videos() {
         key={"video-" + video.title}
         flexGrow={0}
         display="flex"
-        paddingY={5}
-        paddingX={5}
+        pb={5}
+        px={1}
         sx={{ aspectRatio: 16 / 9 }}
         justifyContent="center"
       >
@@ -49,13 +49,12 @@ export default function Videos() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          pt={3}
-          pb={3}
+          py={2}
           sx={{
             backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
           }}
         >
-          <Typography variant="h3" color="text.light">
+          <Typography variant="h3" fontWeight={400}  color="text.light">
             Content Library
           </Typography>
         </Box>
