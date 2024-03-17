@@ -23,8 +23,7 @@ export default function Videos() {
         key={"video-" + video.title}
         flexGrow={0}
         display="flex"
-        paddingY={3}
-
+        paddingY={5}
         paddingX={5}
         sx={{ aspectRatio: 16 / 9 }}
         justifyContent="center"
@@ -35,11 +34,6 @@ export default function Videos() {
       </Grid>
     );
   });
-
-  const createSpacers = () => {
-    const numVideos = VIDEOS_TITLE_URL.length;
-    const numSpacersSm = numVideos % 2;
-  };
 
   return (
     <Box
@@ -56,6 +50,10 @@ export default function Videos() {
           justifyContent="center"
           alignItems="center"
           pt={3}
+          pb={3}
+          sx={{
+            backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
+          }}
         >
           <Typography variant="h3" color="text.light">
             Content Library
@@ -83,34 +81,6 @@ export default function Videos() {
           }}
         >
           {createVideoContainers}
-          <Grid
-            xs={1}
-            id="spacer"
-            flexGrow={0}
-            display="flex"
-            sx={{ aspectRatio: 16 / 9 }}
-            justifyContent="center"
-          >
-            <Box
-              maxWidth="100%"
-              height="100%"
-              sx={{ aspectRatio: 16 / 9 }}
-            ></Box>
-          </Grid>
-          <Grid
-            xs={1}
-            id="spacer"
-            flexGrow={0}
-            display="flex"
-            sx={{ aspectRatio: 16 / 9 }}
-            justifyContent="center"
-          >
-            <Box
-              maxWidth="100%"
-              height="100%"
-              sx={{ aspectRatio: 16 / 9 }}
-            ></Box>
-          </Grid>
         </Grid>
       </Paper>
     </Box>

@@ -13,13 +13,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-import { linkedinURL } from "@/social/LinkedIn";
+import { LinkedInURL } from "@/social/LinkedIn";
 
 export default function Hero() {
   return (
     <Container
       component={Link}
-      href={linkedinURL}
+      href={LinkedInURL}
       maxWidth={false}
       disableGutters
     >

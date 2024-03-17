@@ -1,13 +1,11 @@
-import IconButton from "@mui/material/IconButton";
 import Link from "next/link";
 
+import IconButton from "@mui/material/IconButton";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const defaultBtnSize = { width: "auto", height: "100%" };
-const defaultLogoSize = { width: "auto", height: "100%" };
-const defaultPadding = { x: 1, y: 1 };
+import { defaultBtnSize, defaultIconSize, defaultPadding } from "./index";
 
-export const linkedinURL = "https://www.linkedin.com/in/akdombrowski";
+export const LinkedInURL = "https://www.linkedin.com/in/akdombrowski";
 
 export default function LinkedIn(props: {
   padding?: { x?: string | number; y?: string | number };
@@ -17,7 +15,7 @@ export default function LinkedIn(props: {
   return (
     <IconButton
       color="inherit"
-      href={linkedinURL}
+      href={LinkedInURL}
       component={Link}
       aria-label="LinkedIn profile link with username akdombrowski"
       sx={{
@@ -30,8 +28,8 @@ export default function LinkedIn(props: {
     >
       <LinkedInIcon
         sx={{
-          width: props?.iconSize?.width ?? defaultLogoSize.width,
-          height: props?.iconSize?.height ?? defaultLogoSize.height,
+          width: props?.iconSize?.width ?? defaultIconSize.width,
+          height: props?.iconSize?.height ?? defaultIconSize.height,
         }}
       />
     </IconButton>

@@ -105,6 +105,9 @@ export default function LandingPage() {
           >
             <Footer />
           </Grid>
+          <Grid xs={12}>
+            <Box height="1vh"/>
+          </Grid>
         </Grid>
       </Box>
     </Container>

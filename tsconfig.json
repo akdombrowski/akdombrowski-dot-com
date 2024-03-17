@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/social/*": ["./src/components/social/*"]
+      "@/social/*": ["./src/components/social/*"],
+      "@/social": ["./src/components/social/"]
     }
   },
   "include": [

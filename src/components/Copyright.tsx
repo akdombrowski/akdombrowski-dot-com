@@ -1,18 +1,24 @@
 import Typography from "@mui/material/Typography";
 import MuiLink from "@mui/material/Link";
+import Button from "@mui/material/Button";
 import Link from "next/link";
+import { LinkedInURL } from "@/social";
+
 export default function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" align="left">
-      {"Copyright © "}
-      <MuiLink
-        component={Link}
-        color="inherit"
-        href="https://linkedin.com/in/akdombrowski"
+    <Button variant="text" component={Link} href={LinkedInURL}
+    size="small">
+      <Typography
+        variant="body1"
+        color="text.secondary"
+        align="left"
+        fontStyle="normal"
+        sx={{fontSize: "1.5rem"}}
       >
-        Anthony Dombrowski on LinkedIn
-      </MuiLink>
-      {" " + new Date().getFullYear()}.
-    </Typography>
+        {"Copyright © "}
+        Anthony Dombrowski
+        {" " + new Date().getFullYear()}.
+      </Typography>
+    </Button>
   );
 }

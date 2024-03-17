@@ -7,7 +7,8 @@ import Link from "next/link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { GitHub, LinkedIn, X } from "@/components/social";
+import Grid from "@mui/material/Unstable_Grid2";
+import { GitHub, LinkedIn, X, StackedSocialLinks } from "@/components/social";
 import Copyright from "@/components/Copyright";
 
 export default function Footer() {
@@ -15,53 +16,27 @@ export default function Footer() {
     <Container
       id="footer"
       maxWidth={false}
-      disableGutters
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        py: 1,
-        textAlign: { sm: "center", md: "left" },
-      }}
     >
-      <Box
-        id="footer-boxWrapper"
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          pt: 1,
-          px: 0,
-          width: "100%",
-          borderTop: "1px solid",
-          borderColor: "divider",
-        }}
-      >
-        <Box
-          id="footer-copyright"
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            width: "100%",
-            justifyContent: "flex-start",
-            alignItems: "center",
-          }}
+      <Grid container id="footer-GridWrapper" display="flex" justifyContent="space-around" alignItems="stretch" height="5vh">
+        <Grid
+          xs={8}
+          id="footer-GridCopyright"
+          display="flex"
+          justifyContent="left"
+          alignItems="stretch"
         >
           <Copyright />
-        </Box>
-        <Stack
-          direction="row"
-          justifyContent="left"
-          spacing={0}
-          useFlexGap
-          sx={{
-            color: "text.secondary",
-          }}
+        </Grid>
+        <Grid
+          xs={4}
+          display="flex"
+          justifyContent="right"
+          id="footer-GridSocial"
+          alignItems="stretch"
         >
-          <GitHub />
-          <LinkedIn />
-          <X />
-        </Stack>
-      </Box>
+          <StackedSocialLinks justify="right"/>
+        </Grid>
+      </Grid>
     </Container>
   );
 }
