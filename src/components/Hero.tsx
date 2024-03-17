@@ -1,47 +1,28 @@
 "use client";
 import "client-only";
 
-import Image, { getImageProps } from "next/image";
+import Link from "next/link";
+import Image from "next/image";
+
 import profilePic from "/public/profile.jpg";
 import profilePicR from "/public/profileR.jpg";
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import MUILink from "@mui/material/Link";
-
-import Link from "next/link";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { useTheme, alpha } from "@mui/material/styles";
-import { LinkedIn, GitHub, X, StackedSocialLinks } from "./social";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const getBackgroundImage = (srcSet = "") => {
-  const imageSet = srcSet
-    .split(", ")
-    .map((str) => {
-      const [url, dpi] = str.split(" ");
-      return `url("${url}") ${dpi}`;
-    })
-    .join(", ");
-  return `image-set(${imageSet})`;
-};
+import { linkedinURL } from "@/social/LinkedIn";
 
 export default function Hero() {
-  const {
-    props: { srcSet },
-  } = getImageProps({
-    alt: "Anthony Dombrowski Profile Picture",
-    width: 816.5,
-    height: 1224,
-    src: "/profile.jpg",
-  });
-  const backgroundImage = getBackgroundImage(srcSet);
-
   return (
-    <Container maxWidth={false} disableGutters>
+    <Container
+      component={Link}
+      href={linkedinURL}
+      maxWidth={false}
+      disableGutters
+    >
       <Grid
         id="heroGridContainer"
         container
@@ -50,17 +31,17 @@ export default function Hero() {
         justifyContent="center"
         alignItems="stretch"
       >
-        <Grid id="leftHeroPicGridItem"  xs={2} padding={0}>
+        <Grid id="leftHeroPicGridItem" xs={2} padding={0}>
           <Box width="100%" height="100%" position="relative">
             <Image
               id="leftHeroPic"
               src={profilePic}
               quality={100}
               placeholder="blur"
-              objectFit="cover"
-              objectPosition="55% 10%"
               style={{
-                opacity: "65%",
+                objectFit: "cover",
+                objectPosition: "55% 10%",
+                opacity: "60%",
               }}
               fill
               priority
@@ -90,13 +71,7 @@ export default function Hero() {
             alignItems="stretch"
             paddingX={5}
           >
-            <Typography
-              variant="title"
-              align="center"
-              // whiteSpace="none"
-              // textOverflow="ellipsis"
-              // overflow="hidden"
-            >
+            <Typography variant="title" align="center" color="text.light">
               Anthony Dombrowski
             </Typography>
           </Box>
@@ -109,9 +84,11 @@ export default function Hero() {
           alignItems="stretch"
         >
           <Box mt="auto">
-            <LinkedIn
-              btnSize={{ width: "100%", height: "auto" }}
-              iconSize={{ width: "100%", height: "auto" }}
+            <LinkedInIcon
+              sx={{
+                width: "100%",
+                height: "100%",
+              }}
             />
           </Box>
         </Grid>
@@ -123,9 +100,9 @@ export default function Hero() {
               src={profilePicR}
               quality={100}
               placeholder="blur"
-              objectFit="cover"
-              objectPosition="55% 10%"
               style={{
+                objectFit: "cover",
+                objectPosition: "55% 10%",
                 opacity: "60%",
               }}
               fill

@@ -70,7 +70,7 @@ export default function Roles() {
           Creative Humorist
         </Typography>
         <Typography variant="subtitle1" align="left" color="text.secondary">
-          &nbsp; (see "hilarious")
+          &nbsp; (see &quot;hilarious&quot;)
         </Typography>
       </Grid>
       <Grid

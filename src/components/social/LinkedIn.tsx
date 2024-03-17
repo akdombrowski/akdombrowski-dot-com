@@ -7,6 +7,7 @@ const defaultBtnSize = { width: "auto", height: "100%" };
 const defaultLogoSize = { width: "auto", height: "100%" };
 const defaultPadding = { x: 1, y: 1 };
 
+export const linkedinURL = "https://www.linkedin.com/in/akdombrowski";
 
 export default function LinkedIn(props: {
   padding?: { x?: string | number; y?: string | number };
@@ -16,7 +17,7 @@ export default function LinkedIn(props: {
   return (
     <IconButton
       color="inherit"
-      href="https://www.linkedin.com/in/akdombrowski"
+      href={linkedinURL}
       component={Link}
       aria-label="LinkedIn profile link with username akdombrowski"
       sx={{

@@ -1,6 +1,8 @@
 "use client";
 import "client-only";
 
+import Image from "next/image";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
@@ -141,10 +143,11 @@ export default function Testimonials() {
                   title={testimonial.name}
                   subheader={testimonial.occupation}
                 />
-                <img
+                <Image
                   src={logos[index]}
                   alt={`Logo ${index + 1}`}
                   style={logoStyle}
+                  fill
                 />
               </Box>
             </Card>
