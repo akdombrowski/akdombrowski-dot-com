@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 
 export default function LandingPage() {
   return (
-    <Container id="landingPage" maxWidth={false}>
+    <Container id="landingPage" maxWidth={false} >
       <Box width="100%">
         {/* <AppAppBar /> */}
         <Grid

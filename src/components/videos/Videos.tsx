@@ -9,7 +9,6 @@ import VideoContainer from "./VideoContainer";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import { VIDEOS_TITLE_URL } from "./VideoURLs";
-// import useClient from "./useClient";
 // import ReactPlayer from "react-player/youtube";
 // import NextVideoPlayer from "next-video";
 
@@ -23,10 +22,8 @@ export default function Videos() {
         key={"video-" + video.title}
         flexGrow={0}
         display="flex"
-        pb={5}
-        px={1}
         sx={{ aspectRatio: 16 / 9 }}
-        justifyContent="center"
+        justifyContent="space-between"
       >
         <Box maxWidth="100%" height="100%" sx={{ aspectRatio: 16 / 9 }}>
           <VideoContainer title={video.title} url={video.url} />
@@ -46,24 +43,28 @@ export default function Videos() {
       <Paper elevation={6}>
         <Box
           width="100%"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
           py={2}
           sx={{
             backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
+
           }}
         >
-          <Typography variant="h3" fontWeight={400}  color="text.light">
+          <Typography
+            variant="h1"
+            component="span"
+            display="inline-block"
+            width="100%"
+            fontWeight={100}
+            align="center"
+            letterSpacing="1vw"
+          >
             Content Library
           </Typography>
         </Box>
         <Grid
           id="videosContainer"
           container
-          columns={12}
-          marginX={3}
-          marginY={2}
+          columns={{ xs: 6, md: 12 }}
           alignContent="space-around"
           alignItems="stretch"
           justifyContent="center"
