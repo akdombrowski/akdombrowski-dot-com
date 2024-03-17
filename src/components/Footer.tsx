@@ -17,7 +17,7 @@ export default function Footer() {
       id="footer"
       maxWidth={false}
     >
-      <Grid container id="footer-GridWrapper" display="flex" justifyContent="space-around" alignItems="stretch" height="5vh">
+      <Grid container id="footer-GridContainer" display="flex" justifyContent="space-around" alignItems="stretch" height="3rem">
         <Grid
           xs={8}
           id="footer-GridCopyright"
