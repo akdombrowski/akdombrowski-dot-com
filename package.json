@@ -20,6 +20,7 @@
     "@mui/material": "^5.15.12",
     "@mui/material-nextjs": "^5.15.11",
     "@mui/system": "^5.15.12",
+    "@vercel/speed-insights": "^1.0.10",
     "axios": "^1.6.7",
     "client-only": "^0.0.1",
     "dotenv": "^16.4.5",
