@@ -60,17 +60,11 @@ declare module "@mui/material/styles" {
     status: {
       danger: string;
     };
-    titleColor?: {
-      primary?: string;
-    };
   }
 
   interface ThemeOptions {
     status?: {
       danger?: string;
-    };
-    titleColor?: {
-      primary?: string;
     };
     paperBackground?: {
       colorA?: string;
@@ -81,6 +75,7 @@ declare module "@mui/material/styles" {
   }
 
   interface Palette {
+    titleColor: Palette["primary"];
     custom: Palette["primary"];
     paperBgA: Palette["primary"];
     paperBgB: Palette["primary"];
@@ -89,9 +84,7 @@ declare module "@mui/material/styles" {
   }
 
   interface PaletteOptions {
-    status?: {
-      danger?: string;
-    };
+    titleColor?: PaletteOptions["primary"];
     custom?: PaletteOptions["primary"];
     paperBgA?: PaletteOptions["primary"];
     paperBgB?: PaletteOptions["primary"];
@@ -241,16 +234,11 @@ const modifyDefaultsTheme = createTheme({
 export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   // Custom colors created with augmentColor go here
   palette: {
-    text: modifyDefaultsTheme.palette.augmentColor({
-      color: {
-        main: alpha("#93BDBA", 0.99),
-      },
-    }),
     titleColor: modifyDefaultsTheme.palette.augmentColor({
       color: {
-        main: alpha("#45F0DF", 0.99),
+        main: "#52FFB8",
       },
-      name: "bgGradient1",
+      name: "titleColor",
     }),
 
     paperBgA: modifyDefaultsTheme.palette.augmentColor({
@@ -277,39 +265,44 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
       },
       name: "paperBgD",
     }),
-    tonalOffset: 0.1,
+    tonalOffset: 0.9,
   },
 });
 
 customColorsTheme.typography.title = {
-  fontSize: "1.75rem",
+  fontSize: "1.5rem",
   fontWeight: 1000,
   lineHeight: 1,
   [modifyDefaultsTheme.breakpoints.up(400)]: {
-    fontSize: "2.25rem",
+    fontSize: "2rem",
   },
   [modifyDefaultsTheme.breakpoints.up(500)]: {
-    fontSize: "3rem",
+    fontSize: "2.4rem",
   },
   [modifyDefaultsTheme.breakpoints.up(600)]: {
-    fontSize: "3.25rem",
+    fontSize: "2.71rem",
   },
   [modifyDefaultsTheme.breakpoints.up(700)]: {
-    fontSize: "4rem",
+    fontSize: "3.2rem",
   },
   [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "4.5rem",
+    fontSize: "3.6rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "5.5rem",
+    fontSize: "4.35rem",
   },
   [modifyDefaultsTheme.breakpoints.up("lg")]: {
-    fontSize: "6rem",
+    fontSize: "4.5rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("xl")]: {
+    fontSize: "7.5rem",
   },
 };
 
-export const responsiveDefaultFontSizes =
-  responsiveFontSizes(customColorsTheme, {factor: 10});
+export const responsiveDefaultFontSizes = responsiveFontSizes(
+  customColorsTheme,
+  { factor: 10 },
+);
 
 responsiveDefaultFontSizes.typography.role = {
   fontSize: ".5rem",
@@ -376,7 +369,7 @@ responsiveDefaultFontSizes.typography.poster = {
 export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
   typography: {
     title: {
-      color: responsiveDefaultFontSizes.titleColor,
+      color: responsiveDefaultFontSizes.palette.titleColor,
     },
   },
 });
@@ -388,7 +381,7 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
         variantMapping: {
           // Map the new variant to render a <h1> by default
           // poster: "h1",
-          // title: "h1",
+          title: "h1",
         },
       },
     },
@@ -403,10 +396,6 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
             customTypographyTheme.palette.paperBgA.dark,
             0.1,
           )}, ${alpha(customTypographyTheme.palette.paperBgA.dark, 0.1)} 50%)`,
-          // backgroundImage: `linear-gradient(to right bottom, ${customTypographyTheme.palette.paperBgA.dark}, ${customTypographyTheme.palette.paperBgA.main} 40%),
-          //   linear-gradient(to left bottom, ${customTypographyTheme.palette.paperBgB.dark}, ${customTypographyTheme.palette.paperBgB.light} 40%),
-          //   linear-gradient(to left top, ${customTypographyTheme.palette.paperBgC.dark}, ${customTypographyTheme.palette.paperBgC.light} 40%),
-          //   linear-gradient(to right top, ${customTypographyTheme.palette.paperBgD.dark}, ${customTypographyTheme.palette.paperBgD.light} 40%)`,
         },
       },
     },

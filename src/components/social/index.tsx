@@ -36,9 +36,25 @@ export function StackedSocialLinks(props: {
     >
       <GitHub
         btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
+        iconSize={{
+          width: props.iconSize?.width,
+          height: props.iconSize?.height,
+        }}
       />
-      <LinkedIn />
-      <X />
+      <LinkedIn
+        btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
+        iconSize={{
+          width: props.iconSize?.width,
+          height: props.iconSize?.height,
+        }}
+      />
+      <X
+        btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
+        iconSize={{
+          width: props.iconSize?.width,
+          height: props.iconSize?.height,
+        }}
+      />
     </Stack>
   );
 }
