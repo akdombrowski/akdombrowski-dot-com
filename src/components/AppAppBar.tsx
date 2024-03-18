@@ -16,12 +16,6 @@ import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import Grid from "@mui/material/Unstable_Grid2";
 
-const logoStyle = {
-  width: "140px",
-  height: "auto",
-  cursor: "pointer",
-};
-
 function AppAppBar() {
   const [open, setOpen] = useState(false);
 
@@ -45,199 +39,211 @@ function AppAppBar() {
 
   return (
     <Container maxWidth={false}>
-      <Grid
-        id="appBar"
+      {/* <Grid
         container
         flexBasis="max-content"
-        paddingTop={5}
         spacing={1}
         flexGrow={1}
+      > */}
+      <AppBar
+        id="appBar"
+        position="fixed"
+        sx={{
+          width: "100%",
+          boxShadow: 10,
+          backgroundColor: "transparent",
+        }}
       >
-        <AppBar
+        <Toolbar
+          variant="regular"
           sx={{
-            width: "100vw",
-            position: "fixed",
-            boxShadow: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexShrink: 0,
+            height: "100%",
+            width: "100%",
             backgroundColor: "transparent",
+            backdropFilter: "blur(1000px)",
+            border: ".1rem solid",
+            borderColor: "divider",
+            boxShadow:
+              "0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)",
           }}
         >
-          <Toolbar
-            variant="regular"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexShrink: 0,
-              height: "100%",
-              width: "100%",
-              backgroundColor: "transparent",
-              backdropFilter: "blur(1000px)",
-              border: ".1rem solid",
-              borderColor: "divider",
-              boxShadow:
-                "0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)",
-            }}
-          >
-            <Grid container>
-              <Grid xs={1}></Grid>
-              <Box
-                sx={{
-                  flexGrow: 1,
-                  display: "flex",
-                  alignItems: "center",
-                  ml: "-18px",
-                  px: 0,
-                }}
-              >
-                <Image
-                  src={
-                    "https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
-                  }
-                  style={logoStyle}
-                  alt="logo of sitemark"
-                  fill
-                />
-                <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                  <MenuItem
-                    onClick={() => scrollToSection("features")}
-                    sx={{ py: "6px", px: "12px" }}
-                  >
-                    <Typography variant="body2" color="text.primary">
-                      Features
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => scrollToSection("testimonials")}
-                    sx={{ py: "6px", px: "12px" }}
-                  >
-                    <Typography variant="body2" color="text.primary">
-                      Testimonials
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => scrollToSection("highlights")}
-                    sx={{ py: "6px", px: "12px" }}
-                  >
-                    <Typography variant="body2" color="text.primary">
-                      Highlights
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => scrollToSection("pricing")}
-                    sx={{ py: "6px", px: "12px" }}
-                  >
-                    <Typography variant="body2" color="text.primary">
-                      Pricing
-                    </Typography>
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => scrollToSection("faq")}
-                    sx={{ py: "6px", px: "12px" }}
-                  >
-                    <Typography variant="body2" color="text.primary">
-                      FAQ
-                    </Typography>
-                  </MenuItem>
+          <Container maxWidth={false}>
+            <Grid id="innerAppBarGridContainer" container>
+              <Grid xs={1}>
+                <Box position="relative">
+                  <Image
+                    src={"/gokart-R.png"}
+                    alt="logo of anthony dombrowski"
+                    fill
+                  />
                 </Box>
-              </Box>
-              <Box
-                sx={{
-                  display: { xs: "none", md: "flex" },
-                  gap: 0.5,
-                  alignItems: "center",
-                }}
-              >
-                <Button
-                  color="primary"
-                  variant="text"
-                  size="small"
-                  component="a"
-                  href="/material-ui/getting-started/templates/sign-in/"
-                  target="_blank"
+              </Grid>
+
+              <Grid xs={2}>
+                <MenuItem
+                  onClick={() => scrollToSection("features")}
+                  sx={{ py: "6px", px: "12px" }}
                 >
-                  Sign in
-                </Button>
-                <Button
-                  color="primary"
-                  variant="contained"
-                  size="small"
-                  component="a"
-                  href="/material-ui/getting-started/templates/sign-up/"
-                  target="_blank"
+                  <Typography variant="body1" color="text.primary">
+                    Videos
+                  </Typography>
+                </MenuItem>
+              </Grid>
+
+              <Grid xs={2}>
+                <MenuItem
+                  onClick={() => scrollToSection("testimonials")}
+                  sx={{ py: "6px", px: "12px" }}
                 >
-                  Sign up
-                </Button>
-              </Box>
-              <Box sx={{ display: { sm: "", md: "none" } }}>
-                <Button
-                  variant="text"
-                  color="primary"
-                  aria-label="menu"
-                  onClick={toggleDrawer(true)}
-                  sx={{ minWidth: "30px", p: "4px" }}
+                  <Typography variant="body1" color="text.primary">
+                    Blogs
+                  </Typography>
+                </MenuItem>
+              </Grid>
+
+              <Grid xs={2}>
+                <MenuItem
+                  onClick={() => scrollToSection("highlights")}
+                  sx={{ py: "6px", px: "12px" }}
                 >
-                  <MenuIcon />
-                </Button>
-                <Drawer
-                  anchor="right"
-                  open={open}
-                  onClose={toggleDrawer(false)}
+                  <Typography variant="body1" color="text.primary">
+                    Highlights
+                  </Typography>
+                </MenuItem>
+              </Grid>
+
+              <Grid xs={2}>
+                <MenuItem
+                  onClick={() => scrollToSection("pricing")}
+                  sx={{ py: "6px", px: "12px" }}
                 >
-                  <Box
-                    sx={{
-                      minWidth: "60dvw",
-                      p: 2,
-                      backgroundColor: "background.paper",
-                      flexGrow: 1,
-                    }}
+                  <Typography variant="body1" color="text.primary">
+                    Pricing
+                  </Typography>
+                </MenuItem>
+              </Grid>
+
+              <Grid xs={1}>
+                <MenuItem
+                  onClick={() => scrollToSection("faq")}
+                  sx={{ py: "6px", px: "12px" }}
+                >
+                  <Typography variant="body1" color="text.primary">
+                    FAQ
+                  </Typography>
+                </MenuItem>
+              </Grid>
+
+              <Grid xs={1}>
+                <Box
+                  sx={{
+                    display: { xs: "none", md: "flex" },
+                    gap: 0.5,
+                    alignItems: "center",
+                  }}
+                >
+                  <Button
+                    color="primary"
+                    variant="text"
+                    size="small"
+                    component="a"
+                    href="/material-ui/getting-started/templates/sign-in/"
+                    target="_blank"
                   >
-                    <MenuItem onClick={() => scrollToSection("features")}>
-                      Features
-                    </MenuItem>
-                    <MenuItem onClick={() => scrollToSection("testimonials")}>
-                      Testimonials
-                    </MenuItem>
-                    <MenuItem onClick={() => scrollToSection("highlights")}>
-                      Highlights
-                    </MenuItem>
-                    <MenuItem onClick={() => scrollToSection("pricing")}>
-                      Pricing
-                    </MenuItem>
-                    <MenuItem onClick={() => scrollToSection("faq")}>
-                      FAQ
-                    </MenuItem>
-                    <Divider />
-                    <MenuItem>
-                      <Button
-                        color="primary"
-                        variant="contained"
-                        component="a"
-                        href="/material-ui/getting-started/templates/sign-up/"
-                        target="_blank"
-                        sx={{ width: "100%" }}
-                      >
-                        Sign up
-                      </Button>
-                    </MenuItem>
-                    <MenuItem>
-                      <Button
-                        color="primary"
-                        variant="outlined"
-                        component="a"
-                        href="/material-ui/getting-started/templates/sign-in/"
-                        target="_blank"
-                        sx={{ width: "100%" }}
-                      >
-                        Sign in
-                      </Button>
-                    </MenuItem>
-                  </Box>
-                </Drawer>
-              </Box>
+                    Sign in
+                  </Button>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="small"
+                    component="a"
+                    href="/material-ui/getting-started/templates/sign-up/"
+                    target="_blank"
+                  >
+                    Sign up
+                  </Button>
+                </Box>
+              </Grid>
+
+              <Grid xs={1}>
+                <Box sx={{ display: { sm: "", md: "none" } }}>
+                  <Button
+                    variant="text"
+                    color="info"
+                    aria-label="menu"
+                    onClick={toggleDrawer(true)}
+                    sx={{ minWidth: "30px", p: "4px" }}
+                  >
+                    <MenuIcon />
+                  </Button>
+                  <Drawer
+                    anchor="right"
+                    open={open}
+                    onClose={toggleDrawer(false)}
+                  >
+                    <Box
+                      sx={{
+                        minWidth: "60dvw",
+                        p: 2,
+                        backgroundColor: "background.paper",
+                        flexGrow: 1,
+                      }}
+                    >
+                      <MenuItem onClick={() => scrollToSection("Videos")}>
+                        Videos
+                      </MenuItem>
+                      <MenuItem onClick={() => scrollToSection("Blogs")}>
+                        Blogs
+                      </MenuItem>
+                      <MenuItem onClick={() => scrollToSection("highlights")}>
+                        Highlights
+                      </MenuItem>
+                      <MenuItem onClick={() => scrollToSection("pricing")}>
+                        Pricing
+                      </MenuItem>
+                      <MenuItem onClick={() => scrollToSection("faq")}>
+                        FAQ
+                      </MenuItem>
+                      <Divider />
+                      <MenuItem>
+                        <Button
+                          color="primary"
+                          variant="contained"
+                          component="a"
+                          href="/material-ui/getting-started/templates/sign-up/"
+                          target="_blank"
+                          sx={{ width: "100%" }}
+                        >
+                          Sign up
+                        </Button>
+                      </MenuItem>
+                      <MenuItem>
+                        <Button
+                          color="primary"
+                          variant="outlined"
+                          component="a"
+                          href="/material-ui/getting-started/templates/sign-in/"
+                          target="_blank"
+                          sx={{ width: "100%" }}
+                        >
+                          Sign in
+                        </Button>
+                      </MenuItem>
+                    </Box>
+                  </Drawer>
+                </Box>
+              </Grid>
             </Grid>
-          </Toolbar>
-        </AppBar>
-      </Grid>
+          </Container>
+        </Toolbar>
+      </AppBar>
+
+      <Toolbar />
+      {/* </Grid> */}
     </Container>
   );
 }

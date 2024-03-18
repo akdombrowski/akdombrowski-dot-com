@@ -7,12 +7,15 @@ import Roles from "@/components/Roles";
 import Hero from "./Hero";
 import Videos from "@/components/videos/Videos";
 import Footer from "@/components/Footer";
+import AppAppBar from "@/components/AppAppBar";
+import Toolbar from "@mui/material/Toolbar";
 
 export default function LandingPage() {
   return (
-    <Container id="landingPage" maxWidth={false} >
+    <Container id="landingPage" maxWidth={false}>
       <Box width="100%">
-        {/* <AppAppBar /> */}
+        <AppAppBar />
+
         <Grid
           id="Landing-grid"
           container
@@ -106,7 +109,7 @@ export default function LandingPage() {
             <Footer />
           </Grid>
           <Grid xs={12}>
-            <Box height="1vh"/>
+            <Box height="1vh" />
           </Grid>
         </Grid>
       </Box>
