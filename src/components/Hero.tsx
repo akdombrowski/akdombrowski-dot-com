@@ -115,7 +115,10 @@ export default function Hero() {
             </Box>
           </Grid>
 
-          <Grid id="rightHeroPicGridItem" xs={0} sm={2} padding={0}>
+          <Grid id="rightHeroPicGridItem" sm={2} padding={0}
+            sx={{
+              display: { xs: "none", sm: "block" }
+            }}>
             <Box
               width="100%"
               height="100%"

@@ -122,12 +122,11 @@ const modifyDefaultsTheme = createTheme({
 
   palette: {
     mode: "dark",
-    contrastThreshold: 3.5,
     primary: {
       main: "#11115F",
     },
     secondary: {
-      main: "#004FFF",
+      main: alpha("#fff", 0.1),
     },
     background: {
       default: "#00001A",
@@ -145,6 +144,7 @@ const modifyDefaultsTheme = createTheme({
     info: {
       main: "#BBD686",
     },
+    tonalOffset: 0.9,
   },
   typography: {
     fontFamily: "Roboto",

@@ -22,10 +22,19 @@ export default function Videos() {
         key={"video-" + video.title}
         flexGrow={0}
         display="flex"
-        sx={{ aspectRatio: 16 / 9 }}
-        justifyContent="space-between"
+        justifyContent="center"
+        alignItems="stretch"
+        sx={{
+          aspectRatio: 16 / 9,
+        }}
       >
-        <Box maxWidth="100%" height="100%" sx={{ aspectRatio: 16 / 9 }}>
+        <Box
+          maxWidth="100%"
+          height="100%"
+          display="flex"
+          justifyContent="center"
+          sx={{ aspectRatio: 16 / 9 }}
+        >
           <VideoContainer title={video.title} url={video.url} />
         </Box>
       </Grid>
@@ -37,7 +46,7 @@ export default function Videos() {
       width="100%"
       height="100%"
       sx={{
-        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.2), 20%, rgba(0,0,0,0.7), 80%, rgba(0,0,0,0.2)),linear-gradient(to bottom, rgba(0,0,0,0.2), 20%, rgba(0,0,0,0.7), 80%, rgba(0,0,0,0.2))`,
+        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.2)), linear-gradient(to bottom, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.2))`,
       }}
     >
       <Paper elevation={6}>
@@ -46,7 +55,6 @@ export default function Videos() {
           py={2}
           sx={{
             backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
-
           }}
         >
           <Typography
@@ -68,17 +76,17 @@ export default function Videos() {
           alignContent="space-around"
           alignItems="stretch"
           justifyContent="center"
-          sx={{
-            "--Grid-borderWidth": "5px",
-            "borderTop": "var(--Grid-borderWidth) solid",
-            "borderLeft": "var(--Grid-borderWidth) solid",
-            "borderColor": "divider",
-            "& > div": {
-              borderRight: "var(--Grid-borderWidth) solid",
-              borderBottom: "var(--Grid-borderWidth) solid",
-              borderColor: "divider",
-            },
-          }}
+          // sx={{
+          //   "--Grid-borderWidth": "5px",
+          //   "borderTop": "var(--Grid-borderWidth) solid",
+          //   "borderLeft": "var(--Grid-borderWidth) solid",
+          //   "borderColor": "divider",
+          //   "& > div": {
+          //     borderRight: "var(--Grid-borderWidth) solid",
+          //     borderBottom: "var(--Grid-borderWidth) solid",
+          //     borderColor: "divider",
+          //   },
+          // }}
         >
           {createVideoContainers}
         </Grid>
