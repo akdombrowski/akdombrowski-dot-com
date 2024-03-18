@@ -4,7 +4,6 @@ import "client-only";
 import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
 import type { CSSProperties } from "react";
 import type { TypographyStyleOptions } from "@mui/material/styles/createTypography";
-import { fontStyle } from "@mui/system";
 
 // import { Roboto } from "next/font/google";
 
@@ -27,6 +26,8 @@ declare module "@mui/system" {
     md: true;
     lg: true;
     xl: true;
+    fhd: true;
+    uhd: true;
   }
 }
 
@@ -60,17 +61,11 @@ declare module "@mui/material/styles" {
     status: {
       danger: string;
     };
-    titleColor?: {
-      primary?: string;
-    };
   }
 
   interface ThemeOptions {
     status?: {
       danger?: string;
-    };
-    titleColor?: {
-      primary?: string;
     };
     paperBackground?: {
       colorA?: string;
@@ -81,6 +76,7 @@ declare module "@mui/material/styles" {
   }
 
   interface Palette {
+    titleColor: Palette["primary"];
     custom: Palette["primary"];
     paperBgA: Palette["primary"];
     paperBgB: Palette["primary"];
@@ -89,9 +85,7 @@ declare module "@mui/material/styles" {
   }
 
   interface PaletteOptions {
-    status?: {
-      danger?: string;
-    };
+    titleColor?: PaletteOptions["primary"];
     custom?: PaletteOptions["primary"];
     paperBgA?: PaletteOptions["primary"];
     paperBgB?: PaletteOptions["primary"];
@@ -121,17 +115,18 @@ const modifyDefaultsTheme = createTheme({
       md: 900,
       lg: 1200,
       xl: 1536,
+      fhd: 1920,
+      uhd: 3840,
     },
   },
 
   palette: {
     mode: "dark",
-    contrastThreshold: 3.5,
     primary: {
       main: "#11115F",
     },
     secondary: {
-      main: "#004FFF",
+      main: alpha("#fff", 0.1),
     },
     background: {
       default: "#00001A",
@@ -145,11 +140,11 @@ const modifyDefaultsTheme = createTheme({
     divider: alpha("#00001A", 0.99),
     success: {
       main: "#63A375",
-      contrastText: "#9EE37D",
     },
     info: {
       main: "#BBD686",
     },
+    tonalOffset: 0.9,
   },
   typography: {
     fontFamily: "Roboto",
@@ -241,16 +236,11 @@ const modifyDefaultsTheme = createTheme({
 export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   // Custom colors created with augmentColor go here
   palette: {
-    text: modifyDefaultsTheme.palette.augmentColor({
-      color: {
-        main: alpha("#93BDBA", 0.99),
-      },
-    }),
     titleColor: modifyDefaultsTheme.palette.augmentColor({
       color: {
-        main: alpha("#45F0DF", 0.99),
+        main: "#52FFB8",
       },
-      name: "bgGradient1",
+      name: "titleColor",
     }),
 
     paperBgA: modifyDefaultsTheme.palette.augmentColor({
@@ -277,39 +267,50 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
       },
       name: "paperBgD",
     }),
-    tonalOffset: 0.1,
+    tonalOffset: 0.9,
   },
 });
 
 customColorsTheme.typography.title = {
-  fontSize: "1.75rem",
+  fontSize: "1.5rem",
   fontWeight: 1000,
   lineHeight: 1,
   [modifyDefaultsTheme.breakpoints.up(400)]: {
-    fontSize: "2.25rem",
+    fontSize: "2rem",
   },
   [modifyDefaultsTheme.breakpoints.up(500)]: {
-    fontSize: "3rem",
+    fontSize: "2.4rem",
   },
   [modifyDefaultsTheme.breakpoints.up(600)]: {
-    fontSize: "3.25rem",
+    fontSize: "2.71rem",
   },
   [modifyDefaultsTheme.breakpoints.up(700)]: {
-    fontSize: "4rem",
+    fontSize: "3.2rem",
   },
   [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "4.5rem",
+    fontSize: "3.5rem",
   },
   [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "5.5rem",
+    fontSize: "4.75rem",
   },
   [modifyDefaultsTheme.breakpoints.up("lg")]: {
     fontSize: "6rem",
   },
+  [modifyDefaultsTheme.breakpoints.up("xl")]: {
+    fontSize: "7.1rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("fhd")]: {
+    fontSize: "8rem",
+  },
+  [modifyDefaultsTheme.breakpoints.up("uhd")]: {
+    fontSize: "15rem",
+  },
 };
 
-export const responsiveDefaultFontSizes =
-  responsiveFontSizes(customColorsTheme, {factor: 10});
+export const responsiveDefaultFontSizes = responsiveFontSizes(
+  customColorsTheme,
+  { factor: 10 },
+);
 
 responsiveDefaultFontSizes.typography.role = {
   fontSize: ".5rem",
@@ -376,7 +377,7 @@ responsiveDefaultFontSizes.typography.poster = {
 export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
   typography: {
     title: {
-      color: responsiveDefaultFontSizes.titleColor,
+      color: responsiveDefaultFontSizes.palette.titleColor,
     },
   },
 });
@@ -388,7 +389,7 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
         variantMapping: {
           // Map the new variant to render a <h1> by default
           // poster: "h1",
-          // title: "h1",
+          title: "h1",
         },
       },
     },
@@ -403,10 +404,6 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
             customTypographyTheme.palette.paperBgA.dark,
             0.1,
           )}, ${alpha(customTypographyTheme.palette.paperBgA.dark, 0.1)} 50%)`,
-          // backgroundImage: `linear-gradient(to right bottom, ${customTypographyTheme.palette.paperBgA.dark}, ${customTypographyTheme.palette.paperBgA.main} 40%),
-          //   linear-gradient(to left bottom, ${customTypographyTheme.palette.paperBgB.dark}, ${customTypographyTheme.palette.paperBgB.light} 40%),
-          //   linear-gradient(to left top, ${customTypographyTheme.palette.paperBgC.dark}, ${customTypographyTheme.palette.paperBgC.light} 40%),
-          //   linear-gradient(to right top, ${customTypographyTheme.palette.paperBgD.dark}, ${customTypographyTheme.palette.paperBgD.light} 40%)`,
         },
       },
     },

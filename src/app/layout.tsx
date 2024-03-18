@@ -19,8 +19,9 @@ import CssBaseline from "@mui/material/CssBaseline";
 // nextjs optimization
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
-// vercel site performance analytics
+// vercel site performance and analytics
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Anthony Dombrowski's Portfolio",
@@ -39,6 +40,7 @@ export default function RootLayout(props: { children: ReactNode }) {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             {props.children}
             <SpeedInsights />
+            <Analytics />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

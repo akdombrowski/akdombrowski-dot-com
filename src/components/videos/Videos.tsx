@@ -9,7 +9,6 @@ import VideoContainer from "./VideoContainer";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import { VIDEOS_TITLE_URL } from "./VideoURLs";
-// import useClient from "./useClient";
 // import ReactPlayer from "react-player/youtube";
 // import NextVideoPlayer from "next-video";
 
@@ -23,94 +22,73 @@ export default function Videos() {
         key={"video-" + video.title}
         flexGrow={0}
         display="flex"
-        paddingY={3}
-
-        paddingX={5}
-        sx={{ aspectRatio: 16 / 9 }}
         justifyContent="center"
+        alignItems="stretch"
+        sx={{
+          aspectRatio: 16 / 9,
+        }}
       >
-        <Box maxWidth="100%" height="100%" sx={{ aspectRatio: 16 / 9 }}>
+        <Box
+          maxWidth="100%"
+          height="100%"
+          display="flex"
+          justifyContent="center"
+          sx={{ aspectRatio: 16 / 9 }}
+        >
           <VideoContainer title={video.title} url={video.url} />
         </Box>
       </Grid>
     );
   });
 
-  const createSpacers = () => {
-    const numVideos = VIDEOS_TITLE_URL.length;
-    const numSpacersSm = numVideos % 2;
-  };
-
   return (
     <Box
       width="100%"
       height="100%"
       sx={{
-        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.2), 20%, rgba(0,0,0,0.7), 80%, rgba(0,0,0,0.2)),linear-gradient(to bottom, rgba(0,0,0,0.2), 20%, rgba(0,0,0,0.7), 80%, rgba(0,0,0,0.2))`,
+        backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.2)), linear-gradient(to bottom, rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.7) 80%, rgba(0,0,0,0.2))`,
       }}
     >
       <Paper elevation={6}>
         <Box
           width="100%"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          pt={3}
+          py={2}
+          sx={{
+            backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
+          }}
         >
-          <Typography variant="h3" color="text.light">
+          <Typography
+            variant="h1"
+            component="span"
+            display="inline-block"
+            width="100%"
+            fontWeight={100}
+            align="center"
+            letterSpacing="1vw"
+          >
             Content Library
           </Typography>
         </Box>
         <Grid
           id="videosContainer"
           container
-          columns={12}
-          marginX={3}
-          marginY={2}
+          columns={{ xs: 6, md: 12 }}
           alignContent="space-around"
           alignItems="stretch"
           justifyContent="center"
-          sx={{
-            "--Grid-borderWidth": "5px",
-            "borderTop": "var(--Grid-borderWidth) solid",
-            "borderLeft": "var(--Grid-borderWidth) solid",
-            "borderColor": "divider",
-            "& > div": {
-              borderRight: "var(--Grid-borderWidth) solid",
-              borderBottom: "var(--Grid-borderWidth) solid",
-              borderColor: "divider",
-            },
-          }}
+          // sx={{
+          //   "--Grid-borderWidth": "5px",
+          //   "borderTop": "var(--Grid-borderWidth) solid",
+          //   "borderLeft": "var(--Grid-borderWidth) solid",
+          //   "borderColor": "divider",
+          //   "& > div": {
+          //     borderRight: "var(--Grid-borderWidth) solid",
+          //     borderBottom: "var(--Grid-borderWidth) solid",
+          //     borderColor: "divider",
+          //   },
+          // }}
         >
           {createVideoContainers}
-          <Grid
-            xs={1}
-            id="spacer"
-            flexGrow={0}
-            display="flex"
-            sx={{ aspectRatio: 16 / 9 }}
-            justifyContent="center"
-          >
-            <Box
-              maxWidth="100%"
-              height="100%"
-              sx={{ aspectRatio: 16 / 9 }}
-            ></Box>
-          </Grid>
-          <Grid
-            xs={1}
-            id="spacer"
-            flexGrow={0}
-            display="flex"
-            sx={{ aspectRatio: 16 / 9 }}
-            justifyContent="center"
-          >
-            <Box
-              maxWidth="100%"
-              height="100%"
-              sx={{ aspectRatio: 16 / 9 }}
-            ></Box>
-          </Grid>
         </Grid>
       </Paper>
     </Box>
