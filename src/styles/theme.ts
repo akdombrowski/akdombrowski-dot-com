@@ -100,7 +100,6 @@ declare module "@mui/material/Button" {
   }
 }
 
-// export const theme = createTheme(themeOptions);
 
 const modifyDefaultsTheme = createTheme({
   breakpoints: {
@@ -271,113 +270,10 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   },
 });
 
-customColorsTheme.typography.title = {
-  fontSize: "1.5rem",
-  fontWeight: 1000,
-  lineHeight: 1,
-  [modifyDefaultsTheme.breakpoints.up(400)]: {
-    fontSize: "2rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(500)]: {
-    fontSize: "2.4rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(600)]: {
-    fontSize: "2.71rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(700)]: {
-    fontSize: "3.2rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "3.5rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "4.75rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("lg")]: {
-    fontSize: "6rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("xl")]: {
-    fontSize: "7.1rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("fhd")]: {
-    fontSize: "8rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("uhd")]: {
-    fontSize: "15rem",
-  },
-};
-
-export const responsiveDefaultFontSizes = responsiveFontSizes(
-  customColorsTheme,
-  { factor: 10 },
-);
-
-responsiveDefaultFontSizes.typography.role = {
-  fontSize: ".5rem",
-  fontWeight: 100,
-  lineHeight: 1,
-  [modifyDefaultsTheme.breakpoints.up(400)]: {
-    fontSize: ".7rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(500)]: {
-    fontSize: ".9rem",
-    fontWeight: 200,
-  },
-  [modifyDefaultsTheme.breakpoints.up(600)]: {
-    fontSize: "1rem",
-    fontWeight: 300,
-  },
-  [modifyDefaultsTheme.breakpoints.up(700)]: {
-    fontSize: "1.25rem",
-    fontWeight: 400,
-  },
-  [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "1.5rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "1.65rem",
-  },
-};
-
-responsiveDefaultFontSizes.typography.subRole = {
-  fontSize: ".4rem",
-  fontWeight: 100,
-  lineHeight: 1,
-  [modifyDefaultsTheme.breakpoints.up(400)]: {
-    fontSize: ".5rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(500)]: {
-    fontSize: ".7rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(600)]: {
-    fontSize: ".8rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up(700)]: {
-    fontSize: ".9rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "1rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "1.2rem",
-    fontWeight: 300,
-  },
-};
-
-responsiveDefaultFontSizes.typography.poster = {
-  "fontSize": "2.5rem",
-  "@media (min-width:600px)": {
-    fontSize: "3.75rem",
-  },
-  [modifyDefaultsTheme.breakpoints.up("md")]: {
-    fontSize: "4.15rem",
-  },
-};
-
-export const customTypographyTheme = createTheme(responsiveDefaultFontSizes, {
+export const customTypographyTheme = createTheme(customColorsTheme, {
   typography: {
     title: {
-      color: responsiveDefaultFontSizes.palette.titleColor,
+      color: customColorsTheme.palette.titleColor,
     },
   },
 });
@@ -410,4 +306,149 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
   },
 });
 
-export default customComponentsTheme;
+/**
+ *
+ * Responsive Font Sizes fn
+ *
+ */
+export const responsiveFont = responsiveFontSizes(customComponentsTheme,
+  {
+    breakpoints: ["foreHundo",
+    "phiveHundo",
+    "seisHundo",
+    "nanaHundo",
+    "ateHundo",
+    // Remove default breakpoints
+    "xs",
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "fhd",
+    "uhd",
+  ],
+  factor: 10,
+});
+
+
+/**
+ * CUSTOM Typography Variant
+ *
+ * title
+ */
+responsiveFont.typography.title = {
+  fontSize: "1.5rem",
+  fontWeight: 1000,
+  lineHeight: 1,
+  [customComponentsTheme.breakpoints.up(400)]: {
+    fontSize: "2rem",
+  },
+  [customComponentsTheme.breakpoints.up(500)]: {
+    fontSize: "2.4rem",
+  },
+  [customComponentsTheme.breakpoints.up(600)]: {
+    fontSize: "2.71rem",
+  },
+  [customComponentsTheme.breakpoints.up(700)]: {
+    fontSize: "3.2rem",
+  },
+  [customComponentsTheme.breakpoints.up("ateHundo")]: {
+    fontSize: "3.5rem",
+  },
+  [customComponentsTheme.breakpoints.up("md")]: {
+    fontSize: "4.75rem",
+  },
+  [customComponentsTheme.breakpoints.up("lg")]: {
+    fontSize: "6rem",
+  },
+  [customComponentsTheme.breakpoints.up("xl")]: {
+    fontSize: "7.1rem",
+  },
+  [customComponentsTheme.breakpoints.up("fhd")]: {
+    fontSize: "8rem",
+  },
+  [customComponentsTheme.breakpoints.up("uhd")]: {
+    fontSize: "15rem",
+  },
+};
+
+/**
+ * CUSTOM Typography Variant
+ *
+ * role
+ */
+responsiveFont.typography.role = {
+  fontSize: ".5rem",
+  fontWeight: 100,
+  lineHeight: 1,
+  [customComponentsTheme.breakpoints.up(400)]: {
+    fontSize: ".7rem",
+  },
+  [customComponentsTheme.breakpoints.up(500)]: {
+    fontSize: ".9rem",
+    fontWeight: 200,
+  },
+  [customComponentsTheme.breakpoints.up(600)]: {
+    fontSize: "1rem",
+    fontWeight: 300,
+  },
+  [customComponentsTheme.breakpoints.up(700)]: {
+    fontSize: "1.25rem",
+    fontWeight: 400,
+  },
+  [customComponentsTheme.breakpoints.up("ateHundo")]: {
+    fontSize: "1.5rem",
+  },
+  [customComponentsTheme.breakpoints.up("md")]: {
+    fontSize: "1.65rem",
+  },
+};
+
+/**
+ * CUSTOM Typography Variant
+ *
+ * subRole
+ */
+responsiveFont.typography.subRole = {
+  fontSize: ".4rem",
+  fontWeight: 100,
+  lineHeight: 1,
+  [customComponentsTheme.breakpoints.up(400)]: {
+    fontSize: ".5rem",
+  },
+  [customComponentsTheme.breakpoints.up(500)]: {
+    fontSize: ".7rem",
+  },
+  [customComponentsTheme.breakpoints.up(600)]: {
+    fontSize: ".8rem",
+  },
+  [customComponentsTheme.breakpoints.up(700)]: {
+    fontSize: ".9rem",
+  },
+  [customComponentsTheme.breakpoints.up("ateHundo")]: {
+    fontSize: "1rem",
+  },
+  [customComponentsTheme.breakpoints.up("md")]: {
+    fontSize: "1.2rem",
+    fontWeight: 300,
+  },
+};
+
+/**
+ * CUSTOM Typography Variant
+ *
+ * poster
+ */
+responsiveFont.typography.poster = {
+  "fontSize": "2.5rem",
+  "@media (min-width:600px)": {
+    fontSize: "3.75rem",
+  },
+  [customComponentsTheme.breakpoints.up("md")]: {
+    fontSize: "4.15rem",
+  },
+};
+
+const theme = responsiveFont;
+
+export default theme;

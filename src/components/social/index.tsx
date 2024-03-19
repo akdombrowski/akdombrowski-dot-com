@@ -5,6 +5,7 @@ import X from "./X";
 export { LinkedInURL } from "./LinkedIn";
 
 import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
 
 export { default as GitHub } from "./GitHub";
 export { default as LinkedIn } from "./LinkedIn";
@@ -56,5 +57,50 @@ export function StackedSocialLinks(props: {
         }}
       />
     </Stack>
+  );
+}
+
+export function GitHubLinkedin(props: {
+  spacing?: number | string;
+  iconSize?: { width?: string | number; height?: string | number };
+  btnSize?: { width?: string | number; height?: string | number };
+  boxSize?: { width?: string | number; height?: string | number };
+}) {
+  return (
+    <>
+      <Box
+        id="githubLinkedinBox"
+        pr={props.spacing}
+        width={props.boxSize?.width}
+        height={props.boxSize?.height}
+      >
+        <GitHub
+          btnSize={{
+            width: props.btnSize?.width,
+            height: props.btnSize?.height,
+          }}
+          iconSize={{
+            width: props.iconSize?.width,
+            height: props.iconSize?.height,
+          }}
+        />
+      </Box>
+      <Box
+        pl={props.spacing}
+        width={props.boxSize?.width}
+        height={props.boxSize?.height}
+      >
+        <LinkedIn
+          btnSize={{
+            width: props.btnSize?.width,
+            height: props.btnSize?.height,
+          }}
+          iconSize={{
+            width: props.iconSize?.width,
+            height: props.iconSize?.height,
+          }}
+        />
+      </Box>
+    </>
   );
 }

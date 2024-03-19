@@ -7,7 +7,7 @@ import Roles from "@/components/Roles";
 import Hero from "./Hero";
 import Videos from "@/components/videos/Videos";
 import Footer from "@/components/Footer";
-import AppAppBar from "@/components/AppAppBar";
+import AppAppBar from "@/components/appbar/AppAppBar";
 import Toolbar from "@mui/material/Toolbar";
 
 export default function LandingPage() {

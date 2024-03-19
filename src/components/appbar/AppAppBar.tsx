@@ -1,8 +1,6 @@
 "use client";
 import "client-only";
 
-import Image from "next/image";
-
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -17,7 +15,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import { alpha } from "@mui/material/styles";
-import { LinkedIn, GitHub } from "@/social";
+import { LinkedIn, GitHub, GitHubLinkedin } from "@/social";
+import { LogoAndPageSections } from "./LogoAndPageSections";
 
 function AppAppBar() {
   const [open, setOpen] = useState(false);
@@ -57,8 +56,8 @@ function AppAppBar() {
             disableGutters
             sx={{
               display: "flex",
-              minHeight: "10vh",
-              maxHeight: "10vh",
+              minHeight: "40px",
+              maxHeight: "6vh",
               alignItems: "stretch",
               backgroundColor: alpha("#fff", 0.01),
               backdropFilter: "blur(1000px)",
@@ -83,130 +82,42 @@ function AppAppBar() {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Grid
-                  container
-                  columns={12}
-                  width="100%"
-                  height="100%"
-                  justifyContent="space-between"
-                  alignItems="stretch"
-                >
-                  <Grid
-                    xs={3}
-                    display="flex"
-                    height="100%"
-                    justifyContent="left"
-                    alignItems="stretch"
-                  >
-                    <Box
-                      sx={{ aspectRatio: 16 / 9 }}
-                      maxWidth="100%"
-                      height="100%"
-                      position="relative"
-                    >
-                      <Image
-                        src={"/gokart-R.png"}
-                        alt="logo of anthony dombrowski"
-                        objectFit="contain"
-                        style={{ overflow: "hidden" }}
-                        fill
-                      />
-                    </Box>
-                  </Grid>
-
-                  <Grid
-                    xs={9}
-                    height="100%"
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    <Grid
-                      container
-                      columns={12}
-                      width="100%"
-                      height="100%"
-                      justifyContent="left"
-                      alignItems="stretch"
-                      columnSpacing={3}
-                    >
-                      <Grid
-                        height="100%"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <MenuItem
-                          onClick={() => scrollToSection("features")}
-                          sx={{ py: "6px", px: "12px" }}
-                        >
-                          <Typography variant="body1" color="text.primary">
-                            Videos
-                          </Typography>
-                        </MenuItem>
-                      </Grid>
-
-                      <Grid
-                        height="100%"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <MenuItem
-                          onClick={() => scrollToSection("testimonials")}
-                          sx={{ py: "6px", px: "12px" }}
-                        >
-                          <Typography variant="body1" color="text.primary">
-                            Blogs
-                          </Typography>
-                        </MenuItem>
-                      </Grid>
-
-                      <Grid
-                        height="100%"
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                      >
-                        <MenuItem
-                          onClick={() => scrollToSection("highlights")}
-                          sx={{ py: "6px", px: "12px" }}
-                        >
-                          <Typography variant="body1" color="text.primary">
-                            Highlights
-                          </Typography>
-                        </MenuItem>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
+                {LogoAndPageSections(scrollToSection)}
               </Grid>
 
               <Grid
                 xs={4}
+                flexGrow={2}
                 height="100%"
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
               >
-                <Typography variant="overline" fontWeight={900} color="text.primary">
+                <Typography
+                  variant="overline"
+                  fontWeight={900}
+                  color="text.primary"
+                  overflow="hidden"
+                  textOverflow="clip"
+                  noWrap
+                >
                   Anthony Dombrowski's Site
                 </Typography>
               </Grid>
 
               <Grid
+                id="appbar-socialLinksGrid"
                 xs={2}
                 height="100%"
                 display="flex"
                 justifyContent="right"
                 alignItems="center"
               >
-                <Box width="40%">
-                  <LinkedIn btnSize={{ height: "100%", width: "100%" }} />
-                </Box>
-                <Box width="40%">
-                  <GitHub btnSize={{ height: "100%", width: "100%" }} />
-                </Box>
+                <GitHubLinkedin
+                  spacing="10%"
+                  boxSize={{ width: "auto", height: "100%" }}
+                  btnSize={{ width: "100%", height: "100%" }}
+                />
               </Grid>
 
               <Grid xs={1} display={{ sm: "", md: "none" }}>
