@@ -10,15 +10,22 @@ export function LogoAndPageSections(
 ) {
   return (
     <Grid
+      id="logoAndPageSections-gridContainer"
       container
       columns={12}
       width="100%"
       height="100%"
-      justifyContent="space-between"
+      flexWrap="nowrap"
+      overflow="hidden"
+      justifyContent="left"
       alignItems="stretch"
     >
+      {/* Logo Image */}
       <Grid
-        xs={3}
+        id="logoAndPageSections-logoImageGrid"
+        xs={1}
+        flexGrow={0}
+        flexShrink={2}
         display="flex"
         height="100%"
         justifyContent="left"
@@ -41,15 +48,22 @@ export function LogoAndPageSections(
       </Grid>
 
       <Grid
-        xs={9}
+        id="logoAndPageSections-pageSectionGrid"
+        xs={6}
         height="100%"
+        flexGrow={2}
+        flexShrink={1}
         display="flex"
         justifyContent="center"
         alignItems="center"
       >
         <Grid
+          id="logoAndPageSections-pageSectionInnerGridContainer"
           container
-          columns={12}
+          columns={3}
+          spacing={0}
+          flexWrap="nowrap"
+          overflow="hidden"
           width="100%"
           height="100%"
           justifyContent="left"
@@ -57,6 +71,7 @@ export function LogoAndPageSections(
           columnSpacing={3}
         >
           <Grid
+            xs={1}
             height="100%"
             display="flex"
             justifyContent="center"
@@ -73,6 +88,7 @@ export function LogoAndPageSections(
           </Grid>
 
           <Grid
+            xs={1}
             height="100%"
             display="flex"
             justifyContent="center"
@@ -89,6 +105,7 @@ export function LogoAndPageSections(
           </Grid>
 
           <Grid
+            xs={1}
             height="100%"
             display="flex"
             justifyContent="center"

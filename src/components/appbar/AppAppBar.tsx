@@ -72,27 +72,32 @@ function AppAppBar() {
               container
               justifyContent="space-between"
               alignItems="stretch"
-              columnSpacing={3}
+              columnSpacing={{ xs: 1, md: 3}}
               width="100%"
             >
               <Grid
+                id="appbar-logoAndPageSectionsGrid"
                 xs={6}
+                flexGrow={1}
+                flexShrink={1}
                 height="100%"
                 display="flex"
-                justifyContent="center"
+                justifyContent="left"
                 alignItems="center"
-              >
+                >
                 {LogoAndPageSections(scrollToSection)}
               </Grid>
 
               <Grid
-                xs={4}
-                flexGrow={2}
+                id="appbar-nameGrid"
+                xs={3}
+                flexGrow={1}
+                flexShrink={1}
                 height="100%"
                 display="flex"
-                justifyContent="center"
+                justifyContent="right"
                 alignItems="center"
-              >
+                >
                 <Typography
                   variant="overline"
                   fontWeight={900}
@@ -100,27 +105,30 @@ function AppAppBar() {
                   overflow="hidden"
                   textOverflow="clip"
                   noWrap
-                >
+                  >
                   Anthony Dombrowski's Site
                 </Typography>
               </Grid>
 
               <Grid
                 id="appbar-socialLinksGrid"
-                xs={2}
+                xs={1}
+                flexGrow={0}
+                flexShrink={1}
+
                 height="100%"
                 display="flex"
                 justifyContent="right"
                 alignItems="center"
               >
                 <GitHubLinkedin
-                  spacing="10%"
+                  spacing="1vw"
                   boxSize={{ width: "auto", height: "100%" }}
                   btnSize={{ width: "100%", height: "100%" }}
                 />
               </Grid>
 
-              <Grid xs={1} display={{ sm: "", md: "none" }}>
+              <Grid id="appbar-drawerGrid" xs={1} display={{ sm: "flex", md: "none" }} justifyContent="right">
                 <Button
                   variant="text"
                   color="info"
@@ -137,7 +145,7 @@ function AppAppBar() {
                 >
                   <Box
                     sx={{
-                      minWidth: "60dvw",
+                      minWidth: "60vw",
                       p: 2,
                       backgroundColor: "background.paper",
                       flexGrow: 1,

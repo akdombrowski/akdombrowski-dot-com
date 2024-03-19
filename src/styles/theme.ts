@@ -17,10 +17,10 @@ declare module "@mui/system" {
     // Your custom breakpoints
     foreHundo: true;
     phiveHundo: true;
-    seisHundo: true;
     nanaHundo: true;
     ateHundo: true;
-    // Remove default breakpoints
+    senHundo: true;
+    // default breakpoints
     xs: true;
     sm: true;
     md: true;
@@ -100,15 +100,20 @@ declare module "@mui/material/Button" {
   }
 }
 
-
+/**
+ *
+ * Customize Defaults + Define New Ones
+ *
+ */
 const modifyDefaultsTheme = createTheme({
   breakpoints: {
     values: {
       foreHundo: 400,
       phiveHundo: 500,
-      seisHundo: 600,
+      // sm: 600
       nanaHundo: 700,
       ateHundo: 800,
+      senHundo: 1000,
       xs: 0,
       sm: 600,
       md: 900,
@@ -232,6 +237,13 @@ const modifyDefaultsTheme = createTheme({
   },
 });
 
+/**
+ *
+ * Customize Palette
+ *
+ * with new colors using {augmentColor} to generate color tokens
+ *
+ */
 export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   // Custom colors created with augmentColor go here
   palette: {
@@ -270,6 +282,11 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   },
 });
 
+/**
+ *
+ * Add Custom Typography Variant
+ *
+ */
 export const customTypographyTheme = createTheme(customColorsTheme, {
   typography: {
     title: {
@@ -278,6 +295,11 @@ export const customTypographyTheme = createTheme(customColorsTheme, {
   },
 });
 
+/**
+ *
+ * Customize MUI Components
+ *
+ */
 export const customComponentsTheme = createTheme(customTypographyTheme, {
   components: {
     MuiTypography: {
@@ -311,14 +333,13 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
  * Responsive Font Sizes fn
  *
  */
-export const responsiveFont = responsiveFontSizes(customComponentsTheme,
-  {
-    breakpoints: ["foreHundo",
+export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
+  breakpoints: [
+    "foreHundo",
     "phiveHundo",
-    "seisHundo",
     "nanaHundo",
     "ateHundo",
-    // Remove default breakpoints
+    "senHundo",
     "xs",
     "sm",
     "md",
@@ -332,6 +353,7 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme,
 
 
 /**
+ *
  * CUSTOM Typography Variant
  *
  * title
