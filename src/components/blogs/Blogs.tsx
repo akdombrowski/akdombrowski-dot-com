@@ -14,6 +14,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
+import Hero from "@/components/Hero";
 import { LinkedInURL } from "@/social/LinkedIn";
 
 import { useTheme, alpha } from "@mui/material/styles";
@@ -22,131 +23,97 @@ export default function Blogs() {
   const theme = useTheme();
 
   return (
-    <Button
-      fullWidth
-      variant="text"
-      component={Link}
-      href={LinkedInURL}
-      sx={{ display: "flex" }}
-    >
-      <Container maxWidth={false} disableGutters>
-        <Grid
-          id="heroGridContainer"
-          container
-          columns={24}
-          flexWrap="nowrap"
-          justifyContent="center"
-          alignItems="stretch"
-        >
-          <Grid id="leftHeroPicGridItem" xs={2} padding={0}>
-            <Box height="100%" sx={{ aspectRatio: 9 / 16 }} position="relative">
-              <Image
-                id="leftHeroPic"
-                src={profilePic}
-                quality={100}
-                placeholder="blur"
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "55% 10%",
-                  opacity: "80%",
-                }}
-                fill
-                priority
-                alt="anthony dombrowski profile pic"
-              />
-            </Box>
-          </Grid>
+    <Container maxWidth={false} disableGutters>
+      <Grid
+        id="blogs-GridContainer"
+        container
+        columns={24}
+        flexWrap="nowrap"
+        justifyContent="center"
+        alignItems="stretch"
+      >
           <Grid
-            id="hero-spacer"
-            xs={1}
-            display="flex"
-            justifyContent="left"
-            alignItems="stretch"
-          ></Grid>
-          <Grid
-            id="heroTitleGridItem"
-            flexBasis="min-content"
-            flexGrow={5}
+            id="blogs-pageTitle"
+            xs={12}
             display="flex"
             justifyContent="center"
             alignItems="center"
+            paddingTop="2rem"
           >
-            <Typography
-              variant="title"
-              color="titleColor.light"
-              align="center"
-              sx={{
-                textDecorationStyle: "solid",
-                textDecorationColor: alpha(theme.palette.titleColor.light, 1),
-                textDecorationLine: "underline",
-              }}
-            >
-              Anthony Dombrowski
-            </Typography>
+            <Hero title="Blog" />
           </Grid>
-          <Grid
-            id="hero-linkedin"
-            xs={2}
-            display="flex"
-            justifyContent="left"
-            alignItems="stretch"
-          >
-            <Box
-              mt="auto"
-              // color={theme.palette.secondary.light}
-              sx={{
-                aspectRatio: 1,
-              }}
-            >
-              <LinkedInIcon
-                sx={{
-                  color: "#0077b5",
-                  background: `radial-gradient(ellipse closest-corner at center, ${alpha(
-                    "#fff",
-                    0.85,
-                  )} 0, ${alpha("#fff", 0.85)} 52%, ${alpha(
-                    "#fff",
-                    0.5,
-                  )} 53%,${alpha("#fff", 0)} 54%)`,
-                  width: "100%",
-                  height: "100%",
-                }}
-              />
-            </Box>
-          </Grid>
+        <Grid
+          id="blogs-"
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
 
-          <Grid
-            id="rightHeroPicGridItem"
-            sm={2}
-            padding={0}
+        </Grid>
+
+        <Grid
+          id="hero-linkedin"
+          xs={2}
+          display="flex"
+          justifyContent="left"
+          alignItems="stretch"
+        >
+          <Box
+            mt="auto"
+            // color={theme.palette.secondary.light}
             sx={{
-              display: { xs: "none", sm: "block" },
+              aspectRatio: 1,
             }}
           >
-            <Box
-              width="100%"
-              height="100%"
-              sx={{ aspectRatio: 9 / 16 }}
-              position="relative"
-            >
-              <Image
-                id="rightHeroPic"
-                src={profilePicR}
-                quality={100}
-                placeholder="blur"
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "55% 10%",
-                  opacity: "80%",
-                }}
-                fill
-                priority
-                alt="anthony dombrowski profile pic"
-              />
-            </Box>
-          </Grid>
+            <LinkedInIcon
+              sx={{
+                color: "#0077b5",
+                background: `radial-gradient(ellipse closest-corner at center, ${alpha(
+                  "#fff",
+                  0.85,
+                )} 0, ${alpha("#fff", 0.85)} 52%, ${alpha(
+                  "#fff",
+                  0.5,
+                )} 53%,${alpha("#fff", 0)} 54%)`,
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </Box>
         </Grid>
-      </Container>
-    </Button>
+
+        <Grid
+          id="rightHeroPicGridItem"
+          sm={2}
+          padding={0}
+          sx={{
+            display: { xs: "none", sm: "block" },
+          }}
+        >
+          <Box
+            width="100%"
+            height="100%"
+            sx={{ aspectRatio: 9 / 16 }}
+            position="relative"
+          >
+            <Image
+              id="rightHeroPic"
+              src={profilePicR}
+              quality={100}
+              placeholder="blur"
+              style={{
+                objectFit: "cover",
+                objectPosition: "55% 10%",
+                opacity: "80%",
+              }}
+              fill
+              priority
+              alt="anthony dombrowski profile pic"
+            />
+          </Box>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

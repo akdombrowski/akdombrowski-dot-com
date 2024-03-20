@@ -87,7 +87,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="videos"
+            id="Videos"
             xs={12}
             display="flex"
             justifyContent="center"

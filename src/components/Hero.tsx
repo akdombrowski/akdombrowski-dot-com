@@ -18,7 +18,10 @@ import { LinkedInURL } from "@/social/LinkedIn";
 
 import { useTheme, alpha } from "@mui/material/styles";
 
-export default function Hero() {
+export default function Hero(props: {
+  title?: string;
+  fontSize?: number | string;
+}) {
   const theme = useTheme();
 
   return (
@@ -75,13 +78,15 @@ export default function Hero() {
               variant="title"
               color="titleColor.light"
               align="center"
+              fontSize={props.fontSize}
               sx={{
                 textDecorationStyle: "solid",
                 textDecorationColor: alpha(theme.palette.titleColor.light, 1),
                 textDecorationLine: "underline",
+
               }}
             >
-              Anthony Dombrowski
+              {props.title ?? "Anthony Dombrowski"}
             </Typography>
           </Grid>
           <Grid
@@ -115,10 +120,14 @@ export default function Hero() {
             </Box>
           </Grid>
 
-          <Grid id="rightHeroPicGridItem" sm={2} padding={0}
+          <Grid
+            id="rightHeroPicGridItem"
+            sm={2}
+            padding={0}
             sx={{
-              display: { xs: "none", sm: "block" }
-            }}>
+              display: { xs: "none", sm: "block" },
+            }}
+          >
             <Box
               width="100%"
               height="100%"
