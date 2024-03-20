@@ -1,5 +1,5 @@
 import Blogs from "@/components/blogs/Blogs";
 
-export default function Home() {
+export default function Blog() {
   return <Blogs />;
 }

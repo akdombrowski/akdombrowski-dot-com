@@ -13,6 +13,8 @@ if want to use next-video sync & watch:
 "dev": "next dev & npx next-video sync -w --dir ./src/videos",
 ```
 
+[markdown linting config can be adjusted in .markdownlint.json](https://github.com/DavidAnson/vscode-markdownlint#configure)
+
 ## Getting Started
 
 First, run the development server:

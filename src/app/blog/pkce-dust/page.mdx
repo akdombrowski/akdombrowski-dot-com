@@ -1,4 +1,8 @@
 import VideoContainer from "@/components/videos/VideoContainer";
+import ThemedH1 from "@/components/mdx/themeApplied/ThemedH1";
+import BlogImg from "@/components/mdx/BlogImg";
+
+<h1>title</h1>
 
 # PKCE Dust: Securing Your OAuth 2.0 Authorization Code Grant Type Flow
 
@@ -30,7 +34,10 @@ affected.) To show you how it works, I’ve created a super short (and fun!) vid
 to help you visualize the players in an attack. Or, you can jump right to the
 description below the video.
 
-<VideoContainer title={"Visualizing the OAuth Flow and Why PKCE is Needed"} url={https://www.youtube.com/embed/_zWovo2zv6k}/>
+<VideoContainer
+  title="Visualizing the OAuth Flow and Why PKCE is Needed"
+  url="https://www.youtube.com/embed/_zWovo2zv6k"
+/>
 
 In short, when a user is authenticating on a native mobile app, the app tells
 the phone to make a network call, the network service on the phone makes the
@@ -84,10 +91,10 @@ verifies the code was obtained legitimately. Here’s how it works. In the initi
 request, instead of simply asking for authorization, the request contains three
 things:
 
-1.  The authorization request
-2.  A code challenge (or, equivalently, the transformed code_verifier,
+1. The authorization request
+2. A code challenge (or, equivalently, the transformed code_verifier,
     t(code_verifier)) that was created BEFORE the request is sent
-3.  A transformation method (the t() function) Then, when the client gets back
+3. A transformation method (the t() function) Then, when the client gets back
     the message, instead of simply sending the authorization code to the token
     endpoint, the client sends the request for an access token and includes the
     authorization code and the code_verifier. The token endpoint transforms
@@ -98,11 +105,12 @@ things:
     is protected. The authorization server will deny requests for an access
     token without the correct secret.
 
-![How PKCE stops the attack](../../public/PKCE-attack-graphic-blog.webp) In
-other situations, like SPAs or browser apps, there’ll likely be a better or
+
+<BlogImg />
+
+In other situations, like SPAs or browser apps, there’ll likely be a better or
 easier solution than what PKCE provides. But for native apps using the
 authorization code grant type, what I like to call a little “PKCE dust” offers
 strong security. Come try it out with a
 
-[^url]:
-    <https://pingidentity.com/en/resources/blog/post/pkce-dust-securing-your-oauth-2-0-authorization-code-grant-type.html>
+[^url]: <https://pingidentity.com/en/resources/blog/post/pkce-dust-securing-your-oauth-2-0-authorization-code-grant-type.html>

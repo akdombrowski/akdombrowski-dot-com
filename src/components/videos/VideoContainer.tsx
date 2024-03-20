@@ -2,7 +2,6 @@
 import "client-only";
 
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Unstable_Grid2";
 
 export default function VideoContainer(props: { title?: string; url: string }) {
   return (

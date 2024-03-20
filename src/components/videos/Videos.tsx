@@ -10,7 +10,6 @@ import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import { VIDEOS_TITLE_URL } from "./VideoURLs";
 // import ReactPlayer from "react-player/youtube";
-// import NextVideoPlayer from "next-video";
 
 export default function Videos() {
   const theme = useTheme();

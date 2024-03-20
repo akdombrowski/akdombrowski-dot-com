@@ -13,6 +13,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
@@ -20,6 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/blogs/*": ["./src/app/blog/*"],
       "@/social/*": ["./src/components/social/*"],
       "@/social": ["./src/components/social/"],
       "@/actions/*": ["./src/actions/*"]
