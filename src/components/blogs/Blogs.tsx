@@ -49,7 +49,6 @@ export default function Blogs() {
           justifyContent="center"
           alignItems="center"
         >
-
         </Grid>
 
         <Grid

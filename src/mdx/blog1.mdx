@@ -1,0 +1,139 @@
+import VideoContainer from "@/components/videos/VideoContainer";
+
+# PKCE Dust: Securing Your OAuth 2.0 Authorization Code Grant Type Flow
+
+Originally Published (Mar 20, 2020) [^url]
+
+Securing your OAuth 2.0-protected app starts with identifying the best grant
+type flow for the particular use case. As I discussed in a recent blog post, the
+authorization code grant type is
+
+often the go-to flow, in part because the OAuth spec was designed with it as its
+basis and because it typically offers maximum security when implemented
+properly.
+
+But the explosion of native and mobile apps has revealed potential
+vulnerabilities in this OAuth 2.0 grant type flow. Mobile app users can be prone
+to downloading malicious apps unknowingly, and in its basic configuration, the
+authorization code grant type flow has difficulty stopping malicious apps from
+obtaining access tokens meant for legitimate native apps. That’s where PKCE
+comes in.
+
+PKCE (Proof Key for Code Exchange, aka RFC 7636) enhances the authorization code
+
+grant type flow by protecting the token exchange process. For the relatively low
+cost of an SHA256 encryption library and some modifications to your original
+authorization code grant type requests, you can beef up the security of your
+OAuth 2.0-protected native app.
+
+## The Attack Scenario
+
+The Authorization Code Interception Attack takes place when you’re using a
+public client with the authorization code grant type flow. (Keep in mind that
+this scenario applies to native apps only, as the flow in a browser is not
+affected.)
+
+To show you how it works, I’ve created a super short (and fun!) video to help
+you visualize the players in an attack. Or, you can jump right to the
+description below the video.
+
+<VideoContainer title={"Visualizing the OAuth Flow and Why PKCE is Needed"} url={https://www.youtube.com/embed/_zWovo2zv6k}/>
+
+
+In short, when a user is authenticating on a native mobile app, the app tells
+the phone to make a network call, the network service on the phone makes the
+request and gets an authorization code from an authorization server, and then
+the phone’s network service returns a message containing the authorization code
+to the app. But a malicious app can
+
+“overhear” that last message, steal that authorization code, use that code to
+obtain an access token, and then use that access token to get access to the
+supposedly protected resource.
+
+How can this happen? It depends on the setup. If the OS/application
+communication isn’t over TLS, there’s no encryption preventing a hacker from
+understanding any messages they’re able to listen in on. It doesn’t matter how
+secure the communication between the authorization server and the network is. As
+long as the communication between the operating system and the native app is
+insecure, this type of attack can take place. Even with encryption like TLS,
+malicious native apps can listen to responses to the network service by
+registering the right listener.
+
+Then, all the attacker has to do is take a few relatively easy steps: 1. Place a
+malicious app on the client device.
+
+2. Register as a handler for a custom URI scheme shared by your legitimate OAuth
+   2.0
+
+app. (This might be easier than you think, since an OS allows multiple apps to
+be registered handlers for the custom URI scheme. Going into detail would
+require a whole other blog post, but at risk of oversimplification, I’ll put
+it this way: The redirection endpoint URI in this case typically uses a custom
+URI scheme, and if that custom URI scheme is a bit generic, a hacker might be
+able to listen in on the URI.) 3. Obtain the client_id and client_secret, if
+provisioned. (This, too, is worthy of another blog post, but apps have been
+known to not secure these variables and to expose them to the entire native
+system.)
+
+At this point, the attacker can observe requests to and responses from the
+authorization endpoint—and when a legitimate app requests the authz code, it can
+also get a copy.
+
+Scary stuff, but PKCE can keep this from happening.
+
+## Stopping the Attack Cold with PKCE
+
+PKCE allows us to secure the final leg of the authentication process. Before
+PKCE, we had a way to secure the phone network service to an authorization
+server by using an identity service like PingOne for Customers, but not the
+communication between the native mobile app and the phone network service, which
+all happens local to the device.
+
+While PKCE doesn’t stop malicious apps from listening in on network services
+communicating the authorization code, it does make that information incomplete.
+PKCE adds another required piece to the puzzle that only the good app and
+authorization server know, so that the authorization server gives the access
+token only when an authorization code is accompanied by the additional “secret”
+created by the good native app.
+
+PKCE secures the OAuth 2.0 authorization code flow by introducing this secret
+into the authorization process. It’s similar to using a passphrase that you say
+to get special access to that exclusive restaurant, club or speak-easy (in case
+you have stumbled upon a time machine to take you back to the 1920’s.) The
+“secret” is generated by the good app and is a dynamically created,
+cryptographically random key, which verifies the code was obtained legitimately.
+
+Here’s how it works. In the initial request, instead of simply asking for
+authorization, the request contains three things:
+
+1. The authorization request
+
+2. A code challenge (or, equivalently, the transformed code_verifier,
+   t(code_verifier)) that was created BEFORE the request is sent
+
+3. A transformation method (the t() function)
+
+Then, when the client gets back the message, instead of simply sending the
+authorization code to the token endpoint, the client sends the request for an
+access token and includes the authorization code and the code_verifier. The
+token endpoint transforms code_verifier using the transformation method received
+earlier and compares it to the code challenge, which was also sent earlier. It
+authenticates if and only if the codes match.
+
+Since the malicious app doesn’t have the code_verifier, it can’t obtain the
+access token—and therefore the resource is protected. The authorization server
+will deny requests for an access token without the correct secret.
+
+![How PKCE stops the attack](../../public/PKCE-attack-graphic-blog.webp)
+
+In other situations, like SPAs or browser apps, there’ll likely be a better or
+easier solution than what PKCE provides. But for native apps using the
+authorization code grant type, what I
+
+like to call a little “PKCE dust” offers strong security. Come try it out with a
+free trial of
+
+PingOne for Customers.
+
+[^url]:
+    <https://pingidentity.com/en/resources/blog/post/pkce-dust-securing-your-oauth-2-0-authorization-code-grant-type.html>
