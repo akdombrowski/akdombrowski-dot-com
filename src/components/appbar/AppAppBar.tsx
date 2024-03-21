@@ -47,7 +47,7 @@ function AppAppBar() {
         sx={{
           alignItems: "stretch",
           boxShadow: 10,
-          backgroundColor: alpha("#fff", 0.01),
+          backgroundColor: alpha("#000", 0.4),
         }}
       >
         <Container maxWidth={false}>
@@ -59,8 +59,8 @@ function AppAppBar() {
               minHeight: "40px",
               maxHeight: "6vh",
               alignItems: "stretch",
-              backgroundColor: alpha("#fff", 0.01),
-              backdropFilter: "blur(1000px)",
+              backgroundColor: alpha("#000", 0.8),
+              backdropFilter: "blur(5px)",
               border: ".1rem solid",
               borderColor: "divider",
               boxShadow:

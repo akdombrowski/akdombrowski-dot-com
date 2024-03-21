@@ -34,7 +34,7 @@ export default function Videos() {
           justifyContent="center"
           sx={{ aspectRatio: 16 / 9 }}
         >
-          <VideoContainer title={video.title} url={video.url} />
+          <VideoContainer id={String(i)} title={video.title} url={video.url} />
         </Box>
       </Grid>
     );
