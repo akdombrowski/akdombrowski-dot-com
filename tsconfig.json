@@ -34,5 +34,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "mdx": {
+    // Enable strict type checking in MDX files.
+    "checkMdx": true
+  }
 }

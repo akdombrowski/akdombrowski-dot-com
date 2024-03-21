@@ -1,3 +1,19 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:mdx/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [],
+  "settings": {
+    "mdx/code-blocks": true
+  },
+  "plugins": ["json-format", "jsdoc"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": true,
+    "tsconfigRootDir": "."
+  }
 }

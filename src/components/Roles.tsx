@@ -2,13 +2,14 @@
 import "client-only";
 
 import Image, { getImageProps } from "next/image";
+import Link from "next/link";
 import profilePic from "../../public/profile_9x16.jpg";
 import profilePicR from "../../public/profileR_9x16.jpg";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
+import MUILink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -80,6 +81,20 @@ export default function Roles() {
         display="flex"
         justifyContent="center"
       ></Grid>
+      <Grid xs={12}>
+        <MUILink
+          component={Link}
+          href="https://stackoverflow.com/users/5527213/akdombrowski"
+        >
+          <Image
+            src="https://stackoverflow.com/users/flair/5527213.png?theme=dark"
+            width="208"
+            height="58"
+            alt="profile for akdombrowski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+            title="profile for akdombrowski at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+          />
+        </MUILink>
+      </Grid>
     </Grid>
   );
 }

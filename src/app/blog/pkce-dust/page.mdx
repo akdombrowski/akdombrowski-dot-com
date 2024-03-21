@@ -34,6 +34,10 @@ affected.) To show you how it works, I’ve created a super short (and fun!) vid
 to help you visualize the players in an attack. Or, you can jump right to the
 description below the video.
 
+{/**
+  * @typedef MDXProvidedComponents
+  * @property {typeof import('@/components/videos/VideoContainer.tsx').VideoContainer} VideoContainer
+  */}
 <VideoContainer
   title="Visualizing the OAuth Flow and Why PKCE is Needed"
   url="https://www.youtube.com/embed/_zWovo2zv6k"
@@ -93,24 +97,27 @@ things:
 
 1. The authorization request
 2. A code challenge (or, equivalently, the transformed code_verifier,
-    t(code_verifier)) that was created BEFORE the request is sent
+   t(code_verifier)) that was created BEFORE the request is sent
 3. A transformation method (the t() function) Then, when the client gets back
-    the message, instead of simply sending the authorization code to the token
-    endpoint, the client sends the request for an access token and includes the
-    authorization code and the code_verifier. The token endpoint transforms
-    code_verifier using the transformation method received earlier and compares
-    it to the code challenge, which was also sent earlier. It authenticates if
-    and only if the codes match. Since the malicious app doesn’t have the
-    code_verifier, it can’t obtain the access token—and therefore the resource
-    is protected. The authorization server will deny requests for an access
-    token without the correct secret.
+   the message, instead of simply sending the authorization code to the token
+   endpoint, the client sends the request for an access token and includes the
+   authorization code and the code_verifier. The token endpoint transforms
+   code_verifier using the transformation method received earlier and compares
+   it to the code challenge, which was also sent earlier. It authenticates if
+   and only if the codes match. Since the malicious app doesn’t have the
+   code_verifier, it can’t obtain the access token—and therefore the resource is
+   protected. The authorization server will deny requests for an access token
+   without the correct secret.
 
-
-<BlogImg />
+{/**
+  * @typedef MDXProvidedComponents
+  * @property {typeof import('@/components/mdx/BlogImg.tsx').BlogImg} BlogImg
+  */}
+<BlogImg src="/PKCE-attack-graphic-blog.webp" containerStyles={{aspectRatio: 700 / 314, backgroundColor: "#FFF"}} style={{objectFit: "contain"}} fill />
 
 In other situations, like SPAs or browser apps, there’ll likely be a better or
 easier solution than what PKCE provides. But for native apps using the
 authorization code grant type, what I like to call a little “PKCE dust” offers
-strong security. Come try it out with a
+strong security.
 
-[^url]: <https://pingidentity.com/en/resources/blog/post/pkce-dust-securing-your-oauth-2-0-authorization-code-grant-type.html>
+[^url]: [https://pingidentity.com/en/resources/blog/post/pkce-dust-securing-your-oauth-2-0-authorization-code-grant-type.html](https://pingidentity.com/en/resources/blog/post/pkce-dust-securing-your-oauth-2-0-authorization-code-grant-type.html)

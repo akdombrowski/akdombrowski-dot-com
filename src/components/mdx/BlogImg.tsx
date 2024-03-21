@@ -1,19 +1,31 @@
 import Box from "@mui/material/Box";
 import Image from "next/image";
+import type {SxProps} from "@mui/material"
 
-export default function BlogImg({ src, width, isCentered }: { src: string, width: number | string; isCentered?: boolean; }) {
+export default function BlogImg({
+  src,
+  containerWidth,
+  isCentered,
+  containerStyles,
+  ...props
+}: {
+  src: string;
+  containerWidth?: number | string;
+  isCentered?: boolean;
+  containerStyles?: SxProps;
+}) {
   return (
     <Box
-      width="80%"
+      width={containerWidth ?? "80%"}
       position="relative"
-      mx="auto"
-      sx={{ aspectRatio: 700 / 314, backgroundColor: "#FFF" }}
+      mx={isCentered ? "auto" : ""}
+      sx={containerStyles}
     >
       <Image
-        src="/PKCE-attack-graphic-blog.webp"
+        src={src}
         alt="Graphic depicting how PKCE stops the attack"
-        style={{ objectFit: "contain" }}
         fill
+        {...props}
       />
     </Box>
   );

@@ -9,7 +9,8 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "tsc:test": "tsc --pretty"
+    "tsc:test": "tsc --pretty",
+    "eslint:md": "eslint . --ext js,md,mdx"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -43,11 +44,19 @@
     "@types/puppeteer": "^7.0.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.1.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsdoc": "^48.2.1",
+    "eslint-plugin-json-format": "^2.0.1",
+    "eslint-plugin-markdown": "^4.0.1",
+    "eslint-plugin-mdx": "^3.1.5",
+    "eslint-plugin-prettier": "^5.1.3",
     "tslib": "^2.6.2",
-    "typescript": "^5",
-    "video.js": "8.10.0"
+    "typescript": "^5.4.3",
+    "typescript-eslint": "^7.3.1",
+    "video.js": "8.10.0",
+    "webpack": "^5.91.0"
   },
   "resolutions": {
     "@emotion/cache": "^11.11.0",
