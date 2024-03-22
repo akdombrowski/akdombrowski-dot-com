@@ -16,7 +16,8 @@ import Grid from "@mui/material/Unstable_Grid2";
 
 import { alpha } from "@mui/material/styles";
 import { LinkedIn, GitHub, GitHubLinkedin } from "@/social";
-import { LogoAndPageSections } from "./LogoAndPageSections";
+import LogoAndPageSections from "./LogoAndPageSections";
+import AppBarLogo from "./AppBarLogo";
 
 function AppAppBar() {
   const [open, setOpen] = useState(false);
@@ -68,36 +69,50 @@ function AppAppBar() {
             }}
           >
             <Grid
-              id="innerAppBarGridContainer"
+              id="appbar-innerAppBarGridContainer"
               container
               justifyContent="space-between"
               alignItems="stretch"
-              columnSpacing={{ xs: 1, md: 3}}
+              columnSpacing={{ xs: 1, md: 3 }}
               width="100%"
             >
               <Grid
-                id="appbar-logoAndPageSectionsGrid"
+                xs={1}
+                id="appbar-logoGridContainer"
+                flexGrow={0}
+                flexShrink={0}
+                display="flex"
+                height="100%"
+                justifyContent="center"
+                alignItems="stretch"
+              >
+                <AppBarLogo />
+              </Grid>
+              <Grid
+                id="appbar-pageSectionsGrid"
                 xs={6}
+                flexBasis={100}
                 flexGrow={1}
                 flexShrink={1}
                 height="100%"
                 display="flex"
                 justifyContent="left"
                 alignItems="center"
-                >
+              >
                 {LogoAndPageSections(scrollToSection)}
               </Grid>
 
               <Grid
                 id="appbar-nameGrid"
                 xs={3}
-                flexGrow={1}
-                flexShrink={1}
+                flexBasis="fit-content"
+                flexGrow={0}
+                flexShrink={0}
                 height="100%"
                 display="flex"
                 justifyContent="right"
                 alignItems="center"
-                >
+              >
                 <Typography
                   variant="overline"
                   fontWeight={900}
@@ -105,7 +120,7 @@ function AppAppBar() {
                   overflow="hidden"
                   textOverflow="clip"
                   noWrap
-                  >
+                >
                   Anthony Dombrowski's Site
                 </Typography>
               </Grid>
@@ -113,9 +128,9 @@ function AppAppBar() {
               <Grid
                 id="appbar-socialLinksGrid"
                 xs={1}
+                flexBasis="fit-content"
                 flexGrow={0}
-                flexShrink={1}
-
+                flexShrink={{ xs: 1, sm: 0 }}
                 height="100%"
                 display="flex"
                 justifyContent="right"
@@ -128,7 +143,12 @@ function AppAppBar() {
                 />
               </Grid>
 
-              <Grid id="appbar-drawerGrid" xs={1} display={{ sm: "flex", md: "none" }} justifyContent="right">
+              <Grid
+                id="appbar-drawerGrid"
+                xs={1}
+                display={{ sm: "flex", md: "none" }}
+                justifyContent="right"
+              >
                 <Button
                   variant="text"
                   color="info"
@@ -167,7 +187,6 @@ function AppAppBar() {
                       FAQ
                     </MenuItem>
                     <Divider />
-
                   </Box>
                 </Drawer>
               </Grid>

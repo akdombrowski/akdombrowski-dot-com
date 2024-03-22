@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Grid from "@mui/material/Unstable_Grid2";
 
-export function LogoAndPageSections(
+export default function LogoAndPageSections(
   scrollToSection: (sectionId: string) => void,
 ) {
   return (
@@ -20,33 +20,6 @@ export function LogoAndPageSections(
       justifyContent="left"
       alignItems="stretch"
     >
-      {/* Logo Image */}
-      <Grid
-        id="logoAndPageSections-logoImageGrid"
-        xs={1}
-        flexGrow={0}
-        flexShrink={2}
-        display="flex"
-        height="100%"
-        justifyContent="left"
-        alignItems="stretch"
-      >
-        <Box
-          sx={{ aspectRatio: 16 / 9 }}
-          maxWidth="100%"
-          height="100%"
-          position="relative"
-        >
-          <Image
-            src={"/gokart-R.png"}
-            alt="logo of anthony dombrowski"
-            objectFit="contain"
-            style={{ overflow: "hidden" }}
-            fill
-          />
-        </Box>
-      </Grid>
-
       <Grid
         id="logoAndPageSections-pageSectionGrid"
         xs={6}
