@@ -4,6 +4,7 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import Roles from "@/components/Roles";
+import StackOverflowBadge from "@/components/StackOverflowBadge";
 import Hero from "./Hero";
 import Videos from "@/components/videos/Videos";
 import Footer from "@/components/Footer";
@@ -84,6 +85,18 @@ export default function LandingPage() {
             <Divider
               sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
             />
+          </Grid>
+
+          <Grid
+            id="Landing-StackOverflowBadgeGridContainerWrapper"
+            xs={12}
+            paddingTop={1}
+            paddingBottom={0}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <StackOverflowBadge />
           </Grid>
 
           <Grid
