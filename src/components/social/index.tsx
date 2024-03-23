@@ -22,6 +22,7 @@ export function StackedSocialLinks(props: {
   iconSize?: { width?: string | number; height?: string | number };
   btnSize?: { width?: string | number; height?: string | number };
   stackSize?: { width?: string | number; height?: string | number };
+  color?: string;
 }) {
   return (
     <Stack
@@ -30,7 +31,7 @@ export function StackedSocialLinks(props: {
       spacing={0}
       useFlexGap
       sx={{
-        color: "text.secondary",
+        color: props.color ?? "text.secondary",
         width: props?.stackSize?.width ?? defaultStackSize.width,
         height: props?.stackSize?.height ?? defaultStackSize.height,
       }}
@@ -41,6 +42,7 @@ export function StackedSocialLinks(props: {
           width: props.iconSize?.width,
           height: props.iconSize?.height,
         }}
+        color={props.color}
       />
       <LinkedIn
         btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
@@ -48,6 +50,7 @@ export function StackedSocialLinks(props: {
           width: props.iconSize?.width,
           height: props.iconSize?.height,
         }}
+        color={props.color}
       />
       <X
         btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
@@ -55,6 +58,7 @@ export function StackedSocialLinks(props: {
           width: props.iconSize?.width,
           height: props.iconSize?.height,
         }}
+        color={props.color}
       />
     </Stack>
   );
@@ -65,6 +69,7 @@ export function GitHubLinkedin(props: {
   iconSize?: { width?: string | number; height?: string | number };
   btnSize?: { width?: string | number; height?: string | number };
   boxSize?: { width?: string | number; height?: string | number };
+  color?: string;
 }) {
   return (
     <>
@@ -83,6 +88,7 @@ export function GitHubLinkedin(props: {
             width: props.iconSize?.width,
             height: props.iconSize?.height,
           }}
+          color={props.color}
         />
       </Box>
       <Box
@@ -99,6 +105,7 @@ export function GitHubLinkedin(props: {
             width: props.iconSize?.width,
             height: props.iconSize?.height,
           }}
+          color={props.color}
         />
       </Box>
     </>

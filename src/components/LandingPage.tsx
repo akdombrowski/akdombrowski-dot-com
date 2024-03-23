@@ -13,10 +13,11 @@ import Toolbar from "@mui/material/Toolbar";
 
 export default function LandingPage() {
   return (
-    <Container id="landingPage" maxWidth={false}>
-      <Box width="100%">
-        <AppAppBar />
+    <Box id="Landing-appBarBox" width="100vw">
+      <AppAppBar />
+      <Toolbar />
 
+      <Container id="landingPage" maxWidth={false}>
         <Grid
           id="Landing-grid"
           container
@@ -100,7 +101,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="Videos"
+            id="videos"
             xs={12}
             display="flex"
             justifyContent="center"
@@ -125,7 +126,7 @@ export default function LandingPage() {
             <Box height="1vh" />
           </Grid>
         </Grid>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }

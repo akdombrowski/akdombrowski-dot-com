@@ -2,21 +2,16 @@
 import "client-only";
 
 import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
+
 import type { CSSProperties } from "react";
 import type { TypographyStyleOptions } from "@mui/material/styles/createTypography";
 
-// import { Roboto } from "next/font/google";
-
-// const roboto = Roboto({
-//   weight: ["300", "400", "500", "700"],
-//   subsets: ["latin"],
-//   display: "swap",
-// });
 declare module "@mui/system" {
   interface BreakpointOverrides {
     // Your custom breakpoints
     foreHundo: true;
     phiveHundo: true;
+    seisHundo: true;
     nanaHundo: true;
     ateHundo: true;
     senHundo: true;
@@ -30,8 +25,8 @@ declare module "@mui/system" {
     uhd: true;
   }
 }
-
 // Update the Typography's variant prop options
+
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     poster: true;
@@ -42,6 +37,21 @@ declare module "@mui/material/Typography" {
 }
 
 declare module "@mui/material/styles" {
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+    // Your custom breakpoints
+    foreHundo: true;
+    phiveHundo: true;
+    seisHundo: true;
+    nanaHundo: true;
+    ateHundo: true;
+    senHundo: true;
+  }
+
   interface TypographyVariants {
     poster: CSSProperties & TypographyStyleOptions;
     title: CSSProperties & TypographyStyleOptions;
@@ -49,7 +59,6 @@ declare module "@mui/material/styles" {
     subRole: CSSProperties & TypographyStyleOptions;
   }
 
-  // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     poster?: CSSProperties & TypographyStyleOptions;
     title?: CSSProperties & TypographyStyleOptions;
@@ -77,6 +86,7 @@ declare module "@mui/material/styles" {
 
   interface Palette {
     titleColor: Palette["primary"];
+    divider2: Palette["primary"];
     custom: Palette["primary"];
     paperBgA: Palette["primary"];
     paperBgB: Palette["primary"];
@@ -86,6 +96,7 @@ declare module "@mui/material/styles" {
 
   interface PaletteOptions {
     titleColor?: PaletteOptions["primary"];
+    divider2?: PaletteOptions["primary"];
     custom?: PaletteOptions["primary"];
     paperBgA?: PaletteOptions["primary"];
     paperBgB?: PaletteOptions["primary"];
@@ -102,7 +113,9 @@ declare module "@mui/material/Button" {
 
 /**
  *
- * Customize Defaults + Define New Ones
+ *
+ *
+ * Customize and add to Defaults
  *
  */
 const modifyDefaultsTheme = createTheme({
@@ -110,7 +123,7 @@ const modifyDefaultsTheme = createTheme({
     values: {
       foreHundo: 400,
       phiveHundo: 500,
-      // sm: 600
+      seisHundo: 600,
       nanaHundo: 700,
       ateHundo: 800,
       senHundo: 1000,
@@ -130,7 +143,7 @@ const modifyDefaultsTheme = createTheme({
       main: "#11115F",
     },
     secondary: {
-      main: alpha("#fff", 0.1),
+      main: alpha("#77F9FF", 0.9),
     },
     background: {
       default: "#00001A",
@@ -148,7 +161,7 @@ const modifyDefaultsTheme = createTheme({
     info: {
       main: "#BBD686",
     },
-    tonalOffset: 0.9,
+    tonalOffset: 0.6,
   },
   typography: {
     fontFamily: "Roboto",
@@ -163,6 +176,7 @@ const modifyDefaultsTheme = createTheme({
       color: alpha("#45F0DF", 0.99),
     },
     title: {
+      color: "titleColor",
       fontWeight: 1000,
       lineHeight: 1,
     },
@@ -222,8 +236,8 @@ const modifyDefaultsTheme = createTheme({
     },
     button: {
       fontWeight: 1000,
-      fontSize: ".9rem",
-      lineHeight: 1.2,
+      fontSize: "1.75rem",
+      lineHeight: 1,
     },
     caption: {
       fontWeight: 100,
@@ -236,8 +250,17 @@ const modifyDefaultsTheme = createTheme({
     },
   },
 });
+/**
+ *
+ * Customize and add to Defaults
+ *
+ *
+ *
+ */
 
 /**
+ *
+ *
  *
  * Customize Palette
  *
@@ -252,6 +275,12 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
         main: "#52FFB8",
       },
       name: "titleColor",
+    }),
+    divider2: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: "#00001A",
+      },
+      name: "divider2",
     }),
 
     paperBgA: modifyDefaultsTheme.palette.augmentColor({
@@ -278,13 +307,27 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
       },
       name: "paperBgD",
     }),
-    tonalOffset: 0.9,
+    tonalOffset: 0.6,
   },
 });
+/**
+ *
+ * Customize Palette
+ *
+ * with new colors using {augmentColor} to generate color tokens
+ *
+ *
+ *
+ */
 
 /**
  *
- * Add Custom Typography Variant
+ *
+ *
+ * Add "title", a Custom Typography Variant
+ *
+ * needs to go here to go in customized components
+ * which then gets reponsive font sizes
  *
  */
 export const customTypographyTheme = createTheme(customColorsTheme, {
@@ -294,8 +337,20 @@ export const customTypographyTheme = createTheme(customColorsTheme, {
     },
   },
 });
+/**
+ *
+ * Add "title", a Custom Typography Variant
+ *
+ * needs to go here to go in customized components
+ * which then gets reponsive font sizes
+ *
+ *
+ *
+ */
 
 /**
+ *
+ *
  *
  * Customize MUI Components
  *
@@ -327,8 +382,17 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
     },
   },
 });
+/**
+ *
+ * Customize MUI Components
+ *
+ *
+ *
+ */
 
 /**
+ *
+ *
  *
  * Responsive Font Sizes fn
  *
@@ -350,13 +414,25 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
   ],
   factor: 10,
 });
-
+/**
+ *
+ * Responsive Font Sizes fn
+ *
+ *
+ *
+ */
 
 /**
  *
- * CUSTOM Typography Variant
  *
- * title
+ *
+ * ==========================
+ * CUSTOM Typography Variants
+ * ==========================
+ *
+ */
+/**
+ * title Typography Variant
  */
 responsiveFont.typography.title = {
   fontSize: "1.5rem",
@@ -395,9 +471,7 @@ responsiveFont.typography.title = {
 };
 
 /**
- * CUSTOM Typography Variant
- *
- * role
+ * role Typography Variant
  */
 responsiveFont.typography.role = {
   fontSize: ".5rem",
@@ -427,9 +501,7 @@ responsiveFont.typography.role = {
 };
 
 /**
- * CUSTOM Typography Variant
- *
- * subRole
+ * subRole Typography Variant
  */
 responsiveFont.typography.subRole = {
   fontSize: ".4rem",
@@ -457,9 +529,7 @@ responsiveFont.typography.subRole = {
 };
 
 /**
- * CUSTOM Typography Variant
- *
- * poster
+ * poster Typography Variant
  */
 responsiveFont.typography.poster = {
   "fontSize": "2.5rem",
@@ -470,6 +540,15 @@ responsiveFont.typography.poster = {
     fontSize: "4.15rem",
   },
 };
+/**
+ *
+ * ==========================
+ * CUSTOM Typography Variants
+ * ==========================
+ *
+ *
+ *
+ */
 
 const theme = responsiveFont;
 

@@ -34,7 +34,7 @@ export default function Footer() {
           id="footer-GridSocial"
           alignItems="stretch"
         >
-          <StackedSocialLinks justify="right"/>
+          <StackedSocialLinks justify="right" color="#fff"/>
         </Grid>
       </Grid>
     </Container>
