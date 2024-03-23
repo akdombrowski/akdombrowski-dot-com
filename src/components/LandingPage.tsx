@@ -13,19 +13,19 @@ import Toolbar from "@mui/material/Toolbar";
 
 export default function LandingPage() {
   return (
-    <Box id="Landing-appBarBox" width="100vw">
+    <Box id="landing-appBarBox" width="100vw">
       <AppAppBar />
       <Toolbar variant="dense" sx={{ minHeight: 45 }} />
 
       <Container id="landingPage" maxWidth={false}>
         <Grid
-          id="Landing-grid"
+          id="landing-grid"
           container
           rowSpacing={{ xs: 1, sm: 2, md: 3 }}
           disableEqualOverflow
         >
           <Grid
-            id="Landing-HeroGridContainerWrapper"
+            id="landing-heroGridWrapper"
             xs={12}
             display="flex"
             justifyContent="center"
@@ -36,7 +36,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="Landing-HeroDividerWrapper"
+            id="landing-heroDividerWrapper"
             xs={12}
             paddingTop={1}
             paddingBottom={0}
@@ -50,7 +50,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="Landing-Hero2DividerWrapper"
+            id="landing-Hero2DividerWrapper"
             xs={12}
             paddingTop=".1rem"
             paddingBottom={0}
@@ -64,7 +64,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="Landing-RolesGridContainerWrapper"
+            id="landing-rolesGridWrapper"
             xs={12}
             paddingTop={1}
             paddingBottom={0}
@@ -76,7 +76,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="Landing-RolesDividerWrapper"
+            id="landing-rolesDividerWrapper"
             xs={12}
             paddingY={0}
             display="flex"
@@ -89,7 +89,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="Landing-StackOverflowBadgeGridContainerWrapper"
+            id="landing-stackOverflowBadgeGridWrapper"
             xs={12}
             paddingTop={1}
             paddingBottom={0}
@@ -101,7 +101,7 @@ export default function LandingPage() {
           </Grid>
 
           <Grid
-            id="videos"
+            id="landing-videosGridWrapper"
             xs={12}
             display="flex"
             justifyContent="center"
@@ -114,16 +114,13 @@ export default function LandingPage() {
           <Divider />
 
           <Grid
-            id="Landing-Footer"
+            id="landing-footerGridWrapper"
             xs={12}
             display="flex"
             justifyContent="center"
             alignItems="center"
           >
             <Footer />
-          </Grid>
-          <Grid xs={12}>
-            <Box height="1vh" />
           </Grid>
         </Grid>
       </Container>

@@ -435,35 +435,35 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
  * title Typography Variant
  */
 responsiveFont.typography.title = {
-  fontSize: "1.5rem",
+  fontSize: "2.85rem",
   fontWeight: 1000,
   lineHeight: 1,
   [customComponentsTheme.breakpoints.up(400)]: {
-    fontSize: "2rem",
+    fontSize: "3rem",
   },
   [customComponentsTheme.breakpoints.up(500)]: {
-    fontSize: "2.4rem",
+    fontSize: "3.8rem",
   },
   [customComponentsTheme.breakpoints.up(600)]: {
-    fontSize: "2.71rem",
+    fontSize: "4rem",
   },
   [customComponentsTheme.breakpoints.up(700)]: {
-    fontSize: "3.2rem",
+    fontSize: "5rem",
   },
   [customComponentsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "3.5rem",
+    fontSize: "5.25rem",
   },
   [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "4.75rem",
-  },
-  [customComponentsTheme.breakpoints.up("lg")]: {
     fontSize: "6rem",
   },
+  [customComponentsTheme.breakpoints.up("lg")]: {
+    fontSize: "6.5rem",
+  },
   [customComponentsTheme.breakpoints.up("xl")]: {
-    fontSize: "7.1rem",
+    fontSize: "8.25rem",
   },
   [customComponentsTheme.breakpoints.up("fhd")]: {
-    fontSize: "8rem",
+    fontSize: "8.5rem",
   },
   [customComponentsTheme.breakpoints.up("uhd")]: {
     fontSize: "15rem",

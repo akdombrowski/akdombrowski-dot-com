@@ -1,9 +1,14 @@
 import "client-only";
 
 import { SyntheticEvent } from "react";
+
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Grid from "@mui/material/Unstable_Grid2";
+import MUILink from "@mui/material/Link";
+
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function PageSections({
   scrollToSection,
@@ -43,12 +48,10 @@ export default function PageSections({
         flexGrow={1}
         justifyContent="start"
         alignItems="stretch"
+        component={Link}
+        href="/blog"
       >
-        <MenuItem
-          id="blogs-menuItem"
-          onClick={scrollToSection}
-          sx={{ py: "6px", px: "12px" }}
-        >
+        <MenuItem id="blogs-menuItem">
           <Typography variant="button" color="text.primary">
             Blogs
           </Typography>
