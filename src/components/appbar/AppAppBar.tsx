@@ -84,8 +84,6 @@ function AppAppBar() {
           <Grid
             xs={1}
             id="appbar-logoGridContainer"
-            flexGrow={0}
-            flexShrink={0}
             display="flex"
             height="100%"
             justifyContent="center"
@@ -96,12 +94,10 @@ function AppAppBar() {
           <Grid
             id="appbar-pageSectionsGrid"
             xs={0}
-            md={5}
-            flexGrow={0}
-            flexShrink={0}
+            seisHundo={9}
+            flexGrow={{ xs: 0, seisHundo: 1 }}
             p={0}
-            height="100%"
-            display={{ xs: "none", md: "flex" }}
+            display={{ xs: "none", seisHundo: "flex" }}
             justifyContent="space-around"
             alignItems="stretch"
           >
@@ -110,13 +106,11 @@ function AppAppBar() {
 
           <Grid
             id="appbar-drawerGrid"
-            xs={5}
-            md={0}
+            xs={9}
+            seisHundo={0}
+            flexGrow={{ xs: 1, seisHundo: 0 }}
             pl={2}
-            flexBasis="fit-content"
-            flexGrow={0}
-            flexShrink={0}
-            display={{ xs: "flex", md: "none" }}
+            display={{ xs: "flex", seisHundo: "none" }}
             justifyContent="left"
             alignItems="stretch"
           >
@@ -126,7 +120,8 @@ function AppAppBar() {
               onClick={toggleDrawer(true)}
               sx={{
                 color: theme.palette.success.light,
-                minWidth: "30px", p: "4px"
+                minWidth: "30px",
+                p: "4px",
               }}
             >
               <MenuIcon />
@@ -156,10 +151,8 @@ function AppAppBar() {
 
           <Grid
             id="appbar-socialLinksGrid"
-            xs={1}
-            flexBasis="min-content"
-            flexGrow={0}
-            flexShrink={1}
+            xs={2}
+            flexBasis="max-content"
             px={0}
             height="100%"
             display="flex"

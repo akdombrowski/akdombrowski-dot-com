@@ -15,14 +15,15 @@ export default function PageSections({
       id="logoAndPageSections-gridContainer"
       container
       columns={3}
+      width="100%"
       flexWrap="nowrap"
       overflow="hidden"
       justifyContent="start"
       alignItems="stretch"
     >
       <Grid
-        // xs={1}
         display="flex"
+        flexGrow={1}
         justifyContent="start"
         alignItems="stretch"
       >
@@ -38,8 +39,8 @@ export default function PageSections({
       </Grid>
 
       <Grid
-        // xs={1}
         display="flex"
+        flexGrow={1}
         justifyContent="start"
         alignItems="stretch"
       >
@@ -55,8 +56,8 @@ export default function PageSections({
       </Grid>
 
       <Grid
-        // xs={1}
         display="flex"
+        flexGrow={1}
         justifyContent="start"
         alignItems="stretch"
       >

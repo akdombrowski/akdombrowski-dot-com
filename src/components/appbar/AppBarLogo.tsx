@@ -7,7 +7,8 @@ export default function AppBarLogo() {
     <Box
       id="appbarlogo-boxContainer"
       display="flex"
-      width="100%"
+      maxWidth="100%"
+      minWidth="50px"
       height="100%"
       justifyContent="left"
       alignItems="stretch"

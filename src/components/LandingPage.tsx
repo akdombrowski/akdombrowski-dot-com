@@ -15,7 +15,7 @@ export default function LandingPage() {
   return (
     <Box id="Landing-appBarBox" width="100vw">
       <AppAppBar />
-      <Toolbar />
+      <Toolbar variant="dense" sx={{ minHeight: 45 }} />
 
       <Container id="landingPage" maxWidth={false}>
         <Grid
@@ -30,7 +30,7 @@ export default function LandingPage() {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            paddingTop="2rem"
+            pt={{ xs: 0.5, seisHundo: 1.5, md: 2 }}
           >
             <Hero />
           </Grid>

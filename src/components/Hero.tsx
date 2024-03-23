@@ -73,7 +73,7 @@ export default function Hero(props: {
             display="flex"
             justifyContent="center"
             alignItems="center"
-          >
+            >
             <Typography
               variant="title"
               color="titleColor.light"
