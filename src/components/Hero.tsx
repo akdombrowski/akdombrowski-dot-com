@@ -40,6 +40,15 @@ export default function Hero(props: {
         flexWrap="nowrap"
         justifyContent="center"
         alignItems="stretch"
+        sx={{
+          background: `radial-gradient(ellipse farthest-corner at center, ${alpha(
+            "#000",
+            1,
+          )} 0,${alpha("#000", 0.1)} 15%, ${alpha("#000", 0.01)} 90%, ${alpha(
+            "#fff",
+            0.01,
+          )} 100%)`,
+        }}
       >
         <Grid
           id="leftHeroPicGridItem"
@@ -87,18 +96,6 @@ export default function Hero(props: {
               textDecorationStyle: "solid",
               textDecorationColor: alpha(theme.palette.titleColor.light, 1),
               textDecorationLine: "underline",
-              background: `radial-gradient(ellipse farthest-corner at center, ${alpha(
-                "#000",
-                0.5,
-              )} 0, ${alpha("#000", 0.2)} 12%, ${alpha(
-                "#000",
-                .1,
-              )} 20%, ${alpha("#000", 0)} 100%)`,
-
-              boxShadow: `0 8px 0 ${alpha("#000", 0.1)}, 0 1px 1px 0 ${alpha(
-                "#000",
-                0.1,
-              )}, 1px 11px 1px 1px ${alpha("#000", 0.01)}`,
             }}
           >
             {props.title ?? "Anthony Dombrowski"}
