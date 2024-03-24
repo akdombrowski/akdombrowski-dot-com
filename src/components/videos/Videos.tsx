@@ -7,38 +7,66 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import VideoContainer from "./VideoContainer";
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material/styles";
-import { VIDEOS_TITLE_URL } from "./VideoURLs";
+import { useTheme, alpha } from "@mui/material/styles";
+import { VIDEOS_TITLE_URL, type VideoURLObj } from "./VideoURLs";
+import _ from "lodash";
 // import ReactPlayer from "react-player/youtube";
+const numVideos = VIDEOS_TITLE_URL.length;
+const standardsVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+  _.includes(video.tag, "standards"),
+);
+const postmanVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+  _.includes(video.tag, "postman"),
+);
+const awarenessVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+  _.includes(video.tag, "awareness"),
+);
+const playlists = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+  _.includes(video.tag, "playlist"),
+);
+const numVideosFromCat = _.union(
+  standardsVideos,
+  postmanVideos,
+  awarenessVideos,
+  playlists,
+).length;
 
 export default function Videos() {
   const theme = useTheme();
-  // 14 videos right now
-  const createVideoContainers = VIDEOS_TITLE_URL.map((video, i) => {
-    return (
-      <Grid
-        xs={6}
-        key={"video-" + video.title}
-        flexGrow={0}
-        display="flex"
-        justifyContent="center"
-        alignItems="stretch"
-        sx={{
-          aspectRatio: 16 / 9,
-        }}
-      >
-        <Box
-          maxWidth="100%"
-          height="100%"
+
+  console.log("numVideos:", numVideos);
+  console.log("numVideosFromCat:", numVideosFromCat);
+
+  const createVideoContainers = (videos: VideoURLObj[]) =>
+    videos.map((video, i) => {
+      return (
+        <Grid
+          xs={6}
+          key={"video-" + video.title}
+          flexGrow={0}
           display="flex"
           justifyContent="center"
-          sx={{ aspectRatio: 16 / 9 }}
+          alignItems="stretch"
+          sx={{
+            aspectRatio: 16 / 9,
+          }}
         >
-          <VideoContainer id={String(i)} title={video.title} url={video.url} />
-        </Box>
-      </Grid>
-    );
-  });
+          <Box
+            maxWidth="100%"
+            height="100%"
+            display="flex"
+            justifyContent="center"
+            sx={{ aspectRatio: 16 / 9 }}
+          >
+            <VideoContainer
+              id={String(i)}
+              title={video.title}
+              url={video.url}
+            />
+          </Box>
+        </Grid>
+      );
+    });
 
   return (
     <Box
@@ -75,19 +103,86 @@ export default function Videos() {
           alignContent="space-around"
           alignItems="stretch"
           justifyContent="center"
-          // sx={{
-          //   "--Grid-borderWidth": "5px",
-          //   "borderTop": "var(--Grid-borderWidth) solid",
-          //   "borderLeft": "var(--Grid-borderWidth) solid",
-          //   "borderColor": "divider",
-          //   "& > div": {
-          //     borderRight: "var(--Grid-borderWidth) solid",
-          //     borderBottom: "var(--Grid-borderWidth) solid",
-          //     borderColor: "divider",
-          //   },
-          // }}
         >
-          {createVideoContainers}
+          <Grid
+            xs={12}
+            display="flex"
+            justifyContent="left"
+            alignItems="stretch"
+            sx={{
+              backgroundColor: alpha(theme.palette.background.default, 0.25),
+            }}
+          >
+            <Typography
+              variant="h4"
+              textAlign="left"
+              p={1}
+              sx={{
+                backgroundColor: alpha("#fff", 0.09),
+                borderRadius: 2,
+                borderWidth: 1,
+                borderStyle: "solid",
+                borderColor: alpha("#fff", 0.01),
+                // borderColor: alpha(theme.palette.background.default, 0.5),
+                // backgroundColor: "#fff"
+              }}
+            >
+              Identity Standards Education
+            </Typography>
+          </Grid>
+          {createVideoContainers(standardsVideos)}
+          <Grid
+            xs={12}
+            pt={5}
+            display="flex"
+            justifyContent="left"
+            alignItems="stretch"
+            sx={{
+              backgroundColor: alpha(theme.palette.background.default, 0.25),
+            }}
+          >
+            <Typography
+              variant="h4"
+              textAlign="left"
+              p={1}
+              sx={{
+                backgroundColor: alpha("#fff", 0.09),
+                borderRadius: 2,
+                borderWidth: 1,
+                borderStyle: "solid",
+                borderColor: alpha("#fff", 0.01),
+              }}
+            >
+              Collaboration
+            </Typography>
+          </Grid>
+          {createVideoContainers(postmanVideos)}
+          <Grid
+            xs={12}
+            pt={5}
+            display="flex"
+            justifyContent="left"
+            alignItems="stretch"
+            sx={{
+              backgroundColor: alpha(theme.palette.background.default, 0.25),
+            }}
+          >
+            <Typography
+              variant="h4"
+              textAlign="left"
+              p={1}
+              sx={{
+                backgroundColor: alpha("#fff", 0.09),
+                borderRadius: 2,
+                borderWidth: 1,
+                borderStyle: "solid",
+                borderColor: alpha("#fff", 0.01),
+              }}
+            >
+              Awareness
+            </Typography>
+          </Grid>
+          {createVideoContainers(awarenessVideos)}
         </Grid>
       </Paper>
     </Box>
