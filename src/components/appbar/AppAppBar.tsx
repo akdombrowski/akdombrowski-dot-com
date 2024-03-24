@@ -2,6 +2,9 @@
 import "client-only";
 
 import { useState, type SyntheticEvent } from "react";
+
+import Link from "next/link";
+
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -59,34 +62,36 @@ function AppAppBar() {
         id="appBar-toolbar"
         variant="dense"
         sx={{
-          display: "flex",
           minHeight: 45,
-          flexBasis: "max-content",
+          maxHeight: 55,
+          justifyContent: "center",
           alignItems: "stretch",
+          width: "100%",
           backgroundColor: alpha("#000", 0.1),
           backdropFilter: "blur(25px)",
           borderWidth: "0 0 1px 0",
           borderStyle: "solid",
           borderColor: alpha(theme.palette.divider2.light, 0.05),
           boxShadow:
-            "0 10px 20px -15px rgba(0, 0, 0, 1), 5px 10px 20px -10px rgba(0, 0, 0, 1), -5px 10px 20px -10px rgba(0, 0, 0, 1),"
+            "0 10px 20px -15px rgba(0, 0, 0, 1), 5px 10px 20px -10px rgba(0, 0, 0, 1), -5px 10px 20px -10px rgba(0, 0, 0, 1),",
         }}
       >
         <Grid
           id="appbar-toolbarComponentsGridContainer"
           container
-          justifyContent="space-between"
-          alignItems="stretch"
           flexWrap="nowrap"
-          columnSpacing={{ xs: 1, md: 3 }}
+          spacing={0}
           width="100%"
+          justifyContent="center"
+          alignItems="stretch"
+          m={0}
         >
           <Grid
+            flexShrink={0}
             xs={1}
             id="appbar-logoGridContainer"
             display="flex"
-            height="100%"
-            justifyContent="center"
+            justifyContent="start"
             alignItems="stretch"
           >
             <AppBarLogo />
@@ -96,12 +101,21 @@ function AppAppBar() {
             xs={0}
             seisHundo={9}
             flexGrow={{ xs: 0, seisHundo: 1 }}
-            p={0}
             display={{ xs: "none", seisHundo: "flex" }}
-            justifyContent="space-around"
+            justifyContent="center"
             alignItems="stretch"
           >
-            <PageSections scrollToSection={scrollToSection} />
+            <Box
+              width="100%"
+              height="100%"
+              display="flex"
+              justifyContent="center"
+              alignItems="stretch"
+              p={0}
+              px={{ xs: 1, md: 2 }}
+            >
+              <PageSections />
+            </Box>
           </Grid>
 
           <Grid
@@ -135,15 +149,15 @@ function AppAppBar() {
                   flexGrow: 1,
                 }}
               >
-                <MenuItem id="videos-menuItem" onClick={scrollToSection}>
+                <MenuItem id="videos-menuItem" component={Link} href="/videos">
                   Videos
                 </MenuItem>
-                <MenuItem id="blogs-menuItem" onClick={scrollToSection}>
+                <MenuItem id="blogs-menuItem" component={Link} href="/blogs">
                   Blogs
                 </MenuItem>
-                <MenuItem id="highlights-menuItem" onClick={scrollToSection}>
+                {/* <MenuItem id="highlights-menuItem" onClick={scrollToSection}>
                   Highlights
-                </MenuItem>
+                </MenuItem> */}
                 <Divider />
               </Box>
             </Drawer>
@@ -153,8 +167,7 @@ function AppAppBar() {
             id="appbar-socialLinksGrid"
             xs={2}
             flexBasis="max-content"
-            px={0}
-            height="100%"
+            p={0}
             display="flex"
             justifyContent="right"
             alignItems="center"

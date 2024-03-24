@@ -21,7 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/blogs/*": ["./src/app/blog/*"],
+      "@/blogs/*": ["src/app/blogs/*"],
       "@/social/*": ["./src/components/social/*"],
       "@/social": ["./src/components/social/"],
       "@/actions/*": ["./src/actions/*"]

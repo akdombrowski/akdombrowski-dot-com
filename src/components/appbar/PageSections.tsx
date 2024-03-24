@@ -10,11 +10,7 @@ import MUILink from "@mui/material/Link";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-export default function PageSections({
-  scrollToSection,
-}: {
-  scrollToSection: (event: SyntheticEvent) => void;
-}) {
+export default function PageSections() {
   return (
     <Grid
       id="logoAndPageSections-gridContainer"
@@ -31,10 +27,11 @@ export default function PageSections({
         flexGrow={1}
         justifyContent="start"
         alignItems="stretch"
+        component={Link}
+        href="/videos"
       >
         <MenuItem
           id="videos-menuItem"
-          onClick={scrollToSection}
           sx={{ py: "6px", px: "12px" }}
         >
           <Typography variant="button" color="text.primary">
@@ -49,7 +46,7 @@ export default function PageSections({
         justifyContent="start"
         alignItems="stretch"
         component={Link}
-        href="/blog"
+        href="/blogs"
       >
         <MenuItem id="blogs-menuItem">
           <Typography variant="button" color="text.primary">
@@ -58,7 +55,7 @@ export default function PageSections({
         </MenuItem>
       </Grid>
 
-      <Grid
+      {/* <Grid
         display="flex"
         flexGrow={1}
         justifyContent="start"
@@ -73,7 +70,7 @@ export default function PageSections({
             Highlights
           </Typography>
         </MenuItem>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }

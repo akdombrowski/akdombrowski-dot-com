@@ -8,25 +8,26 @@ export default function AppBarLogo() {
       id="appbarlogo-boxContainer"
       display="flex"
       maxWidth="100%"
-      minWidth="50px"
-      height="100%"
+      minHeight="50px"
+      maxHeight="100%"
       justifyContent="left"
       alignItems="stretch"
+      position="relative"
+      sx={{ aspectRatio: 16 / 9 }}
     >
-      <Box
+      {/* <Box
         sx={{ aspectRatio: 16 / 9 }}
-        maxWidth="100%"
-        height="100%"
+        flexBasis="max-content"
         position="relative"
-      >
-        {/* Logo Image */}
-        <Image
-          src={"/gokart-R.png"}
-          alt="logo of anthony dombrowski"
-          style={{ overflow: "hidden", objectFit: "contain" }}
-          fill
-        />
-      </Box>
+      > */}
+      {/* Logo Image */}
+      <Image
+        src={"/gokart-R.png"}
+        alt="logo of anthony dombrowski"
+        style={{ overflow: "hidden", objectFit: "contain" }}
+        fill
+      />
+      {/* </Box> */}
     </Box>
   );
 }

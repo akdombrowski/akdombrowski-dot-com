@@ -19,6 +19,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 // nextjs optimization
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
+import Box from "@mui/material/Box";
+import Footer from "@/components/Footer";
+import AppAppBar from "@/components/appbar/AppAppBar";
+import Toolbar from "@mui/material/Toolbar";
+
 // vercel site performance and analytics
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -37,8 +42,10 @@ export default function RootLayout(props: { children: ReactNode }) {
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            {props.children}
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}{" "}
+              <AppAppBar />
+              <Toolbar variant="dense" sx={{ minHeight: 45 }} />
+              {props.children}
             <SpeedInsights />
             <Analytics />
           </ThemeProvider>
