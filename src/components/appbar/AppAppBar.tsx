@@ -69,7 +69,7 @@ function AppAppBar() {
           borderStyle: "solid",
           borderColor: alpha(theme.palette.divider2.light, 0.05),
           boxShadow:
-            "0 0 1px rgba(2, 31, 59, 0.7), 1px 1.5px 2px -1px rgba(2, 31, 59, 0.65), 4px 4px 12px -2.5px rgba(2, 31, 59, 0.65)",
+            "0 10px 20px -15px rgba(0, 0, 0, 1), 5px 10px 20px -10px rgba(0, 0, 0, 1), -5px 10px 20px -10px rgba(0, 0, 0, 1),"
         }}
       >
         <Grid
