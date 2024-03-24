@@ -13,11 +13,7 @@ import Toolbar from "@mui/material/Toolbar";
 
 export default function LandingPage() {
   return (
-    <Box id="landing-appBarBox" width="100vw">
-      <AppAppBar />
-      <Toolbar variant="dense" sx={{ minHeight: 45 }} />
-
-      <Container id="landingPage" maxWidth={false}>
+      <Container id="landingPage" disableGutters maxWidth={false}>
         <Grid
           id="landing-grid"
           container
@@ -124,6 +120,5 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </Container>
-    </Box>
   );
 }

@@ -54,16 +54,17 @@ function AppAppBar() {
       sx={{
         top: 0,
         left: 0,
-        width: "100vw",
-        boxShadow: 10,
+        width: "100%",
+        boxShadow:
+          "-80vw 0 10px -5px rgba(0, 0, 0, 1), 80vw 0 10px -5px rgba(0, 0, 0, 1)",
       }}
     >
       <Toolbar
         id="appBar-toolbar"
         variant="dense"
         sx={{
-          minHeight: 45,
-          maxHeight: 55,
+          minHeight: 35,
+          maxHeight: 50,
           justifyContent: "center",
           alignItems: "stretch",
           width: "100%",
@@ -73,7 +74,7 @@ function AppAppBar() {
           borderStyle: "solid",
           borderColor: alpha(theme.palette.divider2.light, 0.05),
           boxShadow:
-            "0 10px 20px -15px rgba(0, 0, 0, 1), 5px 10px 20px -10px rgba(0, 0, 0, 1), -5px 10px 20px -10px rgba(0, 0, 0, 1),",
+            "0 0 10px -9px  rgba(0, 0, 0, 1), 50vw 0 10px -5px  rgba(0, 0, 0, 1), -50vw 0 10px -5px  rgba(0, 0, 0, 1)",
         }}
       >
         <Grid
@@ -87,10 +88,10 @@ function AppAppBar() {
           m={0}
         >
           <Grid
-            flexShrink={0}
-            xs={1}
             id="appbar-logoGridContainer"
             display="flex"
+            flexGrow={{ xs: 2, seisHundo: 0 }}
+            flexShrink={{ xs: 0, seisHundo: 1 }}
             justifyContent="start"
             alignItems="stretch"
           >
@@ -112,7 +113,6 @@ function AppAppBar() {
               justifyContent="center"
               alignItems="stretch"
               p={0}
-              px={{ xs: 1, md: 2 }}
             >
               <PageSections />
             </Box>
@@ -165,7 +165,8 @@ function AppAppBar() {
 
           <Grid
             id="appbar-socialLinksGrid"
-            xs={2}
+            flexGrow={{ xs: 2, seisHundo: 0 }}
+            flexShrink={{ xs: 0, seisHundo: 1 }}
             flexBasis="max-content"
             p={0}
             display="flex"

@@ -45,7 +45,7 @@ export default function RootLayout(props: { children: ReactNode }) {
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}{" "}
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <AppAppBar />
             <Toolbar variant="dense" sx={{ minHeight: 45 }} />
             {props.children}
