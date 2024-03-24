@@ -37,15 +37,18 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/anthonyProfilesq/favicon.ico" sizes="any" />
+      </head>
       <body>
         {/* <AppRouterCacheProvider options={{ enableCssLayer: true }}> */}
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}{" "}
-              <AppAppBar />
-              <Toolbar variant="dense" sx={{ minHeight: 45 }} />
-              {props.children}
+            <AppAppBar />
+            <Toolbar variant="dense" sx={{ minHeight: 45 }} />
+            {props.children}
             <SpeedInsights />
             <Analytics />
           </ThemeProvider>

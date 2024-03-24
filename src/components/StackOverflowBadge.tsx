@@ -9,7 +9,7 @@ import MUILink from "@mui/material/Link";
 
 export default function StackOverflowBadge() {
   return (
-    <Box paddingX={0} paddingY={1} display="flex" justifyContent="center">
+    <Box p={0} display="flex" justifyContent="center">
       <MUILink
         component={Link}
         target="_blank"

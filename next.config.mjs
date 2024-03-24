@@ -16,7 +16,7 @@ const nextConfig = withMDX({
         protocol: "https",
         hostname: "stackoverflow.com",
         port: "",
-        pathname: "/users/flair/5527213.png",
+        pathname: "/users/flair/**",
       },
     ],
   },
