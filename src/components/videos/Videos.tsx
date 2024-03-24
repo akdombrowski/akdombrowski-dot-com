@@ -24,11 +24,19 @@ const awarenessVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
 const playlists = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
   _.includes(video.tag, "playlist"),
 );
+const otherVideos = _.difference(
+  VIDEOS_TITLE_URL,
+  standardsVideos,
+  postmanVideos,
+  awarenessVideos,
+  playlists,
+);
 const numVideosFromCat = _.union(
   standardsVideos,
   postmanVideos,
   awarenessVideos,
   playlists,
+  otherVideos,
 ).length;
 
 export default function Videos() {
@@ -36,6 +44,17 @@ export default function Videos() {
 
   console.log("numVideos:", numVideos);
   console.log("numVideosFromCat:", numVideosFromCat);
+  console.log(
+    "( numVideosFromCat === numVideosFromCat )",
+    "=",
+    "(",
+    numVideosFromCat,
+    "===",
+    numVideosFromCat,
+    ")",
+    "=",
+    numVideosFromCat === numVideosFromCat,
+  );
 
   const createVideoContainers = (videos: VideoURLObj[]) =>
     videos.map((video, i) => {
@@ -183,6 +202,60 @@ export default function Videos() {
             </Typography>
           </Grid>
           {createVideoContainers(awarenessVideos)}
+
+          <Grid
+            xs={12}
+            pt={5}
+            display="flex"
+            justifyContent="left"
+            alignItems="stretch"
+            sx={{
+              backgroundColor: alpha(theme.palette.background.default, 0.25),
+            }}
+          >
+            <Typography
+              variant="h4"
+              textAlign="left"
+              p={1}
+              sx={{
+                backgroundColor: alpha("#fff", 0.09),
+                borderRadius: 2,
+                borderWidth: 1,
+                borderStyle: "solid",
+                borderColor: alpha("#fff", 0.01),
+              }}
+            >
+              More
+            </Typography>
+          </Grid>
+          {createVideoContainers(otherVideos)}
+
+          <Grid
+            xs={12}
+            pt={5}
+            display="flex"
+            justifyContent="left"
+            alignItems="stretch"
+            sx={{
+              backgroundColor: alpha(theme.palette.background.default, 0.25),
+            }}
+          >
+            <Typography
+              variant="h4"
+              textAlign="left"
+              p={1}
+              sx={{
+                backgroundColor: alpha("#fff", 0.09),
+                borderRadius: 2,
+                borderWidth: 1,
+                borderStyle: "solid",
+                borderColor: alpha("#fff", 0.01),
+              }}
+            >
+              Playlist
+            </Typography>
+          </Grid>
+          {createVideoContainers(playlists)}
         </Grid>
       </Paper>
     </Box>
