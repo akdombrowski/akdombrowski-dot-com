@@ -16,10 +16,13 @@ import Typography from "@mui/material/Typography";
 import { LinkedInURL } from "@/social/LinkedIn";
 
 import { useTheme, alpha } from "@mui/material/styles";
+import type { TypographyOwnProps } from "@mui/material/Typography";
 
 export default function Hero(props: {
-  title?: string;
+  text?: string;
+  variant?: TypographyOwnProps["variant"];
   fontSize?: number | string;
+  height?: number | string;
 }) {
   const theme = useTheme();
 
@@ -29,14 +32,18 @@ export default function Hero(props: {
       variant="text"
       component={Link}
       href={LinkedInURL}
-      sx={{ display: "flex", alignItems: "stretch" }}
+      sx={{
+        display: "flex",
+        alignItems: "stretch",
+        height: props.height,
+      }}
     >
       <Grid
         id="heroGridContainer"
         container
         columns={12}
-        height="100%"
         rowSpacing={1}
+        width="100%"
         flexWrap="nowrap"
         justifyContent="center"
         alignItems="stretch"
@@ -86,7 +93,7 @@ export default function Hero(props: {
           alignItems="center"
         >
           <Typography
-            variant="title"
+            variant={props.variant}
             color="titleColor.light"
             align="center"
             fontSize={props.fontSize}
@@ -98,7 +105,7 @@ export default function Hero(props: {
               textDecorationLine: "underline",
             }}
           >
-            {props.title ?? "Anthony Dombrowski"}
+            {props.text ?? "Anthony Dombrowski"}
           </Typography>
         </Grid>
 

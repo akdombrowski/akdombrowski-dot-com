@@ -28,7 +28,7 @@ export default function LandingPage() {
             alignItems="center"
             pt={{ xs: 0.5, seisHundo: 1.5, md: 2 }}
           >
-            <Hero />
+            <Hero variant="title"/>
           </Grid>
 
           <Grid
