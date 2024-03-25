@@ -9,7 +9,6 @@ import Videos from "@/components/videos/Videos"
 export default function VideosPage() {
   return (
     <Container maxWidth={false}>
-      <Typography variant="h2">Videos</Typography>
       <Grid
         id="videosLayout-videosComponentGrid"
         xs={12}
