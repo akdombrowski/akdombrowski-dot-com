@@ -65,23 +65,6 @@ export default function PageSections() {
           </Typography>
         </MenuItem>
       </Grid>
-
-      {/* <Grid
-        display="flex"
-        flexGrow={1}
-        justifyContent="start"
-        alignItems="stretch"
-      >
-        <MenuItem
-          id="highlights-menuItem"
-          onClick={scrollToSection}
-          sx={{ py: "6px", px: "12px" }}
-        >
-          <Typography variant="button" color="text.primary">
-            Highlights
-          </Typography>
-        </MenuItem>
-      </Grid> */}
     </Grid>
   );
 }

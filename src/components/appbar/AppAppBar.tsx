@@ -99,6 +99,7 @@ function AppAppBar({ title }: { title?: string }) {
           >
             <AppBarLogo />
           </Grid>
+
           <Grid
             id="appbar-pageSectionsGrid"
             xs="auto"
@@ -157,9 +158,6 @@ function AppAppBar({ title }: { title?: string }) {
                 <MenuItem id="blogs-menuItem" component={Link} href="/blogs">
                   Blogs
                 </MenuItem>
-                {/* <MenuItem id="highlights-menuItem" onClick={scrollToSection}>
-                  Highlights
-                </MenuItem> */}
                 <Divider />
               </Box>
             </Drawer>
@@ -206,7 +204,6 @@ function AppAppBar({ title }: { title?: string }) {
           </Grid>
         </Grid>
       </Toolbar>
-      {/* </Container> */}
     </AppBar>
   );
 }
