@@ -16,15 +16,11 @@ import Videos from "@/components/videos/Videos";
 
 export default function Layout(props: { children: ReactNode }) {
   return (
-    <Container id="videosLayout" disableGutters maxWidth={false}>
-      <Grid
-        id="videosLayout-grid"
-        container
-        rowSpacing={{ xs: 1, sm: 2, md: 3 }}
-        disableEqualOverflow
-      >
-        <Grid id="blogsLayout-blogsTitleGrid" xs={12}>
+    <Container id="videosLayout-container" maxWidth={false}>
+      <Grid id="videosLayout-gridContainer" container spacing={1}>
+        {/* <Grid id="videosLayout-videosTitleGrid" xs={12}>
           <Box
+            id="videosLayout-pageTitleBox"
             display="flex"
             justifyContent="space-around"
             alignItems="stretch"
@@ -33,45 +29,55 @@ export default function Layout(props: { children: ReactNode }) {
             sx={{
               backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
             }}
+          > */}
+        <Grid
+          id="videosLayout-pageTitleGridContainer"
+          xs={12}
+          container
+          spacing={0}
+          justifyContent="space-around"
+          alignItems="stretch"
+          sx={{
+            backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
+          }}
+        >
+          <Grid xs={6} pt={3} pb={2}>
+            <Typography variant="h1" align="center" letterSpacing="2vw">
+              Videos
+            </Typography>
+          </Grid>
+          <Grid
+            xs={6}
+            container
+            spacing={1}
+            justifyContent="center"
+            alignItems="center"
+            sx={{
+              backgroundImage: ` linear-gradient(to left, rgba(255, 75, 200, 0.01) 0, rgba(255, 75, 250, 0.08) 20%, rgba(255, 105, 250, 0.14) 50%, rgba(255, 25, 225, 0.08) 80%,  rgba(35, 181, 211, 0.0) 100%)`,
+            }}
           >
-            <Grid container columns={12} rowSpacing={1}>
-              <Grid xs={12} display="flex" justifyContent="space-around">
-                <Typography
-                  variant="h2"
-                  fontWeight={100}
-                  align="center"
-                  letterSpacing="2vw"
-                  // justifyContent="center"
-                  // alignItems="flex-end"
-                >
+            <Box
+              p={3}
+              sx={{
+                backgroundImage: `radial-gradient(circle at center, rgba(255, 75, 200, 0.01) 0,  rgba(0, 0, 0, 0.02) 100%)`,
+              }}
+            >
+              <Grid xs={12} p={0} pb={1}>
+                <Typography variant="h3" align="center" letterSpacing=".55vw">
                   Content
                 </Typography>
-                <Typography
-                  variant="h2"
-                  component="span"
-                  display="inline-flex"
-                  fontWeight={100}
-                  align="center"
-                  letterSpacing="2vw"
-                  justifyContent="center"
-                  alignItems="flex-end"
-                >
+              </Grid>
+              <Grid xs={12} p={0}>
+                <Typography variant="h3" align="center" letterSpacing=".55vw">
                   Library
                 </Typography>
               </Grid>
-            </Grid>
-          </Box>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid
-          id="videosLayout-videosComponentGrid"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          paddingX={0}
-        >
-          <Videos />
-        </Grid>
+        {/* </Box> */}
+        {/*        </Grid> */}
+
         {props.children}
       </Grid>
     </Container>

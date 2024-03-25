@@ -4,10 +4,22 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 
-export default function Videos() {
+import Videos from "@/components/videos/Videos"
+
+export default function VideosPage() {
   return (
     <Container maxWidth={false}>
       <Typography variant="h2">Videos</Typography>
+      <Grid
+        id="videosLayout-videosComponentGrid"
+        xs={12}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        paddingX={0}
+      >
+        <Videos />
+      </Grid>
     </Container>
   );
 }

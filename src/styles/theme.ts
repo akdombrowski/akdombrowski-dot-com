@@ -211,18 +211,18 @@ const modifyDefaultsTheme = createTheme({
       lineHeight: 1,
     },
     h1: {
-      fontWeight: 1000,
-      lineHeight: 1,
-      fontSize: "6rem",
+      fontSize: "12rem",
+      fontWeight: 300,
+      lineHeight: 1.0,
     },
     h2: {
-      fontSize: "6rem",
-      fontWeight: 350,
+      fontSize: "9rem",
+      fontWeight: 100,
       lineHeight: 1.0,
     },
     h3: {
       fontWeight: 300,
-      fontSize: "3.5rem",
+      fontSize: "3.8rem",
       lineHeight: 1.0,
     },
     h4: {
