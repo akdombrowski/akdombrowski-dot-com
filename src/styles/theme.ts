@@ -4,7 +4,10 @@ import "client-only";
 import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
 
 import type { CSSProperties } from "react";
-import type { TypographyStyleOptions } from "@mui/material/styles/createTypography";
+import type {
+  TypographyStyleOptions,
+  Typography,
+} from "@mui/material/styles/createTypography";
 
 declare module "@mui/system" {
   interface BreakpointOverrides {
@@ -31,6 +34,8 @@ declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     poster: true;
     title: true;
+    appBarTitle: true;
+    appBarText: true;
     role: true;
     subRole: true;
   }
@@ -53,6 +58,8 @@ declare module "@mui/material/styles" {
   }
 
   interface TypographyVariants {
+    appBarTitle: CSSProperties & TypographyStyleOptions;
+    appBarText: CSSProperties & TypographyStyleOptions;
     poster: CSSProperties & TypographyStyleOptions;
     title: CSSProperties & TypographyStyleOptions;
     role: CSSProperties & TypographyStyleOptions;
@@ -60,6 +67,8 @@ declare module "@mui/material/styles" {
   }
 
   interface TypographyVariantsOptions {
+    appBarTitle?: CSSProperties & TypographyStyleOptions;
+    appBarText?: CSSProperties & TypographyStyleOptions;
     poster?: CSSProperties & TypographyStyleOptions;
     title?: CSSProperties & TypographyStyleOptions;
     role?: CSSProperties & TypographyStyleOptions;
@@ -86,6 +95,7 @@ declare module "@mui/material/styles" {
 
   interface Palette {
     titleColor: Palette["primary"];
+    violentRed: Palette["primary"];
     divider2: Palette["primary"];
     custom: Palette["primary"];
     paperBgA: Palette["primary"];
@@ -96,6 +106,7 @@ declare module "@mui/material/styles" {
 
   interface PaletteOptions {
     titleColor?: PaletteOptions["primary"];
+    violentRed?: PaletteOptions["primary"];
     divider2?: PaletteOptions["primary"];
     custom?: PaletteOptions["primary"];
     paperBgA?: PaletteOptions["primary"];
@@ -169,19 +180,33 @@ const modifyDefaultsTheme = createTheme({
     fontWeightRegular: 500,
     fontWeightMedium: 800,
     fontWeightBold: 1000,
+    appBarTitle: {
+      fontSize: "4rem",
+      fontWeight: 300,
+      lineHeight: 1.0,
+    },
+    appBarText: {
+      fontSize: "3rem",
+      fontWeight: 700,
+      lineHeight: 1.0,
+    },
     poster: {
-      fontSize: "6rem",
-      fontWeight: 1000,
-      lineHeight: 1.25,
-      color: alpha("#45F0DF", 0.99),
+      fontSize: "8rem",
+      fontWeight: 100,
+      lineHeight: 1.1,
     },
     title: {
-      color: "titleColor",
+      fontSize: "18rem",
       fontWeight: 1000,
       lineHeight: 1,
     },
+    role: {
+      fontSize: "3rem",
+      fontWeight: 100,
+      lineHeight: 1,
+    },
     subRole: {
-      fontSize: ".75rem",
+      fontSize: "1rem",
       fontWeight: 100,
       lineHeight: 1,
     },
@@ -191,7 +216,7 @@ const modifyDefaultsTheme = createTheme({
       fontSize: "6rem",
     },
     h2: {
-      fontSize: "4rem",
+      fontSize: "6rem",
       fontWeight: 350,
       lineHeight: 1.0,
     },
@@ -202,35 +227,36 @@ const modifyDefaultsTheme = createTheme({
     },
     h4: {
       fontWeight: 400,
-      fontSize: "1.6rem",
-      lineHeight: 1,
+      fontSize: "2rem",
+      lineHeight: 1.0,
     },
     h5: {
       fontWeight: 100,
-      fontSize: ".75rem",
+      fontSize: "1.75rem",
+      lineHeight: 1.0,
     },
     h6: {
       fontWeight: 1000,
-      fontSize: ".5rem",
+      fontSize: "1.5rem",
       lineHeight: 1.0,
     },
     subtitle1: {
       fontWeight: 100,
       lineHeight: 1,
-      fontSize: "0.9rem",
+      fontSize: "1.2rem",
     },
     subtitle2: {
       fontWeight: 1000,
       lineHeight: 0.5,
-      fontSize: ".75rem",
+      fontSize: "1rem",
     },
     body1: {
       fontSize: "1rem",
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: 1,
     },
     body2: {
-      fontSize: "0.9rem",
+      fontSize: "1rem",
       fontWeight: 100,
       lineHeight: 1,
     },
@@ -275,6 +301,12 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
         main: "#52FFB8",
       },
       name: "titleColor",
+    }),
+    violentRed: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: "#F9DC5C",
+      },
+      name: "violentRed",
     }),
     divider2: modifyDefaultsTheme.palette.augmentColor({
       color: {
@@ -335,6 +367,12 @@ export const customTypographyTheme = createTheme(customColorsTheme, {
     title: {
       color: customColorsTheme.palette.titleColor,
     },
+    appBarTitle: {
+      color: customColorsTheme.palette.violentRed.main,
+    },
+    appBarText: {
+      color: customColorsTheme.palette.titleColor,
+    },
   },
 });
 /**
@@ -361,7 +399,7 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
       defaultProps: {
         variantMapping: {
           // Map the new variant to render a <h1> by default
-          // poster: "h1",
+          poster: "h1",
           title: "h1",
         },
       },
@@ -392,6 +430,32 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
 
 /**
  *
+ * Typography variant names to make responsive font sizes for
+ *
+ */
+const typographyVariants: (keyof Typography)[] = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "subtitle1",
+  "subtitle2",
+  "body1",
+  "body2",
+  "button",
+  "caption",
+  "overline",
+  "poster",
+  "title",
+  "appBarTitle",
+  "appBarText",
+  "role",
+  "subRole",
+];
+/**
+ *
  *
  *
  * Responsive Font Sizes fn
@@ -413,138 +477,11 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
     "uhd",
   ],
   factor: 10,
+  variants: typographyVariants,
 });
 /**
  *
  * Responsive Font Sizes fn
- *
- *
- *
- */
-
-/**
- *
- *
- *
- * ==========================
- * CUSTOM Typography Variants
- * ==========================
- *
- */
-/**
- * title Typography Variant
- */
-responsiveFont.typography.title = {
-  fontSize: "2.85rem",
-  fontWeight: 1000,
-  lineHeight: 1,
-  [customComponentsTheme.breakpoints.up(400)]: {
-    fontSize: "3rem",
-  },
-  [customComponentsTheme.breakpoints.up(500)]: {
-    fontSize: "3.8rem",
-  },
-  [customComponentsTheme.breakpoints.up(600)]: {
-    fontSize: "4rem",
-  },
-  [customComponentsTheme.breakpoints.up(700)]: {
-    fontSize: "5rem",
-  },
-  [customComponentsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "5.25rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "6rem",
-  },
-  [customComponentsTheme.breakpoints.up("lg")]: {
-    fontSize: "6.5rem",
-  },
-  [customComponentsTheme.breakpoints.up("xl")]: {
-    fontSize: "8.25rem",
-  },
-  [customComponentsTheme.breakpoints.up("fhd")]: {
-    fontSize: "8.5rem",
-  },
-  [customComponentsTheme.breakpoints.up("uhd")]: {
-    fontSize: "15rem",
-  },
-};
-
-/**
- * role Typography Variant
- */
-responsiveFont.typography.role = {
-  fontSize: ".5rem",
-  fontWeight: 100,
-  lineHeight: 1,
-  [customComponentsTheme.breakpoints.up(400)]: {
-    fontSize: ".7rem",
-  },
-  [customComponentsTheme.breakpoints.up(500)]: {
-    fontSize: ".9rem",
-    fontWeight: 200,
-  },
-  [customComponentsTheme.breakpoints.up(600)]: {
-    fontSize: "1rem",
-    fontWeight: 300,
-  },
-  [customComponentsTheme.breakpoints.up(700)]: {
-    fontSize: "1.25rem",
-    fontWeight: 400,
-  },
-  [customComponentsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "1.5rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "1.65rem",
-  },
-};
-
-/**
- * subRole Typography Variant
- */
-responsiveFont.typography.subRole = {
-  fontSize: ".4rem",
-  fontWeight: 100,
-  lineHeight: 1,
-  [customComponentsTheme.breakpoints.up(400)]: {
-    fontSize: ".5rem",
-  },
-  [customComponentsTheme.breakpoints.up(500)]: {
-    fontSize: ".7rem",
-  },
-  [customComponentsTheme.breakpoints.up(600)]: {
-    fontSize: ".8rem",
-  },
-  [customComponentsTheme.breakpoints.up(700)]: {
-    fontSize: ".9rem",
-  },
-  [customComponentsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "1rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "1.2rem",
-    fontWeight: 300,
-  },
-};
-
-/**
- * poster Typography Variant
- */
-responsiveFont.typography.poster = {
-  "fontSize": "2.5rem",
-  "@media (min-width:600px)": {
-    fontSize: "3.75rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "4.15rem",
-  },
-};
-/**
- *
- * ==========================
- * CUSTOM Typography Variants
- * ==========================
  *
  *
  *

@@ -29,12 +29,9 @@ export default function PageSections() {
         alignItems="stretch"
         component={Link}
         href="/"
-        >
-        <MenuItem
-          id="videos-menuItem"
-          sx={{ py: "6px", px: "12px" }}
-        >
-          <Typography variant="button" color="text.primary">
+      >
+        <MenuItem id="videos-menuItem" sx={{ py: "6px", px: "12px" }}>
+          <Typography variant="appBarText" color="text.primary">
             Home
           </Typography>
         </MenuItem>
@@ -46,12 +43,9 @@ export default function PageSections() {
         alignItems="stretch"
         component={Link}
         href="/videos"
-        >
-        <MenuItem
-          id="videos-menuItem"
-          sx={{ py: "6px", px: "12px" }}
-        >
-          <Typography variant="button" color="text.primary">
+      >
+        <MenuItem id="videos-menuItem" sx={{ py: "6px", px: "12px" }}>
+          <Typography variant="appBarText" color="text.primary">
             Videos
           </Typography>
         </MenuItem>
@@ -66,7 +60,7 @@ export default function PageSections() {
         href="/blogs"
       >
         <MenuItem id="blogs-menuItem">
-          <Typography variant="button" color="text.primary">
+          <Typography variant="appBarText" color="text.primary">
             Blogs
           </Typography>
         </MenuItem>

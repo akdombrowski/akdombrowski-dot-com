@@ -4,6 +4,7 @@ import "client-only";
 import { useState, type SyntheticEvent } from "react";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -20,8 +21,9 @@ import { alpha, useTheme } from "@mui/material/styles";
 import { GitHubLinkedin } from "@/social";
 import PageSections from "@/components/appbar/PageSections";
 import AppBarLogo from "@/components/appbar/AppBarLogo";
-function AppAppBar() {
+function AppAppBar({ title }: { title?: string }) {
   const theme = useTheme();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -99,9 +101,9 @@ function AppAppBar() {
           </Grid>
           <Grid
             id="appbar-pageSectionsGrid"
-            xs={0}
-            seisHundo={9}
+            xs="auto"
             flexGrow={{ xs: 0, seisHundo: 1 }}
+            flexShrink={1}
             display={{ xs: "none", seisHundo: "flex" }}
             justifyContent="center"
             alignItems="stretch"
@@ -164,7 +166,29 @@ function AppAppBar() {
           </Grid>
 
           <Grid
+            id="appbar-pageTitle"
+            xs="auto"
+            display={pathname === "/" ? "none" : "flex"}
+            flexGrow={0}
+            flexShrink={0}
+            flexBasis="max-content"
+            justifyContent="center"
+            alignItems="center"
+            px={1}
+          >
+            <Typography
+              variant="appBarTitle"
+              display="inline-flex"
+              align="right"
+              textTransform="uppercase"
+            >
+              {pathname.replace("/", "")}
+            </Typography>
+          </Grid>
+
+          <Grid
             id="appbar-socialLinksGrid"
+            xs="auto"
             flexGrow={{ xs: 2, seisHundo: 0 }}
             flexShrink={{ xs: 0, seisHundo: 1 }}
             flexBasis="max-content"

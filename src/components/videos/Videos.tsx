@@ -96,25 +96,7 @@ export default function Videos() {
       }}
     >
       <Paper elevation={6}>
-        <Box
-          width="100%"
-          py={2}
-          sx={{
-            backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
-          }}
-        >
-          <Typography
-            variant="h1"
-            component="span"
-            display="inline-block"
-            width="100%"
-            fontWeight={100}
-            align="center"
-            letterSpacing="1vw"
-          >
-            Content Library
-          </Typography>
-        </Box>
+
         <Grid
           id="videosContainer"
           container
