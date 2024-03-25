@@ -1,19 +1,16 @@
 {
   "extends": [
-    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:mdx/recommended",
-    "plugin:prettier/recommended"
+    "next",
+    "prettier"
   ],
   "overrides": [],
   "settings": {
     "mdx/code-blocks": true
   },
-  "plugins": ["json-format", "jsdoc"],
+  "plugins": ["@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": true,
-    "tsconfigRootDir": "."
-  }
+  "root": true
 }

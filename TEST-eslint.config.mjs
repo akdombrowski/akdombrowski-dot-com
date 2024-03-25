@@ -1,12 +1,11 @@
-import jsdoc from "eslint-plugin-jsdoc";
-import jsonFormat from "eslint-plugin-json-format";
+
 import * as mdx from "eslint-plugin-mdx";
-import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import eslintConfigPrettier from "eslint-config-prettier";
+import nextESlint from "eslint-config-next";
 
 export default tseslint.config(
-  eslint.configs.recommended,
+  nextESlint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   {
     languageOptions: {
@@ -22,8 +21,7 @@ export default tseslint.config(
   },
   {
     plugins: {
-      jsonFormat: json - format,
-      jsdoc: jsdoc,
+      // jsdoc: jsdoc,
     },
   },
   {

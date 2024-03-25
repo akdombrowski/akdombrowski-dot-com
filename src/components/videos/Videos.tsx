@@ -8,8 +8,15 @@ import Paper from "@mui/material/Paper";
 import VideoContainer from "./VideoContainer";
 import Box from "@mui/material/Box";
 import { useTheme, alpha } from "@mui/material/styles";
-import { VIDEOS_TITLE_URL, type VideoURLObj } from "./VideoURLs";
+import {
+  VIDEOS_TITLE_URL,
+  type VideoURLObj,
+} from "@/components/videos/VideoURLs";
 import _ from "lodash";
+import type { GridSize } from "@mui/system/Unstable_Grid";
+
+const DEBUG = false;
+
 // import ReactPlayer from "react-player/youtube";
 const numVideos = VIDEOS_TITLE_URL.length;
 const standardsVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
@@ -39,53 +46,29 @@ const numVideosFromCat = _.union(
   otherVideos,
 ).length;
 
+export const createVideoContainers = (videos: VideoURLObj[]) =>
+  videos.map((video, i) => {
+    return <VideoContainer video={video} size={6} idPrefix={String(i)} />;
+  });
+
 export default function Videos() {
   const theme = useTheme();
 
-  console.log("numVideos:", numVideos);
-  console.log("numVideosFromCat:", numVideosFromCat);
-  console.log(
-    "( numVideosFromCat === numVideosFromCat )",
-    "=",
-    "(",
-    numVideosFromCat,
-    "===",
-    numVideosFromCat,
-    ")",
-    "=",
-    numVideosFromCat === numVideosFromCat,
-  );
-
-  const createVideoContainers = (videos: VideoURLObj[]) =>
-    videos.map((video, i) => {
-      return (
-        <Grid
-          xs={6}
-          key={"video-" + video.title}
-          flexGrow={0}
-          display="flex"
-          justifyContent="center"
-          alignItems="stretch"
-          sx={{
-            aspectRatio: 16 / 9,
-          }}
-        >
-          <Box
-            maxWidth="100%"
-            height="100%"
-            display="flex"
-            justifyContent="center"
-            sx={{ aspectRatio: 16 / 9 }}
-          >
-            <VideoContainer
-              id={String(i)}
-              title={video.title}
-              url={video.url}
-            />
-          </Box>
-        </Grid>
-      );
-    });
+  if (DEBUG) {
+    console.log("numVideos:", numVideos);
+    console.log("numVideosFromCat:", numVideosFromCat);
+    console.log(
+      "( numVideosFromCat === numVideosFromCat )",
+      "=",
+      "(",
+      numVideosFromCat,
+      "===",
+      numVideosFromCat,
+      ")",
+      "=",
+      numVideosFromCat === numVideosFromCat,
+    );
+  }
 
   return (
     <Box
@@ -96,7 +79,6 @@ export default function Videos() {
       }}
     >
       <Paper elevation={6}>
-
         <Grid
           id="videosContainer"
           container
