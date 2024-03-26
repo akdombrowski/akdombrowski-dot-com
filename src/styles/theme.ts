@@ -191,9 +191,9 @@ const modifyDefaultsTheme = createTheme({
       lineHeight: 1.0,
     },
     poster: {
-      fontSize: "8rem",
-      fontWeight: 100,
-      lineHeight: 1.1,
+      fontSize: "6rem",
+      fontWeight: 500,
+      lineHeight: 1.0,
     },
     title: {
       fontSize: "18rem",

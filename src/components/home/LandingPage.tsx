@@ -1,26 +1,17 @@
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import Roles from "@/components/Roles";
 import StackOverflowBadge from "@/components/StackOverflowBadge";
-import Hero from "./Hero";
+import Hero from "../Hero";
 import Footer from "@/components/Footer";
 
-import VideoContainer from "@/components/videos/VideoContainer";
-import { VIDEOS_TITLE_URL } from "@/components/videos/VideoURLs";
-import _ from "lodash";
-
-const highlightVideo = _.find(VIDEOS_TITLE_URL, (vid) => {
-  return vid.title.startsWith(
-    "OAuth 2.0: Implicit, Authorization Code, and PKCE",
-  );
-})!;
+import TOC from "@/components/home/TOC";
 
 export default function LandingPage() {
   return (
-    <Container id="landingPage" disableGutters maxWidth={false}>
+    <Container id="landingPage" maxWidth={false}>
       <Grid
         id="landing-grid"
         container
@@ -109,9 +100,9 @@ export default function LandingPage() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          p={6}
+          pb={6}
         >
-          <VideoContainer video={highlightVideo} size={12} />
+          <TOC />
         </Grid>
 
         <Divider />
