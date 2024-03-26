@@ -2,7 +2,6 @@
 import "client-only";
 
 import Grid from "@mui/material/Unstable_Grid2";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import VideoContainer from "./VideoContainer";
@@ -13,22 +12,21 @@ import {
   type VideoURLObj,
 } from "@/components/videos/VideoURLs";
 import _ from "lodash";
-import type { GridSize } from "@mui/system/Unstable_Grid";
 
 const DEBUG = false;
 
 // import ReactPlayer from "react-player/youtube";
 const numVideos = VIDEOS_TITLE_URL.length;
-const standardsVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+const standardsVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
   _.includes(video.tag, "standards"),
 );
-const postmanVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+const postmanVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
   _.includes(video.tag, "postman"),
 );
-const awarenessVideos = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+const awarenessVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
   _.includes(video.tag, "awareness"),
 );
-const playlists = _.filter(VIDEOS_TITLE_URL, (video, i, arr) =>
+const playlists = _.filter(VIDEOS_TITLE_URL, (video) =>
   _.includes(video.tag, "playlist"),
 );
 const otherVideos = _.difference(
@@ -48,7 +46,9 @@ const numVideosFromCat = _.union(
 
 export const createVideoContainers = (videos: VideoURLObj[]) =>
   videos.map((video, i) => {
-    return <VideoContainer video={video} size={6} idPrefix={String(i)} />;
+    return (
+      <VideoContainer key={i} video={video} size={6} idPrefix={String(i)} />
+    );
   });
 
 export default function Videos() {

@@ -19,8 +19,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 // nextjs optimization
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
-import Box from "@mui/material/Box";
-import Footer from "@/components/Footer";
 import AppAppBar from "@/components/appbar/AppAppBar";
 import Toolbar from "@mui/material/Toolbar";
 

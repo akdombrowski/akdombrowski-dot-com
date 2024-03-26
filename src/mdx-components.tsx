@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import type { MDXComponents } from "mdx/types";
 import Image, { ImageProps } from "next/image";
 import Blogs from "@/components/blogs/Blogs";

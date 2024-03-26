@@ -1,7 +1,6 @@
 "use client";
 import "client-only";
 
-import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import Container from "@mui/material/Container";
@@ -9,8 +8,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2";
 
-import Hero from "@/components/Hero";
-import Videos from "@/components/videos/Videos";
 
 import { usePathname } from "next/navigation";
 

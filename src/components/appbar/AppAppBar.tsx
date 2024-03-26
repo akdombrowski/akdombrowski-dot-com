@@ -1,7 +1,7 @@
 "use client";
 import "client-only";
 
-import { useState, type SyntheticEvent } from "react";
+import { useState } from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -21,7 +21,7 @@ import { alpha, useTheme } from "@mui/material/styles";
 import { GitHubLinkedin } from "@/social";
 import PageSections from "@/components/appbar/PageSections";
 import AppBarLogo from "@/components/appbar/AppBarLogo";
-function AppAppBar({ title }: { title?: string }) {
+function AppAppBar() {
   const theme = useTheme();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -30,24 +30,24 @@ function AppAppBar({ title }: { title?: string }) {
     setOpen(newOpen);
   };
 
-  const scrollToSection = (event: SyntheticEvent) => {
-    event.preventDefault();
-    const id = event.currentTarget.id;
-    // This event should come from a MenuItem wrapper with an id of the form
-    // "{sectionID}-menuItem"
-    const sectionID = id.split("-")[0];
-    const sectionElement = document.getElementById(sectionID);
-    const offset = window.innerHeight * 0.01;
-    if (sectionElement) {
-      const targetScroll = sectionElement.offsetTop - offset;
-      sectionElement.scrollIntoView({ behavior: "smooth" });
-      window.scrollTo({
-        top: targetScroll,
-        behavior: "smooth",
-      });
-      setOpen(false);
-    }
-  };
+  // const scrollToSection = (event: SyntheticEvent) => {
+  //   event.preventDefault();
+  //   const id = event.currentTarget.id;
+  //   // This event should come from a MenuItem wrapper with an id of the form
+  //   // "{sectionID}-menuItem"
+  //   const sectionID = id.split("-")[0];
+  //   const sectionElement = document.getElementById(sectionID);
+  //   const offset = window.innerHeight * 0.01;
+  //   if (sectionElement) {
+  //     const targetScroll = sectionElement.offsetTop - offset;
+  //     sectionElement.scrollIntoView({ behavior: "smooth" });
+  //     window.scrollTo({
+  //       top: targetScroll,
+  //       behavior: "smooth",
+  //     });
+  //     setOpen(false);
+  //   }
+  // };
 
   return (
     <AppBar

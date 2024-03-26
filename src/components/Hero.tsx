@@ -7,7 +7,6 @@ import Image from "next/image";
 import profilePic from "/public/profile_9x16.jpg";
 import profilePicR from "/public/profileR_9x16.jpg";
 
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";

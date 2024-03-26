@@ -1,7 +1,7 @@
 "use server";
 import "server-only";
 
-import axios, { AxiosRequestHeaders, type AxiosRequestConfig } from "axios";
+import axios, { type AxiosRequestConfig } from "axios";
 import "dotenv/config";
 
 export interface YouTubeVideoStatsResponseBody {
@@ -33,7 +33,9 @@ export interface PageInfo {
 // create an axios instance with shared config
 const ax = (mergeConfig: {
   method: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params?: { [key: string]: any };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: { [key: string]: any };
 }) => {
   const config: AxiosRequestConfig = {

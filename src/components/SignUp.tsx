@@ -1,15 +1,10 @@
 "use client";
 import "client-only";
 
-import Image, { getImageProps } from "next/image";
-import profilePic from "../../public/profile_9x16.jpg";
-import profilePicR from "../../public/profileR_9x16.jpg";
 import Grid from "@mui/material/Unstable_Grid2";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { useTheme, alpha } from "@mui/material/styles";
 
 export default function SignUp() {
   return (
@@ -18,12 +13,14 @@ export default function SignUp() {
       container
       spacing={3}
       justifyContent="center"
-      alignItems="stretch">
+      alignItems="stretch"
+    >
       <Grid xs={12} display="flex" justifyContent="center" alignItems="center">
         <Typography
           variant="subtitle1"
           textAlign="center"
-          color="text.secondary">
+          color="text.secondary"
+        >
           Elevate your experience with top-tier features and services.
         </Typography>
       </Grid>
@@ -32,7 +29,8 @@ export default function SignUp() {
         padding={0}
         display="flex"
         justifyContent="center"
-        alignItems="center">
+        alignItems="center"
+      >
         <TextField
           id="outlined-basic"
           hiddenLabel
@@ -52,7 +50,8 @@ export default function SignUp() {
         padding={0}
         display="flex"
         justifyContent="center"
-        alignItems="center">
+        alignItems="center"
+      >
         <Button variant="contained" color="primary">
           Start now
         </Button>
@@ -67,7 +66,8 @@ export default function SignUp() {
         paddingTop={1}
         display="flex"
         justifyContent="flex-start"
-        alignItems="center">
+        alignItems="center"
+      >
         <Typography variant="caption" textAlign="start" sx={{ opacity: 0.8 }}>
           By clicking &quot;Start now&quot; you agree to be contacted.
         </Typography>
@@ -78,7 +78,8 @@ export default function SignUp() {
         paddingTop=".2rem"
         display="flex"
         justifyContent="flex-start"
-        alignItems="center">
+        alignItems="center"
+      >
         <Typography variant="caption" textAlign="start" sx={{ opacity: 0.8 }}>
           Sometimes out of the blue... For no reason...
         </Typography>
@@ -91,7 +92,8 @@ export default function SignUp() {
         paddingBottom={1}
         display="flex"
         justifyContent="flex-start"
-        alignItems="center">
+        alignItems="center"
+      >
         <Typography variant="caption" textAlign="start" sx={{ opacity: 0.8 }}>
           Just kidding.
         </Typography>
@@ -103,7 +105,8 @@ export default function SignUp() {
         paddingBottom={1}
         display="flex"
         justifyContent="center"
-        alignItems="center">
+        alignItems="center"
+      >
         <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
           Maybe...
         </Typography>
@@ -115,7 +118,8 @@ export default function SignUp() {
         paddingBottom={1}
         display="flex"
         justifyContent="center"
-        alignItems="center">
+        alignItems="center"
+      >
         <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
           I don&apos;t know. We&apos;ll see.
         </Typography>

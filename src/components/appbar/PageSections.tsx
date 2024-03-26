@@ -1,14 +1,11 @@
 import "client-only";
 
-import { SyntheticEvent } from "react";
 
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Grid from "@mui/material/Unstable_Grid2";
-import MUILink from "@mui/material/Link";
 
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default function PageSections() {
   return (

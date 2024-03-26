@@ -1,5 +1,5 @@
 // Import puppeteer
-import puppeteer, { type Browser } from "puppeteer";
+import puppeteer from "puppeteer";
 
 export const crawl = async (props: { url: string }) => {
   const browser = await puppeteer.launch();

@@ -3,7 +3,7 @@ import "client-only";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import { type GridSize, display } from "@mui/system";
+import { type GridSize } from "@mui/system";
 import type { VideoURLObj } from "@/components/videos/VideoURLs";
 
 export default function VideoContainer({
