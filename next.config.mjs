@@ -9,7 +9,8 @@ const withMDX = MDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withMDX({
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  // Configure `pageExtensions` to include MDX files
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   images: {
     remotePatterns: [
       {

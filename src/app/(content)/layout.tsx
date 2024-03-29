@@ -8,8 +8,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2";
 
-
 import { usePathname } from "next/navigation";
+
+import compact from "lodash/compact";
 
 // export const metadata: Metadata = {
 //   title: "Anthony Dombrowski's Portfolio",
@@ -19,6 +20,7 @@ import { usePathname } from "next/navigation";
 
 export default function Layout(props: { children: ReactNode }) {
   const pathname = usePathname();
+  const pathnameArr = compact(pathname.split("/"));
 
   return (
     <Container id="contentpagesLayout-container" maxWidth={false}>
@@ -35,15 +37,26 @@ export default function Layout(props: { children: ReactNode }) {
             backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
           }}
         >
-          <Grid xs={6} pt={3} pb={2}>
-            <Typography
-              variant="h1"
-              align="center"
-              letterSpacing="2vw"
-              textTransform="capitalize"
-            >
-              {pathname.replace("/", "")}
-            </Typography>
+          <Grid xs={6} pt={3} pb={2} container>
+            <Grid pr={1}>
+              <Typography
+                variant={pathnameArr.length > 1 ? "h2" : "h1"}
+                letterSpacing="2vw"
+                align="left"
+                textTransform="uppercase"
+              >
+                {`${pathnameArr.at(0)}`}
+              </Typography>
+            </Grid>
+            <Grid pl={1}>
+              <Typography
+                variant={pathnameArr.length > 1 ? "h1" : "h2"}
+                align="right"
+                textTransform="uppercase"
+              >
+                {pathnameArr.length > 1 ? `${pathnameArr.at(-1)}` : ""}
+              </Typography>
+            </Grid>
           </Grid>
           <Grid
             xs={6}

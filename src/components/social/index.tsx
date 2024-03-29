@@ -4,6 +4,7 @@ import X from "./X";
 
 export { LinkedInURL } from "./LinkedIn";
 
+import type { SxProps, Theme } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 
@@ -16,96 +17,99 @@ export const defaultBtnSize = { width: "auto", height: "100%" };
 export const defaultIconSize = { width: "auto", height: "100%" };
 export const defaultPadding = { x: 1, y: 1 };
 
-export function StackedSocialLinks(props: {
+export function StackedSocialLinks({
+  direction,
+  justify,
+  color,
+  stackSize,
+  iconSx,
+  btnSx,
+}: {
   direction?: "row" | "column";
   justify?: "right" | "left" | "center";
   iconSize?: { width?: string | number; height?: string | number };
   btnSize?: { width?: string | number; height?: string | number };
   stackSize?: { width?: string | number; height?: string | number };
   color?: string;
+  iconSx?: SxProps<Theme> | undefined;
+  btnSx?: SxProps<Theme> | undefined;
 }) {
   return (
     <Stack
-      direction={props.direction ?? "row"}
-      justifyContent={props.justify ?? "center"}
+      direction={direction ?? "row"}
+      justifyContent={justify ?? "center"}
       spacing={0}
       useFlexGap
       sx={{
-        color: props.color ?? "text.secondary",
-        width: props?.stackSize?.width ?? defaultStackSize.width,
-        height: props?.stackSize?.height ?? defaultStackSize.height,
+        color: color ?? "text.secondary",
+        width: stackSize?.width ?? defaultStackSize.width,
+        height: stackSize?.height ?? defaultStackSize.height,
       }}
     >
       <GitHub
-        btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
-        iconSize={{
-          width: props.iconSize?.width,
-          height: props.iconSize?.height,
+        btnSx={{
+          ...btnSx,
         }}
-        color={props.color}
+        iconSx={{
+          ...iconSx,
+        }}
       />
       <LinkedIn
-        btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
-        iconSize={{
-          width: props.iconSize?.width,
-          height: props.iconSize?.height,
+        btnSx={{
+          ...btnSx,
         }}
-        color={props.color}
+        iconSx={{
+          ...iconSx,
+        }}
       />
       <X
-        btnSize={{ width: props.btnSize?.width, height: props.btnSize?.height }}
-        iconSize={{
-          width: props.iconSize?.width,
-          height: props.iconSize?.height,
+        btnSx={{
+          ...btnSx,
         }}
-        color={props.color}
+        iconSx={{
+          ...iconSx,
+        }}
       />
     </Stack>
   );
 }
 
-export function GitHubLinkedin(props: {
+export function GitHubLinkedin({
+  spacing,
+  boxSize,
+  iconSx,
+  btnSx,
+}: {
   spacing?: number | string;
-  iconSize?: { width?: string | number; height?: string | number };
-  btnSize?: { width?: string | number; height?: string | number };
   boxSize?: { width?: string | number; height?: string | number };
-  color?: string;
+  iconSx?: SxProps<Theme> | undefined;
+  btnSx?: SxProps<Theme> | undefined;
 }) {
   return (
     <>
       <Box
         id="githubLinkedinBox"
-        pr={props.spacing}
-        width={props.boxSize?.width}
-        height={props.boxSize?.height}
+        pr={spacing}
+        width={boxSize?.width}
+        height={boxSize?.height}
       >
         <GitHub
-          btnSize={{
-            width: props.btnSize?.width,
-            height: props.btnSize?.height,
+          btnSx={{
+            ...btnSx,
           }}
-          iconSize={{
-            width: props.iconSize?.width,
-            height: props.iconSize?.height,
+          iconSx={{
+            ...iconSx,
           }}
-          color={props.color}
         />
       </Box>
-      <Box
-        pl={props.spacing}
-        width={props.boxSize?.width}
-        height={props.boxSize?.height}
-      >
+      <Box pl={spacing} width={boxSize?.width} height={boxSize?.height}>
         <LinkedIn
-          btnSize={{
-            width: props.btnSize?.width,
-            height: props.btnSize?.height,
+          btnSx={{
+            ...btnSx,
           }}
-          iconSize={{
-            width: props.iconSize?.width,
-            height: props.iconSize?.height,
+          iconSx={{
+            ...iconSx,
           }}
-          color={props.color}
         />
       </Box>
     </>

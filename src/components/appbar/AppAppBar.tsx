@@ -21,10 +21,13 @@ import { alpha, useTheme } from "@mui/material/styles";
 import { GitHubLinkedin } from "@/social";
 import PageSections from "@/components/appbar/PageSections";
 import AppBarLogo from "@/components/appbar/AppBarLogo";
-function AppAppBar() {
+import compact from "lodash/compact";
+
+export default function AppAppBar() {
   const theme = useTheme();
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const pathnameArr = compact(pathname.split("/"));
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -166,40 +169,61 @@ function AppAppBar() {
           <Grid
             id="appbar-pageTitle"
             xs="auto"
-            display={pathname === "/" ? "none" : "flex"}
+            display="flex"
             flexGrow={0}
             flexShrink={0}
             flexBasis="max-content"
-            justifyContent="center"
+            container
+            justifyContent="space-between"
             alignItems="center"
             px={1}
           >
-            <Typography
-              variant="appBarTitle"
-              display="inline-flex"
-              align="right"
-              textTransform="uppercase"
-            >
-              {pathname.replace("/", "")}
-            </Typography>
+            <Grid pr={1}>
+              <Typography
+                variant="appBarTitle"
+                align="right"
+                textTransform="uppercase"
+              >
+                {pathnameArr.at(0) ?? "home"}
+              </Typography>
+            </Grid>
+            <Grid pl={1}>
+              <Typography
+                variant="appBarText"
+                align="right"
+                textTransform="uppercase"
+              >
+                {pathnameArr.length > 1 ? `${pathnameArr.at(-1)}` : ""}
+              </Typography>
+            </Grid>
           </Grid>
 
           <Grid
             id="appbar-socialLinksGrid"
-            xs="auto"
-            flexGrow={{ xs: 2, seisHundo: 0 }}
-            flexShrink={{ xs: 0, seisHundo: 1 }}
-            flexBasis="max-content"
-            p={0}
+            xs
+            flexGrow={0}
+            flexShrink={1}
+            flexBasis="fit-content"
             display="flex"
             justifyContent="right"
-            alignItems="center"
+            alignItems="stretch"
           >
             <GitHubLinkedin
               spacing=".1vw"
-              boxSize={{ width: "auto", height: "100%" }}
-              btnSize={{ width: "100%", height: "100%" }}
-              color="#fff"
+              btnSx={{
+                my: "auto",
+                // width: "100%",
+                maxWidth: "100%",
+                // height: "100%",
+                height: "100%",
+                p: 0,
+              }}
+              iconSx={{
+                maxWidth: "100%",
+                // maxWidth: "100%",
+                height: "100%",
+                // maxHeight: "100%",
+              }}
             />
           </Grid>
         </Grid>
@@ -207,5 +231,3 @@ function AppAppBar() {
     </AppBar>
   );
 }
-
-export default AppAppBar;
