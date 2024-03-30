@@ -1,8 +1,7 @@
 import Typography from "@mui/material/Typography";
-import MuiLink from "@mui/material/Link";
 import Button from "@mui/material/Button";
 import Link from "next/link";
-import { LinkedInURL } from "@/social";
+import { LinkedInURL } from "@/components/social";
 
 export default function Copyright() {
   return (

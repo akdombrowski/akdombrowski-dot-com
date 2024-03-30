@@ -2,21 +2,19 @@
 import "client-only";
 
 import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
+
 import type { CSSProperties } from "react";
-import type { TypographyStyleOptions } from "@mui/material/styles/createTypography";
+import type {
+  TypographyStyleOptions,
+  Typography,
+} from "@mui/material/styles/createTypography";
 
-// import { Roboto } from "next/font/google";
-
-// const roboto = Roboto({
-//   weight: ["300", "400", "500", "700"],
-//   subsets: ["latin"],
-//   display: "swap",
-// });
 declare module "@mui/system" {
   interface BreakpointOverrides {
     // Your custom breakpoints
     foreHundo: true;
     phiveHundo: true;
+    seisHundo: true;
     nanaHundo: true;
     ateHundo: true;
     senHundo: true;
@@ -30,27 +28,47 @@ declare module "@mui/system" {
     uhd: true;
   }
 }
-
 // Update the Typography's variant prop options
+
 declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     poster: true;
     title: true;
+    appBarTitle: true;
+    appBarText: true;
     role: true;
     subRole: true;
   }
 }
 
 declare module "@mui/material/styles" {
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+    // Your custom breakpoints
+    foreHundo: true;
+    phiveHundo: true;
+    seisHundo: true;
+    nanaHundo: true;
+    ateHundo: true;
+    senHundo: true;
+  }
+
   interface TypographyVariants {
+    appBarTitle: CSSProperties & TypographyStyleOptions;
+    appBarText: CSSProperties & TypographyStyleOptions;
     poster: CSSProperties & TypographyStyleOptions;
     title: CSSProperties & TypographyStyleOptions;
     role: CSSProperties & TypographyStyleOptions;
     subRole: CSSProperties & TypographyStyleOptions;
   }
 
-  // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
+    appBarTitle?: CSSProperties & TypographyStyleOptions;
+    appBarText?: CSSProperties & TypographyStyleOptions;
     poster?: CSSProperties & TypographyStyleOptions;
     title?: CSSProperties & TypographyStyleOptions;
     role?: CSSProperties & TypographyStyleOptions;
@@ -77,6 +95,8 @@ declare module "@mui/material/styles" {
 
   interface Palette {
     titleColor: Palette["primary"];
+    violentRed: Palette["primary"];
+    divider2: Palette["primary"];
     custom: Palette["primary"];
     paperBgA: Palette["primary"];
     paperBgB: Palette["primary"];
@@ -86,6 +106,8 @@ declare module "@mui/material/styles" {
 
   interface PaletteOptions {
     titleColor?: PaletteOptions["primary"];
+    violentRed?: PaletteOptions["primary"];
+    divider2?: PaletteOptions["primary"];
     custom?: PaletteOptions["primary"];
     paperBgA?: PaletteOptions["primary"];
     paperBgB?: PaletteOptions["primary"];
@@ -102,7 +124,9 @@ declare module "@mui/material/Button" {
 
 /**
  *
- * Customize Defaults + Define New Ones
+ *
+ *
+ * Customize and add to Defaults
  *
  */
 const modifyDefaultsTheme = createTheme({
@@ -110,7 +134,7 @@ const modifyDefaultsTheme = createTheme({
     values: {
       foreHundo: 400,
       phiveHundo: 500,
-      // sm: 600
+      seisHundo: 600,
       nanaHundo: 700,
       ateHundo: 800,
       senHundo: 1000,
@@ -130,7 +154,7 @@ const modifyDefaultsTheme = createTheme({
       main: "#11115F",
     },
     secondary: {
-      main: alpha("#fff", 0.1),
+      main: alpha("#77F9FF", 0.9),
     },
     background: {
       default: "#00001A",
@@ -148,7 +172,7 @@ const modifyDefaultsTheme = createTheme({
     info: {
       main: "#BBD686",
     },
-    tonalOffset: 0.9,
+    tonalOffset: 0.6,
   },
   typography: {
     fontFamily: "Roboto",
@@ -156,74 +180,90 @@ const modifyDefaultsTheme = createTheme({
     fontWeightRegular: 500,
     fontWeightMedium: 800,
     fontWeightBold: 1000,
+    appBarTitle: {
+      fontSize: "4rem",
+      fontWeight: 300,
+      lineHeight: 1.0,
+    },
+    appBarText: {
+      fontSize: "3rem",
+      fontWeight: 700,
+      lineHeight: 1.0,
+    },
     poster: {
       fontSize: "6rem",
-      fontWeight: 1000,
-      lineHeight: 1.25,
-      color: alpha("#45F0DF", 0.99),
+      fontWeight: 500,
+      lineHeight: 1.0,
     },
     title: {
+      fontSize: "18rem",
       fontWeight: 1000,
       lineHeight: 1,
     },
+    role: {
+      fontSize: "3rem",
+      fontWeight: 100,
+      lineHeight: 1,
+    },
     subRole: {
-      fontSize: ".75rem",
+      fontSize: "1rem",
       fontWeight: 100,
       lineHeight: 1,
     },
     h1: {
-      fontWeight: 1000,
-      lineHeight: 1,
-      fontSize: "6rem",
+      fontSize: "12rem",
+      fontWeight: 300,
+      lineHeight: 1.0,
     },
     h2: {
-      fontSize: "4rem",
-      fontWeight: 350,
+      fontSize: "9rem",
+      fontWeight: 100,
       lineHeight: 1.0,
     },
     h3: {
       fontWeight: 300,
-      fontSize: "3.5rem",
+      fontSize: "3.8rem",
       lineHeight: 1.0,
     },
     h4: {
       fontWeight: 400,
-      fontSize: "1.6rem",
-      lineHeight: 1,
+      fontSize: "2rem",
+      lineHeight: 1.0,
     },
     h5: {
       fontWeight: 100,
-      fontSize: ".75rem",
+      fontSize: "1.75rem",
+      lineHeight: 1.0,
     },
     h6: {
       fontWeight: 1000,
-      fontSize: ".5rem",
+      fontSize: "1.5rem",
       lineHeight: 1.0,
     },
     subtitle1: {
       fontWeight: 100,
       lineHeight: 1,
-      fontSize: "0.9rem",
+      fontSize: "1.2rem",
     },
     subtitle2: {
       fontWeight: 1000,
       lineHeight: 0.5,
-      fontSize: ".75rem",
+      fontSize: "1rem",
     },
     body1: {
       fontSize: "1rem",
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: 1,
     },
     body2: {
-      fontSize: "0.9rem",
+      fontSize: "1rem",
       fontWeight: 100,
       lineHeight: 1,
     },
     button: {
       fontWeight: 1000,
-      fontSize: ".9rem",
-      lineHeight: 1.2,
+      fontSize: "1.75rem",
+      lineHeight: 1,
     },
     caption: {
       fontWeight: 100,
@@ -236,8 +276,17 @@ const modifyDefaultsTheme = createTheme({
     },
   },
 });
+/**
+ *
+ * Customize and add to Defaults
+ *
+ *
+ *
+ */
 
 /**
+ *
+ *
  *
  * Customize Palette
  *
@@ -252,6 +301,18 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
         main: "#52FFB8",
       },
       name: "titleColor",
+    }),
+    violentRed: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: "#F9DC5C",
+      },
+      name: "violentRed",
+    }),
+    divider2: modifyDefaultsTheme.palette.augmentColor({
+      color: {
+        main: "#00001A",
+      },
+      name: "divider2",
     }),
 
     paperBgA: modifyDefaultsTheme.palette.augmentColor({
@@ -278,13 +339,27 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
       },
       name: "paperBgD",
     }),
-    tonalOffset: 0.9,
+    tonalOffset: 0.6,
   },
 });
+/**
+ *
+ * Customize Palette
+ *
+ * with new colors using {augmentColor} to generate color tokens
+ *
+ *
+ *
+ */
 
 /**
  *
- * Add Custom Typography Variant
+ *
+ *
+ * Add "title", a Custom Typography Variant
+ *
+ * needs to go here to go in customized components
+ * which then gets reponsive font sizes
  *
  */
 export const customTypographyTheme = createTheme(customColorsTheme, {
@@ -292,10 +367,28 @@ export const customTypographyTheme = createTheme(customColorsTheme, {
     title: {
       color: customColorsTheme.palette.titleColor,
     },
+    appBarTitle: {
+      color: customColorsTheme.palette.violentRed.main,
+    },
+    appBarText: {
+      color: customColorsTheme.palette.titleColor,
+    },
   },
 });
+/**
+ *
+ * Add "title", a Custom Typography Variant
+ *
+ * needs to go here to go in customized components
+ * which then gets reponsive font sizes
+ *
+ *
+ *
+ */
 
 /**
+ *
+ *
  *
  * Customize MUI Components
  *
@@ -306,7 +399,7 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
       defaultProps: {
         variantMapping: {
           // Map the new variant to render a <h1> by default
-          // poster: "h1",
+          poster: "h1",
           title: "h1",
         },
       },
@@ -327,8 +420,43 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
     },
   },
 });
+/**
+ *
+ * Customize MUI Components
+ *
+ *
+ *
+ */
 
 /**
+ *
+ * Typography variant names to make responsive font sizes for
+ *
+ */
+const typographyVariants: (keyof Typography)[] = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "subtitle1",
+  "subtitle2",
+  "body1",
+  "body2",
+  "button",
+  "caption",
+  "overline",
+  "poster",
+  "title",
+  "appBarTitle",
+  "appBarText",
+  "role",
+  "subRole",
+];
+/**
+ *
+ *
  *
  * Responsive Font Sizes fn
  *
@@ -349,127 +477,15 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
     "uhd",
   ],
   factor: 10,
+  variants: typographyVariants,
 });
-
-
 /**
  *
- * CUSTOM Typography Variant
+ * Responsive Font Sizes fn
  *
- * title
- */
-responsiveFont.typography.title = {
-  fontSize: "1.5rem",
-  fontWeight: 1000,
-  lineHeight: 1,
-  [customComponentsTheme.breakpoints.up(400)]: {
-    fontSize: "2rem",
-  },
-  [customComponentsTheme.breakpoints.up(500)]: {
-    fontSize: "2.4rem",
-  },
-  [customComponentsTheme.breakpoints.up(600)]: {
-    fontSize: "2.71rem",
-  },
-  [customComponentsTheme.breakpoints.up(700)]: {
-    fontSize: "3.2rem",
-  },
-  [customComponentsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "3.5rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "4.75rem",
-  },
-  [customComponentsTheme.breakpoints.up("lg")]: {
-    fontSize: "6rem",
-  },
-  [customComponentsTheme.breakpoints.up("xl")]: {
-    fontSize: "7.1rem",
-  },
-  [customComponentsTheme.breakpoints.up("fhd")]: {
-    fontSize: "8rem",
-  },
-  [customComponentsTheme.breakpoints.up("uhd")]: {
-    fontSize: "15rem",
-  },
-};
-
-/**
- * CUSTOM Typography Variant
  *
- * role
- */
-responsiveFont.typography.role = {
-  fontSize: ".5rem",
-  fontWeight: 100,
-  lineHeight: 1,
-  [customComponentsTheme.breakpoints.up(400)]: {
-    fontSize: ".7rem",
-  },
-  [customComponentsTheme.breakpoints.up(500)]: {
-    fontSize: ".9rem",
-    fontWeight: 200,
-  },
-  [customComponentsTheme.breakpoints.up(600)]: {
-    fontSize: "1rem",
-    fontWeight: 300,
-  },
-  [customComponentsTheme.breakpoints.up(700)]: {
-    fontSize: "1.25rem",
-    fontWeight: 400,
-  },
-  [customComponentsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "1.5rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "1.65rem",
-  },
-};
-
-/**
- * CUSTOM Typography Variant
  *
- * subRole
  */
-responsiveFont.typography.subRole = {
-  fontSize: ".4rem",
-  fontWeight: 100,
-  lineHeight: 1,
-  [customComponentsTheme.breakpoints.up(400)]: {
-    fontSize: ".5rem",
-  },
-  [customComponentsTheme.breakpoints.up(500)]: {
-    fontSize: ".7rem",
-  },
-  [customComponentsTheme.breakpoints.up(600)]: {
-    fontSize: ".8rem",
-  },
-  [customComponentsTheme.breakpoints.up(700)]: {
-    fontSize: ".9rem",
-  },
-  [customComponentsTheme.breakpoints.up("ateHundo")]: {
-    fontSize: "1rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "1.2rem",
-    fontWeight: 300,
-  },
-};
-
-/**
- * CUSTOM Typography Variant
- *
- * poster
- */
-responsiveFont.typography.poster = {
-  "fontSize": "2.5rem",
-  "@media (min-width:600px)": {
-    fontSize: "3.75rem",
-  },
-  [customComponentsTheme.breakpoints.up("md")]: {
-    fontSize: "4.15rem",
-  },
-};
 
 const theme = responsiveFont;
 

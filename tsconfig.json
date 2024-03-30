@@ -13,23 +13,28 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@/social/*": ["./src/components/social/*"],
-      "@/social": ["./src/components/social/"]
+      "@/*": ["src/*"],
+      "@/blogs/*": ["src/app/(content)/blogs/*"],
+      "@/social/*": ["src/components/social/*"],
+      "@/actions/*": ["src/actions/*"]
     }
   },
   "include": [
-    "video.d.ts",
-    "next-env.d.ts",
+    "**/*.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "mdx": {
+    // Enable strict type checking in MDX files.
+    "checkMdx": true
+  }
 }

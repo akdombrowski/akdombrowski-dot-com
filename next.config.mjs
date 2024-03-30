@@ -1,11 +1,26 @@
-import { withNextVideo } from "next-video/process";
+import MDX from "@next/mdx";
+const withMDX = MDX({
+  extension: /\.(md|mdx)$/,
+
+  options: {
+    /* otherOptions… */
+  },
+});
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    urlImports: [
-      "https://www.youtube.com/embed/fX5U50VGxtg?si=d2oguHaC6vzlqIFY",
+const nextConfig = withMDX({
+  // Configure `pageExtensions` to include MDX files
+  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "stackoverflow.com",
+        port: "",
+        pathname: "/users/flair/**",
+      },
     ],
   },
-};
+});
 
-export default withNextVideo(nextConfig, { folder: "src/videos" });
+export default nextConfig;
