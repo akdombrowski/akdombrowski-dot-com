@@ -24,12 +24,13 @@ export default function TOC() {
       <Grid id="landing-grid" container rowSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid
           id="toc-videosBtnGridWrapper"
-          xs={3}
-          md={2}
+          xs={2}
+          pr={{ xs: 0, sm: 1, md: 2, lg: 8 }}
           container
           display="flex"
           justifyContent="space-around"
-          alignItems="center"
+          alignItems="stretch"
+          maxHeight="50vh"
         >
           <Stack
             width="100%"
@@ -37,7 +38,7 @@ export default function TOC() {
             justifyContent="center"
             alignItems="stretch"
           >
-            <Box pt={5}></Box>
+            <Box pt="auto" minHeight="10%"></Box>
 
             <Button
               variant="contained"
@@ -51,7 +52,7 @@ export default function TOC() {
               </Typography>
             </Button>
 
-            <Box pt={3} display="flex" justifyContent="end" alignItems="start">
+            <Box display="flex" justifyContent="end" alignItems="start">
               <Typography variant="subtitle1" color="text.light" align="center">
                 click to see more...
               </Typography>
@@ -65,7 +66,9 @@ export default function TOC() {
           flexGrow={1}
           display="flex"
           justifyContent="end"
-          alignItems="center"
+          alignItems="stretch"
+          minWidth={{ xs: 320, sm: 400 }}
+          maxHeight="50vh"
           pl={6}
         >
           <VideoContainer video={highlightVideo} size={12} />
@@ -77,7 +80,7 @@ export default function TOC() {
           py={6}
           display="flex"
           justifyContent="center"
-          alignItems="center"
+          alignItems="stretch"
         >
           <Divider
             variant="fullWidth"
@@ -87,11 +90,11 @@ export default function TOC() {
 
         <Grid
           id="toc-blogsBtnGridWrapper"
-          xs={3}
-          md={2}
+          xs={2}
           display="flex"
           justifyContent="left"
-          alignItems="center"
+          alignItems="stretch"
+          pr={{ xs: 0, sm: 1, md: 2, lg: 8 }}
         >
           <Stack
             width="100%"
@@ -99,7 +102,7 @@ export default function TOC() {
             justifyContent="center"
             alignItems="stretch"
           >
-            <Box pt={5}></Box>
+            <Box pt="auto" minHeight="10%"></Box>
             <Button
               variant="contained"
               fullWidth
@@ -111,7 +114,7 @@ export default function TOC() {
                 Blogs
               </Typography>
             </Button>
-            <Box pt={3} display="flex" justifyContent="end" alignItems="start">
+            <Box display="flex" justifyContent="end" alignItems="start">
               <Typography variant="subtitle1" color="text.light" align="center">
                 click to see more...
               </Typography>
