@@ -1,15 +1,10 @@
 # Anthony Dombrowski
 
-<br/>
 
 ## Professional Portfolio Resume Summary
 
-<br/>
 
 ## akdombrowski.com
-
-<br/>
-<br/>
 
 ### if using next-video:
 

@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import { alpha, useTheme } from "@mui/material/styles";
-import { GitHubLinkedin } from "@/social";
+import { GitHubLinkedin } from "@/components/social";
 import PageSections from "@/components/appbar/PageSections";
 import AppBarLogo from "@/components/appbar/AppBarLogo";
 import compact from "lodash/compact";

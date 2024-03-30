@@ -20,11 +20,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["src/*"],
       "@/blogs/*": ["src/app/(content)/blogs/*"],
-      "@/social/*": ["./src/components/social/*"],
-      "@/social": ["./src/components/social/"],
-      "@/actions/*": ["./src/actions/*"]
+      "@/social/*": ["src/components/social/*"],
+      "@/actions/*": ["src/actions/*"]
     }
   },
   "include": [

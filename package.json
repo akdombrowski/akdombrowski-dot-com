@@ -10,8 +10,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "tsc:test": "tsc --pretty",
-    "eslint:md": "eslint . --ext js,md,mdx"
+    "tsc": "tsc --pretty"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
