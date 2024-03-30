@@ -3,6 +3,26 @@ export interface VideoURLObj {
   url: string;
   tag: string[];
 }
+export const YOUTUBE_IDS: string[] = [
+  "fX5U50VGxtg",
+  "_zWovo2zv6k",
+  "eg7I8x-u0sc",
+  "-3nwwH9PgHA",
+  "wYrzc4AWCzw",
+  "sfUjJx6yRAI",
+  "ypa8prwEMcc",
+  "1hs5e7TDwM4",
+  "T0F5hqXxGOk",
+  "IdtBkGQg2Q8",
+  "PeZ-Fz_soFs",
+  "2Mkzy3ZWT6Q",
+  "O9lQGwKTEQM",
+  "3yCKQ5b0st8",
+  "PJMjHLzD_Kg",
+  "fCbW1YFnm6M",
+  "9QOpDGLLxIQ",
+  "D-yskqXigZQ",
+];
 
 export const VIDEOS_TITLE_URL: VideoURLObj[] = [
   {
