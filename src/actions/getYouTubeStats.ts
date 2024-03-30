@@ -44,6 +44,9 @@ const ax = (mergeConfig: {
     responseType: "json",
     maxBodyLength: 20000,
     maxRedirects: 0,
+    params: {
+      key: process.env.YOUTUBE_API_KEY,
+    },
   };
 
   // referrer defined in .env, needs to be allowed on API key in GCloud
@@ -80,7 +83,6 @@ export default async function getYouTubeStats(): Promise<YouTubeVideoStatsRespon
       method: "get",
       url: "/videos",
       params: {
-        key: "AIzaSyDFJhvI7DZsUxXX1ryiUk_H9dF9aW81G-w",
         maxResults: 10,
         id: "ypa8prwEMcc,eg7I8x-u0sc,_zWovo2zv6k,D-yskqXigZQ,T0F5hqXxGOk,PJMjHLzD_Kg,3yCKQ5b0st8,9QOpDGLLxIQ,-3nwwH9PgHA,wYrzc4AWCzw,O9lQGwKTEQM,IdtBkGQg2Q8,PeZ-Fz_soFs,1hs5e7TDwM4,fX5U50VGxtg,2Mkzy3ZWT6Q,fCbW1YFnm6M", // video id's
         part: "statistics,snippet,player",
