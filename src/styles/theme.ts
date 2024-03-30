@@ -191,7 +191,7 @@ const modifyDefaultsTheme = createTheme({
       lineHeight: 1.0,
     },
     poster: {
-      fontSize: "6rem",
+      fontSize: "2rem",
       fontWeight: 500,
       lineHeight: 1.0,
     },
@@ -243,7 +243,7 @@ const modifyDefaultsTheme = createTheme({
     subtitle1: {
       fontWeight: 100,
       lineHeight: 1,
-      fontSize: "1.2rem",
+      fontSize: ".85rem",
     },
     subtitle2: {
       fontWeight: 1000,
