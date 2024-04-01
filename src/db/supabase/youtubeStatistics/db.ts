@@ -1,112 +1,12 @@
-import dbClient from "@/db";
-const supabase = dbClient();
+import * as YoutubeStatisticsTableInsert from "@/supabase/youtubeStatistics/insert";
+import * as YoutubeStatisticsTableUpdate from "@/supabase/youtubeStatistics/update";
 
-export interface YoutubeStatistics {
-  title: string;
-  description?: string;
-  favoriteCount?: number;
-  commentCount: number;
-}
-
-export const updateTitle = async ({
-  id,
-  title,
-}: {
-  id: string;
-  title: string;
-}) => {
-  const { data, error } = await supabase
-    .from("youtube-statistics")
-    .update(title)
-    .eq("id", id)
-    .select();
-
-  if (error) {
-    console.error("error:", error);
-  }
-  return data;
+export {
+  YoutubeStatisticsTableInsert,
+  YoutubeStatisticsTableUpdate as default,
 };
 
-export const updateDescription = async ({
-  id,
-  description,
-}: {
-  id: string;
-  title: string;
-}) => {
-  const { data, error } = await supabase
-    .from("youtube-statistics")
-    .update(description)
-    .eq("id", id)
-    .select();
+import type { Database } from "@/db/supabase/supabase.types";
 
-  if (error) {
-    console.error("error:", error);
-  }
-  return data;
-};
-
-export const updateFavoriteCount = async ({
-  id,
-  favoriteCount,
-}: {
-  id: string;
-  favoriteCount: number;
-}) => {
-  const { data, error } = await supabase
-    .from("youtube-statistics")
-    .update(favoriteCount)
-    .eq("id", id)
-    .select();
-
-  if (error) {
-    console.error("error:", error);
-  }
-  return data;
-};
-
-export const updateCommentCount = async ({
-  id,
-  commentCount,
-}: {
-  id: string;
-  commentCount: number;
-}) => {
-  const { data, error } = await supabase
-    .from("youtube-statistics")
-    .update(commentCount)
-    .eq("id", id)
-    .select();
-
-  if (error) {
-    console.error("error:", error);
-  }
-  return data;
-};
-
-export const fetchPlayer = async ({ id }: { id: number }) => {
-  const { data, error } = await supabase
-    .from("youtube-statistics")
-    .eq("id", id)
-    .select();
-
-  console.log("data:");
-  console.log(data);
-
-  if (error) {
-    console.error(error);
-  }
-  return data;
-};
-
-export const fetchPlayersAll = async () => {
-  const { data, error } = await supabase.from("youtube-statistics").select();
-
-  console.log("data:");
-  console.log(data);
-
-  if (error) {
-    console.error(error);
-  }
-  return data;
-};
+export type YouTubeStatistics =
+  Database["public"]["Tables"]["youtube-videos"]["Update"]["statistics"];

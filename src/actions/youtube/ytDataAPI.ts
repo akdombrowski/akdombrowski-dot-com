@@ -5,7 +5,10 @@ import axios, { AxiosError, type AxiosRequestConfig } from "axios";
 import "dotenv/config";
 import { YOUTUBE_IDS } from "@/videos/VideoURLs";
 
-import * as dbVideos from "@/db/supabase/youtubeVideos/db";
+import {
+  YoutubeVideosTableInsert,
+  YoutubeVideosTableUpdate,
+} from "@/db/supabase/youtubeVideos/db";
 
 export interface YouTubeVideoStatsResponseBody {
   kind: "youtube#videoListResponse";
@@ -105,7 +108,7 @@ const getVideosData = async () => {
             cause: {
               data: axError.response.data,
               status: axError.response.status,
-              headers: axError.headers,
+              headers: axError.response.headers,
               config: axError.config,
             },
           },
@@ -144,16 +147,26 @@ export default async function getYouTubeStats(): Promise<YouTubeVideoStatsRespon
   try {
     const data = await getVideosData();
     const items = data.items;
+
     for (const item of items) {
       const { kind, etag, id, snippet, statistics, player } = item;
       const { title, description, thumbnails, channelTitle, tags, categoryId } =
         snippet;
-      dbVideos.updateStatistics(id, statistics);
-      dbVideos.updateSnippet(id, snippet);
-      dbVideos.updatePlayer(id, player);
-      dbVideos.updateTitle(id, title);
-      dbVideos.updateETag(id, etag);
-      dbVideos.updateKind(id, kind);
+      console.log("item");
+      console.log(item);
+      YoutubeVideosTableInsert.insert({
+        video: {
+          created_at: Date(),
+          etag,
+          id: Number(id),
+          updated_at: Date(),
+          snippet,
+          player,
+          statistics,
+          title,
+          kind: kind.replace("youtube#", ""),
+        },
+      });
     }
     return data;
   } catch (error) {

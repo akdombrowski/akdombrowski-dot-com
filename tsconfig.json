@@ -23,6 +23,7 @@
       "@/*": ["./src/*"],
       "@/actions/*": ["./src/actions/*"],
       "@/db/*": ["./src/db/*"],
+      "@/supabase/*": ["./src/db/supabase/*"],
       "@/blogs/*": ["src/app/(content)/blogs/*"],
       "@/videos/*": ["./src/components/videos/*"],
       "@/social/*": ["./src/components/social/*"],

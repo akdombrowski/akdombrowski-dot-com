@@ -149,7 +149,7 @@ export type Database = {
           etag?: string | null
           id?: number
           kind: Database["public"]["Enums"]["kind"]
-          player_url?: Json | null
+          player?: Json | null
           snippet?: Json | null
           statistics?: Json | null
           title?: string
