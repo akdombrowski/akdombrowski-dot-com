@@ -116,7 +116,7 @@ export default function TOC() {
             </Button>
             <Box display="flex" justifyContent="end" alignItems="start">
               <Typography variant="subtitle1" color="text.light" align="center">
-                click to see more...
+                coming soon...
               </Typography>
             </Box>
           </Stack>
@@ -132,7 +132,7 @@ export default function TOC() {
           pl={6}
         >
           <Box>
-            <Typography>blogs</Typography>
+            <Typography>blogs coming soon...</Typography>
           </Box>
         </Grid>
 
