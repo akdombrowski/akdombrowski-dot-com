@@ -1,12 +1,12 @@
 {
   "name": "akdombrowski-dot-com",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "private": true,
   "packageManager": "yarn@4.1.1",
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "next dev -H 127.0.0.1",
     "lint": "next lint",
     "start": "next start",
     "tsc": "tsc --pretty"
@@ -29,7 +29,7 @@
     "axios": "^1.6.8",
     "client-only": "^0.0.1",
     "dotenv": "^16.4.5",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "next": "14.1.4",
     "puppeteer": "^22.6.0",
     "react": "^18",
@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/lodash": "^4",
+    "@types/lodash-es": "^4",
     "@types/node": "^20",
     "@types/puppeteer": "^7.0.4",
     "@types/react": "^18",

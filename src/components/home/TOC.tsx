@@ -5,7 +5,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 
 import VideoContainer from "@/components/videos/VideoContainer";
 import { VIDEOS_TITLE_URL } from "@/components/videos/VideoURLs";
-import _ from "lodash";
+import _ from "lodash-es";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";

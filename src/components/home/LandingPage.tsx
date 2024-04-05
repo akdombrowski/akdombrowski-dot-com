@@ -88,7 +88,7 @@ export default function LandingPage() {
           paddingTop={1}
           paddingBottom={0}
           display="flex"
-          justifyContent="center"
+          justifyContent="start"
           alignItems="center"
         >
           <StackOverflowBadge />

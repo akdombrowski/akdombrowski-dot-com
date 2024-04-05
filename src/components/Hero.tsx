@@ -4,9 +4,6 @@ import "client-only";
 import Link from "next/link";
 import Image from "next/image";
 
-import profilePic from "/public/profile_9x16.jpg";
-import profilePicR from "/public/profileR_9x16.jpg";
-
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -66,9 +63,8 @@ export default function Hero(props: {
           <Box height="100%" sx={{ aspectRatio: 9 / 16 }} position="relative">
             <Image
               id="leftHeroPic"
-              src={profilePic}
+              src="/profile_9x16.jpg"
               quality={100}
-              placeholder="blur"
               style={{
                 objectFit: "cover",
                 objectPosition: "55% 10%",
@@ -122,9 +118,8 @@ export default function Hero(props: {
           <Box height="100%" sx={{ aspectRatio: 9 / 16 }} position="relative">
             <Image
               id="rightHeroPic"
-              src={profilePicR}
+              src="/profileR_9x16.jpg"
               quality={100}
-              placeholder="blur"
               style={{
                 objectFit: "cover",
                 objectPosition: "55% 10%",

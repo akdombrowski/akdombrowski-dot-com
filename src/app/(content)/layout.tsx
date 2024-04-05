@@ -10,7 +10,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 
 import { usePathname } from "next/navigation";
 
-import compact from "lodash/compact";
+import compact from "lodash-es/compact";
 
 // export const metadata: Metadata = {
 //   title: "Anthony Dombrowski's Portfolio",
@@ -23,7 +23,11 @@ export default function Layout(props: { children: ReactNode }) {
   const pathnameArr = compact(pathname.split("/"));
 
   return (
-    <Container id="contentpagesLayout-container" maxWidth={false}>
+    <Container
+      id="contentpagesLayout-container"
+      maxWidth={false}
+      style={{ minHeight: "100vh" }}
+    >
       <Grid id="contentpagesLayout-gridContainer" container>
         <Grid
           id="contentpagesLayout-pageTitleGridContainer"
@@ -87,8 +91,16 @@ export default function Layout(props: { children: ReactNode }) {
             </Box>
           </Grid>
         </Grid>
-
-        {props.children}
+        <Grid
+          id="contentpagesLayout-bodyGridContainer"
+          xs={12}
+          container
+          spacing={0}
+          justifyContent="center"
+          alignItems="stretch"
+        >
+          {props.children}
+        </Grid>
       </Grid>
     </Container>
   );

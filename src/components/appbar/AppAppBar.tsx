@@ -21,7 +21,7 @@ import { alpha, useTheme } from "@mui/material/styles";
 import { GitHubLinkedin } from "@/components/social";
 import PageSections from "@/components/appbar/PageSections";
 import AppBarLogo from "@/components/appbar/AppBarLogo";
-import compact from "lodash/compact";
+import compact from "lodash-es/compact";
 
 export default function AppAppBar() {
   const theme = useTheme();
