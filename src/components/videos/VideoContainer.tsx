@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
 import { type GridSize } from "@mui/system";
 import type { VideoURLObj } from "@/components/videos/VideoURLs";
+import { alpha } from "@mui/material/styles"
 
 export default function VideoContainer({
   video,
@@ -50,9 +51,10 @@ export default function VideoContainer({
             height="100%"
             src={video.url}
             title="YouTube video player"
-            frameBorder={0}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            loading="eager"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;fullscreen;"
             allowFullScreen
+            style={{ borderWidth: "1.5vmin", borderColor: alpha("#FFF", 0.1) }}
           />
         </Box>
       </Box>

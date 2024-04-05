@@ -91,8 +91,16 @@ export default function Layout(props: { children: ReactNode }) {
             </Box>
           </Grid>
         </Grid>
-
-        {props.children}
+        <Grid
+          id="contentpagesLayout-bodyGridContainer"
+          xs={12}
+          container
+          spacing={0}
+          justifyContent="center"
+          alignItems="stretch"
+        >
+          {props.children}
+        </Grid>
       </Grid>
     </Container>
   );

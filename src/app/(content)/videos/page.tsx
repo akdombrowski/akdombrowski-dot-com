@@ -1,7 +1,10 @@
+import LoadingVideo from "@/components/videos/LoadingVideo";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
+import dynamic from "next/dynamic";
+// import Videos from "@/components/videos/Videos"
 
-import Videos from "@/components/videos/Videos"
+const Videos = dynamic(() => import("@/components/videos/Videos"), {loading: () => <LoadingVideo/>});
 
 export default function VideosPage() {
   return (

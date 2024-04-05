@@ -4,7 +4,9 @@ import "client-only";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
-import VideoContainer from "./VideoContainer";
+import dynamic from "next/dynamic";
+import LoadingVideo from "@/components/videos/LoadingVideo";
+// import VideoContainer from "@/components/videos/VideoContainer";
 import Box from "@mui/material/Box";
 import { useTheme, alpha } from "@mui/material/styles";
 import {
@@ -44,6 +46,12 @@ const numVideosFromCat = _.union(
   otherVideos,
 ).length;
 
+const VideoContainer = dynamic(
+  () => import("@/components/videos/VideoContainer"),
+  {
+    loading: () => <LoadingVideo />,
+  },
+);
 export const createVideoContainers = (videos: VideoURLObj[]) =>
   videos.map((video, i) => {
     return (
@@ -65,8 +73,6 @@ export default function Videos() {
       "===",
       numVideosFromCat,
       ")",
-      "=",
-      numVideosFromCat === numVideosFromCat,
     );
   }
 
