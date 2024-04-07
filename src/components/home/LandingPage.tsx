@@ -8,6 +8,7 @@ import Hero from "../Hero";
 import Footer from "@/components/Footer";
 
 import TOC from "@/components/home/TOC";
+import WakaTimeBadge from '../WakaTimeBadge';
 
 export default function LandingPage() {
   return (
@@ -84,14 +85,25 @@ export default function LandingPage() {
 
         <Grid
           id="landing-stackOverflowBadgeGridWrapper"
-          xs={12}
+          xs={6}
           paddingTop={1}
           paddingBottom={0}
           display="flex"
-          justifyContent="start"
+          justifyContent="center"
           alignItems="center"
         >
           <StackOverflowBadge />
+        </Grid>
+        <Grid
+          id="landing-stackOverflowBadgeGridWrapper"
+          xs={6}
+          paddingTop={1}
+          paddingBottom={0}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <WakaTimeBadge />
         </Grid>
 
         <Grid
