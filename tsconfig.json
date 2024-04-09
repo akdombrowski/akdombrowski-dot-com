@@ -24,8 +24,9 @@
       "@/blogs/*": ["src/app/(content)/blogs/*"],
       "@/social/*": ["src/components/social/*"],
       "@/actions/*": ["src/actions/*"],
+      "@/auth": ["src/auth/auth"],
       "@/auth/*": ["src/auth/*"],
-      "@/auth": ["src/auth/auth"]
+      "@/wagmi/*": ["src/auth/wagmi/*"]
     }
   },
   "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

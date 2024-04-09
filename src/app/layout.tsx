@@ -8,7 +8,6 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "@fontsource/roboto/900.css";
-import "@fontsource/roboto/package.json";
 
 /**
  *  Styling for MUI components using theme
@@ -18,6 +17,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 // nextjs optimization
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+
+import WagmiSessionProvider from "@/wagmi/WagmiProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import AppAppBar from "@/components/appbar/AppAppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -32,6 +34,8 @@ export const metadata: Metadata = {
     "Professional Resume Portfolio and Content Library for Anthony Dombrowski. Product Manager and Developer Advocate. ",
 };
 
+const queryClient = new QueryClient();
+
 export default function RootLayout(props: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -39,18 +43,20 @@ export default function RootLayout(props: { children: ReactNode }) {
         <link rel="icon" href="/anthonyProfilesq/favicon.ico" sizes="any" />
       </head>
       <body>
-        {/* <AppRouterCacheProvider options={{ enableCssLayer: true }}> */}
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <AppAppBar />
-            <Toolbar variant="dense" sx={{ minHeight: 45 }} />
-            {props.children}
-            <SpeedInsights />
-            <Analytics />
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <WagmiSessionProvider>
+          <QueryClientProvider client={queryClient}>
+            <AppRouterCacheProvider>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <AppAppBar />
+                <Toolbar variant="dense" sx={{ minHeight: 45 }} />
+                {props.children}
+                <SpeedInsights />
+                <Analytics />
+              </ThemeProvider>
+            </AppRouterCacheProvider>
+          </QueryClientProvider>
+        </WagmiSessionProvider>
       </body>
     </html>
   );

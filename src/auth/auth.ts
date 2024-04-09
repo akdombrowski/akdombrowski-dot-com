@@ -1,13 +1,12 @@
 import NextAuth from "next-auth";
-import Google from "next-auth/providers/google";
-import CredentialsProvider, {
+// import Google from "next-auth/providers/google";
+import {
   type CredentialInput,
+  type CredentialsConfig,
 } from "next-auth/providers/credentials";
 
-import { SiweMessage } from "siwe";
-
 import type {
-  DefaultSession,
+  // DefaultSession,
   Session,
   User,
   Account,
@@ -16,7 +15,14 @@ import type {
 } from "next-auth";
 import type { JWT } from "next-auth/jwt";
 
-const DEBUG_CALLBACKS = false;
+/**
+ * MAKE SURE DEBUG IS OFF IN PRODUCTION
+ */
+const DEBUG_AUTH_CALLBACKS =
+  process.env.NODE_ENV !== "production"
+    ? process.env.DEBUG_AUTH_CALLBACKS
+    : false;
+
 const printDebugSectTitle = ({
   title,
   debugVars,
@@ -50,27 +56,27 @@ const printDebugSectTitle = ({
  * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
  */
 declare module "next-auth" {
-  export interface Session extends DefaultSession {
-    accessToken: string | undefined | JWT;
-    accessTokenUpdatedAt: number | undefined | string;
-    refreshToken: string | undefined | JWT;
-    refreshTokenUpdatedAt: number | undefined | string;
-    user?: {
-      id: string;
-      // ...other properties
-      // role: UserRole;
-    } & DefaultSession["user"];
-  }
+  //   export interface Session extends DefaultSession {
+  //     accessToken: string | undefined | JWT;
+  //     accessTokenUpdatedAt: number | undefined | string;
+  //     refreshToken: string | undefined | JWT;
+  //     refreshTokenUpdatedAt: number | undefined | string;
+  //     user?: {
+  //       id: string;
+  //       // ...other properties
+  //       // role: UserRole;
+  //     } & DefaultSession["user"];
+  //   }
 
-  interface Profile {
-    accessToken: string | undefined | JWT;
-    accessTokenUpdatedAt: number | string;
-    user: {
-      id: string;
-      // ...other properties
-      // role: UserRole;
-    } & DefaultSession["user"];
-  }
+  //   interface Profile {
+  //     accessToken: string | undefined | JWT;
+  //     accessTokenUpdatedAt: number | string;
+  //     user: {
+  //       id: string;
+  //       // ...other properties
+  //       // role: UserRole;
+  //     } & DefaultSession["user"];
+  //   }
 
   interface CredentialsInput {
     message?: {
@@ -101,157 +107,138 @@ declare module "next-auth/jwt" {
  *
  * @see https://next-auth.js.org/configuration/options
  */
-export const authConfig: NextAuthConfig = {
-  providers: [
-    // GitHub({
-    //   clientId: process.env.GITHUB_CLIENT_ID,
-    //   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    // }),
-    Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-    CredentialsProvider({
-      name: "siwe",
-      credentials: {
-        message: {
-          label: "Message",
-          type: "text",
-          placeholder: "0x0",
-        },
-        signature: {
-          label: "Signature",
-          type: "text",
-          placeholder: "0x0",
-        },
-      },
-      async authorize(credentials) {
-        try {
-          const siwe = new SiweMessage(credentials?.message || "");
-          const authUrl = new URL(process.env.VERCEL_URL!);
-          const result = await siwe.verify({
-            signature: (credentials?.signature as string) || "",
-            domain: authUrl.host,
+export const authConfig = (
+  credsProvider: CredentialsConfig<Record<string, CredentialInput>>,
+): NextAuthConfig => {
+  return {
+    providers: [
+      //   // GitHub({
+      //   //   clientId: process.env.GITHUB_CLIENT_ID,
+      //   //   clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      //   // }),
+      //   // Google({
+      //   //   clientId: process.env.GOOGLE_CLIENT_ID,
+      //   //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      //   // }),
+      credsProvider,
+    ],
+    session: {
+      maxAge: 3000,
+      updateAge: 3000,
+      strategy: "jwt",
+    },
+    pages: {
+      signIn: "/login",
+    },
+    callbacks: {
+      // When using the Credentials Provider the user object is the response returned from the authorize callback and the profile object is the raw body of the HTTP POST submission.
+      signIn: async ({
+        user,
+        account,
+        profile,
+        email,
+        credentials,
+      }: {
+        user: User;
+        account: Account | null;
+        profile?: Profile | undefined;
+        email?: { verificationRequest?: boolean | undefined } | undefined;
+        credentials?: Record<string, CredentialInput> | undefined;
+      }) => {
+        if (DEBUG_AUTH_CALLBACKS) {
+          printDebugSectTitle({
+            title: "signin callback",
+            debugVars: { account, credentials, user, profile, email },
           });
-
-          if (result.success) {
-            return {
-              id: siwe.address,
-            };
-          }
-          return null;
-        } catch (e) {
-          console.error(e);
-          return null;
         }
+
+        return true;
       },
-    }),
-  ],
-  session: {
-    maxAge: 3000,
-    updateAge: 3000,
-    strategy: "jwt",
-  },
-  pages: {
-    signIn: "/login",
-  },
-  callbacks: {
-    signIn: async ({
-      user,
-      account,
-      profile,
-      email,
-      credentials,
-    }: {
-      user: User;
-      account: Account | null;
-      profile?: Profile | undefined;
-      email?: { verificationRequest?: boolean | undefined } | undefined;
-      credentials?: Record<string, CredentialInput> | undefined;
-    }) => {
-      if (DEBUG_CALLBACKS) {
-        printDebugSectTitle({
-          title: "signin callback",
-          debugVars: { account, credentials, user, profile, email },
-        });
-      }
-
-      return true;
-    },
-    // jwt: async (props) => {
-    //   const account = props.account;
-    //   const token = props.token;
-    jwt: async ({
-      token,
-      account,
-      user,
-      profile,
-    }: {
-      token: JWT;
-      account: Account | null;
-      user: User | null;
-      profile?: Profile | undefined;
-    }) => {
-      if (DEBUG_CALLBACKS) {
-        printDebugSectTitle({
-          title: "jwt callback",
-          debugVars: { account, token, user, profile },
-        });
-      }
-
       /**
-       * User, Profile, and Account appear only when signing in, not when
-       * 'refreshing the session'
+       * The arguments user, account, profile and isNewUser are only passed the
+       * first time this callback is called on a new session, after the user signs
+       * in. In subsequent calls, only token will be available.
        */
-      if (user) {
-        // right now user has id, name, email (*can't trust*), image
-      }
+      jwt: async ({
+        token,
+        account,
+        user,
+        profile,
+      }: {
+        token: JWT;
+        account: Account | null;
+        user: User | null;
+        profile?: Profile | undefined;
+      }) => {
+        if (DEBUG_AUTH_CALLBACKS) {
+          printDebugSectTitle({
+            title: "jwt callback",
+            debugVars: { account, token, user, profile },
+          });
+        }
 
-      if (profile?.display_name) {
-        token.displayName = profile.display_name as string;
-      }
+        /**
+         * User, Profile, and Account appear only when signing in and creating a
+         * new session, not when 'refreshing the session'
+         */
+        if (user) {
+          // right now user has id, name, email (*can't trust*), image
+        }
 
-      if (account) {
-        token.accessToken = account.access_token;
-        token.accessTokenUpdatedAt = Date();
+        if (profile) {
+          if (profile.display_name) {
+            token.displayName = profile.display_name as string;
+          }
+        }
 
-        token.refreshToken = account.refresh_token;
-        token.refreshTokenUpdatedAt = Date();
-      }
+        if (account) {
+          token.accessToken = account.access_token;
+          token.accessTokenUpdatedAt = Date();
 
-      return token;
+          token.refreshToken = account.refresh_token;
+          token.refreshTokenUpdatedAt = Date();
+        }
+
+        return token;
+      },
+      /**
+       * token is returned rather than user since using a JWT session strategy
+       * here
+       *
+       * When using JSON Web Tokens the jwt() callback is invoked before the
+       * session() callback, so anything you add to the JSON Web Token will be
+       * immediately available in the session callback, like for example an
+       * access_token from a provider.
+       */
+      session: async ({
+        session,
+        user, // only returned if using database strategy (not JWT)
+        token, // only returned if using JWT strategy (not database)
+      }: {
+        session: Session;
+        user: User; // only returned if using database strategy (not JWT)
+        token: JWT; // only returned if using JWT strategy (not database)
+      }): Promise<Session> => {
+        const sesh = {
+          ...session,
+          accessToken: token?.accessToken,
+          accessTokenUpdatedAt: token?.accessToken ?? Date(),
+          refreshToken: token?.refreshToken,
+          refreshTokenUpdatedAt: token?.refreshToken ?? Date(),
+        } as Session;
+        //
+
+        if (DEBUG_AUTH_CALLBACKS) {
+          printDebugSectTitle({
+            title: "session callback",
+            debugVars: { session, token, user },
+          });
+        }
+
+        return sesh;
+      },
     },
-    // session: async (props) => {
-    //   const session = props.session;
-    //   const token = props.token;
-    session: async ({
-      session,
-      user, // only returned if using database strategy (not JWT)
-      token, // only returned if using JWT strategy (not database)
-    }: {
-      session: Session;
-      user: User; // only returned if using database strategy (not JWT)
-      token: JWT; // only returned if using JWT strategy (not database)
-    }): Promise<Session> => {
-      const sesh = {
-        ...session,
-        accessToken: token?.accessToken,
-        accessTokenUpdatedAt: token?.accessToken ?? Date(),
-        refreshToken: token?.refreshToken,
-        refreshTokenUpdatedAt: token?.refreshToken ?? Date(),
-      } as Session;
-      //
-
-      if (DEBUG_CALLBACKS) {
-        printDebugSectTitle({
-          title: "session callback",
-          debugVars: { session, token, user },
-        });
-      }
-
-      return sesh;
-    },
-  },
+  };
 };
 
 // next-auth (authjs) v5

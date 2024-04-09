@@ -23,9 +23,12 @@
     "@mui/material-nextjs": "^5.15.11",
     "@mui/system": "^5.15.14",
     "@next/mdx": "^14.1.4",
+    "@tanstack/react-query": "^5.29.0",
     "@types/mdx": "^2.0.12",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
+    "@walletconnect/ethereum-provider": "^2.12.1",
+    "@walletconnect/modal": "^2.6.2",
     "axios": "^1.6.8",
     "client-only": "^0.0.1",
     "dotenv": "^16.4.5",
@@ -41,6 +44,7 @@
     "server-only": "^0.0.1",
     "sharp": "^0.33.3",
     "siwe": "^2.1.4",
+    "viem": "2.x",
     "wagmi": "^2.5.19"
   },
   "devDependencies": {
