@@ -1,8 +1,6 @@
 # Anthony Dombrowski
 
-
 ## Professional Portfolio Resume Summary
-
 
 ## akdombrowski.com
 
