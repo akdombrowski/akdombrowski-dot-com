@@ -32,21 +32,19 @@ export const metadata: Metadata = {
     "Professional Resume Portfolio and Content Library for Anthony Dombrowski. Product Manager and Developer Advocate. ",
 };
 
-export default function RootLayout(props: { children: ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode; }) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/anthonyProfilesq/favicon.ico" sizes="any" />
       </head>
       <body>
-        {/* <AppRouterCacheProvider options={{ enableCssLayer: true }}> */}
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <AppAppBar />
             <Toolbar variant="dense" sx={{ minHeight: 45 }} />
-            {props.children}
+            {children}
             <SpeedInsights />
             <Analytics />
           </ThemeProvider>
