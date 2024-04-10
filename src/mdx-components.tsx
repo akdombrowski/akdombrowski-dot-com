@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
-import Blogs from "@/components/blogs/Blogs";
+import Blogs from "tmp/blogs/Blogs";
 import ThemedH1 from "@/components/mdx/themeApplied/ThemedH1";
 
 // This file allows you to provide custom React components

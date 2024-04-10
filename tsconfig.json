@@ -21,7 +21,7 @@
     ],
     "paths": {
       "@/*": ["src/*"],
-      "@/blogs/*": ["src/app/(content)/blogs/*"],
+      "@/blogs/*": ["tmp/blogs/blogs/*"],
       "@/social/*": ["src/components/social/*"],
       "@/actions/*": ["src/actions/*"]
     }
@@ -32,7 +32,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "tmp"],
   "mdx": {
     // Enable strict type checking in MDX files.
     "checkMdx": true
