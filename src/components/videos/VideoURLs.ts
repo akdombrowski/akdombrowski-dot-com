@@ -3,7 +3,13 @@ export interface VideoURLObj {
   url: string;
   tag: string[];
 }
-
+export const KAPTCHA_ME_VIDEOS: VideoURLObj[] = [
+  {
+    title: "kaptcha-me racing theme short",
+    url: "https://www.youtube.com/embed/CRkAhWdfiDw",
+    tag: ["kaptcha-metadata", "short", "racing theme", "action"],
+  },
+];
 export const VIDEOS_TITLE_URL: VideoURLObj[] = [
   {
     title: "OAuth 2.0: Implicit, Authorization Code, and PKCE",
