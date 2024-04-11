@@ -2,14 +2,9 @@
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals",
-    "plugin:mdx/recommended",
     "next",
     "prettier"
   ],
-  "overrides": [],
-  "settings": {
-    "mdx/code-blocks": true
-  },
   "plugins": ["@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
   "root": true
