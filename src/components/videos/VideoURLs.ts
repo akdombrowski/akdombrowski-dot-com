@@ -9,6 +9,20 @@ export const KAPTCHA_ME_VIDEOS: VideoURLObj[] = [
     url: "https://www.youtube.com/embed/CRkAhWdfiDw",
     tag: ["kaptcha-metadata", "short", "racing theme", "action"],
   },
+  {
+    title: "kaptcha-me demo",
+    url: "https://www.youtube.com/embed/NTpZsXuuMuA",
+    tag: [
+      "kaptcha-metadata",
+      "long",
+      "devtools",
+      "themes",
+      "ahhhh",
+      "doubleTroublem",
+      "racing theme",
+      "action",
+    ],
+  },
 ];
 
 export const VIDEOS_TITLE_URL: VideoURLObj[] = [

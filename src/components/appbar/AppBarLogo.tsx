@@ -25,7 +25,8 @@ export default function AppBarLogo() {
         src={"/gokart-R.png"}
         alt="logo of anthony dombrowski"
         style={{ overflow: "hidden", objectFit: "contain" }}
-        fill
+        width={50}
+        height={89}
       />
       {/* </Box> */}
     </Box>

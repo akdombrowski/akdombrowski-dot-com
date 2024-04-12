@@ -21,6 +21,7 @@ export default function VideoContainer({
       xs={size}
       key={"video-" + video.title}
       flexGrow={0}
+      p={0}
       display="flex"
       justifyContent="center"
       alignItems="stretch"

@@ -4,13 +4,17 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import VideoContainer from "@/components/videos/VideoContainer";
-import { VIDEOS_TITLE_URL } from "@/components/videos/VideoURLs";
+import {
+  KAPTCHA_ME_VIDEOS,
+  VIDEOS_TITLE_URL,
+} from "@/components/videos/VideoURLs";
 import _ from "lodash-es";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const highlightVideo = _.find(VIDEOS_TITLE_URL, (vid) => {
   return vid.title.startsWith(
@@ -18,20 +22,29 @@ const highlightVideo = _.find(VIDEOS_TITLE_URL, (vid) => {
   );
 })!;
 
+const kaptchameShort = _.find(KAPTCHA_ME_VIDEOS, (vid) => {
+  return vid.title.startsWith("kaptcha-me racing theme short");
+})!;
+
 export default function TOC() {
   return (
     <Container id="landingPage" maxWidth={false} disableGutters>
-      <Grid id="landing-grid" container rowSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid
+        id="landing-grid"
+        container
+        justifyContent="space-between"
+        alignItems="center"
+        rowSpacing={{ xs: 1, sm: 2, md: 3 }}
+      >
         <Grid
           id="toc-videosBtnGridWrapper"
-          xs={2}
-          pr={{ xs: 0, sm: 1, md: 2, lg: 8 }}
-          container
+          xs="auto"
           display="flex"
-          justifyContent="space-around"
+          justifyContent="left"
           alignItems="stretch"
           maxHeight="50vh"
         >
+          <Box width="10vw" />
           <Stack
             width="100%"
             height="100%"
@@ -60,8 +73,64 @@ export default function TOC() {
           </Stack>
         </Grid>
 
+        <Grid xs container justifyContent="center" alignItems="stretch">
+          <Grid xs={2} />
+
+          <Grid
+            id="toc-videoGridWrapper-kaptchame"
+            xs
+            flexGrow={5}
+            display="flex"
+            justifyContent="center"
+          >
+            <Box
+              component={Link}
+              href="/videos/kaptcha-me"
+              height="100%"
+              maxWidth="100%"
+              sx={{
+                aspectRatio: 720 / 480,
+                backgroundImage: "url(/kaptchaMeGoKart.gif)",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></Box>
+          </Grid>
+
+          <Grid xs flexShrink={2} />
+
+          <Grid
+            id="toc-videoGridWrapper-highlight"
+            xs={4}
+            sm={5}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Box width="100%" maxHeight="100%">
+              <VideoContainer video={highlightVideo} size={12} />
+            </Box>
+          </Grid>
+
+          <Grid xs flexShrink={2} />
+        </Grid>
+
         <Grid
-          id="toc-videoGridWrapper"
+          id="toc-dividerWrapper"
+          xs={12}
+          py={6}
+          display="flex"
+          justifyContent="center"
+          alignItems="stretch"
+        >
+          <Divider
+            variant="fullWidth"
+            sx={{ borderColor: "#132FAA", borderWidth: "1px", width: "100%" }}
+          />
+        </Grid>
+
+        <Grid
+          id="toc-videoGridWrapper-katpchame"
           xs="auto"
           flexGrow={1}
           display="flex"
@@ -71,7 +140,7 @@ export default function TOC() {
           maxHeight="50vh"
           pl={6}
         >
-          <VideoContainer video={highlightVideo} size={12} />
+          <VideoContainer video={kaptchameShort} size={12} />
         </Grid>
 
         <Grid

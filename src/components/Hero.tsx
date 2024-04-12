@@ -72,6 +72,7 @@ export default function Hero(props: {
                 overflow: "hidden",
               }}
               fill
+              sizes={`${1/6}vw`}
               priority
               alt="anthony dombrowski profile pic"
             />
