@@ -4,12 +4,10 @@ import Box from "@mui/material/Box";
 
 export default function AppBarLogo() {
   return (
-    <Box
-      id="appbarlogo-boxContainer"
-    >
+    <Box id="appbarlogo-boxContainer">
       {/* Logo Image */}
       <Image
-        src={"/gokart-R.png"}
+        src={"/gokart-R-73x50.png"}
         alt="logo of anthony dombrowski"
         style={{ overflow: "hidden", objectFit: "contain" }}
         width={73}
