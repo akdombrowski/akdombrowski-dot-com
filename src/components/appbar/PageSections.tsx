@@ -48,7 +48,7 @@ export default function PageSections() {
         </MenuItem>
       </Grid>
 
-      <Grid
+      {/* <Grid
         display="flex"
         flexShrink={1}
         justifyContent="start"
@@ -61,7 +61,7 @@ export default function PageSections() {
             Blogs
           </Typography>
         </MenuItem>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }
