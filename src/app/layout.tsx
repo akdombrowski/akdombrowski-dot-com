@@ -25,6 +25,7 @@ import Toolbar from "@mui/material/Toolbar";
 // vercel site performance and analytics
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Anthony Dombrowski's Portfolio",
@@ -32,12 +33,13 @@ export const metadata: Metadata = {
     "Professional Resume Portfolio and Content Library for Anthony Dombrowski. Product Manager and Developer Advocate. ",
 };
 
-export default function RootLayout({ children }: { children: ReactNode; }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/anthonyProfilesq/favicon.ico" sizes="any" />
       </head>
+      <GoogleTagManager gtmId="GTM-MJZSL46" />
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>

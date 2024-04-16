@@ -23,6 +23,7 @@
     "@mui/material-nextjs": "^5.15.11",
     "@mui/system": "^5.15.15",
     "@next/mdx": "^14.1.4",
+    "@next/third-parties": "^14.2.1",
     "@types/mdx": "^2.0.12",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
