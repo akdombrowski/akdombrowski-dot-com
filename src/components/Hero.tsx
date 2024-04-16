@@ -72,7 +72,7 @@ export default function Hero(props: {
                 overflow: "hidden",
               }}
               fill
-              sizes={`${1/6}vw`}
+              sizes={`${(1 / 6) * 100}vw`}
               priority
               alt="anthony dombrowski profile pic"
             />
@@ -126,6 +126,7 @@ export default function Hero(props: {
                 objectPosition: "55% 10%",
                 opacity: "80%",
               }}
+              sizes={`${(1 / 6) * 100}vw`}
               fill
               priority
               alt="anthony dombrowski profile pic"
