@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import { signIn } from "next-auth/react";
 
-export default function CalendlyPage({ provider }: { provider: string }) {
+export default function LoginBtn({ provider }: { provider: string }) {
   return (
     <Button
       variant="contained"
