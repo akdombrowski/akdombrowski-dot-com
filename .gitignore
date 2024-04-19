@@ -246,4 +246,7 @@ src/videos/*
 !src/videos/*.json
 !src/videos/*.js
 !src/videos/*.ts
+
 public/_next-video
+
+tmp
