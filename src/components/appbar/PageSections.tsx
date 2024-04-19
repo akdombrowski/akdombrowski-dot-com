@@ -27,8 +27,14 @@ export default function PageSections() {
         component={Link}
         href="/"
       >
-        <MenuItem id="videos-menuItem" sx={{ py: "6px", px: "12px" }}>
-          <Typography variant="appBarText" color="text.primary">
+        <MenuItem
+          id="videos-menuItem"
+          sx={{ py: "6px", px: "12px" }}
+        >
+          <Typography
+            variant="appBarText"
+            color="text.primary"
+          >
             Home
           </Typography>
         </MenuItem>
@@ -41,9 +47,35 @@ export default function PageSections() {
         component={Link}
         href="/videos"
       >
-        <MenuItem id="videos-menuItem" sx={{ py: "6px", px: "12px" }}>
-          <Typography variant="appBarText" color="text.primary">
+        <MenuItem
+          id="pageSections-menuItemVideos"
+          sx={{ py: "6px", px: "12px" }}
+        >
+          <Typography
+            variant="appBarText"
+            color="text.primary"
+          >
             Videos
+          </Typography>
+        </MenuItem>
+      </Grid>
+      <Grid
+        display="flex"
+        flexShrink={1}
+        justifyContent="start"
+        alignItems="stretch"
+        component={Link}
+        href="/calendly"
+      >
+        <MenuItem
+          id="pageSections-menuItemCalendly"
+          sx={{ py: "6px", px: "12px" }}
+        >
+          <Typography
+            variant="appBarText"
+            color="text.primary"
+          >
+            Calendly
           </Typography>
         </MenuItem>
       </Grid>

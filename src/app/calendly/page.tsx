@@ -1,10 +1,8 @@
-"use client";
-
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
-import { auth, signIn } from "@/auth";
+import LoginBtn from "@/components/LoginBtn";
 
 export default function CalendlyPage() {
   return (
@@ -31,18 +29,9 @@ export default function CalendlyPage() {
           justifyContent="center"
           alignItems="center"
         >
-          <Button
-            variant="contained"
-            sx={{ p: 2, pt: 3 }}
-            onClick={() => signIn("Calendly")}
-          >
-            <Typography
-              textTransform="lowercase"
-              sx={{ my: "auto" }}
-            >
-              Login with Calendly
-            </Typography>
-          </Button>
+          <LoginBtn
+            provider="Calendly">
+          </LoginBtn>
         </Grid>
       </Grid>
     </Container>
