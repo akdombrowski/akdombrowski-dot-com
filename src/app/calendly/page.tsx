@@ -3,8 +3,11 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import LoginBtn from "@/components/LoginBtn";
+import { auth } from "@/auth";
 
-export default function CalendlyPage() {
+export default async function CalendlyPage() {
+  const session = await auth();
+
   return (
     <Container maxWidth={false}>
       <Grid
@@ -29,9 +32,15 @@ export default function CalendlyPage() {
           justifyContent="center"
           alignItems="center"
         >
-          <LoginBtn
-            provider="Calendly">
-          </LoginBtn>
+          <LoginBtn provider="Calendly"></LoginBtn>
+        </Grid>
+        <Grid
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Typography>{JSON.stringify(session)}</Typography>
         </Grid>
       </Grid>
     </Container>
