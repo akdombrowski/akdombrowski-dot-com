@@ -13,7 +13,8 @@ export default async function NotLoggedInPage() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        paddingX={0}
+        px={0}
+        pt={3}
       >
         <Grid
           xs="auto"
