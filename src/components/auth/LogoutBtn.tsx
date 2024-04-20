@@ -10,7 +10,7 @@ export default function LogoutBtn({ provider }: { provider: string }) {
   return (
     <Button
       variant="contained"
-      sx={{ p: 2, pt: 3 }}
+      sx={{ p: 2 }}
       onClick={() => signOut()}
     >
       <Typography
