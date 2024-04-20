@@ -17,12 +17,28 @@ export default async function NotLoggedInPage() {
         pt={3}
       >
         <Grid
-          xs="auto"
+          xs={12}
           display="flex"
           justifyContent="center"
           alignItems="center"
         >
-          <Typography>Login to see your embedded calendar link</Typography>
+          <Typography
+            component="span"
+            variant="h3"
+            display="inline"
+            fontWeight={300}
+          >
+            Login to see your
+            <Typography
+              display="inline"
+              variant="h2"
+              fontWeight={900}
+              px={2}
+            >
+              Calendly
+            </Typography>
+            scheduling link
+          </Typography>
         </Grid>
         <Grid
           xs={12}
