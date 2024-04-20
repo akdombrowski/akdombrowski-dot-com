@@ -86,17 +86,17 @@ export const AuthConfig = NextAuth({
       return true;
     },
     async jwt({ token, user, account, profile }) {
-      let jwt = { ...token };
+      let jot = token ;
       if (user) {
         console.log();
         console.log("jwt()");
         console.log("user:", user);
-        token.id = user.id;
+        jot.user = { ...jot, ...user };
       }
 
       if (account) {
         console.log("account:", account);
-        jwt = { ...jwt, ...account };
+        jot = { ...jot, ...account };
       }
 
       if (profile) {
@@ -109,14 +109,14 @@ export const AuthConfig = NextAuth({
         console.log();
         console.log("renamedResourcePropProfile:", renamedResourcePropProfile);
         console.log();
-        jwt = { ...jwt, ...renamedResourcePropProfile };
+        jot = { ...jot, ...renamedResourcePropProfile };
         console.log();
         console.log("returning this as token:");
-        console.log("token:", jwt);
+        console.log("token:", jot);
         console.log();
       }
 
-      return jwt;
+      return jot;
     },
     async session({ session, token }) {
       console.log();
