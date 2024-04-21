@@ -86,47 +86,25 @@ export const AuthConfig = NextAuth({
       return true;
     },
     async jwt({ token, user, account, profile }) {
-      let jot = token ;
+      let jot = token;
       if (user) {
-        console.log();
-        console.log("jwt()");
-        console.log("user:", user);
         jot.user = { ...jot, ...user };
       }
 
       if (account) {
-        console.log("account:", account);
         jot = { ...jot, ...account };
       }
 
       if (profile) {
-        console.log();
-        console.log();
-        console.log("profile:", profile);
         const renamedResourcePropProfile = {
           calendlyAccount: profile.resource,
         };
-        console.log();
-        console.log("renamedResourcePropProfile:", renamedResourcePropProfile);
-        console.log();
         jot = { ...jot, ...renamedResourcePropProfile };
-        console.log();
-        console.log("returning this as token:");
-        console.log("token:", jot);
-        console.log();
       }
 
       return jot;
     },
     async session({ session, token }) {
-      console.log();
-      console.log("session()");
-      console.log("token:", token);
-      console.log("session:", session);
-      console.log();
-      console.log();
-      console.log();
-
       return { ...session, ...token };
     },
   },

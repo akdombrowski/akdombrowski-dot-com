@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
+import Box from "@mui/material/Unstable_Grid2";
 import LoginBtn from "@/components/auth/LoginBtn";
 import LogoutBtn from "@/components/auth/LogoutBtn";
 import UserAvatar from "@/components/auth/UserAvatar";
@@ -10,20 +11,9 @@ import Link from "next/link";
 
 import type { Session } from "next-auth";
 
-export default async function CalendlyPage({ session }: { session: Session }) {
-  const routingForms = async () => {
-    try {
-      const res = await fetch("https://api.calendly.com/routing_forms", {
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${session.access_token}`,
-        },
-      });
-    } catch (e) {
-      console.error("couldn't fetch routing forms", "\n", e);
-    }
-  };
+import EventTypes from "@/components/calendly/EventTypes";
 
+export default async function CalendlyPage({ session }: { session: Session }) {
   return (
     <Container maxWidth={false}>
       <Grid
@@ -107,26 +97,40 @@ export default async function CalendlyPage({ session }: { session: Session }) {
                   textTransform="lowercase"
                   sx={{ textDecoration: "solid underline cyan 1px" }}
                 >
-                  {session.calendlyAccount?.scheduling_url}
+                  {session.calendlyAccount.scheduling_url}
                 </Typography>
               </Button>
             </Grid>
           </Grid>
         )}
         <Grid
+          id="eventTypes"
           xs={12}
           display="flex"
           justifyContent="center"
           alignItems="center"
         >
-          <Typography
-            variant="body1"
-            lineHeight={1.15}
-            overflow="hidden"
-            component="pre"
-          >
-            {JSON.stringify(session, null, 4)}
-          </Typography>
+          <EventTypes session={session} />
+        </Grid>
+        <Grid
+          id="session"
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          overflow="auto"
+        >
+          <Box maxHeight="30vh">
+            <Typography
+              whiteSpace="pre-wrap"
+              fontWeight={100}
+              color="white"
+              fontSize=".7rem"
+              lineHeight={1.2}
+            >
+              {JSON.stringify(session, null, 4)}
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
     </Container>
