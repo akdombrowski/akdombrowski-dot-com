@@ -11,6 +11,19 @@ import Link from "next/link";
 import type { Session } from "next-auth";
 
 export default async function CalendlyPage({ session }: { session: Session }) {
+  const routingForms = async () => {
+    try {
+      const res = await fetch("https://api.calendly.com/routing_forms", {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${session.access_token}`,
+        },
+      });
+    } catch (e) {
+      console.error("couldn't fetch routing forms", "\n", e);
+    }
+  };
+
   return (
     <Container maxWidth={false}>
       <Grid
