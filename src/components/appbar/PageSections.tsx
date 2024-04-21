@@ -59,7 +59,7 @@ export default function PageSections() {
           </Typography>
         </MenuItem>
       </Grid>
-      <Grid
+      {/* <Grid
         display="flex"
         flexShrink={1}
         justifyContent="start"
@@ -78,7 +78,7 @@ export default function PageSections() {
             Calendly
           </Typography>
         </MenuItem>
-      </Grid>
+      </Grid> */}
 
       {/* <Grid
         display="flex"
