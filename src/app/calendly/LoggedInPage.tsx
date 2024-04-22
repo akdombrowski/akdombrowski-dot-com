@@ -14,6 +14,7 @@ import { auth } from "@/auth";
 import EventTypes from "@/components/calendly/EventTypes";
 
 import getActiveEventTypes from "@/actions/calendly/eventTypes";
+import { CalendlyEventType } from "../../actions/calendly/eventTypes";
 
 export default async function LoggedInPage() {
   const session = await auth();
@@ -118,7 +119,16 @@ export default async function LoggedInPage() {
             justifyContent="center"
             alignItems="center"
           >
-            <EventTypes events={eventTypes} />
+            {eventTypes.error ? (
+              <Typography variant="body1">
+                No event types found. If you know you have some, try logging out
+                then back in.
+              </Typography>
+            ) : (
+              <EventTypes
+                events={eventTypes as { [key: string]: CalendlyEventType }}
+              />
+            )}
           </Grid>
           <Grid
             id="session"

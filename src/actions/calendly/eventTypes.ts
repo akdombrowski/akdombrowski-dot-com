@@ -28,9 +28,11 @@ export interface CalendlyEventType {
   uri: string;
 }
 
-export async function getAllEventTypes(
-  session: Session,
-): Promise<CalendlyEventType[] | undefined> {
+export async function getAllEventTypes(session: Session): Promise<{
+  eventTypes: CalendlyEventType[] | null;
+  msg?: string;
+  error?: Error;
+}> {
   try {
     const userURI = session.calendlyAccount?.uri;
     if (userURI) {
@@ -46,28 +48,35 @@ export async function getAllEventTypes(
 
       if (res.ok) {
         const body = await res.json();
-        return body.collection;
+        return { eventTypes: body.collection };
       }
 
       const bodyText = await res.text();
       throw new Error("response NOT ok", {
-        cause: { statusText: res.statusText, bodyText },
+        cause: { status: res.status, statusText: res.statusText, bodyText },
       });
     } else {
-      throw new Error("no org found on session", {
+      throw new Error("no uuser uri found on session", {
         cause: { session },
       });
     }
   } catch (e) {
     console.error("couldn't fetch routing forms", "\n", e);
+    return {
+      eventTypes: null,
+      msg: "couldn't fetch routing forms",
+      error: e as Error,
+    };
   }
 }
 
-export default async function getActiveEventTypes(session: Session) {
+export default async function getActiveEventTypes(
+  session: Session,
+): Promise<{ [key: string]: CalendlyEventType } | { error: string }> {
   const allEventTypes = await getAllEventTypes(session);
-  if (allEventTypes) {
+  if (allEventTypes.eventTypes) {
     let activeEventTypes = {};
-    for (const event of allEventTypes) {
+    for (const event of allEventTypes.eventTypes) {
       if (event.active) {
         const name = event.name;
         activeEventTypes = { ...activeEventTypes, [name]: { ...event } };

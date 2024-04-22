@@ -13,7 +13,7 @@ import type { CalendlyEventType } from "@/actions/calendly/eventTypes";
 export default function EventTypes({
   events,
 }: {
-  events: { [key: string]: CalendlyEventType } | string;
+  events: { [key: string]: CalendlyEventType };
 }) {
   return (
     <Container maxWidth={false}>
