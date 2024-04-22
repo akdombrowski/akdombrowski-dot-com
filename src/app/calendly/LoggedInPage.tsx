@@ -3,138 +3,147 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Unstable_Grid2";
-import LoginBtn from "@/components/auth/LoginBtn";
 import LogoutBtn from "@/components/auth/LogoutBtn";
 import UserAvatar from "@/components/auth/UserAvatar";
 
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-import type { Session } from "next-auth";
+import { auth } from "@/auth";
 
 import EventTypes from "@/components/calendly/EventTypes";
 
-export default async function CalendlyPage({ session }: { session: Session; }) {
-  const displayUserInfo = session.calendlyAccount;
+import getActiveEventTypes from "@/actions/calendly/eventTypes";
 
-  return (
-    <Container maxWidth={false}>
-      <Grid
-        id="calendly-GridContainer"
-        container
-        spacing={6}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        paddingX={0}
-      >
-        <Grid
-          xs="auto"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <UserAvatar src={session.calendlyAccount?.avatar_url} />
-        </Grid>
-        <Grid
-          xs={session ? "auto" : 12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Typography>Hi, {session.calendlyAccount?.name}</Typography>
-        </Grid>
-        <Grid
-          xs="auto"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <LogoutBtn provider="Calendly"></LogoutBtn>
-        </Grid>
+export default async function LoggedInPage() {
+  const session = await auth();
 
-        {session.calendlyAccount?.scheduling_url && (
+  if (session) {
+    const eventTypes = await getActiveEventTypes(session);
+    const calendlyAcctInfo = session.calendlyAccount;
+
+    return (
+      <Container maxWidth={false}>
+        <Grid
+          id="calendly-GridContainer"
+          container
+          spacing={6}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          paddingX={0}
+        >
           <Grid
-            xs={12}
-            container
-            spacing={1}
+            xs="auto"
             display="flex"
             justifyContent="center"
             alignItems="center"
           >
+            <UserAvatar src={session.calendlyAccount?.avatar_url} />
+          </Grid>
+          <Grid
+            xs={session ? "auto" : 12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Typography>Hi, {session.calendlyAccount?.name}</Typography>
+          </Grid>
+          <Grid
+            xs="auto"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <LogoutBtn provider="Calendly"></LogoutBtn>
+          </Grid>
+
+          {session.calendlyAccount?.scheduling_url && (
             <Grid
               xs={12}
+              container
+              spacing={1}
               display="flex"
               justifyContent="center"
               alignItems="center"
             >
-              <Typography
-                variant="body1"
-                lineHeight={1.15}
-                overflow="hidden"
-                component="pre"
-                fontSize="1.5rem"
-                color="primary.light"
-              >
-                Schedule some time with me via my Calendly Link:
-              </Typography>
-            </Grid>
-            <Grid
-              xs={12}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Button
-                variant="text"
-                component={Link}
-                href={session.calendlyAccount.scheduling_url}
+              <Grid
+                xs={12}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
               >
                 <Typography
                   variant="body1"
                   lineHeight={1.15}
                   overflow="hidden"
                   component="pre"
-                  fontSize="1.1rem"
-                  color="secondary.light"
-                  textTransform="lowercase"
-                  sx={{ textDecoration: "solid underline cyan 1px" }}
+                  fontSize="1.5rem"
+                  color="primary.light"
                 >
-                  {session.calendlyAccount.scheduling_url}
+                  Schedule some time with me via my Calendly Link:
                 </Typography>
-              </Button>
+              </Grid>
+              <Grid
+                xs={12}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Button
+                  variant="text"
+                  component={Link}
+                  href={session.calendlyAccount.scheduling_url}
+                >
+                  <Typography
+                    variant="body1"
+                    lineHeight={1.15}
+                    overflow="hidden"
+                    component="pre"
+                    fontSize="1.1rem"
+                    color="secondary.light"
+                    textTransform="lowercase"
+                    sx={{ textDecoration: "solid underline cyan 1px" }}
+                  >
+                    {session.calendlyAccount.scheduling_url}
+                  </Typography>
+                </Button>
+              </Grid>
             </Grid>
+          )}
+          <Grid
+            id="eventTypes"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <EventTypes events={eventTypes} />
           </Grid>
-        )}
-        <Grid
-          id="eventTypes"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <EventTypes session={session} />
+          <Grid
+            id="session"
+            xs={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            overflow="auto"
+          >
+            <Box maxHeight="30vh">
+              <Typography
+                whiteSpace="pre-wrap"
+                fontWeight={100}
+                color="white"
+                fontSize=".7rem"
+                lineHeight={1.2}
+              >
+                {JSON.stringify(calendlyAcctInfo, null, 4)}
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid
-          id="session"
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          overflow="auto"
-        >
-          <Box maxHeight="30vh">
-            <Typography
-              whiteSpace="pre-wrap"
-              fontWeight={100}
-              color="white"
-              fontSize=".7rem"
-              lineHeight={1.2}
-            >
-              {JSON.stringify(displayUserInfo, null, 4)}
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
-    </Container>
-  );
+      </Container>
+    );
+  }
+
+  redirect("/");
 }

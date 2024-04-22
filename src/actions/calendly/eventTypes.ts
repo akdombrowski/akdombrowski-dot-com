@@ -63,7 +63,7 @@ export async function getAllEventTypes(
   }
 }
 
-export async function getActiveEventTypes(session: Session) {
+export default async function getActiveEventTypes(session: Session) {
   const allEventTypes = await getAllEventTypes(session);
   if (allEventTypes) {
     let activeEventTypes = {};

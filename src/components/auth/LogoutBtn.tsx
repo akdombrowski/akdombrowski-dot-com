@@ -2,8 +2,6 @@
 
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Unstable_Grid2";
 import { signOut } from "next-auth/react";
 
 export default function LogoutBtn({ provider }: { provider: string }) {

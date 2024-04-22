@@ -6,24 +6,15 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 
-import { getActiveEventTypes } from "@/actions/calendly/eventTypes";
-
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 
 import type { Session } from "next-auth";
 import type { CalendlyEventType } from "@/actions/calendly/eventTypes";
-
-export default function EventTypes({ session }: { session: Session }) {
-  const [events, setEvents] = useState<CalendlyEventType[] | null>(null);
-
-  const handleClick = async () => {
-    const activeEventTypes = (await getActiveEventTypes(
-      session,
-    )) as CalendlyEventType[];
-    console.log(activeEventTypes);
-    setEvents(activeEventTypes);
-  };
-
+export default function EventTypes({
+  events,
+}: {
+  events: { [key: string]: CalendlyEventType } | string;
+}) {
   return (
     <Container maxWidth={false}>
       <Grid
@@ -38,15 +29,7 @@ export default function EventTypes({ session }: { session: Session }) {
           justifyContent="center"
           alignItems="center"
         >
-          <Button
-            variant="contained"
-            sx={{ p: 2 }}
-            onClick={handleClick}
-          >
-            <Typography sx={{ my: "auto" }}>
-              Get Your Active Event Types
-            </Typography>
-          </Button>
+          <Typography sx={{ my: "auto" }}>Your Active Event Types</Typography>
         </Grid>
         {events && (
           <Grid
