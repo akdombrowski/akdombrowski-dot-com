@@ -11,16 +11,16 @@ export default function LoadingVideo() {
       display="flex"
       justifyContent="center"
       alignItems="stretch"
-      >
-    <Grid
-      container
-      display="flex"
-      justifyContent="center"
-      alignItems="stretch"
+    >
+      <Grid
+        xs={12}
+        container
+        display="flex"
+        justifyContent="center"
+        alignItems="stretch"
       >
         <Typography>Wait for it...</Typography>
       </Grid>
-
     </Grid>
   );
 }
