@@ -6,7 +6,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import VideoContainer from "@/components/videos/VideoContainer";
 import { KAPTCHA_ME_VIDEOS } from "@/components/videos/VideoURLs";
 import _ from "lodash-es";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 import Link from "next/link";
 
@@ -16,7 +16,11 @@ const kaptchaMeDemo = _.find(KAPTCHA_ME_VIDEOS, (vid) => {
 
 export default function KaptchaMePage() {
   return (
-    <Container id="kaptchaMePage" maxWidth={false} disableGutters>
+    <Container
+      id="kaptchaMePage"
+      maxWidth={false}
+      disableGutters
+    >
       <Grid
         id="kaptchaMe-main-gridContainer"
         container
@@ -32,12 +36,20 @@ export default function KaptchaMePage() {
           alignItems="stretch"
           maxHeight="50vh"
         >
-          <Typography variant="poster" color="text.light">
+          <Typography
+            variant="poster"
+            color="text.light"
+          >
             kaptcha-me
           </Typography>
         </Grid>
 
-        <Grid xs container justifyContent="center" alignItems="stretch">
+        <Grid
+          xs
+          container
+          justifyContent="center"
+          alignItems="stretch"
+        >
           <Grid xs={2} />
 
           <Grid
@@ -61,7 +73,10 @@ export default function KaptchaMePage() {
             ></Box>
           </Grid>
 
-          <Grid xs flexShrink={2} />
+          <Grid
+            xs
+            flexShrink={2}
+          />
 
           <Grid
             id="kaptchaMe-videoGridWrapper-demo"
@@ -71,12 +86,21 @@ export default function KaptchaMePage() {
             justifyContent="center"
             alignItems="center"
           >
-            <Box width="100%" maxHeight="100%">
-              <VideoContainer video={kaptchaMeDemo} size={12} />
+            <Box
+              width="100%"
+              maxHeight="100%"
+            >
+              <VideoContainer
+                video={kaptchaMeDemo}
+                size={12}
+              />
             </Box>
           </Grid>
 
-          <Grid xs flexShrink={2} />
+          <Grid
+            xs
+            flexShrink={2}
+          />
         </Grid>
 
         <Grid

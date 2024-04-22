@@ -13,7 +13,9 @@ import type { Session } from "next-auth";
 
 import EventTypes from "@/components/calendly/EventTypes";
 
-export default async function CalendlyPage({ session }: { session: Session }) {
+export default async function CalendlyPage({ session }: { session: Session; }) {
+  const displayUserInfo = session.calendlyAccount;
+
   return (
     <Container maxWidth={false}>
       <Grid
@@ -128,7 +130,7 @@ export default async function CalendlyPage({ session }: { session: Session }) {
               fontSize=".7rem"
               lineHeight={1.2}
             >
-              {JSON.stringify(session, null, 4)}
+              {JSON.stringify(displayUserInfo, null, 4)}
             </Typography>
           </Box>
         </Grid>
