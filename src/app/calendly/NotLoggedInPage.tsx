@@ -5,7 +5,10 @@ import LoginBtn from "@/components/auth/LoginBtn";
 
 export default async function NotLoggedInPage() {
   return (
-    <Container maxWidth={false}>
+    <Container
+      maxWidth={false}
+      sx={{ height: "100vh" }}
+    >
       <Grid
         id="calendly-GridContainer"
         container

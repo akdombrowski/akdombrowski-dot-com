@@ -16,6 +16,8 @@ import EventTypes from "@/components/calendly/EventTypes";
 import getActiveEventTypes from "@/actions/calendly/eventTypes";
 import { CalendlyEventType } from "../../actions/calendly/eventTypes";
 
+import { cookies } from "next/headers";
+
 export default async function LoggedInPage() {
   const session = await auth();
 
@@ -23,8 +25,18 @@ export default async function LoggedInPage() {
     const eventTypes = await getActiveEventTypes(session);
     const calendlyAcctInfo = session.calendlyAccount;
 
+    console.log("")
+    console.log("")
+    console.log("cookies.getAll()")
+    console.log(cookies().getAll())
+    console.log("")
+    console.log("")
+
     return (
-      <Container maxWidth={false}>
+      <Container
+        maxWidth={false}
+        sx={{height: "100vh"}}
+      >
         <Grid
           id="calendly-GridContainer"
           container

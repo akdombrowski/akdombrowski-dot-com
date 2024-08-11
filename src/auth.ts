@@ -65,6 +65,15 @@ declare module "next-auth/jwt" {
 }
 
 export const AuthConfig = NextAuth({
+  // debug auth configuration
+  debug: true,
+  session: {
+    // calendly access token expires in 2hrs (7200), setting `maxAge` and
+    // `updateAge` to 6900 gives a 5min buffer to get a new one (7200 - 6700)
+    maxAge: 6900,
+    strategy: "jwt",
+    updateAge: 6900,
+  },
   providers: [
     {
       id: "calendly", // signIn("my-provider") and will be part of the callback URL
@@ -105,6 +114,52 @@ export const AuthConfig = NextAuth({
       return jot;
     },
     async session({ session, token }) {
+      const expiry = token.expires_at
+        ? new Date(token.expires_at + token.created_at)
+        : null;
+
+      console.log();
+      console.log();
+      console.log();
+      console.log("session:\n", session);
+
+      console.log();
+      console.log();
+      console.log();
+      console.log();
+      console.log();
+      console.log("token:\n", token);
+      console.log();
+      console.log();
+      console.log();
+      console.log("expiry:\n", expiry);
+      console.log("created at:\n", new Date(token.created_at));
+      console.log(
+        token.expires_at,
+        " + ",
+        token.created_at,
+        " = ",
+        (token.expires_at ?? 0) + token.created_at,
+      );
+      console.log(
+        "expires at + created at:\n",
+        new Date((token.expires_at ?? 0) + token.created_at),
+      );
+      console.log("created at:", token.created_at);
+      console.log("exp:\n", token.exp);
+      console.log(token.exp ? new Date(token.exp) : "missing token.exp");
+      console.log("now:", Date.now());
+      console.log("now + iat:", new Date(Date.now() + (token.iat ?? 0)));
+      console.log(
+        "now + created at:",
+        new Date(Date.now() + (token.created_at ?? 0)),
+      );
+      console.log();
+      console.log();
+      console.log();
+      console.log();
+      console.log();
+
       return { ...session, ...token };
     },
   },
