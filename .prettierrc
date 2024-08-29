@@ -12,4 +12,5 @@
   "singleAttributePerLine": true,
   "arrowParens": "always",
   "jsxSingleQuote": false,
+  "printWidth": 100
 }
