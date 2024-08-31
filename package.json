@@ -64,7 +64,7 @@
     "typescript-eslint": "^7.7.0",
     "vercel": "^34.1.1",
     "video.js": "8.10.0",
-    "webpack": "^5.91.0"
+    "webpack": "^5.94.0"
   },
   "resolutions": {
     "@emotion/cache": "^11.11.0",
