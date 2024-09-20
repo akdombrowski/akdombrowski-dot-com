@@ -465,6 +465,7 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
   breakpoints: [
     "foreHundo",
     "phiveHundo",
+    "seisHundo",
     "nanaHundo",
     "ateHundo",
     "senHundo",

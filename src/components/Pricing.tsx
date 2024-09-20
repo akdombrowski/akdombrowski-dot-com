@@ -88,9 +88,7 @@ export default function Pricing() {
           <Grid
             item
             key={tier.title}
-            xs={12}
-            sm={tier.title === "Enterprise" ? 12 : 6}
-            md={4}
+            size={{ xs: 12, sm: tier.title === "Enterprise" ? 12 : 6, md: 4 }}
           >
             <Card
               sx={{

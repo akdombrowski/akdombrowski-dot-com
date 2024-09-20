@@ -2,7 +2,7 @@
 
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -38,7 +38,7 @@ export default function GlobalErrorPage({
             pt={2}
           >
             <Grid
-              xs={12}
+              size={{xs: 12}}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -46,7 +46,7 @@ export default function GlobalErrorPage({
               <Typography variant="h4">Hey!</Typography>
             </Grid>
             <Grid
-              xs={12}
+              size={{xs: 12}}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -57,7 +57,7 @@ export default function GlobalErrorPage({
             </Grid>
 
             <Grid
-              xs={12}
+              size={{xs: 12}}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -65,7 +65,7 @@ export default function GlobalErrorPage({
               <Typography variant="h4">Oh, you just missed it!</Typography>
             </Grid>
             <Grid
-              xs={12}
+              size={{xs: 12}}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -73,7 +73,7 @@ export default function GlobalErrorPage({
               <Typography variant="h4">Wait!</Typography>
             </Grid>
             <Grid
-              xs={12}
+              size={{xs: 12}}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -81,7 +81,7 @@ export default function GlobalErrorPage({
               <Typography variant="h4">Now, it's over there 👈 !!</Typography>
             </Grid>
             <Grid
-              xs={12}
+              size={{xs: 12}}
               display="flex"
               justifyContent="center"
               alignItems="center"

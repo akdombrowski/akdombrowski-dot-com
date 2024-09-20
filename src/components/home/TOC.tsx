@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 
 import VideoContainer from "@/components/videos/VideoContainer";
 import {
@@ -18,7 +18,7 @@ import Image from "next/image";
 
 const highlightVideo = _.find(VIDEOS_TITLE_URL, (vid) => {
   return vid.title.startsWith(
-    "OAuth 2.0: Implicit, Authorization Code, and PKCE",
+    "OAuth 2.0: Implicit, Authorization Code, and PKCE"
   );
 })!;
 
@@ -28,9 +28,9 @@ const kaptchameShort = _.find(KAPTCHA_ME_VIDEOS, (vid) => {
 
 export default function TOC() {
   return (
-    <Container id="landingPage" maxWidth={false} disableGutters>
+    <Box id="toc" display="flex" width="100%">
       <Grid
-        id="landing-grid"
+        id="toc-grid"
         container
         justifyContent="space-between"
         alignItems="center"
@@ -38,7 +38,7 @@ export default function TOC() {
       >
         <Grid
           id="toc-videosBtnGridWrapper"
-          xs="auto"
+          size={{ xs: "auto" }}
           display="flex"
           justifyContent="left"
           alignItems="stretch"
@@ -73,12 +73,17 @@ export default function TOC() {
           </Stack>
         </Grid>
 
-        <Grid xs container justifyContent="center" alignItems="stretch">
-          <Grid xs={2} />
+        <Grid
+          size={{ xs: "auto" }}
+          container
+          justifyContent="center"
+          alignItems="stretch"
+        >
+          <Grid size={{ xs: 2 }} />
 
           <Grid
             id="toc-videoGridWrapper-kaptchame"
-            xs
+            size={{ xs: "auto" }}
             flexGrow={5}
             display="flex"
             justifyContent="center"
@@ -97,27 +102,26 @@ export default function TOC() {
             ></Box>
           </Grid>
 
-          <Grid xs flexShrink={2} />
+          <Grid size={{ xs: "auto" }} flexShrink={2} />
 
           <Grid
             id="toc-videoGridWrapper-highlight"
-            xs={4}
-            sm={5}
+            size={{ xs: 4, sm: 5 }}
             display="flex"
             justifyContent="center"
             alignItems="center"
           >
             <Box width="100%" maxHeight="100%">
-              <VideoContainer video={highlightVideo} size={12} />
+              <VideoContainer video={highlightVideo} size={{ xs: 12 }} />
             </Box>
           </Grid>
 
-          <Grid xs flexShrink={2} />
+          <Grid size={{ xs: "auto" }} flexShrink={2} />
         </Grid>
 
         <Grid
           id="toc-dividerWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           py={6}
           display="flex"
           justifyContent="center"
@@ -131,7 +135,7 @@ export default function TOC() {
 
         <Grid
           id="toc-videoGridWrapper-katpchame"
-          xs="auto"
+          size={{ xs: "auto" }}
           flexGrow={1}
           display="flex"
           justifyContent="end"
@@ -140,12 +144,12 @@ export default function TOC() {
           maxHeight="50vh"
           pl={6}
         >
-          <VideoContainer video={kaptchameShort} size={12} />
+          <VideoContainer video={kaptchameShort} size={{ xs: 12 }} />
         </Grid>
 
         <Grid
           id="toc-dividerWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           py={6}
           display="flex"
           justifyContent="center"
@@ -159,7 +163,7 @@ export default function TOC() {
 
         <Grid
           id="toc-blogsBtnGridWrapper"
-          xs={2}
+          size={{ xs: 2 }}
           display="flex"
           justifyContent="left"
           alignItems="stretch"
@@ -193,7 +197,7 @@ export default function TOC() {
 
         <Grid
           id="toc-videoGridWrapper"
-          xs="auto"
+          size={{ xs: "auto" }}
           flexGrow={1}
           display="flex"
           justifyContent="end"
@@ -207,7 +211,7 @@ export default function TOC() {
 
         <Grid
           id="toc-dividerWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           py={6}
           display="flex"
           justifyContent="center"
@@ -219,6 +223,6 @@ export default function TOC() {
           />
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 }

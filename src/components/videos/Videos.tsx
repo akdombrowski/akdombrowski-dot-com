@@ -1,7 +1,7 @@
 "use client";
 import "client-only";
 
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import dynamic from "next/dynamic";
@@ -20,42 +20,47 @@ const DEBUG = false;
 // import ReactPlayer from "react-player/youtube";
 const numVideos = VIDEOS_TITLE_URL.length;
 const standardsVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "standards"),
+  _.includes(video.tag, "standards")
 );
 const postmanVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "postman"),
+  _.includes(video.tag, "postman")
 );
 const awarenessVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "awareness"),
+  _.includes(video.tag, "awareness")
 );
 const playlists = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "playlist"),
+  _.includes(video.tag, "playlist")
 );
 const otherVideos = _.difference(
   VIDEOS_TITLE_URL,
   standardsVideos,
   postmanVideos,
   awarenessVideos,
-  playlists,
+  playlists
 );
 const numVideosFromCat = _.union(
   standardsVideos,
   postmanVideos,
   awarenessVideos,
   playlists,
-  otherVideos,
+  otherVideos
 ).length;
 
 const VideoContainer = dynamic(
   () => import("@/components/videos/VideoContainer"),
   {
     loading: () => <LoadingVideo />,
-  },
+  }
 );
 export const createVideoContainers = (videos: VideoURLObj[]) =>
   videos.map((video, i) => {
     return (
-      <VideoContainer key={i} video={video} size={6} idPrefix={String(i)} />
+      <VideoContainer
+        key={i}
+        video={video}
+        size={{ xs: 6 }}
+        idPrefix={String(i)}
+      />
     );
   });
 
@@ -72,7 +77,7 @@ export default function Videos() {
       numVideosFromCat,
       "===",
       numVideosFromCat,
-      ")",
+      ")"
     );
   }
 
@@ -94,7 +99,7 @@ export default function Videos() {
           justifyContent="center"
         >
           <Grid
-            xs={12}
+            size={{ xs: 12 }}
             display="flex"
             justifyContent="left"
             alignItems="stretch"
@@ -121,7 +126,7 @@ export default function Videos() {
           </Grid>
           {createVideoContainers(standardsVideos)}
           <Grid
-            xs={12}
+            size={{ xs: 12 }}
             pt={5}
             display="flex"
             justifyContent="left"
@@ -147,7 +152,7 @@ export default function Videos() {
           </Grid>
           {createVideoContainers(postmanVideos)}
           <Grid
-            xs={12}
+            size={{ xs: 12 }}
             pt={5}
             display="flex"
             justifyContent="left"
@@ -174,7 +179,7 @@ export default function Videos() {
           {createVideoContainers(awarenessVideos)}
 
           <Grid
-            xs={12}
+            size={{ xs: 12 }}
             pt={5}
             display="flex"
             justifyContent="left"
@@ -201,7 +206,7 @@ export default function Videos() {
           {createVideoContainers(otherVideos)}
 
           <Grid
-            xs={12}
+            size={{ xs: 12 }}
             pt={5}
             display="flex"
             justifyContent="left"

@@ -2,7 +2,7 @@
 import "client-only";
 
 
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 
 export default function Roles() {
@@ -17,17 +17,17 @@ export default function Roles() {
        * Start of 1st row
        * Major roles
        */}
-      <Grid xs={5} display="flex" justifyContent="center" alignItems="center">
+      <Grid size={{xs: 5}} display="flex" justifyContent="center" alignItems="center">
         <Typography variant="role" align="right" color="text.secondary">
           Product Manager
         </Typography>
       </Grid>
-      <Grid xs={2} display="flex" justifyContent="center" alignItems="center">
+      <Grid size={{xs: 2}} display="flex" justifyContent="center" alignItems="center">
         <Typography variant="role" align="center" color="text.secondary">
           Leader
         </Typography>
       </Grid>
-      <Grid xs={5} display="flex" justifyContent="center" alignItems="center">
+      <Grid size={{xs: 5}} display="flex" justifyContent="center" alignItems="center">
         <Typography variant="role" align="left" color="text.secondary">
           Developer Advocate
         </Typography>
@@ -42,20 +42,20 @@ export default function Roles() {
        * Minor roles
        */}
       <Grid
-        xs={2}
+        size={{xs: 2}}
         paddingX={0}
         paddingY={1}
         display="flex"
         justifyContent="center"
         alignItems="center"
       ></Grid>
-      <Grid xs={3} paddingY={1} display="flex" justifyContent="center">
+      <Grid size={{xs: 3}} paddingY={1} display="flex" justifyContent="center">
         <Typography variant="subRole" align="right" color="text.secondary">
           Software Engineer
         </Typography>
       </Grid>
       <Grid
-        xs={1}
+        size={{xs: 1}}
         paddingX={0}
         paddingY={1}
         display="flex"
@@ -64,7 +64,7 @@ export default function Roles() {
       {/* Padding Grid to balance layout */}
 
       <Grid
-        xs={5}
+        size={{xs: 5}}
         paddingX={0}
         paddingY={1}
         display="flex"
@@ -82,7 +82,7 @@ export default function Roles() {
 
       {/* Padding Grid to balance layout */}
       <Grid
-        xs={1}
+        size={{xs: 1}}
         paddingX={0}
         paddingY={1}
         display="flex"

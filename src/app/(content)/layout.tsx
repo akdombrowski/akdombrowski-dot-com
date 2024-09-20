@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 
 import { usePathname } from "next/navigation";
 
@@ -31,7 +31,7 @@ export default function Layout(props: { children: ReactNode }) {
       <Grid id="contentpagesLayout-gridContainer" container>
         <Grid
           id="contentpagesLayout-pageTitleGridContainer"
-          xs={12}
+          size={{xs: 12}}
           container
           spacing={0}
           mb={3}
@@ -41,7 +41,7 @@ export default function Layout(props: { children: ReactNode }) {
             backgroundImage: `radial-gradient(circle at center,  rgba(35, 181, 211,0.2) 0, rgba(35, 181, 211,0.05) 45%, rgba(201, 242, 153,0.01) 55%,  rgba(255,255,255,0.0) 70%)`,
           }}
         >
-          <Grid xs={6} pt={3} pb={2} container>
+          <Grid size={{xs: 6}} pt={3} pb={2} container>
             <Grid pr={1}>
               <Typography
                 variant={pathnameArr.length > 1 ? "h2" : "h1"}
@@ -63,7 +63,7 @@ export default function Layout(props: { children: ReactNode }) {
             </Grid>
           </Grid>
           <Grid
-            xs={6}
+            size={{xs: 6}}
             container
             spacing={1}
             justifyContent="center"
@@ -78,12 +78,12 @@ export default function Layout(props: { children: ReactNode }) {
                 backgroundImage: `radial-gradient(circle at center, rgba(255, 75, 200, 0.01) 0,  rgba(0, 0, 0, 0.02) 100%)`,
               }}
             >
-              <Grid xs={12} p={0} pb={1}>
+              <Grid size={{xs: 12}} p={0} pb={1}>
                 <Typography variant="h3" align="center" letterSpacing=".55vw">
                   Content
                 </Typography>
               </Grid>
-              <Grid xs={12} p={0}>
+              <Grid size={{xs: 12}} p={0}>
                 <Typography variant="h3" align="center" letterSpacing=".55vw">
                   Library
                 </Typography>
@@ -93,7 +93,7 @@ export default function Layout(props: { children: ReactNode }) {
         </Grid>
         <Grid
           id="contentpagesLayout-bodyGridContainer"
-          xs={12}
+          size={{xs: 12}}
           container
           spacing={0}
           justifyContent="center"

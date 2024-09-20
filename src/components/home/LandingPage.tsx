@@ -1,6 +1,6 @@
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 
 import Roles from "@/components/Roles";
 import StackOverflowBadge from "@/components/StackOverflowBadge";
@@ -8,11 +8,11 @@ import Hero from "../Hero";
 import Footer from "@/components/Footer";
 
 import TOC from "@/components/home/TOC";
-import WakaTimeBadge from '../WakaTimeBadge';
+import WakaTimeBadge from "../WakaTimeBadge";
 
 export default function LandingPage() {
   return (
-    <Container id="landingPage" maxWidth={false}>
+    <Container id="landingPage" maxWidth={false} disableGutters>
       <Grid
         id="landing-grid"
         container
@@ -21,7 +21,7 @@ export default function LandingPage() {
       >
         <Grid
           id="landing-heroGridWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -32,7 +32,7 @@ export default function LandingPage() {
 
         <Grid
           id="landing-heroDividerWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           paddingTop={1}
           paddingBottom={0}
           display="flex"
@@ -46,7 +46,7 @@ export default function LandingPage() {
 
         <Grid
           id="landing-Hero2DividerWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           paddingTop=".1rem"
           paddingBottom={0}
           display="flex"
@@ -60,7 +60,7 @@ export default function LandingPage() {
 
         <Grid
           id="landing-rolesGridWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           paddingTop={1}
           paddingBottom={0}
           display="flex"
@@ -72,7 +72,7 @@ export default function LandingPage() {
 
         <Grid
           id="landing-rolesDividerWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           paddingY={0}
           display="flex"
           justifyContent="center"
@@ -85,7 +85,7 @@ export default function LandingPage() {
 
         <Grid
           id="landing-stackOverflowBadgeGridWrapper"
-          xs={6}
+          size={{ xs: 6 }}
           paddingTop={1}
           paddingBottom={0}
           display="flex"
@@ -96,7 +96,7 @@ export default function LandingPage() {
         </Grid>
         <Grid
           id="landing-stackOverflowBadgeGridWrapper"
-          xs={6}
+          size={{ xs: 6 }}
           paddingTop={1}
           paddingBottom={0}
           display="flex"
@@ -108,7 +108,7 @@ export default function LandingPage() {
 
         <Grid
           id="landing-videosGridWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -121,7 +121,7 @@ export default function LandingPage() {
 
         <Grid
           id="landing-footerGridWrapper"
-          xs={12}
+          size={{ xs: 12 }}
           display="flex"
           justifyContent="center"
           alignItems="center"

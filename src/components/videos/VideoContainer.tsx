@@ -2,7 +2,7 @@
 import "client-only";
 
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import { type GridSize } from "@mui/system";
 import type { VideoURLObj } from "@/components/videos/VideoURLs";
 import { alpha } from "@mui/material/styles";
@@ -18,7 +18,7 @@ export default function VideoContainer({
 }) {
   return (
     <Grid
-      xs={size}
+      size={size}
       key={"video-" + video.title}
       flexGrow={0}
       p={0}

@@ -3,7 +3,7 @@ import "client-only";
 
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 
 import Link from "next/link";
 

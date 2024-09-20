@@ -22,24 +22,24 @@ const items = [
     title: "Dashboard",
     description:
       "This item could provide a snapshot of the most important metrics or data points related to the product.",
-    imageLight: '/profile_9x16.jpg',
-    imageDark: '/profile_9x16.jpg',
+    imageLight: "/profile_9x16.jpg",
+    imageDark: "/profile_9x16.jpg",
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
     title: "Mobile integration",
     description:
       "This item could provide information about the mobile app version of the product.",
-    imageLight: '/profile_9x16.jpg',
-    imageDark: '/profile_9x16.jpg',
+    imageLight: "/profile_9x16.jpg",
+    imageDark: "/profile_9x16.jpg",
   },
   {
     icon: <DevicesRoundedIcon />,
     title: "Available on all platforms",
     description:
       "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
-    imageLight: '/profile_9x16.jpg',
-    imageDark: '/profile_9x16.jpg',
+    imageLight: "/profile_9x16.jpg",
+    imageDark: "/profile_9x16.jpg",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Features() {
   return (
     <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
       <Grid container spacing={6}>
-        <Grid item xs={12} md={6}>
+        <Grid item size={{ xs: 12, md: 6 }}>
           <div>
             <Typography component="h2" variant="h4" color="text.primary">
               Product features
@@ -232,8 +232,7 @@ export default function Features() {
         </Grid>
         <Grid
           item
-          xs={12}
-          md={6}
+          size={{ xs: 12, md: 6 }}
           sx={{ display: { xs: "none", sm: "flex" }, width: "100%" }}
         >
           <Card

@@ -4,7 +4,7 @@ import "client-only";
 import Link from "next/link";
 import Image from "next/image";
 
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -55,7 +55,7 @@ export default function Hero(props: {
       >
         <Grid
           id="leftHeroPicGridItem"
-          xs={2}
+          size={{xs: 2}}
           display="flex"
           justifyContent="center"
           alignItems="stretch"
@@ -107,7 +107,7 @@ export default function Hero(props: {
 
         <Grid
           id="rightHeroPicGridItem"
-          xs={0}
+          size={{xs: 0}}
           foreHundo={2}
           display="flex"
           justifyContent="center"
