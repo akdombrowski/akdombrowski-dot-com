@@ -28,23 +28,29 @@ const kaptchameShort = _.find(KAPTCHA_ME_VIDEOS, (vid) => {
 
 export default function TOC() {
   return (
-    <Box id="toc" display="flex" width="100%">
+    // <Box id="toc" display="flex" width="100%">
+    <Grid
+      id="toc-grid"
+      container
+      size={12}
+      justifyContent="center"
+      alignItems="stretch"
+      // rowSpacing={{ xs: 1, sm: 2, md: 3 }}
+    >
       <Grid
-        id="toc-grid"
+        id="toc-videosRow"
         container
+        size={12}
         justifyContent="space-between"
-        alignItems="center"
-        rowSpacing={{ xs: 1, sm: 2, md: 3 }}
+        alignItems="stretch"
       >
         <Grid
           id="toc-videosBtnGridWrapper"
-          size={{ xs: "auto" }}
+          size={2}
           display="flex"
           justifyContent="left"
           alignItems="stretch"
-          maxHeight="50vh"
         >
-          <Box width="10vw" />
           <Stack
             width="100%"
             height="100%"
@@ -74,17 +80,16 @@ export default function TOC() {
         </Grid>
 
         <Grid
-          size={{ xs: "auto" }}
+          id="toc-videoClipsWrapper"
+          size={9}
           container
-          justifyContent="center"
+          justifyContent="end"
           alignItems="stretch"
+          pl={6}
         >
-          <Grid size={{ xs: 2 }} />
-
           <Grid
             id="toc-videoGridWrapper-kaptchame"
-            size={{ xs: "auto" }}
-            flexGrow={5}
+            size="grow"
             display="flex"
             justifyContent="center"
           >
@@ -102,11 +107,9 @@ export default function TOC() {
             ></Box>
           </Grid>
 
-          <Grid size={{ xs: "auto" }} flexShrink={2} />
-
           <Grid
             id="toc-videoGridWrapper-highlight"
-            size={{ xs: 4, sm: 5 }}
+            size="grow"
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -115,52 +118,60 @@ export default function TOC() {
               <VideoContainer video={highlightVideo} size={{ xs: 12 }} />
             </Box>
           </Grid>
-
-          <Grid size={{ xs: "auto" }} flexShrink={2} />
         </Grid>
+      </Grid>
 
-        <Grid
-          id="toc-dividerWrapper"
-          size={{ xs: 12 }}
-          py={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="stretch"
-        >
-          <Divider
-            variant="fullWidth"
-            sx={{ borderColor: "#132FAA", borderWidth: "1px", width: "100%" }}
-          />
-        </Grid>
+      <Grid
+        id="toc-dividerWrapper"
+        size={12}
+        py={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="stretch"
+      >
+        <Divider
+          variant="fullWidth"
+          sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+        />
+      </Grid>
 
-        <Grid
-          id="toc-videoGridWrapper-katpchame"
-          size={{ xs: "auto" }}
-          flexGrow={1}
-          display="flex"
+      <Grid
+        id="toc-videoGridWrapper-katpchame"
+        size={{ xs: 12 }}
+        display="flex"
+        justifyContent="end"
+        alignItems="stretch"
+        minWidth={{ xs: 320, sm: 400 }}
+        maxHeight="50vh"
+      >
+        <VideoContainer
+          video={kaptchameShort}
+          size={{ xs: 6 }}
           justifyContent="end"
-          alignItems="stretch"
-          minWidth={{ xs: 320, sm: 400 }}
-          maxHeight="50vh"
-          pl={6}
-        >
-          <VideoContainer video={kaptchameShort} size={{ xs: 12 }} />
-        </Grid>
+        />
+      </Grid>
 
-        <Grid
-          id="toc-dividerWrapper"
-          size={{ xs: 12 }}
-          py={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="stretch"
-        >
-          <Divider
-            variant="fullWidth"
-            sx={{ borderColor: "#132FAA", borderWidth: "1px", width: "100%" }}
-          />
-        </Grid>
+      <Grid
+        id="toc-dividerWrapper"
+        size={12}
+        py={1}
+        display="flex"
+        justifyContent="center"
+        alignItems="stretch"
+      >
+        <Divider
+          variant="fullWidth"
+          sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+        />
+      </Grid>
 
+      <Grid
+        id="toc-blogsRow"
+        container
+        size={12}
+        justifyContent="between"
+        alignItems="stretch"
+      >
         <Grid
           id="toc-blogsBtnGridWrapper"
           size={{ xs: 2 }}
@@ -196,8 +207,8 @@ export default function TOC() {
         </Grid>
 
         <Grid
-          id="toc-videoGridWrapper"
-          size={{ xs: "auto" }}
+          id="toc-blogsComingSoon"
+          size={{ xs: 10 }}
           flexGrow={1}
           display="flex"
           justifyContent="end"
@@ -208,21 +219,21 @@ export default function TOC() {
             <Typography>blogs coming soon...</Typography>
           </Box>
         </Grid>
-
-        <Grid
-          id="toc-dividerWrapper"
-          size={{ xs: 12 }}
-          py={6}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Divider
-            variant="fullWidth"
-            sx={{ borderColor: "#132FAA", borderWidth: "1px", width: "100%" }}
-          />
-        </Grid>
       </Grid>
-    </Box>
+
+      <Grid
+        id="toc-blogsDividerWrapper"
+        size={{ xs: 12 }}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <Divider
+          variant="fullWidth"
+          sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
+        />
+      </Grid>
+    </Grid>
+    // </Box>
   );
 }

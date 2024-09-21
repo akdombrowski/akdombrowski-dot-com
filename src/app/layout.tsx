@@ -20,6 +20,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 import AppAppBar from "@/components/appbar/AppAppBar";
+import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 
 // vercel site performance and analytics
@@ -37,11 +38,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link
-          rel="icon"
-          href="/anthonyProfilesq/favicon.ico"
-          sizes="any"
-        />
+        <link rel="icon" href="/anthonyProfilesq/favicon.ico" sizes="any" />
       </head>
       <GoogleTagManager gtmId="GTM-MJZSL46" />
       <body>
@@ -49,11 +46,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <AppAppBar />
-            <Toolbar
-              variant="dense"
-              sx={{ minHeight: 55 }}
-            />
-            {children}
+            <Container maxWidth={false} sx={{ minHeight: "100vh" }}>
+              <Toolbar variant="dense" sx={{ minHeight: 55 }} />
+              {children}
+            </Container>
             <SpeedInsights />
             <Analytics />
           </ThemeProvider>

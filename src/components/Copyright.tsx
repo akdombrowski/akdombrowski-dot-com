@@ -12,7 +12,7 @@ export default function Copyright() {
         color="text.secondary"
         align="left"
         fontStyle="normal"
-        fontSize={{ xs: "1rem", sm: "1.15rem", md:"1.25rem", lg: "1.5rem"}}
+        fontSize=".75rem"
       >
         {"Copyright © "}
         Anthony Dombrowski

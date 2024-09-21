@@ -126,8 +126,7 @@ export default function AppAppBar() {
 
           <Grid
             id="appbar-drawerGrid"
-            size={{ xs: 9 }}
-            seisHundo={0}
+            size={{ xs: 9, seisHundo: 0 }}
             flexGrow={{ xs: 1, seisHundo: 0 }}
             pl={2}
             display={{ xs: "flex", seisHundo: "none" }}

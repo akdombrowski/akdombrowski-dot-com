@@ -11,10 +11,12 @@ export default function VideoContainer({
   video,
   size,
   idPrefix,
+  justifyContent,
 }: {
   video: VideoURLObj;
   size?: boolean | GridSize | undefined;
   idPrefix?: string;
+  justifyContent?: string;
 }) {
   return (
     <Grid
@@ -23,7 +25,7 @@ export default function VideoContainer({
       flexGrow={0}
       p={0}
       display="flex"
-      justifyContent="center"
+      justifyContent={justifyContent ?? "center"}
       alignItems="stretch"
       sx={{
         aspectRatio: 16 / 9,
