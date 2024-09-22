@@ -3994,6 +3994,7 @@ __metadata:
     "@mui/material": "npm:^6.1.1"
     "@mui/material-nextjs": "npm:^6.1.1"
     "@mui/system": "npm:^6.1.1"
+    "@mui/types": "npm:^7.2.17"
     "@next/mdx": "npm:^14.2.13"
     "@next/third-parties": "npm:^14.2.13"
     "@svgr/webpack": "npm:^8.1.0"

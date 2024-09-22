@@ -115,7 +115,7 @@ export default function TOC() {
             alignItems="center"
           >
             <Box width="100%" maxHeight="100%">
-              <VideoContainer video={highlightVideo} size={{ xs: 12 }} />
+              <VideoContainer video={highlightVideo} size={12} />
             </Box>
           </Grid>
         </Grid>
@@ -146,7 +146,7 @@ export default function TOC() {
       >
         <VideoContainer
           video={kaptchameShort}
-          size={{ xs: 6 }}
+          size={6}
           justifyContent="end"
         />
       </Grid>

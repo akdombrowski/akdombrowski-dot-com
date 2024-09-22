@@ -3,9 +3,10 @@ import "client-only";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
-import { type GridSize } from "@mui/system";
+import type { GridSize } from "@mui/system";
 import type { VideoURLObj } from "@/components/videos/VideoURLs";
 import { alpha } from "@mui/material/styles";
+import type { BreakpointOverrides } from "@mui/material/styles";
 
 export default function VideoContainer({
   video,
@@ -14,7 +15,7 @@ export default function VideoContainer({
   justifyContent,
 }: {
   video: VideoURLObj;
-  size?: boolean | GridSize | undefined;
+  size?: number;
   idPrefix?: string;
   justifyContent?: string;
 }) {

@@ -58,7 +58,7 @@ export const createVideoContainers = (videos: VideoURLObj[]) =>
       <VideoContainer
         key={i}
         video={video}
-        size={{ xs: 6 }}
+        size={6}
         idPrefix={String(i)}
       />
     );
