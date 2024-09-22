@@ -3,7 +3,7 @@
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 
 import { useState, type MouseEvent } from "react";
@@ -24,7 +24,7 @@ export default function EventTypes({
         alignItems="center"
       >
         <Grid
-          xs={12}
+          size={{xs: 12}}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -33,7 +33,7 @@ export default function EventTypes({
         </Grid>
         {events && (
           <Grid
-            xs={12}
+            size={{xs: 12}}
             display="flex"
             justifyContent="center"
             alignItems="center"

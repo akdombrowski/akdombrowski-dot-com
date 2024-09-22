@@ -4,7 +4,7 @@ import "client-only";
 import Link from "next/link";
 import Image from "next/image";
 
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -46,16 +46,16 @@ export default function Hero(props: {
         sx={{
           background: `radial-gradient(ellipse farthest-corner at center, ${alpha(
             "#000",
-            1,
+            1
           )} 0,${alpha("#000", 0.1)} 15%, ${alpha("#000", 0.01)} 90%, ${alpha(
             "#fff",
-            0.01,
+            0.01
           )} 100%)`,
         }}
       >
         <Grid
           id="leftHeroPicGridItem"
-          xs={2}
+          size={{ xs: 2 }}
           display="flex"
           justifyContent="center"
           alignItems="stretch"
@@ -107,8 +107,7 @@ export default function Hero(props: {
 
         <Grid
           id="rightHeroPicGridItem"
-          xs={0}
-          foreHundo={2}
+          size={{ xs: 0, foreHundo: 2 }}
           display="flex"
           justifyContent="center"
           alignItems="stretch"

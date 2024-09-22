@@ -15,13 +15,13 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 
 import { alpha, useTheme } from "@mui/material/styles";
 import { GitHubLinkedin } from "@/components/social";
 import PageSections from "@/components/appbar/PageSections";
 import AppBarLogo from "@/components/appbar/AppBarLogo";
-import compact from "lodash-es/compact";
+import compact from "lodash/compact";
 
 export default function AppAppBar() {
   const theme = useTheme();
@@ -105,7 +105,7 @@ export default function AppAppBar() {
 
           <Grid
             id="appbar-pageSectionsGrid"
-            xs="auto"
+            size={{ xs: "auto" }}
             flexGrow={{ xs: 0, seisHundo: 1 }}
             flexShrink={1}
             display={{ xs: "none", seisHundo: "flex" }}
@@ -126,8 +126,7 @@ export default function AppAppBar() {
 
           <Grid
             id="appbar-drawerGrid"
-            xs={9}
-            seisHundo={0}
+            size={{ xs: 9, seisHundo: 0 }}
             flexGrow={{ xs: 1, seisHundo: 0 }}
             pl={2}
             display={{ xs: "flex", seisHundo: "none" }}
@@ -168,7 +167,7 @@ export default function AppAppBar() {
 
           <Grid
             id="appbar-pageTitle"
-            xs="auto"
+            size={{ xs: "auto" }}
             display="flex"
             flexGrow={0}
             flexShrink={0}
@@ -200,7 +199,7 @@ export default function AppAppBar() {
 
           <Grid
             id="appbar-socialLinksGrid"
-            xs
+            size={{ xs: "auto" }}
             flexGrow={0}
             flexShrink={1}
             flexBasis="fit-content"

@@ -1,7 +1,7 @@
 "use client";
 import "client-only";
 
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -15,7 +15,12 @@ export default function SignUp() {
       justifyContent="center"
       alignItems="stretch"
     >
-      <Grid xs={12} display="flex" justifyContent="center" alignItems="center">
+      <Grid
+        size={{ xs: 12 }}
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Typography
           variant="subtitle1"
           textAlign="center"
@@ -25,7 +30,7 @@ export default function SignUp() {
         </Typography>
       </Grid>
       <Grid
-        xs={9}
+        size={{ xs: 9 }}
         padding={0}
         display="flex"
         justifyContent="center"
@@ -40,13 +45,13 @@ export default function SignUp() {
           aria-label="Enter your email address"
           placeholder="Your email address"
           inputProps={{
-            "autoComplete": "off",
+            autoComplete: "off",
             "aria-label": "Enter your email address",
           }}
         />
       </Grid>
       <Grid
-        xs={3}
+        size={{ xs: 3 }}
         padding={0}
         display="flex"
         justifyContent="center"
@@ -57,11 +62,7 @@ export default function SignUp() {
         </Button>
       </Grid>
       <Grid
-        xs={12}
-        sm={12}
-        md={12}
-        lg={7}
-        xl={6}
+        size={{ xs: 12, lg: 7, xl: 6 }}
         padding={0}
         paddingTop={1}
         display="flex"
@@ -73,7 +74,7 @@ export default function SignUp() {
         </Typography>
       </Grid>
       <Grid
-        xs={12}
+        size={{ xs: 12 }}
         padding={0}
         paddingTop=".2rem"
         display="flex"
@@ -85,9 +86,7 @@ export default function SignUp() {
         </Typography>
       </Grid>
       <Grid
-        xs={5}
-        lg={4}
-        xl={3}
+        size={{ xs: 5, lg: 4, xl: 3 }}
         paddingTop=".15rem"
         paddingBottom={1}
         display="flex"
@@ -99,8 +98,7 @@ export default function SignUp() {
         </Typography>
       </Grid>
       <Grid
-        xs={1}
-        xl={3}
+        size={{ xs: 1, xl: 3 }}
         paddingTop=".15rem"
         paddingBottom={1}
         display="flex"
@@ -112,8 +110,7 @@ export default function SignUp() {
         </Typography>
       </Grid>
       <Grid
-        xs={6}
-        xl={6}
+        size={{ xs: 6 }}
         paddingTop=".15rem"
         paddingBottom={1}
         display="flex"

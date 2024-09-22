@@ -1,5 +1,5 @@
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 import { StackedSocialLinks } from "@/components/social";
 import Copyright from "@/components/Copyright";
 
@@ -11,7 +11,7 @@ export default function Footer() {
     >
       <Grid container id="footer-GridContainer" display="flex" justifyContent="space-around" alignItems="stretch" height="3rem">
         <Grid
-          xs={8}
+          size={{xs: 8}}
           id="footer-GridCopyright"
           display="flex"
           justifyContent="left"
@@ -20,7 +20,7 @@ export default function Footer() {
           <Copyright />
         </Grid>
         <Grid
-          xs={4}
+          size={{xs: 4}}
           display="flex"
           justifyContent="right"
           id="footer-GridSocial"

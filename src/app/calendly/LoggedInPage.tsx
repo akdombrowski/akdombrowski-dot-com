@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Unstable_Grid2";
-import Box from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
+import Box from "@mui/material/Grid2";
 import LogoutBtn from "@/components/auth/LogoutBtn";
 import UserAvatar from "@/components/auth/UserAvatar";
 
@@ -35,7 +35,7 @@ export default async function LoggedInPage() {
           paddingX={0}
         >
           <Grid
-            xs="auto"
+            size={{ xs: "auto" }}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -43,7 +43,7 @@ export default async function LoggedInPage() {
             <UserAvatar src={session.calendlyAccount?.avatar_url} />
           </Grid>
           <Grid
-            xs={session ? "auto" : 12}
+            size={{ xs: session ? "auto" : 12 }}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -51,7 +51,7 @@ export default async function LoggedInPage() {
             <Typography>Hi, {session.calendlyAccount?.name}</Typography>
           </Grid>
           <Grid
-            xs="auto"
+            size={{ xs: "auto" }}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -61,7 +61,7 @@ export default async function LoggedInPage() {
 
           {session.calendlyAccount?.scheduling_url && (
             <Grid
-              xs={12}
+              size={{ xs: 12 }}
               container
               spacing={1}
               display="flex"
@@ -69,7 +69,7 @@ export default async function LoggedInPage() {
               alignItems="center"
             >
               <Grid
-                xs={12}
+                size={{ xs: 12 }}
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
@@ -86,7 +86,7 @@ export default async function LoggedInPage() {
                 </Typography>
               </Grid>
               <Grid
-                xs={12}
+                size={{ xs: 12 }}
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
@@ -114,7 +114,7 @@ export default async function LoggedInPage() {
           )}
           <Grid
             id="eventTypes"
-            xs={12}
+            size={{ xs: 12 }}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -132,7 +132,7 @@ export default async function LoggedInPage() {
           </Grid>
           <Grid
             id="session"
-            xs={12}
+            size={{ xs: 12 }}
             display="flex"
             justifyContent="center"
             alignItems="center"

@@ -2,7 +2,7 @@
 import "client-only";
 
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid2";
 
 export default function LoadingVideo() {
   return (
@@ -13,7 +13,7 @@ export default function LoadingVideo() {
       alignItems="stretch"
     >
       <Grid
-        xs={12}
+        size={{xs: 12}}
         container
         display="flex"
         justifyContent="center"
