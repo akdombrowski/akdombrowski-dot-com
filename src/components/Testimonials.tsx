@@ -115,7 +115,11 @@ export default function Testimonials() {
       </Box>
       <Grid container spacing={2}>
         {userTestimonials.map((testimonial, index) => (
-          <Grid item size={{xs: 12, sm: 6, md: 4}} key={index} sx={{ display: "flex" }}>
+          <Grid
+            size={{ xs: 12, sm: 6, md: 4 }}
+            key={index}
+            sx={{ display: "flex" }}
+          >
             <Card
               sx={{
                 display: "flex",

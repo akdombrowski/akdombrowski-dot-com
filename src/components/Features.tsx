@@ -55,7 +55,7 @@ export default function Features() {
   return (
     <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
       <Grid container spacing={6}>
-        <Grid item size={{ xs: 12, md: 6 }}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <div>
             <Typography component="h2" variant="h4" color="text.primary">
               Product features
@@ -72,7 +72,6 @@ export default function Features() {
           </div>
           <Grid
             container
-            item
             gap={1}
             sx={{ display: { xs: "auto", sm: "none" } }}
           >
@@ -231,7 +230,6 @@ export default function Features() {
           </Stack>
         </Grid>
         <Grid
-          item
           size={{ xs: 12, md: 6 }}
           sx={{ display: { xs: "none", sm: "flex" }, width: "100%" }}
         >
