@@ -23,13 +23,7 @@ export default function LandingPage() {
         height: "100%",
       }}
     >
-      <Grid
-        id="landing-grid"
-        container
-        rowSpacing={ { xs: 0 } }
-        height="100%"
-        disableEqualOverflow
-      >
+      <Grid id="landing-grid" container rowSpacing={{ xs: 0 }} height="100%">
         <Grid
           id="landing-heroGridWrapper"
           size={{ xs: 12 }}

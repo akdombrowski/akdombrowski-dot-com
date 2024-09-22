@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid2";
 
 import VideoContainer from "@/components/videos/VideoContainer";
 import { KAPTCHA_ME_VIDEOS } from "@/components/videos/VideoURLs";
-import _ from "lodash-es";
+import _ from "lodash";
 import Typography from "@mui/material/Typography";
 
 import Link from "next/link";

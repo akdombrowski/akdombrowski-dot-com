@@ -8,7 +8,7 @@ import {
   KAPTCHA_ME_VIDEOS,
   VIDEOS_TITLE_URL,
 } from "@/components/videos/VideoURLs";
-import _ from "lodash-es";
+import _ from "lodash";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";

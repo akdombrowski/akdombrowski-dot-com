@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid2";
 
 import { usePathname } from "next/navigation";
 
-import compact from "lodash-es/compact";
+import compact from "lodash/compact";
 
 // export const metadata: Metadata = {
 //   title: "Anthony Dombrowski's Portfolio",

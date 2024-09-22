@@ -13,7 +13,7 @@ import {
   VIDEOS_TITLE_URL,
   type VideoURLObj,
 } from "@/components/videos/VideoURLs";
-import _ from "lodash-es";
+import _ from "lodash";
 
 const DEBUG = false;
 
