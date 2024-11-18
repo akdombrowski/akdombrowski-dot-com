@@ -24,7 +24,8 @@
         "uriFormat": "%s",
         "webRoot": "${workspaceFolder}/.next/server",
         "killOnServerStop": true
-      }
+      },
+      "autoAttachChildProcesses": false
     },
     {
       "name": "Launch Chrome",
