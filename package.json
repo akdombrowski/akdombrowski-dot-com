@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "license": "MIT",
   "private": true,
-  "packageManager": "yarn@4.5.1",
+  "packageManager": "yarn@4.5.2",
   "scripts": {
     "build": "next build",
     "dev": "next dev -H 127.0.0.1",
@@ -52,7 +52,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
-    "eslint": "^9.15.0",
+    "eslint": "8.57",
     "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsdoc": "^50.5.0",

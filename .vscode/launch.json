@@ -10,7 +10,7 @@
       "runtimeArgs": [
         "dev"
       ],
-      "runtimeExecutable": "/home/akdombrowski/workspace/akdombrowski-dot-com/.yarn/releases/yarn-4.5.1.cjs",
+      "runtimeExecutable": "yarn",
       "skipFiles": [
         "<node_internals>/**"
       ],

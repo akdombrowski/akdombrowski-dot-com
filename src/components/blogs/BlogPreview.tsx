@@ -3,11 +3,11 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
 
 export interface IBlogPreviewProps {
-  blogLink: IBlogLink;
+ url: string;
 }
 
 export function BlogPreview(props: IBlogPreviewProps) {
-  const { blogLink } = props;
+  const { url } = props;
 
   return (
     <Grid
@@ -17,7 +17,7 @@ export function BlogPreview(props: IBlogPreviewProps) {
       justifyContent="center"
       alignItems="center"
     >
-      <Typography>{blogLink.title}</Typography>
+      <Typography>{url}</Typography>
     </Grid>
   );
 }
