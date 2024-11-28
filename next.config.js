@@ -43,6 +43,7 @@ module.exports = {
     urlImports: [
       "https://wakatime.com/badge/user/0ff1bf94-98b4-465f-8b63-a51fb5151092.svg",
       "https://img.shields.io/youtube/views/fX5U50VGxtg",
+      "https://wakatime.com/share/@adombrowski/b2ad4f88-9f2a-483d-859c-716bc86bc1a4.svg",
     ],
   },
 
@@ -62,11 +63,11 @@ module.exports = {
   // trailingSlash: true,
   poweredByHeader: false,
 
-  webpack: (config) => {
+  webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(".svg")
-    );
+      rule.test?.test?.('.svg'),
+    )
 
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
@@ -80,14 +81,14 @@ module.exports = {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
         resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-        use: ["@svgr/webpack"],
-      }
-    );
+        use: ['@svgr/webpack'],
+      },
+    )
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
-    fileLoaderRule.exclude = /\.svg$/i;
+    fileLoaderRule.exclude = /\.svg$/i
 
-    return config;
+    return config
   },
 };
 
