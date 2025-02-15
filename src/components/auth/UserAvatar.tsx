@@ -1,7 +1,3 @@
-import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
 import Avatar from "@mui/material/Avatar";
 
 export default function UserAvatar({

@@ -4,7 +4,8 @@ import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { signOut } from "next-auth/react";
 
-export default function LogoutBtn({ provider }: { provider: string }) {
+export default function LogoutBtn({ }: { provider?: string; }) {
+
   return (
     <Button
       variant="contained"
