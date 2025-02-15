@@ -11,7 +11,9 @@ export default function VideosErrorPage({
 }: {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+  }) {
+  console.error(error);
+
   return (
     <Container
       id="errorPage"
@@ -39,7 +41,7 @@ export default function VideosErrorPage({
           justifyContent="center"
           alignItems="center"
         >
-          <Typography variant="h4">What's that over there 👉?!?!?!</Typography>
+          <Typography variant="h4">What&apos;s that over there 👉?!?!?!</Typography>
         </Grid>
 
         <Grid
@@ -64,7 +66,7 @@ export default function VideosErrorPage({
           justifyContent="center"
           alignItems="center"
         >
-          <Typography variant="h4">Now, it's over there 👈 !!</Typography>
+          <Typography variant="h4">Now, it&apos;s over there 👈 !!</Typography>
         </Grid>
         <Grid
           size={{xs: 12}}

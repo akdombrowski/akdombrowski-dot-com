@@ -82,7 +82,8 @@ export const AuthConfig = NextAuth({
     },
   ],
   callbacks: {
-    async signIn({ account, profile }) {
+    // async signIn({ account, profile }) {
+    async signIn() {
       return true;
     },
     async jwt({ token, user, account, profile }) {

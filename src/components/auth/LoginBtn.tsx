@@ -2,8 +2,6 @@
 
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
 import { signIn } from "next-auth/react";
 
 export default function LoginBtn({ provider }: { provider: string }) {

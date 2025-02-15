@@ -13,7 +13,9 @@ export default function GlobalErrorPage({
 }: {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+  }) {
+  console.error(error)
+
   return (
     <html lang="en">
       <head>
@@ -38,7 +40,7 @@ export default function GlobalErrorPage({
             pt={2}
           >
             <Grid
-              size={{xs: 12}}
+              size={{ xs: 12 }}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -46,18 +48,16 @@ export default function GlobalErrorPage({
               <Typography variant="h4">Hey!</Typography>
             </Grid>
             <Grid
-              size={{xs: 12}}
+              size={{ xs: 12 }}
               display="flex"
               justifyContent="center"
               alignItems="center"
             >
-              <Typography variant="h4">
-                What's that over there 👉?!?!?!
-              </Typography>
+              <Typography variant="h4">What&apos;s that over there 👉?!?!?!</Typography>
             </Grid>
 
             <Grid
-              size={{xs: 12}}
+              size={{ xs: 12 }}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -65,7 +65,7 @@ export default function GlobalErrorPage({
               <Typography variant="h4">Oh, you just missed it!</Typography>
             </Grid>
             <Grid
-              size={{xs: 12}}
+              size={{ xs: 12 }}
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -73,15 +73,15 @@ export default function GlobalErrorPage({
               <Typography variant="h4">Wait!</Typography>
             </Grid>
             <Grid
-              size={{xs: 12}}
+              size={{ xs: 12 }}
               display="flex"
               justifyContent="center"
               alignItems="center"
             >
-              <Typography variant="h4">Now, it's over there 👈 !!</Typography>
+              <Typography variant="h4">Now, it&apos;s over there 👈 !!</Typography>
             </Grid>
             <Grid
-              size={{xs: 12}}
+              size={{ xs: 12 }}
               display="flex"
               justifyContent="center"
               alignItems="center"

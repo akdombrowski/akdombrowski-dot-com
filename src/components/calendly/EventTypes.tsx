@@ -1,14 +1,11 @@
 "use client";
 
 import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 
-import { useState, type MouseEvent } from "react";
 
-import type { Session } from "next-auth";
 import type { CalendlyEventType } from "@/actions/calendly/eventTypes";
 export default function EventTypes({
   events,

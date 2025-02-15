@@ -24,6 +24,7 @@ export const crawl = async (props: { url: string }) => {
       await element.dispose();
     }
   } catch (error) {
+    console.error(error);
   } finally {
     if (browser) {
       // Close browser.

@@ -1,6 +1,6 @@
 "use server";
 
-import type { Session } from "next-auth";
+import type { Profile, Session } from "next-auth";
 
 export interface CalendlyEventType {
   active: boolean;
@@ -8,7 +8,7 @@ export interface CalendlyEventType {
   booking_method: string;
   color: string;
   created_at: string;
-  custom_questions: any; //[Array],
+  custom_questions: Array<string>; //any; //[Array],
   deleted_at?: string;
   description_html?: string;
   description_plain?: string;
@@ -19,7 +19,7 @@ export interface CalendlyEventType {
   name: "15 Minute Meeting";
   pooling_type?: string;
   position: 0;
-  profile: any; //[Object],
+  profile: Profile; // !TODO: update! this is definitely not correct //any; //[Object],
   scheduling_url: string;
   secret: boolean;
   slug: string;
@@ -36,15 +36,12 @@ export async function getAllEventTypes(session: Session): Promise<{
   try {
     const userURI = session.calendlyAccount?.uri;
     if (userURI) {
-      const res = await fetch(
-        `https://api.calendly.com/event_types/?user=${userURI}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${session.access_token}`,
-          },
+      const res = await fetch(`https://api.calendly.com/event_types/?user=${userURI}`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${session.access_token}`,
         },
-      );
+      });
 
       if (res.ok) {
         const body = await res.json();
