@@ -9,49 +9,35 @@ import LoadingVideo from "@/components/videos/LoadingVideo";
 // import VideoContainer from "@/components/videos/VideoContainer";
 import Box from "@mui/material/Box";
 import { useTheme, alpha } from "@mui/material/styles";
-import {
-  VIDEOS_TITLE_URL,
-  type VideoURLObj,
-} from "@/components/videos/VideoURLs";
+import { VIDEOS_TITLE_URL, type VideoURLObj } from "@/components/videos/VideoURLs";
 import _ from "lodash";
 
 const DEBUG = false;
 
 // import ReactPlayer from "react-player/youtube";
 const numVideos = VIDEOS_TITLE_URL.length;
-const standardsVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "standards")
-);
-const postmanVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "postman")
-);
-const awarenessVideos = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "awareness")
-);
-const playlists = _.filter(VIDEOS_TITLE_URL, (video) =>
-  _.includes(video.tag, "playlist")
-);
+const standardsVideos = _.filter(VIDEOS_TITLE_URL, (video) => _.includes(video.tag, "standards"));
+const postmanVideos = _.filter(VIDEOS_TITLE_URL, (video) => _.includes(video.tag, "postman"));
+const awarenessVideos = _.filter(VIDEOS_TITLE_URL, (video) => _.includes(video.tag, "awareness"));
+const playlists = _.filter(VIDEOS_TITLE_URL, (video) => _.includes(video.tag, "playlist"));
 const otherVideos = _.difference(
   VIDEOS_TITLE_URL,
   standardsVideos,
   postmanVideos,
   awarenessVideos,
-  playlists
+  playlists,
 );
 const numVideosFromCat = _.union(
   standardsVideos,
   postmanVideos,
   awarenessVideos,
   playlists,
-  otherVideos
+  otherVideos,
 ).length;
 
-const VideoContainer = dynamic(
-  () => import("@/components/videos/VideoContainer"),
-  {
-    loading: () => <LoadingVideo />,
-  }
-);
+const VideoContainer = dynamic(() => import("@/components/videos/VideoContainer"), {
+  loading: () => <LoadingVideo />,
+});
 export const createVideoContainers = (videos: VideoURLObj[]) =>
   videos.map((video, i) => {
     return (
@@ -77,7 +63,7 @@ export default function Videos() {
       numVideosFromCat,
       "===",
       numVideosFromCat,
-      ")"
+      ")",
     );
   }
 
@@ -117,8 +103,6 @@ export default function Videos() {
                 borderWidth: 1,
                 borderStyle: "solid",
                 borderColor: alpha("#fff", 0.01),
-                // borderColor: alpha(theme.palette.background.default, 0.5),
-                // backgroundColor: "#fff"
               }}
             >
               Identity Standards Education

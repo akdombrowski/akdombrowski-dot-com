@@ -40,6 +40,9 @@
       ],
       "@/actions/*": [
         "src/actions/*"
+      ],
+      "@/pages/*": [
+        "src/app/(content)/*"
       ]
     }
   },
