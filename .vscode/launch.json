@@ -6,6 +6,7 @@
   "configurations": [
     {
       "name": "yarn dev",
+      "type": "node",
       "request": "launch",
       "runtimeArgs": [
         "dev",
@@ -16,7 +17,6 @@
         ".yarn/**",
         ".vercel/**"
       ],
-      "type": "node",
       "console": "integratedTerminal",
       "serverReadyAction": {
         "action": "debugWithChrome",
@@ -25,7 +25,7 @@
         "webRoot": "${workspaceFolder}/.next/server",
         "killOnServerStop": true
       },
-      "autoAttachChildProcesses": false
+      "autoAttachChildProcesses": true
     },
     {
       "name": "Launch Chrome",
@@ -34,17 +34,5 @@
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/.next/server",
     },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}/src/components/home/TOC.tsx",
-      "outFiles": [
-        "${workspaceFolder}/**/*.js"
-      ]
-    }
   ]
 }
