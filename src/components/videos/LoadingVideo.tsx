@@ -2,7 +2,7 @@
 import "client-only";
 
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 
 export default function LoadingVideo() {
   return (

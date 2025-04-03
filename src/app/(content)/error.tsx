@@ -2,7 +2,7 @@
 
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 export default function ContentErrorPage({

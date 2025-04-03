@@ -4,7 +4,7 @@ import "client-only";
 import Link from "next/link";
 import Image from "next/image";
 
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";

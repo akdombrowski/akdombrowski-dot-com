@@ -1,6 +1,6 @@
 import LoadingVideo from "@/components/videos/LoadingVideo";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Button from "@mui/material/Button";
