@@ -3,6 +3,35 @@ export interface VideoURLObj {
   url: string;
   tag: string[];
 }
+export const ID_CRISIS_SERIES: VideoURLObj[] = [
+  {
+    title: "Teaser Trailer",
+    url: "https://frontegg-4.wistia.com/embed/iframe/87o34n5z20?autoPlay=false&muted=false",
+    tag: ["id-crisis", "teaser", "trailer", "cinematic", "frontegg", "egg", "mascot"],
+  },
+  {
+    title: "Episode 1",
+    url: "https://frontegg.com/identity-crisis-series#gallery-2",
+    tag: [
+      "id-crisis",
+      "episode",
+      "1",
+      "ep1",
+      "ep.1",
+      "humor",
+      "funny",
+      "goofy",
+      "ridiculous",
+      "marketing",
+      "growth",
+      "devrel",
+      "frontegg",
+      "egg",
+      "mascot",
+    ],
+  },
+];
+
 export const KAPTCHA_ME_VIDEOS: VideoURLObj[] = [
   {
     title: "kaptcha-me racing theme short",

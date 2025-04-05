@@ -1,22 +1,24 @@
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 
 import VideoContainer from "@/components/videos/VideoContainer";
-import { KAPTCHA_ME_VIDEOS } from "@/components/videos/VideoURLs";
+import { ID_CRISIS_SERIES } from "@/components/videos/VideoURLs";
 import _ from "lodash";
 import Typography from "@mui/material/Typography";
 
-import Link from "next/link";
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const FORM_PAGE_URL = {
-  main: { url: "https://frontegg.com/identity-crisis" },
+  main: { url: "https://frontegg.com/identity-crisis-series" },
 };
-export { FORM_PAGE_URL };
-const idCrisisDemo = _.find(KAPTCHA_ME_VIDEOS, (vid) => {
-  return vid.title.startsWith("kaptcha-me demo");
+
+const idCrisis = _.find(ID_CRISIS_SERIES, (vid) => {
+  console.log(vid);
+  return vid.title.startsWith("Teaser Trailer");
 })!;
+
+console.log("\n\nidCrisis");
+console.log(idCrisis);
 
 export default function IDCrisisPage() {
   return (
@@ -71,55 +73,24 @@ export default function IDCrisisPage() {
         </Grid>
 
         <Grid
-          size={{ xs: "auto" }}
+          id="idCrisis-videoGridContainer"
+          size={{ xs: 12 }}
           container
-          justifyContent="center"
+          justifyContent="flex-end"
           alignItems="stretch"
         >
-          <Grid size={{ xs: 2 }} />
-
           <Grid
-            id="idCrisis-videoGridWrapper-gif"
-            size={{ xs: "auto" }}
-            flexGrow={5}
-            display="flex"
-            justifyContent="center"
-          >
-            <Box
-              component={Link}
-              href=""
-              height="100%"
-              maxWidth="100%"
-              sx={{
-                aspectRatio: 720 / 480,
-                backgroundImage: "url(/idCrisisGoKart.gif)",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></Box>
-          </Grid>
-
-          <Grid
-            size={{ xs: "auto" }}
-            flexShrink={2}
-          />
-
-          <Grid
-            id="idCrisis-videoGridWrapper-demo"
-            size={{ xs: 4, sm: 5 }}
+            id="idCrisis-videoGridWrapper"
+            size={{ xs: 12, lg: 10, xl: 8 }}
             display="flex"
             justifyContent="center"
             alignItems="center"
           >
-            <Box
-              width="100%"
-              maxHeight="100%"
-            >
-              <VideoContainer
-                video={idCrisisDemo}
-                size={12}
-              />
-            </Box>
+            <VideoContainer
+              video={idCrisis}
+              size={12}
+              idPrefix={`idCrisis-${idCrisis.title.replaceAll(" ", "_")}`}
+            />
           </Grid>
 
           <Grid
