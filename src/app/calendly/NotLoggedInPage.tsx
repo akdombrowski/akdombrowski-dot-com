@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import LoginBtn from "@/components/auth/LoginBtn";
@@ -17,7 +17,7 @@ export default async function NotLoggedInPage() {
         pt={3}
       >
         <Grid
-          size={{xs: 12}}
+          size={{ xs: 12 }}
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -41,7 +41,7 @@ export default async function NotLoggedInPage() {
           </Typography>
         </Grid>
         <Grid
-          size={{xs: 12}}
+          size={{ xs: 12 }}
           display="flex"
           justifyContent="center"
           alignItems="center"
