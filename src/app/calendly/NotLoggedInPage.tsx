@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import LoginBtn from "@/components/auth/LoginBtn";
 
 export default async function NotLoggedInPage() {

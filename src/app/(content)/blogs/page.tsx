@@ -1,14 +1,15 @@
 import Blog from "@/components/blogs/Blog";
 import blogLinks from "@/components/blogs/bloglinks";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 
 export default function Blogs() {
   const blogAndUrls = blogLinks();
-  const blogs = blogAndUrls.map((blogLink) => {
+  const blogs = blogAndUrls.map((blogLink, i) => {
     return (
       <Grid
-        id="videosLayout-videosComponentGrid"
+        id={`blog-grid-${i}`}
+        key={`blog-grid-${i}`}
         size={{ xs: 4 }}
         display="flex"
         justifyContent="start"

@@ -1,6 +1,6 @@
 import type { IBlogLink } from "@/components/blogs/bloglinks";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 
 export interface IBlogPreviewProps {
  url: string;

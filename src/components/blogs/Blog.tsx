@@ -1,6 +1,6 @@
 import type { IBlogLink } from "@/components/blogs/bloglinks";
 import { BlogPreview } from "@/components/blogs/BlogPreview";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";

@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 
 import { usePathname } from "next/navigation";
 

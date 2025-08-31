@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 
 import { alpha, useTheme } from "@mui/material/styles";
 import { GitHubLinkedin } from "@/components/social";
