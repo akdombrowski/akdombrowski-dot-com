@@ -1,13 +1,8 @@
 "use client";
 import "client-only";
 
-import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
-
+import { createTheme, responsiveFontSizes, alpha, type TypographyVariants } from "@mui/material/styles";
 import type { CSSProperties } from "react";
-import type {
-  TypographyStyleOptions,
-  Typography,
-} from "@mui/material/styles/createTypography";
 
 declare module "@mui/system" {
   interface BreakpointOverrides {
@@ -58,21 +53,21 @@ declare module "@mui/material/styles" {
   }
 
   interface TypographyVariants {
-    appBarTitle: CSSProperties & TypographyStyleOptions;
-    appBarText: CSSProperties & TypographyStyleOptions;
-    poster: CSSProperties & TypographyStyleOptions;
-    title: CSSProperties & TypographyStyleOptions;
-    role: CSSProperties & TypographyStyleOptions;
-    subRole: CSSProperties & TypographyStyleOptions;
+    appBarTitle: CSSProperties;
+    appBarText: CSSProperties;
+    poster: CSSProperties;
+    title: CSSProperties;
+    role: CSSProperties;
+    subRole: CSSProperties;
   }
 
   interface TypographyVariantsOptions {
-    appBarTitle?: CSSProperties & TypographyStyleOptions;
-    appBarText?: CSSProperties & TypographyStyleOptions;
-    poster?: CSSProperties & TypographyStyleOptions;
-    title?: CSSProperties & TypographyStyleOptions;
-    role?: CSSProperties & TypographyStyleOptions;
-    subRole?: CSSProperties & TypographyStyleOptions;
+    appBarTitle?: CSSProperties;
+    appBarText?: CSSProperties;
+    poster?: CSSProperties;
+    title?: CSSProperties;
+    role?: CSSProperties;
+    subRole?: CSSProperties;
   }
 
   interface Theme {
@@ -433,7 +428,7 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
  * Typography variant names to make responsive font sizes for
  *
  */
-const typographyVariants: (keyof Typography)[] = [
+const typographyVariants: (keyof TypographyVariants)[] = [
   "h1",
   "h2",
   "h3",
