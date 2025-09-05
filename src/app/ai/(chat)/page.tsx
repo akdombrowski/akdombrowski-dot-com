@@ -2,6 +2,7 @@ import { GridRowsProp, GridColDef } from "@mui/x-data-grid";
 import { DataGrid } from "@mui/x-data-grid/DataGrid";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
+
 export default function ChatPage() {
   const rows: GridRowsProp = [
     { id: 1, name: "Data Grid", description: "the Community version" },
@@ -10,8 +11,8 @@ export default function ChatPage() {
     { id: 4, name: "Grid Premium", description: "the Premium version" },
   ];
   const columns: GridColDef[] = [
-    { field: "name", headerName: "Product Name", width: 200 },
-    { field: "description", headerName: "Description", width: 300 },
+    { field: "name", headerName: "Product Name", width: 200, headerAlign: "center" },
+    { field: "description", headerName: "Description", width: 300, headerAlign: "center" },
   ];
   return (
     <Grid container>
@@ -23,6 +24,8 @@ export default function ChatPage() {
           <DataGrid
             rows={rows}
             columns={columns}
+            autosizeOnMount
+            sx={{ p: 1 }}
           />
         </Container>
       </Grid>
