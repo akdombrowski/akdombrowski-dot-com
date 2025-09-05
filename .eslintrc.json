@@ -2,5 +2,17 @@
   "extends": [
     "next/core-web-vitals",
     "next/typescript"
-  ]
+  ],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "regex": "^@mui/[^/]+$"
+          }
+        ]
+      }
+    ]
+  }
 }
