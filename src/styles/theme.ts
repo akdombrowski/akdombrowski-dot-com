@@ -174,6 +174,14 @@ const modifyDefaultsTheme = createTheme({
     info: {
       main: hexToRgb("#f6ffe4"),
     },
+    DataGrid: {
+      // Container background
+      bg: hexToRgb("#fff"),
+      // Pinned rows and columns background
+      pinnedBg: hexToRgb("#f1f5f9"),
+      // Column header background
+      headerBg: hexToRgb("#eaeff5a0"),
+    },
     tonalOffset: 0.6,
   },
   typography: {
@@ -341,6 +349,20 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
       },
       name: "paperBgD",
     }),
+    // DataGrid: {
+    //   // Container background
+    //   bg: modifyDefaultsTheme.palette.augmentColor({
+    //     color: { main: alpha("#f8fafc", 0.8) },
+    //   }),
+    //   // Pinned rows and columns background
+    //   pinnedBg: modifyDefaultsTheme.palette.augmentColor({
+    //     color: { main: alpha("#f8fafc", 0.8) },
+    //   }),
+    //   // Column header background
+    //   headerBg: modifyDefaultsTheme.palette.augmentColor({
+    //     color: { main: alpha("#f8fafc", 0.1) },
+    //   }),
+    // },
     tonalOffset: 0.6,
   },
 });
