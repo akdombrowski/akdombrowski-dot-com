@@ -5,10 +5,12 @@ import {
   createTheme,
   responsiveFontSizes,
   alpha,
+  hexToRgb,
   type TypographyVariants,
 } from "@mui/material/styles";
 import type { CSSProperties } from "react";
 import type {} from "@mui/x-data-grid/themeAugmentation";
+
 declare module "@mui/system" {
   interface BreakpointOverrides {
     // Your custom breakpoints
@@ -151,26 +153,26 @@ const modifyDefaultsTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#11115F",
+      main: hexToRgb("#77F9FF"),
     },
     secondary: {
-      main: alpha("#77F9FF", 0.9),
+      main: hexToRgb("#11115F"),
     },
     background: {
-      default: "#00001A",
+      default: hexToRgb("#00001A"),
     },
     text: {
-      primary: "#93BDBA",
+      primary: hexToRgb("#c0fffb"),
     },
     error: {
-      main: "#D64550",
+      main: hexToRgb("#D64550"),
     },
     divider: alpha("#00001A", 0.99),
     success: {
-      main: "#63A375",
+      main: hexToRgb("#63A375"),
     },
     info: {
-      main: "#BBD686",
+      main: hexToRgb("#f6ffe4"),
     },
     tonalOffset: 0.6,
   },
@@ -298,19 +300,19 @@ export const customColorsTheme = createTheme(modifyDefaultsTheme, {
   palette: {
     titleColor: modifyDefaultsTheme.palette.augmentColor({
       color: {
-        main: "#52FFB8",
+        main: hexToRgb("#52FFB8"),
       },
       name: "titleColor",
     }),
     violentRed: modifyDefaultsTheme.palette.augmentColor({
       color: {
-        main: "#F9DC5C",
+        main: hexToRgb("#F9DC5C"),
       },
       name: "violentRed",
     }),
     divider2: modifyDefaultsTheme.palette.augmentColor({
       color: {
-        main: "#00001A",
+        main: hexToRgb("#00001A"),
       },
       name: "divider2",
     }),
@@ -427,10 +429,10 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
 /**
  *
  * Customize MUI Components
-*
-*
-*
-*/
+ *
+ *
+ *
+ */
 
 /**
  *

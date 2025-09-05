@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <CssBaseline />
+          <CssBaseline />
             <AppAppBar />
             <Container
               id="mainLayoutContainer"
