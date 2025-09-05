@@ -30,7 +30,7 @@ export default function LandingPage() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          pt={{ xs: 0.5, seisHundo: 1.5, md: 2 }}
+          pt={{ xs: 0.5, foreHundo: 1, seisHundo: 1.5, md: 2 }}
         >
           <Hero variant="title" />
         </Grid>

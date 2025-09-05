@@ -38,7 +38,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/anthonyProfilesq/favicon.ico" sizes="any" />
+        <link
+          rel="icon"
+          href="/anthonyProfilesq/favicon.ico"
+          sizes="any"
+        />
       </head>
       <GoogleTagManager gtmId="GTM-MJZSL46" />
       <body>
@@ -46,8 +50,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <AppAppBar />
-            <Container maxWidth={false} sx={{ minHeight: "100vh" }}>
-              <Toolbar variant="dense" sx={{ minHeight: 55 }} />
+            <Container
+              id="mainLayoutContainer"
+              maxWidth={false}
+              disableGutters
+              sx={{ minHeight: "100vh" }}
+            >
+              <Toolbar
+                variant="dense"
+                sx={{ minHeight: 55 }}
+              />
               {children}
             </Container>
             <SpeedInsights />

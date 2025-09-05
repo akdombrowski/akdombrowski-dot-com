@@ -1,9 +1,14 @@
 "use client";
 import "client-only";
 
-import { createTheme, responsiveFontSizes, alpha, type TypographyVariants } from "@mui/material/styles";
+import {
+  createTheme,
+  responsiveFontSizes,
+  alpha,
+  type TypographyVariants,
+} from "@mui/material/styles";
 import type { CSSProperties } from "react";
-
+import type {} from "@mui/x-data-grid/themeAugmentation";
 declare module "@mui/system" {
   interface BreakpointOverrides {
     // Your custom breakpoints
@@ -402,14 +407,18 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: alpha(
-            customTypographyTheme.palette.background.default,
-            0.5,
-          ),
+          backgroundColor: alpha(customTypographyTheme.palette.background.default, 0.5),
           backgroundImage: `linear-gradient(to right bottom, ${alpha(
             customTypographyTheme.palette.paperBgA.dark,
             0.1,
           )}, ${alpha(customTypographyTheme.palette.paperBgA.dark, 0.1)} 50%)`,
+        },
+      },
+    },
+    MuiDataGrid: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "red",
         },
       },
     },
@@ -418,10 +427,10 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
 /**
  *
  * Customize MUI Components
- *
- *
- *
- */
+*
+*
+*
+*/
 
 /**
  *
@@ -483,6 +492,10 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
  *
  */
 
-const theme = responsiveFont;
+export const themeWithCSSVars = createTheme(responsiveFont, {
+  cssVariables: true,
+});
+
+const theme = themeWithCSSVars;
 
 export default theme;

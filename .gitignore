@@ -1,6 +1,6 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,nextjs,node,react,yarn
-# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,nextjs,node,react,yarn
+# Created by https://www.toptal.com/developers/gitignore/api/yarn,visualstudiocode,react,node,nextjs,linux
+# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,visualstudiocode,react,node,nextjs,linux
 
 ### Linux ###
 *~
@@ -172,12 +172,6 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# yarn v2
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
 
 ### Node Patch ###
 # Serverless Webpack directories
@@ -224,9 +218,9 @@ sketch
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 
 .yarn/*
-!.yarn/releases
 !.yarn/patches
 !.yarn/plugins
+!.yarn/releases
 !.yarn/sdks
 !.yarn/versions
 
@@ -237,7 +231,7 @@ sketch
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,nextjs,node,react,yarn
+# End of https://www.toptal.com/developers/gitignore/api/yarn,visualstudiocode,react,node,nextjs,linux
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 

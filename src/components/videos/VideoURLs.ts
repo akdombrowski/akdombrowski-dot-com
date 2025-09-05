@@ -3,6 +3,15 @@ export interface VideoURLObj {
   url: string;
   tag: string[];
 }
+
+export const ID_CRISIS_VIDS: VideoURLObj[] = [
+  {
+    title: "ID Crisis",
+    url: "https://frontegg-4.wistia.com/embed/iframe/87o34n5z20?autoPlay=false&muted=false",
+    tag: ["id", "crisis", "mascot", "short", "awareness"],
+  },
+];
+
 export const KAPTCHA_ME_VIDEOS: VideoURLObj[] = [
   {
     title: "kaptcha-me racing theme short",
@@ -37,8 +46,7 @@ export const VIDEOS_TITLE_URL: VideoURLObj[] = [
     tag: ["education", "iam", "oauth", "pkce", "standards"],
   },
   {
-    title:
-      "What are the OAuth 2.0 Grant Type Flows? First up, Authorization Code",
+    title: "What are the OAuth 2.0 Grant Type Flows? First up, Authorization Code",
     url: "https://www.youtube.com/embed/eg7I8x-u0sc?si=H1C7_IVkVNGMA9xi",
     tag: ["authzcode", "education", "iam", "oauth", "standards"],
   },
@@ -53,8 +61,7 @@ export const VIDEOS_TITLE_URL: VideoURLObj[] = [
     tag: ["authn", "education", "iam", "oidc", "standards"],
   },
   {
-    title:
-      "Authorize your apps using OAuth 2.0 with Ping: Postman live stream on Twitch",
+    title: "Authorize your apps using OAuth 2.0 with Ping: Postman live stream on Twitch",
     url: "https://www.youtube.com/embed/sfUjJx6yRAI?si=v0q88zH_cVlkSrHq",
     tag: [
       "collab",
@@ -85,8 +92,7 @@ export const VIDEOS_TITLE_URL: VideoURLObj[] = [
     tag: ["awareness", "education", "how to"],
   },
   {
-    title:
-      "Use Postman Environments to Speed Up and Make API Development Easier",
+    title: "Use Postman Environments to Speed Up and Make API Development Easier",
     url: "https://www.youtube.com/embed/IdtBkGQg2Q8",
     tag: ["education", "how to", "postman"],
   },
@@ -111,8 +117,7 @@ export const VIDEOS_TITLE_URL: VideoURLObj[] = [
     tag: ["awareness"],
   },
   {
-    title:
-      "Don't Make Things Harder By Wearing Too Many Hats, PingOne for Customers Can Handle It",
+    title: "Don't Make Things Harder By Wearing Too Many Hats, PingOne for Customers Can Handle It",
     url: "https://www.youtube.com/embed/PJMjHLzD_Kg",
     tag: ["awareness"],
   },
@@ -122,8 +127,7 @@ export const VIDEOS_TITLE_URL: VideoURLObj[] = [
     tag: ["education", "how to"],
   },
   {
-    title:
-      "Dynamic Authentication Policy with MFA Triggered on a Specified Attribute Value",
+    title: "Dynamic Authentication Policy with MFA Triggered on a Specified Attribute Value",
     url: "https://www.youtube.com/embed/9QOpDGLLxIQ?si=zgAnVIm7UBrfulUf",
     tag: ["education", ""],
   },

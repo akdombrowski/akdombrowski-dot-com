@@ -54,7 +54,7 @@ export default function VideoContainer({
             src={video.url}
             title="YouTube video player"
             loading="eager"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share;fullscreen;"
+            allow="picture-in-picture; web-share; fullscreen;"
             allowFullScreen
             style={{ borderWidth: "1.5vmin", borderColor: alpha("#FFF", 0.1) }}
           />
