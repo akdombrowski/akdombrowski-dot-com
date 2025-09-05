@@ -13,16 +13,7 @@ import WakaTimeBadge from "../WakaTimeBadge";
 
 export default function LandingPage() {
   return (
-    <Container
-      id="landing-container"
-      maxWidth={false}
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "stretch",
-        height: "100%",
-      }}
-    >
+    
       <Grid id="landing-grid" container rowSpacing={{ xs: 0 }} height="100%">
         <Grid
           id="landing-heroGridWrapper"
@@ -30,7 +21,7 @@ export default function LandingPage() {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          pt={{ xs: 0.5, foreHundo: 1, seisHundo: 1.5, md: 2 }}
+          pt={{ seisHundo: 1.5, md: 2 }}
         >
           <Hero variant="title" />
         </Grid>
@@ -167,6 +158,5 @@ export default function LandingPage() {
           <Footer />
         </Grid>
       </Grid>
-    </Container>
   );
 }
