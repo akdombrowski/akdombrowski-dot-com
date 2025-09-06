@@ -19,13 +19,13 @@ export default function ChatPage() {
       <Grid size={12}>
         <Container
           maxWidth={false}
-          sx={{ maxHeight: "100vh", flexDirection: "column" }}
+          sx={{ maxHeight: "100vh", flexDirection: "column", py: 1 }}
         >
           <DataGrid
             rows={rows}
             columns={columns}
             autosizeOnMount
-            sx={{ p: 1 }}
+            sx={{ justifyContent: "center" }}
           />
         </Container>
       </Grid>

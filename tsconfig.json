@@ -38,6 +38,9 @@
       "@/social/*": [
         "src/components/social/*"
       ],
+      "@/vids/*": [
+        "src/components/videos/*"
+      ],
       "@/actions/*": [
         "src/actions/*"
       ],

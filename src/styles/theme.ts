@@ -429,21 +429,21 @@ export const customComponentsTheme = createTheme(customTypographyTheme, {
     MuiDataGrid: {
       styleOverrides: {
         root: {
-          backgroundColor: hexToRgb("#000000"),
+          backgroundColor: hexToRgb("#000000ff"),
         },
         columnHeaders: {
-          backgroundColor: hexToRgb("#000000"),
+          backgroundColor: hexToRgb("#00000000"),
           color: hexToRgb("#ffffff"),
           fontSize: "1.15rem",
         },
         cell: {
           fontSize: "1rem",
         },
-        row: { backgroundColor: hexToRgb("#0000f0e0") },
+        row: { backgroundColor: hexToRgb("#0000a0f0") },
         footerContainer: { backgroundColor: hexToRgb("#0ee0000a") },
-        virtualScroller: { backgroundColor: hexToRgb("#fafafa0a") },
-        pinnedColumnHeaders: { backgroundColor: hexToRgb("#00e0005a") },
-        pinnedRows: { backgroundColor: hexToRgb("#fff000aa") },
+        virtualScroller: { backgroundColor: hexToRgb("#000000fa") },
+        pinnedColumnHeaders: { backgroundColor: hexToRgb("#00e0000a") },
+        pinnedRows: { backgroundColor: hexToRgb("#fff0000a") },
       },
     },
   },

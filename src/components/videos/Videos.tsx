@@ -9,7 +9,7 @@ import LoadingVideo from "@/components/videos/LoadingVideo";
 // import VideoContainer from "@/components/videos/VideoContainer";
 import Box from "@mui/material/Box";
 import { useTheme, alpha } from "@mui/material/styles";
-import { VIDEOS_TITLE_URL, type VideoURLObj } from "@/components/videos/VideoURLs";
+import { VIDEOS_TITLE_URL, type VideoURL } from "@/components/videos/VideoURLs";
 import _ from "lodash";
 
 const DEBUG = false;
@@ -38,7 +38,7 @@ const numVideosFromCat = _.union(
 const VideoContainer = dynamic(() => import("@/components/videos/VideoContainer"), {
   loading: () => <LoadingVideo />,
 });
-export const createVideoContainers = (videos: VideoURLObj[]) =>
+export const createVideoContainers = (videos: VideoURL[]) =>
   videos.map((video, i) => {
     return (
       <VideoContainer

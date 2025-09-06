@@ -1,10 +1,10 @@
-export interface VideoURLObj {
+export interface VideoURL {
   title: string;
   url: string;
   tag: string[];
 }
 
-export const ID_CRISIS_VIDS: VideoURLObj[] = [
+export const ID_CRISIS_VIDS: VideoURL[] = [
   {
     title: "ID Crisis",
     url: "https://frontegg-4.wistia.com/embed/iframe/87o34n5z20?autoPlay=false&muted=false",
@@ -12,7 +12,7 @@ export const ID_CRISIS_VIDS: VideoURLObj[] = [
   },
 ];
 
-export const KAPTCHA_ME_VIDEOS: VideoURLObj[] = [
+export const KAPTCHA_ME_VIDEOS: VideoURL[] = [
   {
     title: "kaptcha-me racing theme short",
     url: "https://www.youtube.com/embed/CRkAhWdfiDw",
@@ -34,7 +34,7 @@ export const KAPTCHA_ME_VIDEOS: VideoURLObj[] = [
   },
 ];
 
-export const VIDEOS_TITLE_URL: VideoURLObj[] = [
+export const VIDEOS_TITLE_URL: VideoURL[] = [
   {
     title: "OAuth 2.0: Implicit, Authorization Code, and PKCE",
     url: "https://www.youtube.com/embed/fX5U50VGxtg?si=d2oguHaC6vzlqIFY",

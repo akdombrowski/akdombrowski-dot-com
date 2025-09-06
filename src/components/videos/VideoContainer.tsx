@@ -3,7 +3,7 @@ import "client-only";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import type { VideoURLObj } from "@/components/videos/VideoURLs";
+import type { VideoURL } from "@/components/videos/VideoURLs";
 import { alpha } from "@mui/material/styles";
 
 export default function VideoContainer({
@@ -12,7 +12,7 @@ export default function VideoContainer({
   idPrefix,
   justifyContent,
 }: {
-  video: VideoURLObj;
+  video: VideoURL;
   size?: number;
   idPrefix?: string;
   justifyContent?: string;
