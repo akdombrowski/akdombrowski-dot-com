@@ -1,14 +1,16 @@
-// app/api/chat/route.ts  (Next.js route handler)
 import { NextResponse } from "next/server";
-import ollama from "ollama"; // npm i ollama
+import ollama from "ollama";
+
+export async function GET() {
+  const models = await ollama.list();
+  return NextResponse.json({ models });
+}
 
 export async function POST(req: Request) {
-  const { messages } = await req.json(); // [{role:'user', content:'...'}]
+  const { messages, model } = await req.json(); // [{role:'user', content:'...'}]
 
-  // forward to Ollama (assumes Ollama reachable at default host)
-  // you can use `ollama.chat()` or `ollama.generate()` per model
   const resp = await ollama.chat({
-    model: "llama3.2-vision", // or your chosen model
+    model: model || "gemma3", // or your chosen model
     messages,
   });
 

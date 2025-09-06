@@ -12,6 +12,14 @@
     "tsc": "tsc --pretty"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^2.0.24",
+    "@ai-sdk/openai-compatible": "^1.0.15",
+    "@ai-sdk/provider": "^2.0.0",
+    "@ai-sdk/provider-utils": "^3.0.8",
+    "@ai-sdk/react": "^2.0.34",
+    "@ai-sdk/ui-utils": "^1.2.11",
+    "@assistant-ui/react": "^0.10.50",
+    "@assistant-ui/react-ai-sdk": "^1.0.6",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -27,6 +35,7 @@
     "@next/third-parties": "^15.5.2",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "ai": "^5.0.34",
     "axios": "^1.11.0",
     "client-only": "^0.0.1",
     "dotenv": "^17.2.1",
@@ -40,7 +49,8 @@
     "react-error-boundary": "^6.0.0",
     "react-player": "^3.3.2",
     "server-only": "^0.0.1",
-    "sharp": "^0.34.3"
+    "sharp": "^0.34.3",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
