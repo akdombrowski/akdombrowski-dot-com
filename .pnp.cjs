@@ -69,6 +69,7 @@ const RAW_RUNTIME_STATE =
           ["lodash", "npm:4.17.21"],\
           ["next", "virtual:0cdeb887ddf3195c70d506587ecd27104f2d14005593caf7c3cdb625f74b3b39fb1b544f80c98d9a1a824f7aa77b30b2e2c44a1426429c652d0ba6c87d4e9a04#npm:15.5.2"],\
           ["next-auth", "virtual:0cdeb887ddf3195c70d506587ecd27104f2d14005593caf7c3cdb625f74b3b39fb1b544f80c98d9a1a824f7aa77b30b2e2c44a1426429c652d0ba6c87d4e9a04#npm:5.0.0-beta.25"],\
+          ["ollama", "npm:0.5.17"],\
           ["prettier", "npm:3.6.2"],\
           ["puppeteer", "npm:24.17.1"],\
           ["react", "npm:19.1.0"],\
@@ -6108,6 +6109,7 @@ const RAW_RUNTIME_STATE =
           ["lodash", "npm:4.17.21"],\
           ["next", "virtual:0cdeb887ddf3195c70d506587ecd27104f2d14005593caf7c3cdb625f74b3b39fb1b544f80c98d9a1a824f7aa77b30b2e2c44a1426429c652d0ba6c87d4e9a04#npm:15.5.2"],\
           ["next-auth", "virtual:0cdeb887ddf3195c70d506587ecd27104f2d14005593caf7c3cdb625f74b3b39fb1b544f80c98d9a1a824f7aa77b30b2e2c44a1426429c652d0ba6c87d4e9a04#npm:5.0.0-beta.25"],\
+          ["ollama", "npm:0.5.17"],\
           ["prettier", "npm:3.6.2"],\
           ["puppeteer", "npm:24.17.1"],\
           ["react", "npm:19.1.0"],\
@@ -11957,6 +11959,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["ollama", [\
+      ["npm:0.5.17", {\
+        "packageLocation": "../../.yarn/berry/cache/ollama-npm-0.5.17-f47f1b9925-10c0.zip/node_modules/ollama/",\
+        "packageDependencies": [\
+          ["ollama", "npm:0.5.17"],\
+          ["whatwg-fetch", "npm:3.6.20"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["once", [\
       ["npm:1.3.3", {\
         "packageLocation": "../../.yarn/berry/cache/once-npm-1.3.3-595f0882a4-10c0.zip/node_modules/once/",\
@@ -14840,6 +14852,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/webpack-sources-npm-3.3.3-62a2b4959b-10c0.zip/node_modules/webpack-sources/",\
         "packageDependencies": [\
           ["webpack-sources", "npm:3.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["whatwg-fetch", [\
+      ["npm:3.6.20", {\
+        "packageLocation": "../../.yarn/berry/cache/whatwg-fetch-npm-3.6.20-a6f79b98c4-10c0.zip/node_modules/whatwg-fetch/",\
+        "packageDependencies": [\
+          ["whatwg-fetch", "npm:3.6.20"]\
         ],\
         "linkType": "HARD"\
       }]\

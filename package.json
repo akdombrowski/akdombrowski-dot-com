@@ -33,6 +33,7 @@
     "lodash": "^4.17.21",
     "next": "15.5.2",
     "next-auth": "^5.0.0-beta.25",
+    "ollama": "^0.5.17",
     "puppeteer": "^24.17.1",
     "react": "^19",
     "react-dom": "^19",
