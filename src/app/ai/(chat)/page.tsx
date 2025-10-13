@@ -94,19 +94,6 @@ export default async function ChatPage() {
     { field: "details", type: "string", headerName: "Details", flex: 5, headerAlign: "center" },
   ];
 
-  const getAvailModels = async () => {
-    const res = await fetch("/api/chat");
-
-    if (!res.ok) {
-      console.error("error fetching available models from ollama");
-      return;
-    }
-
-    const resj = await res.json();
-
-    return resj.models;
-  };
-
   const { models } = await getModels();
 
   // const listModels = models.map((m, i) => {

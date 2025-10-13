@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "yarn: dev",
+      "detail": "yarn dev -H 127.0.0.1"
+    },
+    {
+      "label": "chrome-debug",
+      "type": "process",
+      "command": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
+      "args": [
+        "--remote-debugging-port=9222",
+        "--user-data-dir=remote-debug-profile",
+        "--profile-directory=Person 1",
+      ],
+      "detail": "uses chrome.exe to launch chrome debug window"
+    },
+  ]
+}

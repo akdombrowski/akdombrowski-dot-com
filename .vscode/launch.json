@@ -3,9 +3,43 @@
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "server+chrome",
+      "configurations": [
+        "launch chrome",
+        "server"
+      ],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "0",
+        "order": 1
+      },
+    }
+  ],
   "configurations": [
     {
-      "name": "yarn dev",
+      "name": "run yarn dev",
+      "command": "yarn dev",
+      "request": "launch",
+      "type": "node-terminal",
+      "serverReadyAction": {
+        "action": "debugWithChrome",
+        "pattern": "  - Local:\\s+http://[0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+",
+        "uriFormat": "%s",
+        "webRoot": "${workspaceFolder}/.next/server",
+        "killOnServerStop": true
+      },
+      "autoAttachChildProcesses": true,
+      "skipFiles": [
+        "<node_internals>/**",
+        ".yarn/**",
+        ".vercel/**"
+      ],
+    },
+    {
+      "name": "launch yarn dev",
       "type": "node",
       "request": "launch",
       "runtimeArgs": [
@@ -28,11 +62,41 @@
       "autoAttachChildProcesses": true
     },
     {
-      "name": "Launch Chrome",
+      "name": "server",
+      "type": "node-terminal",
       "request": "launch",
-      "type": "chrome",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/.next/server",
+      "command": "yarn dev",
+      "presentation": {
+        "hidden": false,
+        "group": "server",
+        "order": 2
+      },
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**",
+      ],
     },
-  ]
+    {
+      "name": "launch chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:3000",
+      "cascadeTerminateToConfigurations": ["server"],
+      "userDataDir": false,
+      "webRoot": "${workspaceFolder}/.next/server",
+      "runtimeArgs": [
+        "--profile-directory=Profile 8"
+      ],
+      
+      "presentation": {
+        "hidden": true,
+        "group": "browser",
+        "order": 3,
+      },
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "<node_internals>/**",
+      ],
+    },
+  ],
 }
