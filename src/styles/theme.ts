@@ -191,7 +191,7 @@ const modifyDefaultsTheme = createTheme({
       lineHeight: 1.0,
     },
     title: {
-      fontSize: "18rem",
+      fontSize: "10rem",
       fontWeight: 1000,
       lineHeight: 1,
     },
@@ -472,7 +472,7 @@ export const responsiveFont = responsiveFontSizes(customComponentsTheme, {
     "fhd",
     "uhd",
   ],
-  factor: 10,
+  factor: 100,
   variants: typographyVariants,
 });
 /**
