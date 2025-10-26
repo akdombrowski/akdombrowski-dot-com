@@ -10,18 +10,19 @@ import type { GridProps } from "@mui/material/Grid";
 import type { BoxProps } from "@mui/material/Box";
 
 interface ProfilePicProps extends GridProps {
-  gridProps: GridProps;
+  // gridProps: GridProps;
   boxProps: BoxProps;
   imageProps: ImageProps;
 }
 
 export default function ProfilePic(props: ProfilePicProps) {
-  const { gridProps, boxProps, imageProps } = props;
+  // const { gridProps, boxProps, imageProps } = props;
+  const {  boxProps, imageProps } = props;
   return (
-    <Grid {...gridProps}>
+    // <Grid {...gridProps}>
       <Box {...boxProps}>
         <Image {...imageProps} />
       </Box>
-    </Grid>
+    // </Grid>
   );
 }

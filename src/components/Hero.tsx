@@ -15,6 +15,8 @@ import type { TypographyOwnProps } from "@mui/material/Typography";
 import type { GridProps } from "@mui/material/Grid";
 import { useEffect, useState } from "react";
 
+import ProfilePic from "@/components/home/ProfilePic";
+
 interface HeroProps extends GridProps {
   text?: string;
   variant?: TypographyOwnProps["variant"];
@@ -87,12 +89,54 @@ export default function Hero(props: HeroProps) {
             background: `radial-gradient(ellipse farthest-corner at center, ${alpha(
               "#000",
               1,
-            )} 0,${alpha("#000", 0.1)} 15%, ${alpha("#000", 0.01)} 90%, ${alpha(
+            )} 0,${alpha("#000", 0.1)} 15%, ${alpha("#000", 0.05)} 90%, ${alpha(
               "#fff",
-              0.01,
+              0.02,
             )} 100%)`,
           }}
+          zIndex={100}
         >
+          <Grid
+            id="heroTitleGridItem"
+            flexBasis="min-content"
+            size={{ xs: 1 }}
+            // p={0}
+            // display="flex"
+            justifyContent="left"
+            alignItems="center"
+            // overflow="hidden"
+          >
+            <ProfilePic
+              boxProps={{
+                height: "100%",
+                sx: { aspectRatio: 9 / 16 },
+                // position: "relative",
+                position: "absolute",
+                zIndex: -100,
+              }}
+              imageProps={{
+                id: "leftHeroPic",
+                src: "/profileCropped2.jpg",
+                quality: 100,
+                style: {
+                  objectFit: "cover",
+                  objectPosition: "55% 10%",
+                  // opacity: `${scrollY < innerHeight ? "100%" : 100 - Math.round(((scrollY + innerHeight) / bodyHeight) * 100 * 2 - 50)}%`,
+                  opacity: `80%`,
+                  // overflow: "visible",
+                  overflow: "hidden",
+                  // width: "auto",
+                  // height: "100%",
+                },
+                fill: true,
+                // height: 320,
+                // width: 180,
+                sizes: "(1 / 10) * 100vw",
+                priority: true,
+                alt: "anthony dombrowski profile pic",
+              }}
+            />
+          </Grid>
           <Grid
             id="heroTitleGridItem"
             flexBasis="min-content"

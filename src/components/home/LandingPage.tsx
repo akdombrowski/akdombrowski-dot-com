@@ -27,43 +27,11 @@ export default function LandingPage() {
         height: "100%",
       }}
     >
-      {/* <SideProfilePic
-        gridProps={{
-          id: "sideProfilePic",
-          size: { xs: 12 },
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        boxProps={{
-          maxHeight: "100vh",
-          width: "10vw",
-          sx: { aspectRatio: 9 / 16 },
-          position: "absolute",
-          left: 0,
-          top: 50
-        }}
-        imageProps={{
-          id: "leftHeroPic",
-          src: "/profile_9x16.jpg",
-          quality: 100,
-          style: {
-            objectFit: "cover",
-            objectPosition: "55% 10%",
-            opacity: "80%",
-            overflow: "visible",
-          },
-          fill: true,
-          sizes: "(1 / 6) * 100vw",
-          priority: true,
-          alt: "anthony dombrowski profile pic",
-        }}
-      /> */}
       <Grid
         id="landing-gridContainer"
         container
         rowSpacing={{ xs: 0 }}
-        height="100%"
+        // height="100%"
       >
         <Grid
           id="landing-headerGridWrapper"
@@ -73,48 +41,47 @@ export default function LandingPage() {
           alignItems="center"
           display="flex"
           sx={{ outline: "6rem ridge #0400ff2e" }}
+          zIndex={1}
         >
-          <ProfilePic
-            gridProps={{
-              id: "leftHeroPicGridItem",
-              size: { xs: 0 },
-              display: "flex",
-              justifyContent: "flex-start",
-              alignItems: "stretch",
-              height: "50%",
-            }}
-            boxProps={{
-              height: "100%",
-              sx: { aspectRatio: 9 / 16 },
-              position: "relative",
-              // position: "absolute",
-              // top: 0,
-              // left: 0,
-              // zIndex: -100,
-            }}
-            imageProps={{
-              id: "leftHeroPic",
-              src: "/profile_9x16.jpg",
-              quality: 100,
-              style: {
-                objectFit: "cover",
-                objectPosition: "55% 10%",
-                // opacity: `${scrollY < innerHeight ? "100%" : 100 - Math.round(((scrollY + innerHeight) / bodyHeight) * 100 * 2 - 50)}%`,
-                opacity: `80%`,
-                overflow: "visible",
-                // overflow: "hidden",
-                // width: "auto",
-                // height: "100%",
-              },
-              fill: true,
-              // height: 320,
-              // width: 180,
-              sizes: "(1 / 10) * 100vw",
-              priority: true,
-              alt: "anthony dombrowski profile pic",
-            }}
-          />
-
+          {/* <Box
+            position="absolute"
+            // height="100%"
+            // height="100"
+            // top={0}
+            // left={0}
+            // zIndex={-100}
+          > */}
+            {/* <ProfilePic
+              boxProps={{
+                height: "100%",
+                sx: { aspectRatio: 9 / 16 },
+                // position: "relative",
+                position: "absolute",
+                zIndex: -100,
+              }}
+              imageProps={{
+                id: "leftHeroPic",
+                src: "/profile_9x16.jpg",
+                quality: 100,
+                style: {
+                  objectFit: "cover",
+                  objectPosition: "55% 10%",
+                  // opacity: `${scrollY < innerHeight ? "100%" : 100 - Math.round(((scrollY + innerHeight) / bodyHeight) * 100 * 2 - 50)}%`,
+                  opacity: `80%`,
+                  // overflow: "visible",
+                  overflow: "hidden",
+                  // width: "auto",
+                  // height: "100%",
+                },
+                fill: true,
+                // height: 320,
+                // width: 180,
+                sizes: "(1 / 10) * 100vw",
+                priority: true,
+                alt: "anthony dombrowski profile pic",
+              }}
+            /> */}
+          {/* </Box> */}
           <Hero
             variant="title"
             id="landing-hero"
@@ -134,6 +101,7 @@ export default function LandingPage() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              zIndex: "1",
             }}
             dividerProps={{ sx: { borderColor: "#11004A", borderWidth: "5px", width: "100%" } }}
           />
@@ -158,8 +126,16 @@ export default function LandingPage() {
           display="flex"
           justifyContent="center"
           alignItems="center"
+          zIndex={100}
         >
-          <Divider sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }} />
+          <Divider
+            sx={{
+              zIndex: "100",
+              borderColor: "#11004A",
+              borderWidth: "1px",
+              width: "100%",
+            }}
+          />
         </Grid>
         <Grid
           container
