@@ -97,7 +97,7 @@ export default function Hero(props: HeroProps) {
           zIndex={100}
         >
           <Grid
-            id="heroTitleGridItem"
+            id="heroTitleGridItem1"
             flexBasis="min-content"
             size={{ xs: 1 }}
             // p={0}
@@ -138,7 +138,7 @@ export default function Hero(props: HeroProps) {
             />
           </Grid>
           <Grid
-            id="heroTitleGridItem"
+            id="heroTitleGridItem2"
             flexBasis="min-content"
             flexGrow={1}
             py={1}
