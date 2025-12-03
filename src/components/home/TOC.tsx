@@ -3,10 +3,7 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 
 import VideoContainer from "@/components/videos/VideoContainer";
-import {
-  KAPTCHA_ME_VIDEOS,
-  VIDEOS_TITLE_URL,
-} from "@/components/videos/VideoURLs";
+import { KAPTCHA_ME_VIDEOS, VIDEOS_TITLE_URL } from "@/components/videos/VideoURLs";
 import _ from "lodash";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -15,9 +12,7 @@ import Stack from "@mui/material/Stack";
 import Link from "next/link";
 
 const highlightVideo = _.find(VIDEOS_TITLE_URL, (vid) => {
-  return vid.title.startsWith(
-    "OAuth 2.0: Implicit, Authorization Code, and PKCE"
-  );
+  return vid.title.startsWith("OAuth 2.0: Implicit, Authorization Code, and PKCE");
 })!;
 
 const kaptchameShort = _.find(KAPTCHA_ME_VIDEOS, (vid) => {
@@ -44,37 +39,25 @@ export default function TOC() {
       >
         <Grid
           id="toc-videosBtnGridWrapper"
-          size={2}
+          size={1}
           display="flex"
           justifyContent="left"
           alignItems="stretch"
         >
-          <Stack
-            width="100%"
-            height="100%"
-            justifyContent="center"
-            alignItems="stretch"
+          <Button
+            variant="contained"
+            fullWidth
+            component={Link}
+            href="/videos"
+            sx={{ backgroundColor: "transparent" }}
           >
-            <Box pt="auto" minHeight="10%"></Box>
-
-            <Button
-              variant="contained"
-              fullWidth
-              component={Link}
-              href="/videos"
-              sx={{ py: 2 }}
+            <Typography
+              variant="poster"
+              color="text.light"
             >
-              <Typography variant="poster" color="text.light">
-                Videos
-              </Typography>
-            </Button>
-
-            <Box display="flex" justifyContent="end" alignItems="start">
-              <Typography variant="subtitle1" color="text.light" align="center">
-                click to see more...
-              </Typography>
-            </Box>
-          </Stack>
+              Videos
+            </Typography>
+          </Button>
         </Grid>
 
         <Grid
@@ -112,8 +95,14 @@ export default function TOC() {
             justifyContent="center"
             alignItems="center"
           >
-            <Box width="100%" maxHeight="100%">
-              <VideoContainer video={highlightVideo} size={12} />
+            <Box
+              width="100%"
+              maxHeight="100%"
+            >
+              <VideoContainer
+                video={highlightVideo}
+                size={12}
+              />
             </Box>
           </Grid>
         </Grid>
@@ -184,7 +173,10 @@ export default function TOC() {
             justifyContent="center"
             alignItems="stretch"
           >
-            <Box pt="auto" minHeight="10%"></Box>
+            <Box
+              pt="auto"
+              minHeight="10%"
+            ></Box>
             <Button
               variant="contained"
               fullWidth
@@ -192,12 +184,23 @@ export default function TOC() {
               href="/blogs"
               sx={{ py: 2 }}
             >
-              <Typography variant="poster" color="text.light">
+              <Typography
+                variant="poster"
+                color="text.light"
+              >
                 Blogs
               </Typography>
             </Button>
-            <Box display="flex" justifyContent="end" alignItems="start">
-              <Typography variant="subtitle1" color="text.light" align="center">
+            <Box
+              display="flex"
+              justifyContent="end"
+              alignItems="start"
+            >
+              <Typography
+                variant="subtitle1"
+                color="text.light"
+                align="center"
+              >
                 coming soon...
               </Typography>
             </Box>

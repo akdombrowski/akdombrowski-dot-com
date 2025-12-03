@@ -76,28 +76,6 @@ export default function IDCrisisPage() {
           justifyContent="center"
           alignItems="stretch"
         >
-          <Grid size={{ xs: 2 }} />
-
-          <Grid
-            id="idCrisis-videoGridWrapper-gif"
-            size={{ xs: "auto" }}
-            flexGrow={5}
-            display="flex"
-            justifyContent="center"
-          >
-            <Box
-              component={Link}
-              href=""
-              height="100%"
-              maxWidth="100%"
-              sx={{
-                aspectRatio: 720 / 480,
-                backgroundImage: "url(/idCrisisGoKart.gif)",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></Box>
-          </Grid>
 
           <Grid
             size={{ xs: "auto" }}

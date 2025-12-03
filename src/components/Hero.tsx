@@ -16,6 +16,8 @@ import type { GridProps } from "@mui/material/Grid";
 import { useEffect, useState } from "react";
 
 import ProfilePic from "@/components/home/ProfilePic";
+import WakaTimeBadge from "./WakaTimeBadge";
+import StackOverflowBadge from "./StackOverflowBadge";
 
 interface HeroProps extends GridProps {
   text?: string;
@@ -97,16 +99,43 @@ export default function Hero(props: HeroProps) {
           zIndex={100}
         >
           <Grid
-            id="heroTitleGridItem1"
+            id="heroTitleGridItemLeft"
+            flexBasis="min-content"
+            flexGrow={10}
+            py={1}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            overflow="hidden"
+          >
+            <Typography
+              variant={props.variant}
+              color="titleColor.light"
+              align="center"
+              fontSize={props.fontSize}
+              zIndex={100}
+              px={1}
+              height="100%"
+              sx={{
+                textDecorationStyle: "solid",
+                textDecorationColor: alpha(theme.palette.titleColor.light, 1),
+                textDecorationLine: "underline",
+              }}
+            >
+              {props.text ?? "Anthony Dombrowski"}
+            </Typography>
+          </Grid>
+
+          <Grid
+            id="heroTitleGridItemRight"
             flexBasis="min-content"
             size={{ xs: 1 }}
-            // p={0}
-            // display="flex"
             justifyContent="left"
             alignItems="center"
+            container
             // overflow="hidden"
           >
-            <ProfilePic
+            {/* <ProfilePic
               boxProps={{
                 height: "100%",
                 sx: { aspectRatio: 9 / 16 },
@@ -135,34 +164,25 @@ export default function Hero(props: HeroProps) {
                 priority: true,
                 alt: "anthony dombrowski profile pic",
               }}
-            />
-          </Grid>
-          <Grid
-            id="heroTitleGridItem2"
-            flexBasis="min-content"
-            flexGrow={1}
-            py={1}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            overflow="hidden"
-          >
-            <Typography
-              variant={props.variant}
-              color="titleColor.light"
-              align="center"
-              fontSize={props.fontSize}
-              zIndex={100}
-              px={1}
-              height="100%"
-              sx={{
-                textDecorationStyle: "solid",
-                textDecorationColor: alpha(theme.palette.titleColor.light, 1),
-                textDecorationLine: "underline",
-              }}
+            /> */}
+            <Grid
+              id="landing-stackOverflowBadgeGridWrapper"
+              size={12}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
             >
-              {props.text ?? "Anthony Dombrowski"}
-            </Typography>
+              <StackOverflowBadge />
+            </Grid>
+            <Grid
+              id="landing-wakatimeBadgeGridWrapper"
+              size={12}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <WakaTimeBadge />
+            </Grid>
           </Grid>
         </Grid>
       </Button>

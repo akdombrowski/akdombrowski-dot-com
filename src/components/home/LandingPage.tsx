@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import TOC from "@/components/home/TOC";
 import WakaTimeBadge from "../WakaTimeBadge";
 import SectionDivider from "./SectionDivider";
+import VideosQuilt from "@/components/videos/VideosQuilt";
 
 export default function LandingPage() {
   return (
@@ -37,7 +38,7 @@ export default function LandingPage() {
           justifyContent="center"
           alignItems="center"
           display="flex"
-          sx={{ outline: "6rem ridge #0400ff2e" }}
+          sx={{ outline: "2rem ridge #0400ff2e" }}
           zIndex={1}
         >
           <Hero
@@ -95,45 +96,27 @@ export default function LandingPage() {
             }}
           />
         </Grid>
-        <Grid
-          container
-          spacing={1}
-          size={12}
-          id="landing-badgesWrapper"
-          justifyContent="center"
-        >
-          <Grid
-            id="landing-stackOverflowBadgeGridWrapper"
-            size="grow"
-            paddingTop={1}
-            paddingBottom={0}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <StackOverflowBadge />
-          </Grid>
-          <Grid
-            id="landing-wakatimeBadgeGridWrapper"
-            size="grow"
-            paddingTop={1}
-            paddingBottom={0}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <WakaTimeBadge />
-          </Grid>
-        </Grid>
+
         <Grid
           id="landing-badgesDividerWrapper"
           size={{ xs: 12 }}
-          paddingY={1}
+          pt={0}
+          pb={2}
           display="flex"
           justifyContent="center"
           alignItems="center"
         >
-          <Divider sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }} />
+          <Divider sx={{ borderColor: "#11004A", borderWidth: "3px", width: "100%" }} />
+        </Grid>
+        <Grid
+          id="landing-videosQuiltGridWrapper"
+          container
+          spacing={1}
+          size={12}
+          justifyContent="center"
+          alignItems="center"
+        >
+          <VideosQuilt />
         </Grid>
         <Grid
           id="landing-videosGridWrapper"
