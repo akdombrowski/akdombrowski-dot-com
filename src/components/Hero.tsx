@@ -8,7 +8,7 @@ import profilePic from "/public/profile_9x16.jpg";
 import profilePicR from "/public/profileR_9x16.jpg";
 
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";

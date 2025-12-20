@@ -5,7 +5,7 @@ import Image, { getImageProps } from "next/image";
 import profilePic from "../../public/profile_9x16.jpg";
 import profilePicR from "../../public/profileR_9x16.jpg";
 
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";

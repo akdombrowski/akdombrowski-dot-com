@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 
 import Roles from "@/components/Roles";
 import Hero from "./Hero";
