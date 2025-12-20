@@ -4,12 +4,10 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 
 import Roles from "@/components/Roles";
-import StackOverflowBadge from "@/components/StackOverflowBadge";
 import Hero from "../Hero";
 import Footer from "@/components/Footer";
 
 import TOC from "@/components/home/TOC";
-import WakaTimeBadge from "../WakaTimeBadge";
 import SectionDivider from "./SectionDivider";
 import VideosQuilt from "@/components/videos/VideosQuilt";
 
@@ -108,6 +106,7 @@ export default function LandingPage() {
         >
           <Divider sx={{ borderColor: "#11004A", borderWidth: "3px", width: "100%" }} />
         </Grid>
+
         <Grid
           id="landing-videosQuiltGridWrapper"
           container
@@ -118,6 +117,7 @@ export default function LandingPage() {
         >
           <VideosQuilt />
         </Grid>
+
         <Grid
           id="landing-videosGridWrapper"
           container

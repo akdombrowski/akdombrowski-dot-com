@@ -67,46 +67,43 @@ export default function Hero(props: HeroProps) {
 
   return (
     <Grid {...props}>
-      <Button
-        fullWidth
-        variant="text"
-        component={Link}
-        href={LinkedInURL}
+      <Grid
+        id="heroGridContainer"
+        container
+        columns={12}
+        rowSpacing={1}
+        width="100%"
+        flexWrap="nowrap"
+        justifyContent="center"
+        alignItems="stretch"
         sx={{
-          display: "flex",
-          alignItems: "stretch",
-          height: props.height,
+          background: `radial-gradient(ellipse farthest-corner at center, ${alpha(
+            "#000",
+            1,
+          )} 0,${alpha("#000", 0.1)} 15%, ${alpha("#000", 0.05)} 90%, ${alpha("#fff", 0.02)} 100%)`,
         }}
+        zIndex={100}
       >
         <Grid
-          id="heroGridContainer"
-          container
-          columns={12}
-          rowSpacing={1}
-          width="100%"
-          flexWrap="nowrap"
+          id="heroTitleGridItemLeft"
+          flexBasis="min-content"
+          flexGrow={10}
+          py={1}
+          display="flex"
           justifyContent="center"
-          alignItems="stretch"
-          sx={{
-            background: `radial-gradient(ellipse farthest-corner at center, ${alpha(
-              "#000",
-              1,
-            )} 0,${alpha("#000", 0.1)} 15%, ${alpha("#000", 0.05)} 90%, ${alpha(
-              "#fff",
-              0.02,
-            )} 100%)`,
-          }}
-          zIndex={100}
+          alignItems="center"
+          overflow="hidden"
         >
-          <Grid
-            id="heroTitleGridItemLeft"
-            flexBasis="min-content"
-            flexGrow={10}
-            py={1}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            overflow="hidden"
+          <Button
+            fullWidth
+            variant="text"
+            component={Link}
+            href={LinkedInURL}
+            sx={{
+              display: "flex",
+              alignItems: "stretch",
+              height: props.height,
+            }}
           >
             <Typography
               variant={props.variant}
@@ -124,18 +121,19 @@ export default function Hero(props: HeroProps) {
             >
               {props.text ?? "Anthony Dombrowski"}
             </Typography>
-          </Grid>
+          </Button>
+        </Grid>
 
-          <Grid
-            id="heroTitleGridItemRight"
-            flexBasis="min-content"
-            size={{ xs: 1 }}
-            justifyContent="left"
-            alignItems="center"
-            container
-            // overflow="hidden"
-          >
-            {/* <ProfilePic
+        <Grid
+          id="heroTitleGridItemRight"
+          flexBasis="min-content"
+          size={{ xs: 1 }}
+          justifyContent="left"
+          alignItems="center"
+          container
+          // overflow="hidden"
+        >
+          {/* <ProfilePic
               boxProps={{
                 height: "100%",
                 sx: { aspectRatio: 9 / 16 },
@@ -165,27 +163,26 @@ export default function Hero(props: HeroProps) {
                 alt: "anthony dombrowski profile pic",
               }}
             /> */}
-            <Grid
-              id="landing-stackOverflowBadgeGridWrapper"
-              size={12}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <StackOverflowBadge />
-            </Grid>
-            <Grid
-              id="landing-wakatimeBadgeGridWrapper"
-              size={12}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <WakaTimeBadge />
-            </Grid>
+          <Grid
+            id="landing-stackOverflowBadgeGridWrapper"
+            size={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <StackOverflowBadge />
+          </Grid>
+          <Grid
+            id="landing-wakatimeBadgeGridWrapper"
+            size={12}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <WakaTimeBadge />
           </Grid>
         </Grid>
-      </Button>
+      </Grid>
     </Grid>
   );
 }

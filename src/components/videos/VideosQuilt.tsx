@@ -14,23 +14,27 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
 }
 
 export default function VideosQuilt() {
-  const cols = 16;
+  const cols = 100;
   const rows = 6;
   return (
-    <Container>
+    <Container
+      id="videosQuilt-container"
+      maxWidth={"xl"}
+    >
       <ImageList
+        id="imageList"
         sx={{ width: "100%", height: "auto" }}
         variant="quilted"
-        cols={cols * 4}
-        // rowHeight={rows * 4}
-        // gap={8}
+        cols={cols}
+        rowHeight={rows * 40}
+        gap={3}
       >
         {/* {itemData.map((item) => ( */}
         {VIDEOS_TITLE_URL.map((vid, i) => (
           <ImageListItem
             key={i}
-            cols={cols}
-            rows={rows}
+            cols={cols / 2 + (_.random(1024) % cols) / 2}
+            rows={_.random(1024) % rows + 1}
           >
             <VideoContainer video={vid} />
           </ImageListItem>

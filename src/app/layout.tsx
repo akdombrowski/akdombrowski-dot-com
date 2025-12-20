@@ -17,8 +17,7 @@ import theme from "@/styles";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 // nextjs optimization
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter"
 import AppAppBar from "@/components/appbar/AppAppBar";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
