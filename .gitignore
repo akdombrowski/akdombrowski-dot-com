@@ -247,3 +247,8 @@ src/videos/*
 !src/videos/*.js
 !src/videos/*.ts
 public/_next-video
+
+tmp
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md
