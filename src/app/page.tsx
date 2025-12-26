@@ -116,17 +116,17 @@ export default function HomePage() {
           alignItems="center"
         >
           <VideosQuilt />
-        </Grid>
 
-        <Grid
-          id="landing-videsoQuiltDivider"
-          size={{ xs: 12 }}
-          paddingY={2}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Divider sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }} />
+          <Grid
+            id="landing-videsoQuiltDivider"
+            size={{ xs: 12 }}
+            pb={2}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }} />
+          </Grid>
         </Grid>
 
         <Grid
