@@ -10,6 +10,7 @@ export default function StatsBtn() {
     console.log("submitted");
     const res = await fetch("/api/stats");
     console.log(await res.json());
+
   };
 
   return (

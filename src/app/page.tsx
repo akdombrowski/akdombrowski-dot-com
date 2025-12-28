@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import TOC from "@/components/home/TOC";
 import SectionDivider from "@/components/home/SectionDivider";
 import VideosQuilt from "@/components/videos/VideosQuilt";
+import LoginBtn from "@/components/auth/LoginBtn";
 
 export default function HomePage() {
   return (
@@ -96,7 +97,7 @@ export default function HomePage() {
         </Grid>
 
         <Grid
-          id="landing-badgesDividerWrapper"
+          id="landing-rolesDividerWrapper2"
           size={{ xs: 12 }}
           pt={0}
           pb={2}
@@ -115,12 +116,23 @@ export default function HomePage() {
           justifyContent="center"
           alignItems="center"
         >
+          <LoginBtn provider="google" />
+        </Grid>
+
+        <Grid
+          id="landing-videosQuiltWrapper"
+          container
+          spacing={1}
+          size={12}
+          justifyContent="center"
+          alignItems="center"
+        >
           <VideosQuilt />
 
           <Grid
             id="landing-videsoQuiltDivider"
             size={{ xs: 12 }}
-            pb={2}
+            py={2}
             display="flex"
             justifyContent="center"
             alignItems="center"

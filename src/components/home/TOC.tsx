@@ -67,17 +67,28 @@ export default function TOC() {
           justifyContent="end"
           alignItems="stretch"
           pl={6}
+          gap={0}
         >
           <Grid
             id="toc-videoGridWrapper-kaptchame"
-            size="grow"
+            size={5}
             display="flex"
-            justifyContent="center"
+            justifyContent="end"
+            alignItems="stretch"
+            component={Link}
+            href="/videos/kaptcha-me"
+            sx={{
+              aspectRatio: 720 / 480,
+              backgroundImage: "url(/kaptchaMeGoKart.gif)",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
           >
-            <Box
+            {/* <Box
               component={Link}
               href="/videos/kaptcha-me"
-              height="100%"
+              height="auto"
+              width="100%"
               maxWidth="100%"
               sx={{
                 aspectRatio: 720 / 480,
@@ -85,25 +96,22 @@ export default function TOC() {
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
               }}
-            ></Box>
+            ></Box> */}
           </Grid>
 
           <Grid
-            id="toc-videoGridWrapper-highlight"
-            size="grow"
+            id="toc-videoWrapper-katpchame"
+            size={5}
             display="flex"
-            justifyContent="center"
-            alignItems="center"
+            justifyContent="end"
+            alignItems="stretch"
+            minWidth={{ xs: 320, sm: 400 }}
           >
-            <Box
-              width="100%"
-              maxHeight="100%"
-            >
-              <VideoContainer
-                video={highlightVideo}
-                size={12}
-              />
-            </Box>
+            <VideoContainer
+              video={kaptchameShort}
+              size={12}
+              justifyContent="end"
+            />
           </Grid>
         </Grid>
       </Grid>
@@ -111,37 +119,7 @@ export default function TOC() {
       <Grid
         id="toc-dividerWrapper"
         size={12}
-        py={1}
-        display="flex"
-        justifyContent="center"
-        alignItems="stretch"
-      >
-        <Divider
-          variant="fullWidth"
-          sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }}
-        />
-      </Grid>
-
-      <Grid
-        id="toc-videoGridWrapper-katpchame"
-        size={{ xs: 12 }}
-        display="flex"
-        justifyContent="end"
-        alignItems="stretch"
-        minWidth={{ xs: 320, sm: 400 }}
-        maxHeight="50vh"
-      >
-        <VideoContainer
-          video={kaptchameShort}
-          size={6}
-          justifyContent="end"
-        />
-      </Grid>
-
-      <Grid
-        id="toc-dividerWrapper"
-        size={12}
-        py={1}
+        py={2}
         display="flex"
         justifyContent="center"
         alignItems="stretch"

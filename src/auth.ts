@@ -80,6 +80,21 @@ export const AuthConfig = NextAuth({
       token: "https://auth.calendly.com/oauth/token",
       userinfo: "https://api.calendly.com/users/me",
     },
+    {
+      id: "google",
+      name: "Google",
+      type: "oauth",
+      clientId: process.env.AUTH_GOOGLE_ID,
+      clientSecret: process.env.AUTH_GOOGLE_SECRET,
+      authorization: {
+        url: "https://accounts.google.com/o/oauth2/auth",
+        params: {
+          scope: "https://www.googleapis.com/auth/youtube",
+        },
+      },
+      token: "https://oauth2.googleapis.com/token",
+      userinfo: "https://www.googleapis.com/oauth2/v3/userinfo",
+    },
   ],
   callbacks: {
     // async signIn({ account, profile }) {

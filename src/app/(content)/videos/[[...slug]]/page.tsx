@@ -1,7 +1,7 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
-import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
 import StatsBtn from "@/components/videos/StatsBtn";
@@ -26,8 +26,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <Grid size={{ xs: 12 }}>
           <StatsBtn></StatsBtn>
         </Grid>
+        <Grid size={{ xs: 12 }}>
+          <Typography variant="h2">Videos: {slug}</Typography>
+        </Grid>
       </Grid>
-      <div>Videos: {slug}</div>
     </Container>
   );
 }
