@@ -123,11 +123,9 @@ const nextConfig = {
   },
 
   experimental: {
-    serverComponentsExternalPackages: ["puppeteer"],
+    serverExternalPackages: ["puppeteer"],
 
-    urlImports: [
-      "https://wakatime.com/badge/user/0ff1bf94-98b4-465f-8b63-a51fb5151092.svg",
-    ],
+    urlImports: ["https://wakatime.com/badge/user/0ff1bf94-98b4-465f-8b63-a51fb5151092.svg"],
   },
 
   async headers() {
@@ -148,9 +146,7 @@ const nextConfig = {
 
   webpack: (config) => {
     // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(".svg"),
-    );
+    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.(".svg"));
 
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
