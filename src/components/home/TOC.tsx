@@ -6,7 +6,7 @@ import VideoContainer from "@/components/videos/VideoContainer";
 import { KAPTCHA_ME_VIDEOS, VIDEOS_TITLE_URL } from "@/components/videos/VideoURLs";
 import _ from "lodash";
 import { Typography } from "@mui/material";
-import Button from "@mui/material/Button";
+import { MyBtn } from "@/components/MyBtn";
 import Stack from "@mui/material/Stack";
 
 import Link from "next/link";
@@ -44,20 +44,14 @@ export default function TOC() {
           justifyContent="left"
           alignItems="stretch"
         >
-          <Button
-            variant="contained"
-            fullWidth
-            component={Link}
-            href="/videos"
-            sx={{ backgroundColor: "transparent" }}
-          >
+          <MyBtn href="/videos">
             <Typography
               variant="poster"
               color="text.light"
             >
               Videos
             </Typography>
-          </Button>
+          </MyBtn>
         </Grid>
 
         <Grid
@@ -155,20 +149,14 @@ export default function TOC() {
               pt="auto"
               minHeight="10%"
             ></Box>
-            <Button
-              variant="contained"
-              fullWidth
-              component={Link}
-              href="/blogs"
-              sx={{ py: 2 }}
-            >
+            <MyBtn href="/blogs">
               <Typography
                 variant="poster"
                 color="text.light"
               >
                 Blogs
               </Typography>
-            </Button>
+            </MyBtn>
             <Box
               display="flex"
               justifyContent="end"

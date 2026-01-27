@@ -1,4 +1,8 @@
 {
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "snyk.advanced.autoSelectOrganization": true
+  "snyk.advanced.autoSelectOrganization": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.prettierPath": "./node_modules/prettier/index.cjs",
+  "prettier.resolveGlobalModules": false,
+  "npm.packageManager": "pnpm"
 }
