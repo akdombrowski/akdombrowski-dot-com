@@ -19,10 +19,9 @@ export default function StackOverflowBadge() {
     >
       <Image
         src="https://stackoverflow.com/users/flair/5527213.png?theme=dark"
-        width={208}
-        height={58}
+        width={200}
+        height={60}
         style={{ objectFit: "contain" }}
-        quality={100}
         alt="Anthony's akdombrowski Stack Overflow profile"
         title="Anthony's akdombrowski Stack Overflow profile"
       />

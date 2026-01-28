@@ -10,6 +10,7 @@ import { MyBtn } from "@/components/MyBtn";
 import Stack from "@mui/material/Stack";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const highlightVideo = _.find(VIDEOS_TITLE_URL, (vid) => {
   return vid.title.startsWith("OAuth 2.0: Implicit, Authorization Code, and PKCE");
@@ -63,35 +64,6 @@ export default function TOC() {
           pl={6}
           gap={0}
         >
-          <Grid
-            id="toc-videoGridWrapper-kaptchame"
-            size={5}
-            display="flex"
-            justifyContent="end"
-            alignItems="stretch"
-            component={Link}
-            href="/videos/kaptcha-me"
-            sx={{
-              aspectRatio: 720 / 480,
-              backgroundImage: "url(/kaptchaMeGoKart.gif)",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            {/* <Box
-              component={Link}
-              href="/videos/kaptcha-me"
-              height="auto"
-              width="100%"
-              maxWidth="100%"
-              sx={{
-                aspectRatio: 720 / 480,
-                backgroundImage: "url(/kaptchaMeGoKart.gif)",
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-            ></Box> */}
-          </Grid>
 
           <Grid
             id="toc-videoWrapper-katpchame"

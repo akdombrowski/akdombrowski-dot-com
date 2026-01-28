@@ -1,3 +1,5 @@
+"use client";
+
 import GitHub from "./GitHub";
 import LinkedIn from "./LinkedIn";
 import X from "./X";
@@ -102,7 +104,11 @@ export function GitHubLinkedin({
           }}
         />
       </Box>
-      <Box pl={spacing} width={boxSize?.width} height={boxSize?.height}>
+      <Box
+        pl={spacing}
+        width={boxSize?.width}
+        height={boxSize?.height}
+      >
         <LinkedIn
           btnSx={{
             ...btnSx,

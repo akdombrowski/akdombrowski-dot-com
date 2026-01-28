@@ -5,8 +5,9 @@ import { LinkedInURL } from "@/components/social";
 
 export default function Copyright() {
   return (
-    <Button variant="text" component={Link} href={LinkedInURL}
-    size="small">
+    // <Link variant="text" component={Link} href={LinkedInURL}
+    // size="small">
+    <Link href={LinkedInURL}>
       <Typography
         variant="body1"
         color="text.secondary"
@@ -18,6 +19,7 @@ export default function Copyright() {
         Anthony Dombrowski
         {" " + new Date().getFullYear()}.
       </Typography>
-    </Button>
+    </Link>
+    // </Button>
   );
 }

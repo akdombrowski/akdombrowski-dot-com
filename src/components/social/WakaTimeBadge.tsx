@@ -22,12 +22,9 @@ export default function WakaTimeBadge() {
       display="flex"
       justifyContent="center"
       position="relative"
-      // component={Link}
-      // target="_blank"
-      // href="https://wakatime.com/@adombrowski"
       onClick={handleClick}
     >
-      <Image src={url} alt="WakaTime badge" width={160} height={32} />
+      <Image src={url} alt="WakaTime badge" width={200} height={24} />
     </Box>
   );
 }

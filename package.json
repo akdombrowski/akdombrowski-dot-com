@@ -11,7 +11,7 @@
     "tsc": "tsc --pretty"
   },
   "dependencies": {
-    "@emotion/cache": "^11.14.0",
+    "@emotion/cache": "^11.14",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fontsource/roboto": "^5.2.9",

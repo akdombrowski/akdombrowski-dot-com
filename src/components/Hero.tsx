@@ -15,9 +15,8 @@ import type { TypographyOwnProps } from "@mui/material/Typography";
 import type { GridProps } from "@mui/material/Grid";
 import { useEffect, useState } from "react";
 
-import ProfilePic from "@/components/home/ProfilePic";
-import WakaTimeBadge from "./WakaTimeBadge";
-import StackOverflowBadge from "./StackOverflowBadge";
+import WakaTimeBadge from "@/social/WakaTimeBadge";
+import StackOverflowBadge from "@/social/StackOverflowBadge";
 
 interface HeroProps extends GridProps {
   text?: string;
