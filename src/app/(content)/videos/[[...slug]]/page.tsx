@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
 import StatsBtn from "@/components/videos/StatsBtn";
+import LoginBtn from "@/components/auth/LoginBtn";
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -23,6 +24,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         size={12}
         sx={{ p: 0 }}
       >
+        <Grid size={{ xs: 12 }}>
+          <LoginBtn provider="google" />
+        </Grid>
         <Grid size={{ xs: 12 }}>
           <StatsBtn></StatsBtn>
         </Grid>
