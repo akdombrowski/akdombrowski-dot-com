@@ -1,15 +1,15 @@
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 
-import Roles from "@/components/Roles";
-import Hero from "../Hero";
 import Footer from "@/components/Footer";
-
+import Hero from "@/components/Hero";
+import Roles from "@/components/Roles";
 import TOC from "@/components/home/TOC";
-import SectionDivider from "./SectionDivider";
+import SectionDivider from "@/components/home/SectionDivider";
 import VideosQuilt from "@/components/videos/VideosQuilt";
+import LoginBtn from "@/components/auth/LoginBtn";
 
 export default function LandingPage() {
   return (
@@ -96,7 +96,7 @@ export default function LandingPage() {
         </Grid>
 
         <Grid
-          id="landing-badgesDividerWrapper"
+          id="landing-rolesDividerWrapper2"
           size={{ xs: 12 }}
           pt={0}
           pb={2}
@@ -108,7 +108,7 @@ export default function LandingPage() {
         </Grid>
 
         <Grid
-          id="landing-videosQuiltGridWrapper"
+          id="landing-videosQuiltWrapper"
           container
           spacing={1}
           size={12}
@@ -116,10 +116,21 @@ export default function LandingPage() {
           alignItems="center"
         >
           <VideosQuilt />
+
+          <Grid
+            id="landing-videsoQuiltDivider"
+            size={{ xs: 12 }}
+            py={2}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Divider sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }} />
+          </Grid>
         </Grid>
 
         <Grid
-          id="landing-videosGridWrapper"
+          id="landing-tocWrapper"
           container
           spacing={1}
           size={12}
@@ -128,8 +139,9 @@ export default function LandingPage() {
         >
           <TOC />
         </Grid>
+
         <Grid
-          id="landing-videosDividerWrapper"
+          id="landing-videosDivider"
           size={{ xs: 12 }}
           paddingY={0}
           display="flex"
@@ -138,12 +150,14 @@ export default function LandingPage() {
         >
           <Divider sx={{ borderColor: "#11004A", borderWidth: "1px", width: "100%" }} />
         </Grid>
+
         <Grid
           id="footerPadding"
           size={12}
         >
           <Box></Box>
         </Grid>
+
         <Grid
           id="landing-footerGridWrapper"
           size={{ xs: 12 }}

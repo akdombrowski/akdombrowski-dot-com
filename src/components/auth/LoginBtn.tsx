@@ -9,6 +9,7 @@ export default function LoginBtn({ provider }: { provider: string }) {
     <Button
       variant="contained"
       sx={{ p: 2 }}
+      size="small"
       onClick={() => signIn(provider)}
     >
       <Typography
