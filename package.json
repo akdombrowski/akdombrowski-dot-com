@@ -30,7 +30,7 @@
     "client-only": "^0.0.1",
     "dotenv": "^17.2.1",
     "lodash": "^4.17.21",
-    "next": "15.5.2",
+    "next": "16.1.5",
     "next-auth": "^5.0.0-beta.25",
     "puppeteer": "^24.17.1",
     "react": "^19",
