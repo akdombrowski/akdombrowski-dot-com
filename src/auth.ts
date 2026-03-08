@@ -84,6 +84,7 @@ export const AuthConfig = NextAuth({
       id: "google",
       name: "Google",
       type: "oauth",
+      issuer: "https://accounts.google.com",
       clientId: process.env.AUTH_GOOGLE_ID,
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
       authorization: {
